@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Header showLinks={showLinks} setShowLinks={setShowLinks} />
-      <main>
+      <main className='px-4 lg:px-6 py-2.5'>
         <Home />
       </main>
     </>
