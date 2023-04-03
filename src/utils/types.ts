@@ -1,4 +1,4 @@
-export type navLinksType = {
+export type NavlinksType = {
   id: number;
   text: string;
   path: string;
