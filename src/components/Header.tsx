@@ -6,9 +6,12 @@ import { NavlinksType } from '../utils/types';
 // components
 import NavLink from './NavLink';
 
-type Props = {};
+type Props = {
+  showLinks: boolean;
+  setShowLinks: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const Header = (props: Props) => {
+const Header = ({ showLinks, setShowLinks }: Props) => {
   return (
     <header>
       <nav className='bg-white border-gray-200 px-4 lg:px-6 py-2.5'>
@@ -31,12 +34,17 @@ const Header = (props: Props) => {
             </a>
             <button
               type='button'
+              onClick={() => setShowLinks(!showLinks)}
               className='inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100'
             >
               <Bars3Icon className='h-6 w-6' />
             </button>
           </div>
-          <div className='hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1'>
+          <div
+            className={`${
+              showLinks ? '' : 'hidden'
+            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
+          >
             <ul className='flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0'>
               {navLinks.map((link: NavlinksType) => {
                 const { id, text, path } = link;

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // components
 import Header from './components/Header';
 
 function App() {
+  const [showLinks, setShowLinks] = useState<boolean>(false);
+
   return (
     <>
-      <Header />
+      <Header showLinks={showLinks} setShowLinks={setShowLinks} />
     </>
   );
 }
