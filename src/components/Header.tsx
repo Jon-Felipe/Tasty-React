@@ -1,4 +1,5 @@
 import React from 'react';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 
 // components
 import NavLinks from './NavLinks';
@@ -26,6 +27,12 @@ const Header = (props: Props) => {
             >
               Get started
             </a>
+            <button
+              type='button'
+              className='inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100'
+            >
+              <Bars3Icon className='h-6 w-6' />
+            </button>
           </div>
           <NavLinks />
         </div>
