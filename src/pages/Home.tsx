@@ -1,6 +1,9 @@
 import React from 'react';
 import heroImg from '../assets/hero-img.jpg';
 
+// components
+import Search from '../components/Search';
+
 type Props = {};
 
 const Home = (props: Props) => {
@@ -27,7 +30,7 @@ const Home = (props: Props) => {
         </article>
 
         {/* intro text section */}
-        <article>
+        <article className='pt-4'>
           <h1 className='text-4xl text-red-500 font-bold uppercase'>Recipes</h1>
           <p className='mt-4'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
@@ -37,6 +40,11 @@ const Home = (props: Props) => {
             placeat laboriosam qui, provident assumenda. Vero.
           </p>
         </article>
+
+        {/* search input */}
+        <div className='pt-4'>
+          <Search />
+        </div>
       </section>
     </main>
   );
