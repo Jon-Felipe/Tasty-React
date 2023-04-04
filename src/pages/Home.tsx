@@ -8,12 +8,22 @@ const Home = (props: Props) => {
     <main className='px-4 lg:px-6 pt-8'>
       <section className='max-w-screen-xl mx-auto'>
         {/* hero section */}
-        <article className='h-52 lg:h-96 rounded-xl overflow-hidden'>
-          <img
-            src={heroImg}
-            alt='hero image'
-            className='w-full h-full object-cover'
-          />
+        <article className='relative'>
+          <div className='h-52 lg:h-96 rounded-xl overflow-hidden'>
+            <img
+              src={heroImg}
+              alt='hero image'
+              className='w-full h-full object-cover'
+            />
+          </div>
+          <div className='absolute top-2 lg:top-4 left-6 lg:left-6 w-2/4 lg:w-2/5'>
+            <h3 className='text-lg lg:text-5xl text-white font-semibold capitalize'>
+              Cook up a storm and take all the credit
+            </h3>
+            <p className='text-sm lg:text-2xl text-white lg:pt-2.5'>
+              Over 500 recipes to enjoy
+            </p>
+          </div>
         </article>
 
         {/* intro text section */}
