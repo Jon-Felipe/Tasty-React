@@ -10,7 +10,7 @@ type Props = {};
 const Home = (props: Props) => {
   return (
     <main className='px-4 lg:px-6 pt-8'>
-      <div className='max-w-screen-xl mx-auto'>
+      <div className='max-w-screen-xl mx-auto grid gap-6'>
         {/* hero section */}
         <article className='relative'>
           <section className='h-52 lg:h-96 rounded-xl overflow-hidden'>
@@ -31,7 +31,7 @@ const Home = (props: Props) => {
         </article>
 
         {/* intro text section */}
-        <article className='pt-4'>
+        <article>
           <h1 className='text-4xl text-red-500 font-bold uppercase'>Recipes</h1>
           <p className='mt-4'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
@@ -43,14 +43,10 @@ const Home = (props: Props) => {
         </article>
 
         {/* search input */}
-        <div className='pt-4'>
-          <Search />
-        </div>
+        <Search />
 
         {/* recipe categories */}
-        <div className='pt-4'>
-          <RecipeCategories />
-        </div>
+        <RecipeCategories />
       </div>
     </main>
   );
