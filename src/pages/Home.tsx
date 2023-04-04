@@ -1,9 +1,11 @@
 import React from 'react';
 import heroImg from '../assets/hero-img.jpg';
+import { recipeCategories } from '../utils/constants';
+import { RecipeCategoryType } from '../utils/types';
 
 // components
 import Search from '../components/Search';
-import RecipeCategories from '../components/RecipeCategories';
+import RecipeCategory from '../components/RecipeCategory';
 
 type Props = {};
 
@@ -46,7 +48,15 @@ const Home = (props: Props) => {
         <Search />
 
         {/* recipe categories */}
-        <RecipeCategories />
+        <div>
+          {recipeCategories.map((category: RecipeCategoryType) => {
+            return (
+              <article key={category.id}>
+                <p>{category.text}</p>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </main>
   );

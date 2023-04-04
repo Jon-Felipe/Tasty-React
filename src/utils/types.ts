@@ -3,3 +3,8 @@ export type NavlinksType = {
   text: string;
   path: string;
 };
+
+export type RecipeCategoryType = {
+  id: number;
+  text: string;
+};
