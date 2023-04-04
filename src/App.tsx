@@ -12,9 +12,9 @@ function App() {
   return (
     <>
       <Header showLinks={showLinks} setShowLinks={setShowLinks} />
-      <main>
+      <>
         <Home />
-      </main>
+      </>
     </>
   );
 }
