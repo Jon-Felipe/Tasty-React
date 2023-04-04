@@ -48,13 +48,9 @@ const Home = (props: Props) => {
         <Search />
 
         {/* recipe categories */}
-        <div>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {recipeCategories.map((category: RecipeCategoryType) => {
-            return (
-              <article key={category.id}>
-                <p>{category.text}</p>
-              </article>
-            );
+            return <RecipeCategory key={category.id} text={category.text} />;
           })}
         </div>
       </div>
