@@ -3,6 +3,7 @@ import heroImg from '../assets/hero-img.jpg';
 
 // components
 import Search from '../components/Search';
+import RecipeCategories from '../components/RecipeCategories';
 
 type Props = {};
 
@@ -45,6 +46,11 @@ const Home = (props: Props) => {
         <div className='pt-4'>
           <Search />
         </div>
+
+        {/* recipe categories */}
+        <article className='pt-4'>
+          <RecipeCategories />
+        </article>
       </section>
     </main>
   );
