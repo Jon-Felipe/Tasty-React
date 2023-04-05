@@ -7,7 +7,7 @@ const Footer = (props: Props) => {
     <footer className='bg-gray-900 mt-8'>
       <div className='w-full mx-auto max-w-screen-xl'>
         <div className='grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4'>
-          <div>
+          <article>
             <h2 className='mb-6 text-sm font-semibold text-white uppercase'>
               Quick Links
             </h2>
@@ -33,8 +33,8 @@ const Footer = (props: Props) => {
                 </a>
               </li>
             </ul>
-          </div>
-          <div>
+          </article>
+          <article>
             <h2 className='mb-6 text-sm font-semibold text-white uppercase'>
               About Tasty
             </h2>
@@ -60,8 +60,8 @@ const Footer = (props: Props) => {
                 </a>
               </li>
             </ul>
-          </div>
-          <div>
+          </article>
+          <article>
             <h2 className='mb-6 text-sm font-semibold text-white uppercase'>
               Popular Categories
             </h2>
@@ -87,8 +87,8 @@ const Footer = (props: Props) => {
                 </a>
               </li>
             </ul>
-          </div>
-          <div>
+          </article>
+          <article>
             <h2 className='mb-6 text-sm font-semibold text-white uppercase'>
               Socials
             </h2>
@@ -109,7 +109,7 @@ const Footer = (props: Props) => {
                 </a>
               </li>
             </ul>
-          </div>
+          </article>
         </div>
       </div>
     </footer>
