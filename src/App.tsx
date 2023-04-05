@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// components
-import Header from './components/Header';
-import Footer from './components/Footer';
+// layouts
+import Main from './layouts/Main';
 
 // pages
 import Home from './pages/Home';
 
-function App() {
-  const [showLinks, setShowLinks] = useState<boolean>(false);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Main />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
+  },
+]);
 
+function App() {
   return (
     <>
-      <Header showLinks={showLinks} setShowLinks={setShowLinks} />
-      <>
-        <Home />
-      </>
-      <Footer />
+      <RouterProvider router={router} />
     </>
   );
 }
