@@ -84,7 +84,7 @@ export const recipes: RecipeType[] = [
     reviews: 483,
     author: 'P.Tindall',
     image: '',
-    createdAt: new Date('2023-03-25'),
+    created_at: new Date('2023-03-25'),
     recipe_details: {
       prep_time: 15,
       cook_time: 25,
@@ -111,7 +111,7 @@ export const recipes: RecipeType[] = [
     reviews: 483,
     author: 'P.Tindall',
     image: '',
-    createdAt: new Date('2023-03-25'),
+    created_at: new Date('2023-03-25'),
     recipe_details: {
       prep_time: 15,
       cook_time: 25,
@@ -138,7 +138,7 @@ export const recipes: RecipeType[] = [
     reviews: 483,
     author: 'P.Tindall',
     image: '',
-    createdAt: new Date('2023-03-25'),
+    created_at: new Date('2023-03-25'),
     recipe_details: {
       prep_time: 15,
       cook_time: 25,
@@ -165,7 +165,7 @@ export const recipes: RecipeType[] = [
     reviews: 483,
     author: 'P.Tindall',
     image: '',
-    createdAt: new Date('2023-03-25'),
+    created_at: new Date('2023-03-25'),
     recipe_details: {
       prep_time: 15,
       cook_time: 25,

@@ -17,7 +17,7 @@ export type RecipeType = {
   reviews: number;
   author: string;
   image: string;
-  createdAt: Date;
+  created_at: Date;
   recipe_details: {
     prep_time: number;
     cook_time: number;
