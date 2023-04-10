@@ -1,4 +1,4 @@
-import { NavlinksType, RecipeCategoryType } from './types';
+import { NavlinksType, RecipeCategoryType, RecipeType } from './types';
 
 export const navLinks: NavlinksType[] = [
   {
@@ -71,5 +71,116 @@ export const recipeCategories: RecipeCategoryType[] = [
   {
     id: 12,
     text: 'classic recipes',
+  },
+];
+
+export const recipes: RecipeType[] = [
+  {
+    id: 1,
+    text: 'Seven Layer Bars',
+    description:
+      'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
+    rating: 662,
+    reviews: 483,
+    author: 'P.Tindall',
+    image: '',
+    createdAt: new Date(''),
+    recipe_details: {
+      prep_time: 15,
+      cook_time: 25,
+      additional_time: 20,
+      total_time: 1,
+      servings: 36,
+      yield: '3 dozen bar cookies',
+    },
+    ingredients: ['', '', ''],
+    directions: ['', '', ''],
+    nutrition_facts: {
+      calories: 155,
+      fat: 10,
+      carbs: 17,
+      protein: 2,
+    },
+  },
+  {
+    id: 2,
+    text: 'Seven Layer Bars',
+    description:
+      'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
+    rating: 662,
+    reviews: 483,
+    author: 'P.Tindall',
+    image: '',
+    createdAt: new Date(''),
+    recipe_details: {
+      prep_time: 15,
+      cook_time: 25,
+      additional_time: 20,
+      total_time: 1,
+      servings: 36,
+      yield: '3 dozen bar cookies',
+    },
+    ingredients: ['', '', ''],
+    directions: ['', '', ''],
+    nutrition_facts: {
+      calories: 155,
+      fat: 10,
+      carbs: 17,
+      protein: 2,
+    },
+  },
+  {
+    id: 3,
+    text: 'Seven Layer Bars',
+    description:
+      'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
+    rating: 662,
+    reviews: 483,
+    author: 'P.Tindall',
+    image: '',
+    createdAt: new Date(''),
+    recipe_details: {
+      prep_time: 15,
+      cook_time: 25,
+      additional_time: 20,
+      total_time: 1,
+      servings: 36,
+      yield: '3 dozen bar cookies',
+    },
+    ingredients: ['', '', ''],
+    directions: ['', '', ''],
+    nutrition_facts: {
+      calories: 155,
+      fat: 10,
+      carbs: 17,
+      protein: 2,
+    },
+  },
+  {
+    id: 4,
+    text: 'Seven Layer Bars',
+    description:
+      'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
+    rating: 662,
+    reviews: 483,
+    author: 'P.Tindall',
+    image: '',
+    createdAt: new Date(''),
+    recipe_details: {
+      prep_time: 15,
+      cook_time: 25,
+      additional_time: 20,
+      total_time: 1,
+      servings: 36,
+      yield: '3 dozen bar cookies',
+    },
+    ingredients: ['', '', ''],
+    directions: ['', '', ''],
+    nutrition_facts: {
+      calories: 155,
+      fat: 10,
+      carbs: 17,
+      protein: 2,
+    },
   },
 ];
