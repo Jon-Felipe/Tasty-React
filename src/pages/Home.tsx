@@ -63,10 +63,8 @@ const Home = (props: Props) => {
               <Recipe
                 key={recipe.id}
                 text={recipe.text}
-                details={recipe.recipe_details}
                 image={recipe.image}
                 rating={recipe.averate_rating}
-                ratingAmt={recipe.ratings}
               />
             );
           })}

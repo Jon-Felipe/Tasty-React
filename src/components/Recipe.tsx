@@ -6,13 +6,11 @@ import StarRating from './StarRating';
 
 type Props = {
   text: string;
-  details: object;
   image: string;
   rating: number;
-  ratingAmt: number;
 };
 
-const Recipe = ({ text, details, image, rating, ratingAmt }: Props) => {
+const Recipe = ({ text, image, rating }: Props) => {
   return (
     <article>
       <img src={foodImg} alt={text} />
