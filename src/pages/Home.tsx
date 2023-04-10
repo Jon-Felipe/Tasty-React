@@ -6,6 +6,7 @@ import { RecipeCategoryType, RecipeType } from '../utils/types';
 // components
 import Search from '../components/Search';
 import RecipeCategory from '../components/RecipeCategory';
+import Recipe from '../components/Recipe';
 
 type Props = {};
 
@@ -58,7 +59,7 @@ const Home = (props: Props) => {
         <h3 className='text-2xl font-semibold mb-4'>Explore Recipes</h3>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {recipes.map((recipe: RecipeType) => {
-            return <p key={recipe.id}>{recipe.text}</p>;
+            return <Recipe key={recipe.id} />;
           })}
         </div>
       </article>
