@@ -8,3 +8,30 @@ export type RecipeCategoryType = {
   id: number;
   text: string;
 };
+
+export type RecipeType = {
+  id: number;
+  text: string;
+  description: string;
+  rating: number;
+  reviews: number;
+  author: string;
+  image: string;
+  createdAt: Date;
+  recipe_details: {
+    prep_time: number;
+    cook_time: number;
+    additional_time: number;
+    total_time: number;
+    servings: number;
+    yield: string;
+  };
+  ingredients: string[];
+  directions: string[];
+  nutrition_facts: {
+    calories: number;
+    fat: number;
+    carbs: number;
+    protein: number;
+  };
+};
