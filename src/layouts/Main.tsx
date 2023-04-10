@@ -13,7 +13,7 @@ const Main = (props: Props) => {
   return (
     <>
       <Header showLinks={showLinks} setShowLinks={setShowLinks} />
-      <main>
+      <main className='px-4 lg:px-6 py-4 lg:py-6'>
         <Outlet />
       </main>
       <Footer />
