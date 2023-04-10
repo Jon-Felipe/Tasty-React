@@ -7,18 +7,19 @@ import StarRating from './StarRating';
 type Props = {
   text: string;
   image: string;
-  rating: number;
+  avgRating: number;
+  ratingAmt: number;
 };
 
-const Recipe = ({ text, image, rating }: Props) => {
+const Recipe = ({ text, image, avgRating, ratingAmt }: Props) => {
   return (
     <article>
       <img src={foodImg} alt={text} />
       <div>
         <h3 className='text-xl font-semibold mb-2'>{text}</h3>
         <div className='flex gap-2'>
-          <StarRating rating={rating} />
-          <p>{rating}</p>
+          <StarRating rating={avgRating} />
+          <p>{ratingAmt}</p>
         </div>
       </div>
     </article>

@@ -64,7 +64,8 @@ const Home = (props: Props) => {
                 key={recipe.id}
                 text={recipe.text}
                 image={recipe.image}
-                rating={recipe.averate_rating}
+                avgRating={recipe.averate_rating}
+                ratingAmt={recipe.ratings}
               />
             );
           })}
