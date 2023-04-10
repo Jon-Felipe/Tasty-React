@@ -13,7 +13,8 @@ export type RecipeType = {
   id: number;
   text: string;
   description: string;
-  rating: number;
+  averate_rating: number;
+  ratings: number;
   reviews: number;
   author: string;
   image: string;
