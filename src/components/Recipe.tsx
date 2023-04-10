@@ -17,7 +17,7 @@ const Recipe = ({ text, details, image, rating, ratingAmt }: Props) => {
     <article>
       <img src={foodImg} alt={text} />
       <div>
-        <h3>{text}</h3>
+        <h3 className='text-xl font-semibold mb-2'>{text}</h3>
         <div className='flex gap-2'>
           <StarRating rating={rating} />
           <p>{rating}</p>
