@@ -1,6 +1,9 @@
 import React from 'react';
 import foodImg from '../assets/hero-img.jpg';
 
+// components
+import StarRating from './StarRating';
+
 type Props = {
   text: string;
   details: object;
@@ -15,9 +18,9 @@ const Recipe = ({ text, details, image, rating, ratingAmt }: Props) => {
       <img src={foodImg} alt={text} />
       <div>
         <h3>{text}</h3>
-        <div>
+        <div className='flex gap-2'>
+          <StarRating rating={rating} />
           <p>{rating}</p>
-          <span>{ratingAmt}</span>
         </div>
       </div>
     </article>
