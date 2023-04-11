@@ -11,20 +11,12 @@ import StarRating from './StarRating';
 type Props = {
   text: string;
   image: string;
-  avgRating: number;
   ratingAmt: number;
   reviews: number;
   description: string;
 };
 
-const Recipe = ({
-  text,
-  image,
-  avgRating,
-  ratingAmt,
-  reviews,
-  description,
-}: Props) => {
+const Recipe = ({ text, image, ratingAmt, reviews, description }: Props) => {
   return (
     <article className='border'>
       <img src={foodImg} alt={text} />

@@ -64,7 +64,6 @@ const Home = (props: Props) => {
                 key={recipe.id}
                 text={recipe.text}
                 image={recipe.image}
-                avgRating={recipe.averate_rating}
                 ratingAmt={recipe.ratings}
                 reviews={recipe.reviews}
                 description={recipe.description}
