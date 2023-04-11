@@ -5,9 +5,6 @@ import {
 } from '@heroicons/react/24/outline';
 import foodImg from '../assets/hero-img.jpg';
 
-// components
-import StarRating from './StarRating';
-
 type Props = {
   text: string;
   image: string;
