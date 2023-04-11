@@ -25,7 +25,7 @@ const Recipe = ({
   return (
     <article className='border'>
       <img src={foodImg} alt={text} />
-      <article className='pt-2 pb-10 px-4'>
+      <section className='pt-2 pb-10 px-4'>
         <h3 className='text-2xl font-semibold'>{text}</h3>
         <div className='flex items-center gap-3'>
           <div className='flex gap-2'>
@@ -50,7 +50,7 @@ const Recipe = ({
         >
           Get Recipe
         </button>
-      </article>
+      </section>
     </article>
   );
 };
