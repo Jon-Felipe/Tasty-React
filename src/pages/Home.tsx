@@ -67,6 +67,7 @@ const Home = (props: Props) => {
                 avgRating={recipe.averate_rating}
                 ratingAmt={recipe.ratings}
                 reviews={recipe.reviews}
+                description={recipe.description}
               />
             );
           })}

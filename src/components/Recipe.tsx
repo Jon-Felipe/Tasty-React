@@ -11,13 +11,21 @@ type Props = {
   avgRating: number;
   ratingAmt: number;
   reviews: number;
+  description: string;
 };
 
-const Recipe = ({ text, image, avgRating, ratingAmt, reviews }: Props) => {
+const Recipe = ({
+  text,
+  image,
+  avgRating,
+  ratingAmt,
+  reviews,
+  description,
+}: Props) => {
   return (
     <article className='border'>
       <img src={foodImg} alt={text} />
-      <div className='pt-2 pb-10 px-4'>
+      <article className='pt-2 pb-10 px-4'>
         <h3 className='text-2xl font-semibold'>{text}</h3>
         <div className='flex items-center gap-3'>
           <div className='flex gap-2'>
@@ -33,7 +41,10 @@ const Recipe = ({ text, image, avgRating, ratingAmt, reviews }: Props) => {
             </p>
           </div>
         </div>
-      </div>
+        <div>
+          <p>{description}</p>
+        </div>
+      </article>
     </article>
   );
 };
