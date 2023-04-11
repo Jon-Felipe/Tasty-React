@@ -1,5 +1,8 @@
 import React from 'react';
-import { ChatBubbleOvalLeftEllipsisIcon } from '@heroicons/react/24/outline';
+import {
+  HandThumbUpIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+} from '@heroicons/react/24/outline';
 import foodImg from '../assets/hero-img.jpg';
 
 // components
@@ -29,7 +32,7 @@ const Recipe = ({
         <h3 className='text-2xl font-semibold'>{text}</h3>
         <div className='flex items-center gap-3'>
           <div className='flex gap-2'>
-            <StarRating rating={avgRating} />
+            <HandThumbUpIcon className='h-5 w-6' />
             <p>
               {ratingAmt} <span className='font-semibold text-sm'>Ratings</span>
             </p>
