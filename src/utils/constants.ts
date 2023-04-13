@@ -9,17 +9,17 @@ export const navLinks: NavlinksType[] = [
   {
     id: 2,
     text: 'about',
-    path: '/about',
+    path: 'about',
   },
   {
     id: 3,
     text: 'recipes',
-    path: '/recipes',
+    path: 'recipes',
   },
   {
     id: 4,
     text: 'contact',
-    path: '/contact',
+    path: 'contact',
   },
 ];
 
