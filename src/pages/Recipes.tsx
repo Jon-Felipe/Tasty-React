@@ -1,5 +1,8 @@
 import React from 'react';
 import { recipes } from '../utils/constants';
+import { RecipeType } from '../utils/types';
+
+// components
 import Recipe from '../components/Recipe';
 
 type Props = {};
@@ -8,7 +11,7 @@ const Recipes = (props: Props) => {
   return (
     <article>
       <h3>Explore Recipes</h3>
-      {recipes.map((recipe) => {
+      {recipes.map((recipe: RecipeType) => {
         return (
           <Recipe
             key={recipe.id}
