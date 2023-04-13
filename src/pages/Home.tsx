@@ -60,18 +60,20 @@ const Home = (props: Props) => {
           Featured Recipes
         </h3>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-          {recipes.map((recipe: RecipeType) => {
-            return (
-              <Recipe
-                key={recipe.id}
-                text={recipe.text}
-                image={recipe.image}
-                ratingAmt={recipe.ratings}
-                reviews={recipe.reviews}
-                description={recipe.description}
-              />
-            );
-          })}
+          {recipes
+            .map((recipe: RecipeType) => {
+              return (
+                <Recipe
+                  key={recipe.id}
+                  text={recipe.text}
+                  image={recipe.image}
+                  ratingAmt={recipe.ratings}
+                  reviews={recipe.reviews}
+                  description={recipe.description}
+                />
+              );
+            })
+            .slice(0, 4)}
         </div>
       </article>
     </div>
