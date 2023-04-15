@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { LoginType } from '../utils/types';
 
 // components
 import FormRow from '../components/FormRow';
 
 type Props = {};
 
-type StateTypes = {
-  email: string;
-  password: string;
-};
-
-const initialValues: StateTypes = {
+const initialValues: LoginType = {
   email: '',
   password: '',
 };
 
 const Login = (props: Props) => {
-  const [values, setValues] = useState<StateTypes>(initialValues);
+  const [values, setValues] = useState<LoginType>(initialValues);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
