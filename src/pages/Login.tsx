@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // components
@@ -6,8 +6,25 @@ import FormRow from '../components/FormRow';
 
 type Props = {};
 
+type StateTypes = {
+  email: string;
+  password: string;
+};
+
+const initialValues: StateTypes = {
+  email: '',
+  password: '',
+};
+
 const Login = (props: Props) => {
-  const handleChange = () => {};
+  const [values, setValues] = useState<StateTypes>(initialValues);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setValues((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   return (
     <section>
@@ -27,7 +44,7 @@ const Login = (props: Props) => {
               <FormRow
                 type='email'
                 name='email'
-                value=''
+                value={values.email}
                 handleChange={handleChange}
                 labelText='Your email'
                 placeholder='name@example.com'
@@ -36,7 +53,7 @@ const Login = (props: Props) => {
               <FormRow
                 type='password'
                 name='password'
-                value=''
+                value={values.password}
                 handleChange={handleChange}
                 labelText='Password'
                 placeholder='••••••••'
