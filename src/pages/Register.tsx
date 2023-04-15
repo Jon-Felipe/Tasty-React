@@ -40,7 +40,7 @@ const Register = (props: Props) => {
                   htmlFor='password'
                   className='block mb-2 text-sm font-medium text-gray-900'
                 >
-                  Your password
+                  Password
                 </label>
                 <input
                   type='password'
