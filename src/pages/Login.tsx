@@ -28,6 +28,8 @@ const Login = (props: Props) => {
                 value=''
                 handleChange={() => console.log()}
                 labelText='Your email'
+                placeholder='name@example.com'
+                required
               />
               <FormRow
                 type='password'
@@ -35,6 +37,8 @@ const Login = (props: Props) => {
                 value=''
                 handleChange={() => console.log()}
                 labelText='Password'
+                placeholder='••••••••'
+                required
               />
               <button
                 type='submit'
