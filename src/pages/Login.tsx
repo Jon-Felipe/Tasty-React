@@ -22,6 +22,10 @@ const Login = (props: Props) => {
     setValues((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <section>
       <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0'>
@@ -36,7 +40,7 @@ const Login = (props: Props) => {
             <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl'>
               Sign in to your account
             </h1>
-            <form className='space-y-4 md:space-y-6'>
+            <form className='space-y-4 md:space-y-6' onSubmit={handleSubmit}>
               <FormRow
                 type='email'
                 name='email'
