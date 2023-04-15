@@ -7,6 +7,8 @@ import FormRow from '../components/FormRow';
 type Props = {};
 
 const Register = (props: Props) => {
+  const handleChange = () => {};
+
   return (
     <section>
       <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0'>
@@ -26,7 +28,7 @@ const Register = (props: Props) => {
                 type='email'
                 name='email'
                 value=''
-                handleChange={() => console.log()}
+                handleChange={handleChange}
                 labelText='Your email'
                 placeholder='name@example.com'
                 required
@@ -35,7 +37,7 @@ const Register = (props: Props) => {
                 type='password'
                 name='password'
                 value=''
-                handleChange={() => console.log()}
+                handleChange={handleChange}
                 labelText='Password'
                 placeholder='••••••••'
                 required
@@ -44,7 +46,7 @@ const Register = (props: Props) => {
                 type='password'
                 name='confirmPassword'
                 value=''
-                handleChange={() => console.log()}
+                handleChange={handleChange}
                 labelText='Confirm password'
                 placeholder='••••••••'
                 required
