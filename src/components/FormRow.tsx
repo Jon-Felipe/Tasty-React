@@ -11,13 +11,19 @@ type Props = {
 const FormRow = ({ type, name, value, handleChange, labelText }: Props) => {
   return (
     <div>
-      <label htmlFor={name}>{labelText || name}</label>
+      <label
+        htmlFor={name}
+        className='block mb-2 text-sm font-medium text-gray-900'
+      >
+        {labelText || name}
+      </label>
       <input
         id={name}
         type={type}
         name={name}
         value={value}
         onChange={handleChange}
+        className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5'
       />
     </div>
   );
