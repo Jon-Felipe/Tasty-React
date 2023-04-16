@@ -60,11 +60,11 @@ const Recipe = ({
         <section className='flex items-center gap-4'>
           <div className='flex items-center gap-1.5'>
             <ClockIcon className='w-5 h-5' />
-            <p>{cookTime} mins</p>
+            <p className='capitalize'>{cookTime} mins</p>
           </div>
           <div className='flex items-center gap-1.5'>
             <TbChefHat className='w-5 h-5' />
-            <p>{difficulty}</p>
+            <p className='capitalize'>{difficulty}</p>
           </div>
           <div className='flex items-center gap-1.5'>
             <GiKnifeFork className='w-5 h-5' />
