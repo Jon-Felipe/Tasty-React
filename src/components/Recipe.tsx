@@ -5,6 +5,7 @@ import {
   ChatBubbleOvalLeftEllipsisIcon,
   ClockIcon,
 } from '@heroicons/react/24/outline';
+import { TbChefHat } from 'react-icons/tb';
 import foodImg from '../assets/hero-img.jpg';
 
 type Props = {
@@ -14,6 +15,7 @@ type Props = {
   reviews: number;
   description: string;
   cookTime: number;
+  difficulty: string;
 };
 
 const Recipe = ({
@@ -23,6 +25,7 @@ const Recipe = ({
   reviews,
   description,
   cookTime,
+  difficulty,
 }: Props) => {
   return (
     <article className='shadow rounded-xl overflow-hidden'>
@@ -51,10 +54,14 @@ const Recipe = ({
         <div className='py-2'>
           <p>{description}</p>
         </div>
-        <section>
+        <section className='flex items-center gap-4'>
           <div className='flex items-center gap-1.5'>
             <ClockIcon className='w-5 h-5' />
             <p>{cookTime} mins</p>
+          </div>
+          <div className='flex items-center gap-1.5'>
+            <TbChefHat className='w-5 h-5' />
+            <p>{difficulty}</p>
           </div>
         </section>
       </section>
