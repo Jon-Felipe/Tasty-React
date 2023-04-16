@@ -37,6 +37,7 @@ export type RecipeType = {
     total_time: number;
     servings: number;
     yield: string;
+    difficulty: string;
   };
   ingredients: string[];
   directions: string[];
