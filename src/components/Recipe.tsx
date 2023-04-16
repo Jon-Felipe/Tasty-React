@@ -6,6 +6,7 @@ import {
   ClockIcon,
 } from '@heroicons/react/24/outline';
 import { TbChefHat } from 'react-icons/tb';
+import { GiKnifeFork } from 'react-icons/gi';
 import foodImg from '../assets/hero-img.jpg';
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
   description: string;
   cookTime: number;
   difficulty: string;
+  serving: number;
 };
 
 const Recipe = ({
@@ -26,6 +28,7 @@ const Recipe = ({
   description,
   cookTime,
   difficulty,
+  serving,
 }: Props) => {
   return (
     <article className='shadow rounded-xl overflow-hidden'>
@@ -62,6 +65,10 @@ const Recipe = ({
           <div className='flex items-center gap-1.5'>
             <TbChefHat className='w-5 h-5' />
             <p>{difficulty}</p>
+          </div>
+          <div className='flex items-center gap-1.5'>
+            <GiKnifeFork className='w-5 h-5' />
+            <p>{serving}</p>
           </div>
         </section>
       </section>

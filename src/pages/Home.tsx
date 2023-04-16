@@ -72,6 +72,7 @@ const Home = (props: Props) => {
                   description={recipe.description}
                   cookTime={recipe.recipe_details.cook_time}
                   difficulty={recipe.recipe_details.difficulty}
+                  serving={recipe.recipe_details.servings}
                 />
               );
             })
