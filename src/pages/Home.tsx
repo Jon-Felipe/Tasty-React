@@ -70,6 +70,7 @@ const Home = (props: Props) => {
                   ratingAmt={recipe.ratings}
                   reviews={recipe.reviews}
                   description={recipe.description}
+                  cookTime={recipe.recipe_details.cook_time}
                 />
               );
             })

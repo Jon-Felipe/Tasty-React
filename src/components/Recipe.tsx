@@ -3,6 +3,7 @@ import {
   HeartIcon,
   HandThumbUpIcon,
   ChatBubbleOvalLeftEllipsisIcon,
+  ClockIcon,
 } from '@heroicons/react/24/outline';
 import foodImg from '../assets/hero-img.jpg';
 
@@ -12,9 +13,17 @@ type Props = {
   ratingAmt: number;
   reviews: number;
   description: string;
+  cookTime: number;
 };
 
-const Recipe = ({ text, image, ratingAmt, reviews, description }: Props) => {
+const Recipe = ({
+  text,
+  image,
+  ratingAmt,
+  reviews,
+  description,
+  cookTime,
+}: Props) => {
   return (
     <article className='shadow rounded-xl overflow-hidden'>
       <img src={foodImg} alt={text} />
@@ -42,6 +51,12 @@ const Recipe = ({ text, image, ratingAmt, reviews, description }: Props) => {
         <div className='py-2'>
           <p>{description}</p>
         </div>
+        <section>
+          <div className='flex items-center gap-1.5'>
+            <ClockIcon className='w-5 h-5' />
+            <p>{cookTime} mins</p>
+          </div>
+        </section>
       </section>
     </article>
   );
