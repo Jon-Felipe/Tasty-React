@@ -10,12 +10,12 @@ type Props = {};
 
 const Recipes = (props: Props) => {
   return (
-    <article className='max-w-screen-xl mx-auto grid gap-6'>
+    <article className='max-w-screen-xl mx-auto'>
       <h3 className='text-5xl font-semibold mb-6 underline'>
         Explore Our Tasty Recipes
       </h3>
       {/* Fitlers */}
-      <article>
+      <article className='mb-4'>
         <h3 className='text-3xl font-semibold mb-4 underline'>Filters</h3>
         <Search />
       </article>
