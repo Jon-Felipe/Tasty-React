@@ -5,7 +5,7 @@ type Props = {};
 
 const Search = (props: Props) => {
   return (
-    <form>
+    <form className='block w-full'>
       <label
         htmlFor='search'
         className='mb-2 text-sm font-medium text-gray-900 sr-only'
