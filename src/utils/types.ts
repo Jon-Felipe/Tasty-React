@@ -48,3 +48,8 @@ export type RecipeType = {
     protein: number;
   };
 };
+
+export type FilterType = {
+  id: number;
+  text: string;
+};
