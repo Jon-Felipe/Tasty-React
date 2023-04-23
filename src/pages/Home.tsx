@@ -14,6 +14,7 @@ import Sort from '../components/Sort';
 import RecipeCategory from '../components/RecipeCategory';
 import Recipe from '../components/Recipe';
 import Accordion from '../components/Accordion';
+import RecipeList from '../components/RecipeList';
 
 type Props = {};
 
@@ -58,23 +59,11 @@ const Home = (props: Props) => {
           <Sort />
         </section>
         <article className='grid md:grid-cols-[200px_1fr] gap-4'>
-          <aside>
+          <section>
             <Accordion headerText='Cuisine' options={cuisineFilters} />
             <Accordion headerText='Meals' options={mealsFilters} />
-          </aside>
-          <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {recipes.map((recipe: RecipeType) => {
-              return (
-                <Recipe
-                  key={recipe.id}
-                  text={recipe.text}
-                  image={recipe.image}
-                  averageRating={recipe.averate_rating}
-                  author={recipe.author}
-                />
-              );
-            })}
           </section>
+          <RecipeList recipes={recipes} />
         </article>
       </article>
     </div>
