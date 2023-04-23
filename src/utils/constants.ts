@@ -18,11 +18,6 @@ export const navLinks: NavlinksType[] = [
   },
   {
     id: 3,
-    text: 'recipes',
-    path: 'recipes',
-  },
-  {
-    id: 4,
     text: 'contact',
     path: 'contact',
   },

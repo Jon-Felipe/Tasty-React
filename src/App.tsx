@@ -7,7 +7,6 @@ import Main from './layouts/Main';
 // pages
 import Home from './pages/Home';
 import About from './pages/About';
-import Recipes from './pages/Recipes';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -24,10 +23,6 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
-      },
-      {
-        path: 'recipes',
-        element: <Recipes />,
       },
       {
         path: 'contact',
