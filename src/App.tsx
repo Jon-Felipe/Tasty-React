@@ -15,6 +15,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import SingleRecipe from './pages/SingleRecipe';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,8 +23,9 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/Register' element={<Register />} />
+      <Route path='recipe/:id' element={<SingleRecipe />} />
+      <Route path='login' element={<Login />} />
+      <Route path='register' element={<Register />} />
     </Route>
   )
 );
