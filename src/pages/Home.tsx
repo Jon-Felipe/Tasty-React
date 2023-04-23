@@ -44,7 +44,7 @@ const Home = (props: Props) => {
         </div>
       </article>
 
-      <article>
+      <article className='flex flex-col gap-4'>
         {/* search input */}
         <Search />
         {/* sort recipes */}
