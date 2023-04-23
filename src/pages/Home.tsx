@@ -6,7 +6,7 @@ import {
   recipeCategories,
   recipes,
 } from '../utils/constants';
-import { RecipeCategoryType, RecipeType } from '../utils/types';
+import { RecipeCategoryType } from '../utils/types';
 
 // components
 import Search from '../components/Search';

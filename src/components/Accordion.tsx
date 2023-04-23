@@ -1,11 +1,11 @@
 import React from 'react';
 
 // extras
-import { FilterType } from '../utils/types';
+import { MealOptionType } from '../utils/types';
 
 type Props = {
   headerText: string;
-  options: FilterType[];
+  options: MealOptionType[];
 };
 
 const Accordion = ({ headerText, options }: Props) => {
@@ -14,7 +14,7 @@ const Accordion = ({ headerText, options }: Props) => {
       <h3 className='text-2xl text-orange-500 font-semibold mb-4'>
         {headerText}
       </h3>
-      {options.map((option: FilterType) => (
+      {options.map((option: MealOptionType) => (
         <div key={option.id} className='flex items-center justify-between mb-4'>
           <label htmlFor='' className='capitalize font-medium'>
             {option.text}

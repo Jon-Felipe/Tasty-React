@@ -49,7 +49,7 @@ export type RecipeType = {
   };
 };
 
-export type FilterType = {
+export type MealOptionType = {
   id: number;
   text: string;
 };
