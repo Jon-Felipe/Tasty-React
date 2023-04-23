@@ -57,12 +57,15 @@ const Home = (props: Props) => {
         </div>
       </article>
 
-      {/* explore recipes */}
+      {/* recipe content */}
       <article>
-        <h3 className='text-4xl font-semibold mb-4 underline'>
-          Featured Recipes
-        </h3>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        {/* recipe filters */}
+        <section>
+          <h3>Filters</h3>
+        </section>
+
+        {/* recipes */}
+        <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
           {recipes
             .map((recipe: RecipeType) => {
               return (
@@ -70,17 +73,13 @@ const Home = (props: Props) => {
                   key={recipe.id}
                   text={recipe.text}
                   image={recipe.image}
-                  ratingAmt={recipe.ratings}
-                  reviews={recipe.reviews}
-                  description={recipe.description}
-                  cookTime={recipe.recipe_details.cook_time}
-                  difficulty={recipe.recipe_details.difficulty}
-                  serving={recipe.recipe_details.servings}
+                  averageRating={recipe.averate_rating}
+                  author={recipe.author}
                 />
               );
             })
             .slice(0, 4)}
-        </div>
+        </section>
       </article>
     </div>
   );
