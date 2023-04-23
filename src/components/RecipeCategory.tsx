@@ -1,4 +1,5 @@
 import React from 'react';
+import foodImg from '../assets/hero-img.jpg';
 
 type Props = {
   text: string;
@@ -6,11 +7,14 @@ type Props = {
 
 const RecipeCategory = ({ text }: Props) => {
   return (
-    <article className='border w-full px-3 py-6 hover:shadow-md'>
-      <h3 className='text-sm text-gray-900 font-semibold capitalize tracking-wide'>
-        {text}
-      </h3>
-    </article>
+    <div>
+      <img
+        src={foodImg}
+        alt={text}
+        className='w-32 h-32 object-cover rounded-full'
+      />
+      <h3 className='capitalize font-semibold text-center mt-2'>{text}</h3>
+    </div>
   );
 };
 

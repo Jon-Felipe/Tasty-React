@@ -48,11 +48,14 @@ const Home = (props: Props) => {
       <Search />
 
       {/* recipe categories */}
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        {recipeCategories.map((category: RecipeCategoryType) => {
-          return <RecipeCategory key={category.id} text={category.text} />;
-        })}
-      </div>
+      <article>
+        <h3 className='text-2xl font-bold mb-4'>Popular Categories</h3>
+        <div className='flex items-center justify-between'>
+          {recipeCategories.map((category: RecipeCategoryType) => {
+            return <RecipeCategory key={category.id} text={category.text} />;
+          })}
+        </div>
+      </article>
 
       {/* explore recipes */}
       <article>
