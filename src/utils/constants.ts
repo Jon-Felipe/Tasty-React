@@ -1,4 +1,9 @@
-import { NavlinksType, RecipeCategoryType, RecipeType } from './types';
+import {
+  FilterType,
+  NavlinksType,
+  RecipeCategoryType,
+  RecipeType,
+} from './types';
 
 export const navLinks: NavlinksType[] = [
   {
@@ -289,7 +294,7 @@ export const recipes: RecipeType[] = [
   },
 ];
 
-export const cuisineFilters = [
+export const cuisineFilters: FilterType[] = [
   {
     id: 1,
     text: 'asian',
@@ -312,7 +317,7 @@ export const cuisineFilters = [
   },
 ];
 
-export const mealsFilters = [
+export const mealsFilters: FilterType[] = [
   {
     id: 1,
     text: 'healthy',
