@@ -288,3 +288,49 @@ export const recipes: RecipeType[] = [
     },
   },
 ];
+
+export const cuisineFilters = [
+  {
+    id: 1,
+    text: 'asian',
+  },
+  {
+    id: 2,
+    text: 'mexican',
+  },
+  {
+    id: 3,
+    text: 'japan',
+  },
+  {
+    id: 4,
+    text: 'italian',
+  },
+  {
+    id: 5,
+    text: 'thai',
+  },
+];
+
+export const mealsFilters = [
+  {
+    id: 1,
+    text: 'healthy',
+  },
+  {
+    id: 2,
+    text: 'lunch',
+  },
+  {
+    id: 3,
+    text: 'snacks',
+  },
+  {
+    id: 4,
+    text: 'salads',
+  },
+  {
+    id: 5,
+    text: 'desserts',
+  },
+];
