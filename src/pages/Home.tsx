@@ -56,11 +56,10 @@ const Home = (props: Props) => {
       </article>
 
       {/* recipe content */}
-      <article>
+      <article className='grid gap-2 md:grid-cols-[200px_1fr]'>
         {/* recipe filters */}
-        {/* <section>
-          <Filters />
-        </section> */}
+        <Filters />
+        {/* <section></section> */}
 
         {/* recipes */}
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
