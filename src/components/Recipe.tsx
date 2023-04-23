@@ -11,7 +11,7 @@ type Props = {
 
 const Recipe = ({ text, image, averageRating, author }: Props) => {
   return (
-    <article>
+    <article className='transition ease-out duration-300 hover:scale-105'>
       <img
         src={foodImg}
         alt={text}
