@@ -26,51 +26,27 @@ export const navLinks: NavlinksType[] = [
 export const recipeCategories: RecipeCategoryType[] = [
   {
     id: 1,
-    text: 'breakfast recipes',
+    text: 'pasta',
   },
   {
     id: 2,
-    text: 'starters recipes',
+    text: 'pizza',
   },
   {
     id: 3,
-    text: 'side dish recipes',
+    text: 'vegan',
   },
   {
     id: 4,
-    text: 'light meal recipes',
+    text: 'desserts',
   },
   {
     id: 5,
-    text: 'main course recipes',
+    text: 'smoothies',
   },
   {
     id: 6,
-    text: 'kids meals recipes',
-  },
-  {
-    id: 7,
-    text: 'dessert recipes',
-  },
-  {
-    id: 8,
-    text: 'baking recipes',
-  },
-  {
-    id: 9,
-    text: 'sweet & biscuit recipes',
-  },
-  {
-    id: 10,
-    text: 'beverage recipes',
-  },
-  {
-    id: 11,
-    text: 'occasion recipes',
-  },
-  {
-    id: 12,
-    text: 'classic recipes',
+    text: 'breakfast',
   },
 ];
 
