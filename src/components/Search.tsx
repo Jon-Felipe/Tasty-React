@@ -25,7 +25,7 @@ const Search = (props: Props) => {
         />
         <button
           type='submit'
-          className='text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2'
+          className='text-white absolute right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-400 font-medium rounded-lg text-sm px-4 py-2'
         >
           Search
         </button>
