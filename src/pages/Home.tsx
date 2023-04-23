@@ -57,7 +57,7 @@ const Home = (props: Props) => {
           <Search />
           <Sort />
         </section>
-        <article className='grid md:grid-cols-[200px_1fr] gap-4'>
+        <article className='grid md:grid-cols-[200px_1fr] gap-10'>
           <section>
             <Accordion headerText='Cuisine' options={cuisineFilters} />
             <Accordion headerText='Meals' options={mealsFilters} />
