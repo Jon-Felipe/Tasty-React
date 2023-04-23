@@ -12,6 +12,7 @@ const RecipeList = ({ recipes }: Props) => {
       {recipes.map((recipe) => (
         <Recipe
           key={recipe.id}
+          id={recipe.id}
           text={recipe.text}
           image={recipe.image}
           averageRating={recipe.averate_rating}
