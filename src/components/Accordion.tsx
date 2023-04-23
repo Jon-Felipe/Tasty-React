@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 // extras
 import { MealOptionType } from '../utils/types';
@@ -11,9 +12,12 @@ type Props = {
 const Accordion = ({ headerText, options }: Props) => {
   return (
     <div className='border-b-2 border-b-orange-100 mb-4'>
-      <h3 className='text-2xl text-orange-500 font-semibold mb-4'>
-        {headerText}
-      </h3>
+      <div className='flex items-center justify-between'>
+        <h3 className='text-2xl text-orange-500 font-semibold mb-4'>
+          {headerText}
+        </h3>
+        <ChevronDownIcon className='h-5 w-5 text-orange-500' />
+      </div>
       {options.map((option: MealOptionType) => (
         <div key={option.id} className='flex items-center justify-between mb-4'>
           <label htmlFor='' className='capitalize font-medium'>
