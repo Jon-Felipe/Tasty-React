@@ -26,12 +26,8 @@ const Recipes = (props: Props) => {
               key={recipe.id}
               text={recipe.text}
               image={recipe.image}
-              ratingAmt={recipe.ratings}
-              reviews={recipe.reviews}
-              description={recipe.description}
-              cookTime={recipe.recipe_details.cook_time}
-              difficulty={recipe.recipe_details.difficulty}
-              serving={recipe.recipe_details.servings}
+              averageRating={recipe.averate_rating}
+              author={recipe.author}
             />
           );
         })}
