@@ -22,16 +22,16 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
           </h1>
           <div className='flex items-center lg:order-2'>
             <Link
-              to='/login'
-              className='text-gray-800 hover:bg-gray-50 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2'
+              to='/register'
+              className='text-white bg-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
             >
-              Log in
+              Sign up
             </Link>
             <Link
-              to='/register'
-              className='text-white bg-primary-700 hover:bg-primary-800 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2'
+              to='/login'
+              className='text-orange-500 border-2 border-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
             >
-              Get started
+              Log in
             </Link>
             <button
               type='button'
