@@ -36,45 +36,38 @@ const Home = (props: Props) => {
 
       {/* recipe categories */}
       <article>
-        <h3 className='text-2xl font-bold mb-4'>Popular Categories</h3>
-        <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 place-items-start gap-2'>
+        <h3 className='text-3xl font-bold text-orange-500 tracking-wide underline mb-4'>
+          Popular Categories
+        </h3>
+        <section className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 place-items-start gap-2'>
           {recipeCategories.map((category: RecipeCategoryType) => {
             return <RecipeCategory key={category.id} text={category.text} />;
           })}
-        </div>
+        </section>
       </article>
 
-      <article className='grid gap-y-2 md:grid-cols-5 md:justify-between'>
-        {/* search input */}
-        <section className='md:col-start-1 md:col-end-4'>
+      {/* recipe filters and list of recipes */}
+      <article>
+        <section className='grid md:grid-cols-[1fr_250px] gap-4 mb-8'>
           <Search />
-        </section>
-        {/* sort recipes */}
-        <section className='md:col-start-5 md:col-end-6'>
           <Sort />
         </section>
-      </article>
-
-      {/* recipe content */}
-      <article className='grid gap-2 md:grid-cols-[200px_1fr]'>
-        {/* recipe filters */}
-        <Filters />
-        {/* <section></section> */}
-
-        {/* recipes */}
-        <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
-          {recipes.map((recipe: RecipeType) => {
-            return (
-              <Recipe
-                key={recipe.id}
-                text={recipe.text}
-                image={recipe.image}
-                averageRating={recipe.averate_rating}
-                author={recipe.author}
-              />
-            );
-          })}
-        </section>
+        <article className='grid md:grid-cols-[200px_1fr] gap-4'>
+          <Filters />
+          <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {recipes.map((recipe: RecipeType) => {
+              return (
+                <Recipe
+                  key={recipe.id}
+                  text={recipe.text}
+                  image={recipe.image}
+                  averageRating={recipe.averate_rating}
+                  author={recipe.author}
+                />
+              );
+            })}
+          </section>
+        </article>
       </article>
     </div>
   );
