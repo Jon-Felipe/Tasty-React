@@ -32,21 +32,6 @@ const Home = (props: Props) => {
         </section>
       </article>
 
-      {/* intro text section */}
-      <article>
-        <h1 className='text-4xl text-red-500 font-bold uppercase'>Recipes</h1>
-        <p className='mt-4'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-          aliquid distinctio tempora, culpa commodi ipsa consequatur voluptas
-          repellat officia eligendi maxime porro aspernatur sapiente in unde ad,
-          dolorum doloremque temporibus ea quam! Repellendus mollitia placeat
-          laboriosam qui, provident assumenda. Vero.
-        </p>
-      </article>
-
-      {/* search input */}
-      <Search />
-
       {/* recipe categories */}
       <article>
         <h3 className='text-2xl font-bold mb-4'>Popular Categories</h3>
@@ -56,6 +41,9 @@ const Home = (props: Props) => {
           })}
         </div>
       </article>
+
+      {/* search input */}
+      <Search />
 
       {/* recipe content */}
       <article>
