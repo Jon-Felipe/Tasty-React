@@ -1,6 +1,11 @@
 import React from 'react';
 import heroImg from '../assets/hero-img.jpg';
-import { recipeCategories, recipes } from '../utils/constants';
+import {
+  cuisineFilters,
+  mealsFilters,
+  recipeCategories,
+  recipes,
+} from '../utils/constants';
 import { RecipeCategoryType, RecipeType } from '../utils/types';
 
 // components
@@ -54,7 +59,8 @@ const Home = (props: Props) => {
         </section>
         <article className='grid md:grid-cols-[200px_1fr] gap-4'>
           <aside>
-            <Accordion />
+            <Accordion headerText='Cuisine' options={cuisineFilters} />
+            <Accordion headerText='Meals' options={mealsFilters} />
           </aside>
           <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {recipes.map((recipe: RecipeType) => {
