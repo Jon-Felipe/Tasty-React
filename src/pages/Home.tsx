@@ -5,6 +5,7 @@ import { RecipeCategoryType, RecipeType } from '../utils/types';
 
 // components
 import Search from '../components/Search';
+import Sort from '../components/Sort';
 import RecipeCategory from '../components/RecipeCategory';
 import Recipe from '../components/Recipe';
 import Filters from '../components/Filters';
@@ -43,15 +44,19 @@ const Home = (props: Props) => {
         </div>
       </article>
 
-      {/* search input */}
-      <Search />
+      <article>
+        {/* search input */}
+        <Search />
+        {/* sort recipes */}
+        <Sort />
+      </article>
 
       {/* recipe content */}
       <article>
         {/* recipe filters */}
-        <section>
+        {/* <section>
           <Filters />
-        </section>
+        </section> */}
 
         {/* recipes */}
         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
