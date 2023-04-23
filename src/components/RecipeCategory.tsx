@@ -7,7 +7,7 @@ type Props = {
 
 const RecipeCategory = ({ text }: Props) => {
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center'>
       <img
         src={foodImg}
         alt={text}

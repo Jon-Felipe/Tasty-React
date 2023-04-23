@@ -50,7 +50,7 @@ const Home = (props: Props) => {
       {/* recipe categories */}
       <article>
         <h3 className='text-2xl font-bold mb-4'>Popular Categories</h3>
-        <div className='flex items-center justify-between'>
+        <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 place-items-start gap-2'>
           {recipeCategories.map((category: RecipeCategoryType) => {
             return <RecipeCategory key={category.id} text={category.text} />;
           })}
