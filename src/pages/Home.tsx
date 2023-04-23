@@ -12,7 +12,6 @@ import { RecipeCategoryType } from '../utils/types';
 import Search from '../components/Search';
 import Sort from '../components/Sort';
 import RecipeCategory from '../components/RecipeCategory';
-import Recipe from '../components/Recipe';
 import Accordion from '../components/Accordion';
 import RecipeList from '../components/RecipeList';
 
