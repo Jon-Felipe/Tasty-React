@@ -7,6 +7,7 @@ import { RecipeCategoryType, RecipeType } from '../utils/types';
 import Search from '../components/Search';
 import RecipeCategory from '../components/RecipeCategory';
 import Recipe from '../components/Recipe';
+import Filters from '../components/Filters';
 
 type Props = {};
 
@@ -49,7 +50,7 @@ const Home = (props: Props) => {
       <article>
         {/* recipe filters */}
         <section>
-          <h3>Filters</h3>
+          <Filters />
         </section>
 
         {/* recipes */}
