@@ -8,7 +8,6 @@ import Search from '../components/Search';
 import Sort from '../components/Sort';
 import RecipeCategory from '../components/RecipeCategory';
 import Recipe from '../components/Recipe';
-import Filters from '../components/Filters';
 
 type Props = {};
 
@@ -53,7 +52,6 @@ const Home = (props: Props) => {
           <Sort />
         </section>
         <article className='grid md:grid-cols-[200px_1fr] gap-4'>
-          <Filters />
           <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {recipes.map((recipe: RecipeType) => {
               return (
