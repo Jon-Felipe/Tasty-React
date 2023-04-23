@@ -44,11 +44,15 @@ const Home = (props: Props) => {
         </div>
       </article>
 
-      <article className='flex flex-col gap-4'>
+      <article className='grid gap-y-2 md:grid-cols-5 md:justify-between'>
         {/* search input */}
-        <Search />
+        <section className='md:col-start-1 md:col-end-4'>
+          <Search />
+        </section>
         {/* sort recipes */}
-        <Sort />
+        <section className='md:col-start-5 md:col-end-6'>
+          <Sort />
+        </section>
       </article>
 
       {/* recipe content */}
