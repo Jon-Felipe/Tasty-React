@@ -1,5 +1,5 @@
 import {
-  FilterType,
+  MealOptionType,
   NavlinksType,
   RecipeCategoryType,
   RecipeType,
@@ -289,7 +289,7 @@ export const recipes: RecipeType[] = [
   },
 ];
 
-export const cuisineFilters: FilterType[] = [
+export const cuisineFilters: MealOptionType[] = [
   {
     id: 1,
     text: 'asian',
@@ -312,7 +312,7 @@ export const cuisineFilters: FilterType[] = [
   },
 ];
 
-export const mealsFilters: FilterType[] = [
+export const mealsFilters: MealOptionType[] = [
   {
     id: 1,
     text: 'healthy',
