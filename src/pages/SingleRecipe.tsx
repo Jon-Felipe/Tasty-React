@@ -40,10 +40,7 @@ const SingleRecipe = () => {
             >
               <Star value={recipe?.averate_rating} />
               <p className='text-xs text-orange-500 font-medium'>
-                {recipe?.averate_rating}
-              </p>
-              <p className='text-xs text-orange-500 font-medium'>
-                ({recipe?.ratings})
+                {recipe?.averate_rating} ({recipe?.ratings})
               </p>
             </div>
             <div
