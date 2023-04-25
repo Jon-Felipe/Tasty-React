@@ -12,6 +12,28 @@ type Props = {
 const Accordion = ({ headerText, options }: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
+  const AccordionOptions = () => {
+    return (
+      <>
+        {isVisible && (
+          <>
+            {options.map((option: MealOptionType) => (
+              <div
+                key={option.id}
+                className='flex items-center justify-between mb-4'
+              >
+                <label htmlFor='' className='capitalize font-medium'>
+                  {option.text}
+                </label>
+                <input type='checkbox' className='accent-orange-600' />
+              </div>
+            ))}
+          </>
+        )}
+      </>
+    );
+  };
+
   return (
     <div className='border-b-2 border-b-orange-100 mb-4'>
       <div
@@ -27,21 +49,7 @@ const Accordion = ({ headerText, options }: Props) => {
           <ChevronUpIcon className='h-5 w-5 text-orange-500' />
         )}
       </div>
-      {isVisible && (
-        <>
-          {options.map((option: MealOptionType) => (
-            <div
-              key={option.id}
-              className='flex items-center justify-between mb-4'
-            >
-              <label htmlFor='' className='capitalize font-medium'>
-                {option.text}
-              </label>
-              <input type='checkbox' className='accent-orange-600' />
-            </div>
-          ))}
-        </>
-      )}
+      <AccordionOptions />
     </div>
   );
 };
