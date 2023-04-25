@@ -50,7 +50,7 @@ const SingleRecipe = () => {
             </div>
           </section>
           <section
-            className={`${flexRow} justify-between md:gap-2 lg:order-1 mt-2.5`}
+            className={`${flexRow} justify-between md:gap-2 md:order-1 mt-2.5`}
           >
             <div>
               <h3 className='text-sm font-bold'>{recipe?.author}</h3>
