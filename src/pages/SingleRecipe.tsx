@@ -5,6 +5,7 @@ import { StarIcon, HeartIcon } from '@heroicons/react/24/outline';
 // extras
 import { recipes } from '../utils/constants';
 import foodImg from '../assets/hero-img.jpg';
+import Start from '../components/Start';
 
 type Props = {
   value: number;
@@ -37,13 +38,7 @@ const SingleRecipe = () => {
             <div
               className={`${flexRow} gap-1 bg-orange-100 px-4 py-2 rounded-lg`}
             >
-              <div className={`${flexRow}`}>
-                <StarIcon className='w-3.5 h-3.w-3.5 text-orange-500' />
-                <StarIcon className='w-3.5 h-3.w-3.5 text-orange-500' />
-                <StarIcon className='w-3.5 h-3.w-3.5 text-orange-500' />
-                <StarIcon className='w-3.5 h-3.w-3.5 text-orange-500' />
-                <StarIcon className='w-3.5 h-3.w-3.5 text-orange-500' />
-              </div>
+              <Start value={recipe?.averate_rating} />
               <p className='text-xs text-orange-500 font-medium'>
                 {recipe?.averate_rating}
               </p>
