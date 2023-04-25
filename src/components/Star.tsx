@@ -5,14 +5,14 @@ type Props = {
   value: number | undefined;
 };
 
-const Start = ({ value }: Props) => {
+const Star = ({ value }: Props) => {
   return (
     <div className='flex items-center'>
-      {[...Array(value)].map((start) => {
+      {[...Array(value)].map((star) => {
         return <StarIcon className='w-5 h-5 text-orange-500' />;
       })}
     </div>
   );
 };
 
-export default Start;
+export default Star;
