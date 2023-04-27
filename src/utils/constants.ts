@@ -85,7 +85,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
@@ -123,7 +127,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
@@ -161,7 +169,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
@@ -199,7 +211,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
@@ -237,7 +253,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
@@ -275,7 +295,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
@@ -313,7 +337,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
@@ -351,7 +379,11 @@ export const recipes: RecipeType[] = [
       '1/2 teaspoon kosher salt',
       '1/2 teaspoon ground black pepper',
     ],
-    directions: ['', '', ''],
+    directions: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit ab earum nisi blanditiis.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium nobis tempore amet odio animi, minima odit.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    ],
     nutrition_facts: {
       calories: 155,
       fat: 10,
