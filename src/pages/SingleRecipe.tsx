@@ -131,8 +131,8 @@ const SingleRecipe = () => {
           </div>
         </section>
       </section>
-      {/* Ingredients */}
       <section className='md:col-span-2'>
+        {/* Ingredients */}
         <article>
           <h1 className='text-center text-3xl font-bold'>Ingredients</h1>
           <ul className='mx-8'>
@@ -142,6 +142,18 @@ const SingleRecipe = () => {
                 className='text-sm font-semibold list-disc py-4 border-b-2 border-b-orange-500'
               >
                 {ingredient}
+              </li>
+            ))}
+          </ul>
+        </article>
+        {/* Directions */}
+        <article className='mt-8'>
+          <h1 className='text-center text-3xl font-bold'>Directions</h1>
+          <ul>
+            {recipe?.directions.map((direction, i) => (
+              <li className='py-4'>
+                <h2 className='font-bold text-lg'>Step {i + 1}</h2>
+                <p>{direction}</p>
               </li>
             ))}
           </ul>
