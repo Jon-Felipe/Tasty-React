@@ -18,7 +18,7 @@ const SingleRecipe = () => {
   const recipe = recipes.find((recipe) => recipe.id === Number(id));
 
   return (
-    <article className='grid md:grid-cols-7 gap-4 max-w-screen-xl mx-auto'>
+    <article className='grid md:grid-cols-7 gap-4 lg:gap-12 max-w-screen-xl mx-auto'>
       <section className='md:col-span-5'>
         <div className='w-full overflow-hidden'>
           <img
@@ -102,7 +102,19 @@ const SingleRecipe = () => {
         </section>
       </section>
       <section className='md:col-span-2'>
-        <h1>Ingredients</h1>
+        <article>
+          <h1 className='text-center text-3xl font-bold'>Ingredients</h1>
+          <ul className='mx-8'>
+            {recipe?.ingredients.map((ingredient, i) => (
+              <li
+                key={i}
+                className='text-sm font-semibold list-disc py-4 border-b-2 border-b-orange-500'
+              >
+                {ingredient}
+              </li>
+            ))}
+          </ul>
+        </article>
       </section>
     </article>
   );
