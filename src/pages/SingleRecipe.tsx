@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { StarIcon, HeartIcon } from '@heroicons/react/24/outline';
+import { HeartIcon } from '@heroicons/react/24/outline';
 
 // extras
 import { recipes } from '../utils/constants';
@@ -19,17 +19,17 @@ const SingleRecipe = () => {
 
   return (
     <article className='grid md:grid-cols-7 gap-4 max-w-screen-xl mx-auto'>
-      <section className='col-span-5'>
-        <img
-          src={foodImg}
-          alt={recipe?.text}
-          className='w-full h-2/3 object-cover rounded-lg'
-        />
+      <section className='md:col-span-5'>
+        <div className='w-full overflow-hidden'>
+          <img
+            src={foodImg}
+            alt={recipe?.text}
+            className='w-full h-[450px] rounded-xl object-cover'
+          />
+        </div>
         <h1 className='text-xl font-bold mt-2'>{recipe?.text}</h1>
-        <article className='flex flex-col md:flex-row md:justify-between'>
-          <section
-            className={`${flexRow} justify-between md:gap-2 md:order-2 mt-2.5`}
-          >
+        <div className='flex flex-col md:flex-row-reverse md:items-center md:justify-between'>
+          <section className={`${flexRow} justify-between md:gap-2 lg:gap-4`}>
             <div className='bg-orange-100 px-4 py-2 rounded-lg'>
               <p className='text-xs text-orange-500 font-medium'>
                 {recipe?.reviews} reviews
@@ -50,7 +50,7 @@ const SingleRecipe = () => {
             </div>
           </section>
           <section
-            className={`${flexRow} justify-between md:gap-2 md:order-1 mt-2.5`}
+            className={`${flexRow} justify-between md:gap-2 lg:gap-4 mt-2`}
           >
             <div>
               <h3 className='text-sm font-bold'>{recipe?.author}</h3>
@@ -60,10 +60,49 @@ const SingleRecipe = () => {
               Follow
             </button>
           </section>
-        </article>
+        </div>
+        {/* recipe details */}
+        <section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 mt-2 bg-orange-100 px-4 py-2 rounded-lg'>
+          <div className='lg:border-r-2 lg:border-r-orange-500'>
+            <h3 className='font-semibold text-orange-500'>Prep Time:</h3>
+            <p className='text-sm font-medium capitalize'>
+              {recipe?.recipe_details.prep_time} mins
+            </p>
+          </div>
+          <div className='lg:border-r-2 lg:border-r-orange-500'>
+            <h3 className='font-semibold text-orange-500'>Cook Time:</h3>
+            <p className='text-sm font-medium capitalize'>
+              {recipe?.recipe_details.cook_time} mins
+            </p>
+          </div>
+          <div className='lg:border-r-2 lg:border-r-orange-500'>
+            <h3 className='font-semibold text-orange-500'>Additional Time:</h3>
+            <p className='text-sm font-medium capitalize'>
+              {recipe?.recipe_details.additional_time} mins
+            </p>
+          </div>
+          <div className='lg:border-r-2 lg:border-r-orange-500'>
+            <h3 className='font-semibold text-orange-500'>Total Time:</h3>
+            <p className='text-sm font-medium capitalize'>
+              {recipe?.recipe_details.total_time}
+            </p>
+          </div>
+          <div className='lg:border-r-2 lg:border-r-orange-500'>
+            <h3 className='font-semibold text-orange-500'>Servings:</h3>
+            <p className='text-sm font-medium capitalize'>
+              {recipe?.recipe_details.servings}
+            </p>
+          </div>
+          <div>
+            <h3 className='font-semibold text-orange-500'>Difficulty:</h3>
+            <p className='text-sm font-medium capitalize'>
+              {recipe?.recipe_details.difficulty}
+            </p>
+          </div>
+        </section>
       </section>
-      <section className='col-span-2'>
-        <h3>Ingredients</h3>
+      <section className='md:col-span-2'>
+        <h1>Ingredients</h1>
       </section>
     </article>
   );
