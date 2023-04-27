@@ -100,7 +100,38 @@ const SingleRecipe = () => {
             </p>
           </div>
         </section>
+        <section className='bg-orange-100 px-6 py-4 rounded-lg mt-4 md:w-2/3 lg:w-1/2'>
+          <h1 className='text-3xl font-bold'>
+            Nutrition Facts{' '}
+            <span className='text-sm font-medium'>(per serving)</span>
+          </h1>
+          <div className='flex items-center justify-between bg-white px-6 py-2 rounded-lg mt-2'>
+            <div>
+              <h3 className='font-semibold'>
+                {recipe?.nutrition_facts.calories}g
+              </h3>
+              <p className='text-orange-500 font-bold'>Calories</p>
+            </div>
+            <div>
+              <h3 className='font-semibold'>{recipe?.nutrition_facts.fat}g</h3>
+              <p className='text-orange-500 font-bold'>Fat</p>
+            </div>
+            <div>
+              <h3 className='font-semibold'>
+                {recipe?.nutrition_facts.carbs}g
+              </h3>
+              <p className='text-orange-500 font-bold'>Carbs</p>
+            </div>
+            <div>
+              <h3 className='font-semibold'>
+                {recipe?.nutrition_facts.protein}g
+              </h3>
+              <p className='text-orange-500 font-bold'>Protein</p>
+            </div>
+          </div>
+        </section>
       </section>
+      {/* Ingredients */}
       <section className='md:col-span-2'>
         <article>
           <h1 className='text-center text-3xl font-bold'>Ingredients</h1>
