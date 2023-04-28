@@ -47,6 +47,7 @@ export type RecipeType = {
     carbs: number;
     protein: number;
   };
+  equipment: string[];
 };
 
 export type MealOptionType = {

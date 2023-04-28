@@ -96,6 +96,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
   {
     id: 2,
@@ -138,6 +139,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
   {
     id: 3,
@@ -180,6 +182,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
   {
     id: 4,
@@ -222,6 +225,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
   {
     id: 5,
@@ -264,6 +268,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
   {
     id: 6,
@@ -306,6 +311,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
   {
     id: 7,
@@ -348,6 +354,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
   {
     id: 8,
@@ -390,6 +397,7 @@ export const recipes: RecipeType[] = [
       carbs: 17,
       protein: 2,
     },
+    equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
   },
 ];
 
