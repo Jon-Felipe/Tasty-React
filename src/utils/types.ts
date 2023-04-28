@@ -48,6 +48,7 @@ export type RecipeType = {
     protein: number;
   };
   equipment: string[];
+  recipeTips: string[];
 };
 
 export type MealOptionType = {

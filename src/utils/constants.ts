@@ -97,6 +97,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
   {
     id: 2,
@@ -140,6 +145,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
   {
     id: 3,
@@ -183,6 +193,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
   {
     id: 4,
@@ -226,6 +241,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
   {
     id: 5,
@@ -269,6 +289,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
   {
     id: 6,
@@ -312,6 +337,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
   {
     id: 7,
@@ -355,6 +385,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
   {
     id: 8,
@@ -398,6 +433,11 @@ export const recipes: RecipeType[] = [
       protein: 2,
     },
     equipment: ['Blender', 'Oven', 'Kettle', 'Microwave'],
+    recipeTips: [
+      'Fresh Tomatoes makes all the difference',
+      'Sharpen the knife before dicing',
+      'Mix it smoothly, not harsh',
+    ],
   },
 ];
 
