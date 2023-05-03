@@ -6,6 +6,7 @@ import { HeartIcon } from '@heroicons/react/24/outline';
 import { recipes } from '../utils/constants';
 import foodImg from '../assets/hero-img.jpg';
 import Star from '../components/Star';
+import RecipeDetails from '../components/Recipe/RecipeDetails';
 
 type Props = {
   value: number;
@@ -62,44 +63,14 @@ const SingleRecipe = () => {
           </section>
         </div>
         {/* recipe details */}
-        <section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 mt-2 bg-orange-100 px-4 py-2 rounded-lg'>
-          <div className='lg:border-r-2 lg:border-r-orange-500'>
-            <h3 className='font-semibold text-orange-500'>Prep Time:</h3>
-            <p className='text-sm font-medium capitalize'>
-              {recipe?.recipe_details.prep_time} mins
-            </p>
-          </div>
-          <div className='lg:border-r-2 lg:border-r-orange-500'>
-            <h3 className='font-semibold text-orange-500'>Cook Time:</h3>
-            <p className='text-sm font-medium capitalize'>
-              {recipe?.recipe_details.cook_time} mins
-            </p>
-          </div>
-          <div className='lg:border-r-2 lg:border-r-orange-500'>
-            <h3 className='font-semibold text-orange-500'>Additional Time:</h3>
-            <p className='text-sm font-medium capitalize'>
-              {recipe?.recipe_details.additional_time} mins
-            </p>
-          </div>
-          <div className='lg:border-r-2 lg:border-r-orange-500'>
-            <h3 className='font-semibold text-orange-500'>Total Time:</h3>
-            <p className='text-sm font-medium capitalize'>
-              {recipe?.recipe_details.total_time}
-            </p>
-          </div>
-          <div className='lg:border-r-2 lg:border-r-orange-500'>
-            <h3 className='font-semibold text-orange-500'>Servings:</h3>
-            <p className='text-sm font-medium capitalize'>
-              {recipe?.recipe_details.servings}
-            </p>
-          </div>
-          <div>
-            <h3 className='font-semibold text-orange-500'>Difficulty:</h3>
-            <p className='text-sm font-medium capitalize'>
-              {recipe?.recipe_details.difficulty}
-            </p>
-          </div>
-        </section>
+        <RecipeDetails
+          prep_time={recipe?.recipe_details.prep_time}
+          cook_time={recipe?.recipe_details.cook_time}
+          additional_time={recipe?.recipe_details.additional_time}
+          total_time={recipe?.recipe_details.total_time}
+          servings={recipe?.recipe_details.servings}
+          difficulty={recipe?.recipe_details.difficulty}
+        />
         <section className=''>
           {/* nutritional facts */}
           <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 flex-1 h-fit'>
