@@ -134,34 +134,36 @@ const SingleRecipe = () => {
               </div>
             </div>
           </article>
-          {/* equipment */}
-          <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4'>
-            <h1 className='text-3xl font-bold'>Equipment</h1>
-            <ul>
-              {recipe?.equipment.map((item, index) => (
-                <li
-                  key={index}
-                  className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
-          {/* recipe tips */}
-          <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4'>
-            <h1 className='text-3xl font-bold'>Recipe tips</h1>
-            <ul>
-              {recipe?.recipeTips.map((tip, index) => (
-                <li
-                  key={index}
-                  className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
-                >
-                  {tip}
-                </li>
-              ))}
-            </ul>
-          </article>
+          <div className='md:flex md:gap-x-4'>
+            {/* equipment */}
+            <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 w-full'>
+              <h1 className='text-3xl font-bold'>Equipment</h1>
+              <ul>
+                {recipe?.equipment.map((item, index) => (
+                  <li
+                    key={index}
+                    className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+            {/* recipe tips */}
+            <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 w-full'>
+              <h1 className='text-3xl font-bold'>Recipe tips</h1>
+              <ul>
+                {recipe?.recipeTips.map((tip, index) => (
+                  <li
+                    key={index}
+                    className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
+                  >
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
         </section>
       </section>
       <section className='md:col-span-2'>
