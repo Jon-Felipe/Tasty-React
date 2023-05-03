@@ -100,7 +100,8 @@ const SingleRecipe = () => {
             </p>
           </div>
         </section>
-        <section className='flex flex-col md:flex-row md:gap-4'>
+        <section className=''>
+          {/* nutritional facts */}
           <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 flex-1 h-fit'>
             <h1 className='text-3xl font-bold'>
               Nutrition Facts{' '}
@@ -143,6 +144,20 @@ const SingleRecipe = () => {
                   className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
                 >
                   {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+          {/* recipe tips */}
+          <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4'>
+            <h1 className='text-3xl font-bold'>Recipe tips</h1>
+            <ul>
+              {recipe?.recipeTips.map((tip, index) => (
+                <li
+                  key={index}
+                  className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
+                >
+                  {tip}
                 </li>
               ))}
             </ul>
