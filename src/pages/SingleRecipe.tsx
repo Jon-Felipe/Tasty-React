@@ -11,6 +11,7 @@ import NutritionFacts from '../components/Recipe/NutritionFacts';
 import Equipment from '../components/Recipe/Equipment';
 import Tips from '../components/Recipe/Tips';
 import Ingredients from '../components/Recipe/Ingredients';
+import Directions from '../components/Recipe/Directions';
 
 type Props = {
   value: number;
@@ -95,17 +96,7 @@ const SingleRecipe = () => {
         {/* Ingredients */}
         <Ingredients ingredients={recipe?.ingredients} />
         {/* Directions */}
-        <article className='mt-8'>
-          <h1 className='text-center text-3xl font-bold'>Directions</h1>
-          <ul>
-            {recipe?.directions.map((direction, i) => (
-              <li className='py-4'>
-                <h2 className='font-bold text-lg'>Step {i + 1}</h2>
-                <p>{direction}</p>
-              </li>
-            ))}
-          </ul>
-        </article>
+        <Directions directions={recipe?.directions} />
       </section>
     </article>
   );
