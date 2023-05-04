@@ -10,6 +10,7 @@ import RecipeDetails from '../components/Recipe/RecipeDetails';
 import NutritionFacts from '../components/Recipe/NutritionFacts';
 import Equipment from '../components/Recipe/Equipment';
 import Tips from '../components/Recipe/Tips';
+import Ingredients from '../components/Recipe/Ingredients';
 
 type Props = {
   value: number;
@@ -92,19 +93,7 @@ const SingleRecipe = () => {
       </section>
       <section className='md:col-span-2'>
         {/* Ingredients */}
-        <article>
-          <h1 className='text-center text-3xl font-bold'>Ingredients</h1>
-          <ul className='mx-8'>
-            {recipe?.ingredients.map((ingredient, i) => (
-              <li
-                key={i}
-                className='text-sm font-semibold list-disc py-4 border-b-2 border-b-orange-500'
-              >
-                {ingredient}
-              </li>
-            ))}
-          </ul>
-        </article>
+        <Ingredients ingredients={recipe?.ingredients} />
         {/* Directions */}
         <article className='mt-8'>
           <h1 className='text-center text-3xl font-bold'>Directions</h1>
