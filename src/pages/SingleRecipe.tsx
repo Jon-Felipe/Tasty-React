@@ -8,6 +8,7 @@ import foodImg from '../assets/hero-img.jpg';
 import Star from '../components/Star';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import NutritionFacts from '../components/Recipe/NutritionFacts';
+import Equipment from '../components/Recipe/Equipment';
 
 type Props = {
   value: number;
@@ -82,19 +83,7 @@ const SingleRecipe = () => {
           />
           <div className='md:flex md:gap-x-4'>
             {/* equipment */}
-            <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 w-full'>
-              <h1 className='text-3xl font-bold'>Equipment</h1>
-              <ul>
-                {recipe?.equipment.map((item, index) => (
-                  <li
-                    key={index}
-                    className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
+            <Equipment recipe={recipe} />
             {/* recipe tips */}
             <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 w-full'>
               <h1 className='text-3xl font-bold'>Recipe tips</h1>
