@@ -72,7 +72,7 @@ const SingleRecipe = () => {
           servings={recipe?.recipe_details.servings}
           difficulty={recipe?.recipe_details.difficulty}
         />
-        <section className=''>
+        <section>
           {/* nutritional facts */}
           <NutritionFacts
             calories={recipe?.nutrition_facts.calories}
