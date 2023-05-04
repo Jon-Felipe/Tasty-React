@@ -83,7 +83,7 @@ const SingleRecipe = () => {
           />
           <div className='md:flex md:gap-x-4'>
             {/* equipment */}
-            <Equipment recipe={recipe} />
+            <Equipment equipment={recipe?.equipment} />
             {/* recipe tips */}
             <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 w-full'>
               <h1 className='text-3xl font-bold'>Recipe tips</h1>
