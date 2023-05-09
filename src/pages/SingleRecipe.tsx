@@ -11,7 +11,6 @@ import Tips from '../components/Recipe/Tips';
 import Ingredients from '../components/Recipe/Ingredients';
 import Directions from '../components/Recipe/Directions';
 import RecipeCard from '../components/Recipe/RecipeCard';
-import Heading1 from '../components/UI/Heading1';
 
 // extras
 import { recipes } from '../utils/constants';
@@ -36,9 +35,7 @@ const SingleRecipe = () => {
             className='w-full h-[450px] rounded-xl object-cover'
           />
         </div>
-        <div className='my-2'>
-          <Heading1 text={recipe?.text} />
-        </div>
+        <h1 className='text-xl font-bold mt-2'>{recipe?.text}</h1>
         <div className='flex flex-col md:flex-row-reverse md:items-center md:justify-between'>
           <section className={`${flexRow} justify-between md:gap-2 lg:gap-4`}>
             <RecipeCard>
