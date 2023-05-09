@@ -1,12 +1,15 @@
 import React from 'react';
 
+// components
+import RecipeCard from './RecipeCard';
+
 type Props = {
   tips: string[] | undefined;
 };
 
 const Tips = ({ tips }: Props) => {
   return (
-    <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 w-full'>
+    <RecipeCard className='mt-4 w-full'>
       <h1 className='text-3xl font-bold'>Recipe tips</h1>
       <ul>
         {tips?.map((tip, index) => (
@@ -18,7 +21,7 @@ const Tips = ({ tips }: Props) => {
           </li>
         ))}
       </ul>
-    </article>
+    </RecipeCard>
   );
 };
 
