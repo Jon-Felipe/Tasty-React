@@ -35,7 +35,9 @@ const SingleRecipe = () => {
             className='w-full h-[450px] rounded-xl object-cover'
           />
         </div>
-        <h1 className='text-xl font-bold mt-2'>{recipe?.text}</h1>
+        <div className='my-2'>
+          <h1 className='text-xl md:text-3xl font-bold'>{recipe?.text}</h1>
+        </div>
         <div className='flex flex-col md:flex-row-reverse md:items-center md:justify-between'>
           <section className={`${flexRow} justify-between md:gap-2 lg:gap-4`}>
             <RecipeCard>
