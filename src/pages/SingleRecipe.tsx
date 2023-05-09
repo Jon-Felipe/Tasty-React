@@ -57,7 +57,7 @@ const SingleRecipe = () => {
             className={`${flexRow} justify-between md:gap-2 lg:gap-4 mt-2`}
           >
             <div>
-              <h3 className='text-sm font-bold'>{recipe?.author}</h3>
+              <h5 className='text-sm font-bold'>{recipe?.author}</h5>
               <p className={textOrangeMedium}>Followers: 1561</p>
             </div>
             <button className='border-2 border-orange-500 text-orange-500 text-sm font-semibold rounded-xl px-4 py-1'>
