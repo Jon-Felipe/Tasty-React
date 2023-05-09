@@ -20,6 +20,7 @@ type Props = {};
 
 const SingleRecipe = () => {
   const flexRow = 'flex items-center';
+  const textOrangeMedium = 'text-xs text-orange-500 font-medium';
 
   const { id } = useParams();
   const recipe = recipes.find((recipe) => recipe.id === Number(id));
@@ -38,13 +39,11 @@ const SingleRecipe = () => {
         <div className='flex flex-col md:flex-row-reverse md:items-center md:justify-between'>
           <section className={`${flexRow} justify-between md:gap-2 lg:gap-4`}>
             <RecipeCard>
-              <p className='text-xs text-orange-500 font-medium'>
-                {recipe?.reviews} reviews
-              </p>
+              <p className={textOrangeMedium}>{recipe?.reviews} reviews</p>
             </RecipeCard>
             <RecipeCard className={flexRow}>
               <Star value={recipe?.averate_rating} />
-              <p className='text-xs text-orange-500 font-medium'>
+              <p className={textOrangeMedium}>
                 {recipe?.averate_rating} ({recipe?.ratings})
               </p>
             </RecipeCard>
@@ -57,7 +56,7 @@ const SingleRecipe = () => {
           >
             <div>
               <h3 className='text-sm font-bold'>{recipe?.author}</h3>
-              <p className='text-xs text-orange-500'>Followers: 1561</p>
+              <p className={textOrangeMedium}>Followers: 1561</p>
             </div>
             <button className='border-2 border-orange-500 text-orange-500 text-sm font-semibold rounded-xl px-4 py-1'>
               Follow
