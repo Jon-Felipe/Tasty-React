@@ -2,9 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { HeartIcon } from '@heroicons/react/24/outline';
 
-// extras
-import { recipes } from '../utils/constants';
-import foodImg from '../assets/hero-img.jpg';
+// components
 import Star from '../components/Star';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import NutritionFacts from '../components/Recipe/NutritionFacts';
@@ -12,10 +10,13 @@ import Equipment from '../components/Recipe/Equipment';
 import Tips from '../components/Recipe/Tips';
 import Ingredients from '../components/Recipe/Ingredients';
 import Directions from '../components/Recipe/Directions';
+import RecipeCard from '../components/Recipe/RecipeCard';
 
-type Props = {
-  value: number;
-};
+// extras
+import { recipes } from '../utils/constants';
+import foodImg from '../assets/hero-img.jpg';
+
+type Props = {};
 
 const SingleRecipe = () => {
   const flexRow = 'flex items-center';
@@ -36,24 +37,20 @@ const SingleRecipe = () => {
         <h1 className='text-xl font-bold mt-2'>{recipe?.text}</h1>
         <div className='flex flex-col md:flex-row-reverse md:items-center md:justify-between'>
           <section className={`${flexRow} justify-between md:gap-2 lg:gap-4`}>
-            <div className='bg-orange-100 px-4 py-2 rounded-lg'>
+            <RecipeCard>
               <p className='text-xs text-orange-500 font-medium'>
                 {recipe?.reviews} reviews
               </p>
-            </div>
-            <div
-              className={`${flexRow} gap-1 bg-orange-100 px-4 py-2 rounded-lg`}
-            >
+            </RecipeCard>
+            <RecipeCard className={flexRow}>
               <Star value={recipe?.averate_rating} />
               <p className='text-xs text-orange-500 font-medium'>
                 {recipe?.averate_rating} ({recipe?.ratings})
               </p>
-            </div>
-            <div
-              className={`${flexRow} justify-center bg-orange-100 rounded-full h-10 w-10`}
-            >
-              <HeartIcon className='w-5 h-5 text-orange-500' />
-            </div>
+            </RecipeCard>
+            <button onClick={() => console.log('added to favourite')}>
+              <HeartIcon className='h-8 w-8 text-orange-500' />
+            </button>
           </section>
           <section
             className={`${flexRow} justify-between md:gap-2 lg:gap-4 mt-2`}
