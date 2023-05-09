@@ -66,15 +66,17 @@ const SingleRecipe = () => {
           </section>
         </div>
         {/* recipe details */}
-        <RecipeDetails
-          prep_time={recipe?.recipe_details.prep_time}
-          cook_time={recipe?.recipe_details.cook_time}
-          additional_time={recipe?.recipe_details.additional_time}
-          total_time={recipe?.recipe_details.total_time}
-          servings={recipe?.recipe_details.servings}
-          difficulty={recipe?.recipe_details.difficulty}
-        />
-        <section>
+        <div className='mt-4'>
+          <RecipeDetails
+            prep_time={recipe?.recipe_details.prep_time}
+            cook_time={recipe?.recipe_details.cook_time}
+            additional_time={recipe?.recipe_details.additional_time}
+            total_time={recipe?.recipe_details.total_time}
+            servings={recipe?.recipe_details.servings}
+            difficulty={recipe?.recipe_details.difficulty}
+          />
+        </div>
+        <section className='mt-4'>
           {/* nutritional facts */}
           <NutritionFacts
             calories={recipe?.nutrition_facts.calories}

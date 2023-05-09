@@ -1,5 +1,8 @@
 import React from 'react';
 
+// components
+import RecipeCard from './RecipeCard';
+
 type Props = {
   prep_time: number | undefined;
   cook_time: number | undefined;
@@ -33,7 +36,7 @@ const RecipeDetails = ({
   };
 
   return (
-    <section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 mt-2 bg-orange-100 px-4 py-2 rounded-lg'>
+    <RecipeCard className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4'>
       <RecipeItem title='Prep Time:' text={`${prep_time} mins`} borderR />
       <RecipeItem title='Cook Time:' text={`${cook_time} mins`} borderR />
       <RecipeItem
@@ -44,7 +47,7 @@ const RecipeDetails = ({
       <RecipeItem title='Total Time:' text={`${total_time} hrs`} borderR />
       <RecipeItem title='Servings:' text={`${servings}`} borderR />
       <RecipeItem title='Difficulty:' text={`${difficulty}`} />
-    </section>
+    </RecipeCard>
   );
 };
 

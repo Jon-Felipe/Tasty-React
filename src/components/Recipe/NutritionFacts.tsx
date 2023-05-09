@@ -1,5 +1,8 @@
 import React from 'react';
 
+// components
+import RecipeCard from './RecipeCard';
+
 type Props = {
   calories: number | undefined;
   fat: number | undefined;
@@ -23,7 +26,7 @@ const NutritionFacts = ({ calories, fat, carbs, protein }: Props) => {
   };
 
   return (
-    <article className='bg-orange-100 px-6 py-4 rounded-lg mt-4 flex-1 h-fit'>
+    <RecipeCard className='flex-1 h-fit'>
       <h1 className='text-3xl font-bold'>
         Nutrition Facts{' '}
         <span className='text-sm font-medium'>(per serving)</span>
@@ -34,7 +37,7 @@ const NutritionFacts = ({ calories, fat, carbs, protein }: Props) => {
         <NutritionItem title='Carbs' text={`${carbs}g`} />
         <NutritionItem title='Protein' text={`${protein}g`} />
       </div>
-    </article>
+    </RecipeCard>
   );
 };
 
