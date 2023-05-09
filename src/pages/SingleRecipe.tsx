@@ -82,11 +82,13 @@ const SingleRecipe = () => {
             carbs={recipe?.nutrition_facts.carbs}
             protein={recipe?.nutrition_facts.protein}
           />
-          <div className='md:flex md:gap-x-4'>
+          <div className='mt-4 md:flex md:gap-x-4'>
             {/* equipment */}
             <Equipment equipment={recipe?.equipment} />
             {/* recipe tips */}
-            <Tips tips={recipe?.recipeTips} />
+            <div className='mt-4 md:mt-0 w-full'>
+              <Tips tips={recipe?.recipeTips} />
+            </div>
           </div>
         </section>
       </section>

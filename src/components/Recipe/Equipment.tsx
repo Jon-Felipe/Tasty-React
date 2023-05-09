@@ -9,7 +9,7 @@ type Props = {
 
 const Equipment = ({ equipment }: Props) => {
   return (
-    <RecipeCard className='mt-4 w-full'>
+    <RecipeCard className='w-full'>
       <h1 className='text-3xl font-bold'>Equipment</h1>
       <ul>
         {equipment?.map((item, index) => (

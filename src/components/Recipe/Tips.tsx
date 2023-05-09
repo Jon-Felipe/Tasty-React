@@ -9,7 +9,7 @@ type Props = {
 
 const Tips = ({ tips }: Props) => {
   return (
-    <RecipeCard className='mt-4 w-full'>
+    <RecipeCard className='w-full'>
       <h1 className='text-3xl font-bold'>Recipe tips</h1>
       <ul>
         {tips?.map((tip, index) => (
