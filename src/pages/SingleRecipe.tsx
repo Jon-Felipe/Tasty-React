@@ -26,20 +26,18 @@ const SingleRecipe = () => {
   const recipe = recipes.find((recipe) => recipe.id === Number(id));
 
   return (
-    <article className='grid md:grid-cols-7 gap-4 lg:gap-12 max-w-screen-xl mx-auto'>
-      <section className='md:col-span-5'>
-        <div className='w-full overflow-hidden'>
-          <img
-            src={foodImg}
-            alt={recipe?.text}
-            className='w-full h-[450px] rounded-xl object-cover'
-          />
-        </div>
-        <div className='my-2'>
-          <h1 className='text-xl md:text-3xl font-bold'>{recipe?.text}</h1>
-        </div>
-        <div className='flex flex-col md:flex-row-reverse md:items-center md:justify-between'>
-          <section className={`${flexRow} justify-between md:gap-2 lg:gap-4`}>
+    <div className='flex flex-col md:flex-row md:gap-x-4 lg:gap-x-8 max-w-screen-xl mx-auto'>
+      <section className='md:basis-2/3 lg:basis-3/4'>
+        <img
+          src={foodImg}
+          alt={recipe?.text}
+          className='w-full object-cover rounded-lg max-h-[450px]'
+        />
+        <h3 className='text-xl md:text-2xl font-bold'>{recipe?.text}</h3>
+        <article className='mt-2.5 px-4 md:px-0 md:flex md:items-center md:justify-between'>
+          <section
+            className={`${flexRow} justify-between mt-2.5 md:order-2 md:gap-x-2 lg:gap-x-4`}
+          >
             <RecipeCard>
               <p className={textOrangeMedium}>{recipe?.reviews} reviews</p>
             </RecipeCard>
@@ -49,24 +47,25 @@ const SingleRecipe = () => {
                 {recipe?.averate_rating} ({recipe?.ratings})
               </p>
             </RecipeCard>
-            <button onClick={() => console.log('added to favourite')}>
-              <HeartIcon className='h-8 w-8 text-orange-500' />
+            <button>
+              <HeartIcon className='h-5 w-5 text-orange-500' />
             </button>
           </section>
+
           <section
-            className={`${flexRow} justify-between md:gap-2 lg:gap-4 mt-2`}
+            className={`${flexRow} justify-between mt-2.5 md:order-1 md:gap-x-2 lg:gap-x-4`}
           >
             <div>
               <h5 className='text-sm font-bold'>{recipe?.author}</h5>
               <p className={textOrangeMedium}>Followers: 1561</p>
             </div>
-            <button className='border-2 border-orange-500 text-orange-500 text-sm font-semibold rounded-xl px-4 py-1'>
+            <button className='border-2 border-orange-500 py-1 px-6 rounded-xl text-orange-500 font-semibold'>
               Follow
             </button>
           </section>
-        </div>
-        {/* recipe details */}
-        <div className='mt-4'>
+        </article>
+
+        <article className='mt-2.5 px-4 md:px-0'>
           <RecipeDetails
             prep_time={recipe?.recipe_details.prep_time}
             cook_time={recipe?.recipe_details.cook_time}
@@ -75,32 +74,32 @@ const SingleRecipe = () => {
             servings={recipe?.recipe_details.servings}
             difficulty={recipe?.recipe_details.difficulty}
           />
-        </div>
-        <section className='mt-4'>
-          {/* nutritional facts */}
+        </article>
+
+        <article className='mt-2.5 px-4 md:px-0'>
           <NutritionFacts
             calories={recipe?.nutrition_facts.calories}
             fat={recipe?.nutrition_facts.fat}
             carbs={recipe?.nutrition_facts.carbs}
             protein={recipe?.nutrition_facts.protein}
           />
-          <div className='mt-4 md:flex md:gap-x-4'>
-            {/* equipment */}
+        </article>
+
+        <section className='flex flex-col md:flex-row md:gap-x-2'>
+          <article className='mt-2.5 px-4 md:px-0 flex-1'>
             <Equipment equipment={recipe?.equipment} />
-            {/* recipe tips */}
-            <div className='mt-4 md:mt-0 w-full'>
-              <Tips tips={recipe?.recipeTips} />
-            </div>
-          </div>
+          </article>
+          <article className='mt-2.5 px-4 md:px-0 flex-1'>
+            <Tips tips={recipe?.recipeTips} />
+          </article>
         </section>
       </section>
-      <section className='md:col-span-2'>
-        {/* Ingredients */}
+
+      <section className='mt-2.5 md:mt-0 px-4 md:px-0 md:basis-1/3 lg:basis-1/4'>
         <Ingredients ingredients={recipe?.ingredients} />
-        {/* Directions */}
         <Directions directions={recipe?.directions} />
       </section>
-    </article>
+    </div>
   );
 };
 
