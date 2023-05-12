@@ -62,38 +62,12 @@ const SingleRecipe = () => {
             </button>
           </div>
         </section>
-        <section className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4'>
-          <div className='border-r-2 border-orange-500'>
-            <h4 className='text-sm font-extrabold text-orange-500'>
-              Prep Time:
-            </h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipe_details.prep_time} mins
-            </p>
-          </div>
-          <div className='border-r-2 border-orange-500'>
-            <h4 className='text-sm font-extrabold text-orange-500'>
-              Cook Time:
-            </h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipe_details.cook_time} mins
-            </p>
-          </div>
-          <div className='border-r-2 border-orange-500'>
-            <h4 className='text-sm font-extrabold text-orange-500'>
-              Total Time:
-            </h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipe_details.total_time} hrs
-            </p>
-          </div>
-          <div>
-            <h4 className='text-sm font-extrabold text-orange-500'>Serves: </h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipe_details.servings}
-            </p>
-          </div>
-        </section>
+        <RecipeDetails
+          prep_time={recipe?.recipe_details.prep_time}
+          cook_time={recipe?.recipe_details.cook_time}
+          total_time={recipe?.recipe_details.total_time}
+          servings={recipe?.recipe_details.servings}
+        />
       </section>
 
       <section className='basis-1/3'>
