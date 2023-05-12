@@ -6,7 +6,7 @@ type Props = {
 
 const Directions = ({ directions }: Props) => {
   return (
-    <article className='mt-8'>
+    <div className='mt-8'>
       <h1 className='text-center text-3xl font-bold'>Directions</h1>
       <ul>
         {directions?.map((direction, i) => (
@@ -16,7 +16,7 @@ const Directions = ({ directions }: Props) => {
           </li>
         ))}
       </ul>
-    </article>
+    </div>
   );
 };
 

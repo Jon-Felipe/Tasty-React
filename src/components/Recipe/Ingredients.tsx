@@ -6,7 +6,7 @@ type Props = {
 
 const Ingredients = ({ ingredients }: Props) => {
   return (
-    <article>
+    <div>
       <h1 className='text-center text-3xl font-bold'>Ingredients</h1>
       <ul className='mx-8'>
         {ingredients?.map((ingredient, i) => (
@@ -18,7 +18,7 @@ const Ingredients = ({ ingredients }: Props) => {
           </li>
         ))}
       </ul>
-    </article>
+    </div>
   );
 };
 
