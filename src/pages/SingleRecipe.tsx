@@ -43,9 +43,7 @@ const SingleRecipe = () => {
             </RecipeCard>
             <RecipeCard className={flexRow}>
               <Star value={recipe?.averate_rating} />
-              <p className={textOrangeMedium}>
-                {recipe?.averate_rating} ({recipe?.ratings})
-              </p>
+              <p className={textOrangeMedium}>({recipe?.ratings})</p>
             </RecipeCard>
             <button>
               <HeartIcon className='h-5 w-5 text-orange-500' />
