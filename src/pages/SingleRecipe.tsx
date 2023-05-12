@@ -20,84 +20,87 @@ type Props = {};
 
 const SingleRecipe = () => {
   const flexRow = 'flex items-center';
-  const textOrangeMedium = 'text-xs text-orange-500 font-medium';
 
   const { id } = useParams();
   const recipe = recipes.find((recipe) => recipe.id === Number(id));
 
   return (
-    <div className='flex flex-col md:flex-row md:gap-x-4 lg:gap-x-8 max-w-screen-xl mx-auto'>
-      <section className='md:basis-2/3 lg:basis-3/4'>
+    <article className='flex flex-col md:flex-row gap-4 max-w-screen-xl mx-auto'>
+      <section className='basis-2/3'>
         <img
           src={foodImg}
           alt={recipe?.text}
-          className='w-full object-cover rounded-lg max-h-[450px]'
+          className='w-full object-cover h-[400px] rounded-xl'
         />
-        <h3 className='text-xl md:text-2xl font-bold'>{recipe?.text}</h3>
-        <article className='mt-2.5 px-4 md:px-0 md:flex md:items-center md:justify-between'>
-          <section
-            className={`${flexRow} justify-between mt-2.5 md:order-2 md:gap-x-2 lg:gap-x-4`}
-          >
-            <RecipeCard>
-              <p className={textOrangeMedium}>{recipe?.reviews} reviews</p>
-            </RecipeCard>
-            <RecipeCard className={flexRow}>
-              <Star value={recipe?.averate_rating} />
-              <p className={textOrangeMedium}>({recipe?.ratings})</p>
-            </RecipeCard>
-            <button>
-              <HeartIcon className='h-5 w-5 text-orange-500' />
-            </button>
-          </section>
-
-          <section
-            className={`${flexRow} justify-between mt-2.5 md:order-1 md:gap-x-2 lg:gap-x-4`}
-          >
+        <section className='mt-2'>
+          <h3 className='text-3xl font-semibold tracking-tighter'>
+            {recipe?.text}
+          </h3>
+          <p className='text-sm font-normal'>{recipe?.description}</p>
+        </section>
+        <section className={`${flexRow} justify-between mt-2`}>
+          <div className={`${flexRow} gap-x-4`}>
             <div>
-              <h5 className='text-sm font-bold'>{recipe?.author}</h5>
-              <p className={textOrangeMedium}>Followers: 1561</p>
+              <h5 className='text-sm font-semibold'>{recipe?.author}</h5>
+              <p className='text-xs font-semibold text-orange-500'>
+                Followers: 1561
+              </p>
             </div>
-            <button className='border-2 border-orange-500 py-1 px-6 rounded-xl text-orange-500 font-semibold'>
+            <button className='border-2 border-orange-500 rounded-xl py-1 px-6 text-sm font-semibold text-orange-500'>
               Follow
             </button>
-          </section>
-        </article>
-
-        <article className='mt-2.5 px-4 md:px-0'>
-          <RecipeDetails
-            prep_time={recipe?.recipe_details.prep_time}
-            cook_time={recipe?.recipe_details.cook_time}
-            additional_time={recipe?.recipe_details.additional_time}
-            total_time={recipe?.recipe_details.total_time}
-            servings={recipe?.recipe_details.servings}
-            difficulty={recipe?.recipe_details.difficulty}
-          />
-        </article>
-
-        <article className='mt-2.5 px-4 md:px-0'>
-          <NutritionFacts
-            calories={recipe?.nutrition_facts.calories}
-            fat={recipe?.nutrition_facts.fat}
-            carbs={recipe?.nutrition_facts.carbs}
-            protein={recipe?.nutrition_facts.protein}
-          />
-        </article>
-
-        <section className='flex flex-col md:flex-row md:gap-x-2'>
-          <article className='mt-2.5 px-4 md:px-0 flex-1'>
-            <Equipment equipment={recipe?.equipment} />
-          </article>
-          <article className='mt-2.5 px-4 md:px-0 flex-1'>
-            <Tips tips={recipe?.recipeTips} />
-          </article>
+          </div>
+          <div className={`${flexRow} gap-x-2.5`}>
+            <div className={`${flexRow}`}>
+              <Star value={recipe?.averate_rating} />
+              <p className='text-xs font-bold text-orange-500'>
+                ({recipe?.ratings})
+              </p>
+            </div>
+            <button>
+              <HeartIcon className='w-5 h-5 text-orange-500' />
+            </button>
+          </div>
+        </section>
+        <section className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4'>
+          <div className='border-r-2 border-orange-500'>
+            <h4 className='text-sm font-extrabold text-orange-500'>
+              Prep Time:
+            </h4>
+            <p className='text-sm font-semibold'>
+              {recipe?.recipe_details.prep_time} mins
+            </p>
+          </div>
+          <div className='border-r-2 border-orange-500'>
+            <h4 className='text-sm font-extrabold text-orange-500'>
+              Cook Time:
+            </h4>
+            <p className='text-sm font-semibold'>
+              {recipe?.recipe_details.cook_time} mins
+            </p>
+          </div>
+          <div className='border-r-2 border-orange-500'>
+            <h4 className='text-sm font-extrabold text-orange-500'>
+              Total Time:
+            </h4>
+            <p className='text-sm font-semibold'>
+              {recipe?.recipe_details.total_time} hrs
+            </p>
+          </div>
+          <div>
+            <h4 className='text-sm font-extrabold text-orange-500'>Serves: </h4>
+            <p className='text-sm font-semibold'>
+              {recipe?.recipe_details.servings}
+            </p>
+          </div>
         </section>
       </section>
 
-      <section className='mt-2.5 md:mt-0 px-4 md:px-0 md:basis-1/3 lg:basis-1/4'>
+      <section className='basis-1/3'>
         <Ingredients ingredients={recipe?.ingredients} />
         <Directions directions={recipe?.directions} />
       </section>
-    </div>
+    </article>
   );
 };
 
