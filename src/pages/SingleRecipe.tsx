@@ -70,6 +70,30 @@ const SingleRecipe = () => {
           <RecipeTips recipeTips={recipe?.recipeTips} />
           <Equipment equipment={recipe?.equipment} />
         </section>
+        <section className='mt-2 bg-orange-50 rounded-xl py-4 px-8'>
+          <h3 className='text-2xl font-bold'>
+            Nutritional Facts{' '}
+            <span className='text-sm font-medium'>(per serving)</span>
+          </h3>
+          <div className='flex items-center justify-between bg-white px-6 py-2 rounded-xl mt-2'>
+            <div>
+              <h3 className='font-bold'>{recipe?.nutrition_facts.calories}</h3>
+              <p className='text-orange-500 font-medium'>Calories</p>
+            </div>
+            <div>
+              <h3 className='font-bold'>{recipe?.nutrition_facts.fat}g</h3>
+              <p className='text-orange-500 font-medium'>Fat</p>
+            </div>
+            <div>
+              <h3 className='font-bold'>{recipe?.nutrition_facts.carbs}g</h3>
+              <p className='text-orange-500 font-medium'>Carbs</p>
+            </div>
+            <div>
+              <h3 className='font-bold'>{recipe?.nutrition_facts.protein}g</h3>
+              <p className='text-orange-500 font-medium'>Protein</p>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section className='basis-1/3'>
