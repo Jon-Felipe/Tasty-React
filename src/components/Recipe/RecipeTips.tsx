@@ -4,7 +4,7 @@ type Props = {
   recipeTips: string[] | undefined;
 };
 
-const Tips = ({ recipeTips }: Props) => {
+const RecipeTips = ({ recipeTips }: Props) => {
   return (
     <article className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
       <h3 className='text-2xl font-bold'>Recipe Tips</h3>
@@ -21,4 +21,4 @@ const Tips = ({ recipeTips }: Props) => {
   );
 };
 
-export default Tips;
+export default RecipeTips;

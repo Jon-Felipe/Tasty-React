@@ -7,7 +7,7 @@ import Star from '../components/Star';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import NutritionFacts from '../components/Recipe/NutritionFacts';
 import Equipment from '../components/Recipe/Equipment';
-import Tips from '../components/Recipe/Tips';
+import RecipeTips from '../components/Recipe/RecipeTips';
 import Ingredients from '../components/Recipe/Ingredients';
 import Directions from '../components/Recipe/Directions';
 import RecipeCard from '../components/Recipe/RecipeCard';
@@ -69,7 +69,7 @@ const SingleRecipe = () => {
           servings={recipe?.recipe_details.servings}
         />
         <section className='flex flex-col lg:flex-row gap-4 lg:gap-4 mt-4'>
-          <Tips recipeTips={recipe?.recipeTips} />
+          <RecipeTips recipeTips={recipe?.recipeTips} />
 
           <section className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
             <h3 className='text-2xl font-bold'>Equipment</h3>
