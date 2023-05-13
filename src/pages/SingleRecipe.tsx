@@ -9,6 +9,7 @@ import Equipment from '../components/Recipe/Equipment';
 import RecipeTips from '../components/Recipe/RecipeTips';
 import Ingredients from '../components/Recipe/Ingredients';
 import Directions from '../components/Recipe/Directions';
+import NutritionalFacts from '../components/Recipe/NutritionalFacts';
 
 // extras
 import { recipes } from '../utils/constants';
