@@ -69,18 +69,7 @@ const SingleRecipe = () => {
           servings={recipe?.recipe_details.servings}
         />
         <section className='flex flex-col lg:flex-row gap-4 lg:gap-4 mt-4'>
-          <section className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
-            <h3 className='text-2xl font-bold'>Recipe Tips</h3>
-            <ul className='bg-white px-6 py-4 rounded-xl mt-4'>
-              {recipe?.recipeTips.map((tip, index) => {
-                return (
-                  <li key={index} className='list-disc mx-4'>
-                    {tip}
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
+          <Tips recipeTips={recipe?.recipeTips} />
 
           <section className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
             <h3 className='text-2xl font-bold'>Equipment</h3>

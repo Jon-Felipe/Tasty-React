@@ -1,27 +1,23 @@
 import React from 'react';
 
-// components
-import RecipeCard from './RecipeCard';
-
 type Props = {
-  tips: string[] | undefined;
+  recipeTips: string[] | undefined;
 };
 
-const Tips = ({ tips }: Props) => {
+const Tips = ({ recipeTips }: Props) => {
   return (
-    <RecipeCard className='w-full'>
-      <h1 className='text-3xl font-bold'>Recipe tips</h1>
-      <ul>
-        {tips?.map((tip, index) => (
-          <li
-            key={index}
-            className='py-2 px-4 bg-white rounded-lg my-4 text-sm font-bold'
-          >
-            {tip}
-          </li>
-        ))}
+    <article className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
+      <h3 className='text-2xl font-bold'>Recipe Tips</h3>
+      <ul className='bg-white px-6 py-4 rounded-xl mt-4'>
+        {recipeTips?.map((tip, index) => {
+          return (
+            <li key={index} className='list-disc mx-4'>
+              {tip}
+            </li>
+          );
+        })}
       </ul>
-    </RecipeCard>
+    </article>
   );
 };
 
