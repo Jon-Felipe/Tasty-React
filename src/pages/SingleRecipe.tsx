@@ -5,7 +5,6 @@ import { HeartIcon } from '@heroicons/react/24/outline';
 // components
 import Star from '../components/Star';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
-import NutritionFacts from '../components/Recipe/NutritionFacts';
 import Equipment from '../components/Recipe/Equipment';
 import RecipeTips from '../components/Recipe/RecipeTips';
 import Ingredients from '../components/Recipe/Ingredients';
