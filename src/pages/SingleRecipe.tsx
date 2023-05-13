@@ -68,6 +68,36 @@ const SingleRecipe = () => {
           total_time={recipe?.recipe_details.total_time}
           servings={recipe?.recipe_details.servings}
         />
+        <section className='flex flex-col lg:flex-row gap-4 lg:gap-4 mt-4'>
+          <section className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
+            <h3 className='text-2xl font-bold'>Recipe Tips</h3>
+            <ul className='bg-white px-6 py-4 rounded-xl mt-4'>
+              {recipe?.recipeTips.map((tip, index) => {
+                return (
+                  <li key={index} className='list-disc mx-4'>
+                    {tip}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+
+          <section className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
+            <h3 className='text-2xl font-bold'>Equipment</h3>
+            <ul className='grid grid-cols-2 gap-4 mt-4'>
+              {recipe?.equipment.map((equipment, index) => {
+                return (
+                  <li
+                    key={index}
+                    className='bg-white px-4 py-2.5 rounded-xl text-center font-semibold text-orange-500'
+                  >
+                    {equipment}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        </section>
       </section>
 
       <section className='basis-1/3'>
