@@ -486,3 +486,26 @@ export const mealsFilters: MealOptionType[] = [
     text: 'desserts',
   },
 ];
+
+export const ingredientsFilters: MealOptionType[] = [
+  {
+    id: 1,
+    text: 'Pork',
+  },
+  {
+    id: 2,
+    text: 'Pasta',
+  },
+  {
+    id: 3,
+    text: 'Beef',
+  },
+  {
+    id: 4,
+    text: 'Chicken',
+  },
+  {
+    id: 5,
+    text: 'Fish',
+  },
+];
