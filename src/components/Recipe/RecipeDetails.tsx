@@ -33,7 +33,7 @@ const RecipeDetails = ({
   };
 
   return (
-    <div className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4'>
+    <article className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4'>
       <RecipeDetailsItem
         text='Prep Time:'
         recipeItem={`${prep_time} mins`}
@@ -50,7 +50,7 @@ const RecipeDetails = ({
         borderR
       />
       <RecipeDetailsItem text='Serves:' recipeItem={`${servings}`} />
-    </div>
+    </article>
   );
 };
 
