@@ -2,6 +2,7 @@ import React from 'react';
 import heroImg from '../assets/hero-img.jpg';
 import {
   cuisineFilters,
+  ingredientsFilters,
   mealsFilters,
   recipeCategories,
   recipes,
@@ -61,6 +62,7 @@ const Home = (props: Props) => {
           <section>
             <Accordion headerText='Cuisine' options={cuisineFilters} />
             <Accordion headerText='Meals' options={mealsFilters} />
+            <Accordion headerText='Ingredients' options={ingredientsFilters} />
           </section>
           <RecipeList recipes={recipes} />
         </article>
