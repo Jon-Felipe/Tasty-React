@@ -60,7 +60,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 3.5,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
@@ -108,7 +108,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 1,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
@@ -156,7 +156,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 5,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
@@ -204,7 +204,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 4.5,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
@@ -252,7 +252,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 4,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
@@ -300,7 +300,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 1.5,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
@@ -348,7 +348,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 2,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
@@ -396,7 +396,7 @@ export const recipes: RecipeType[] = [
     text: 'Seven Layer Bars',
     description:
       'These 7 layer bars are easy to make, and very rich. You can use different kinds of chips (vanilla or peanut butter) to suit your taste.',
-    averate_rating: 3,
+    averate_rating: 5,
     ratings: 662,
     reviews: 483,
     author: 'P.Tindall',
