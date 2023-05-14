@@ -11,6 +11,7 @@ import { setToLocalStorage } from '../utils/helpers';
 type Props = {};
 
 const initialValues: RegisterType = {
+  name: '',
   email: '',
   password: '',
   confirmPassword: '',
@@ -62,6 +63,15 @@ const Register = (props: Props) => {
               Create an account
             </h1>
             <form className='space-y-4 md:space-y-6' onSubmit={handleSubmit}>
+              <FormRow
+                type='text'
+                name='name'
+                value={values.name}
+                handleChange={handleChange}
+                labelText='Your name'
+                placeholder='John Doe'
+                required
+              />
               <FormRow
                 type='email'
                 name='email'
