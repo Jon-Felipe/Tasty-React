@@ -30,9 +30,14 @@ const Register = (props: Props) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { email, password, confirmPassword } = values;
+    const { name, email, password, confirmPassword } = values;
 
-    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
+    if (
+      !name.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !confirmPassword.trim()
+    ) {
       alert('Please fill in all fields');
       return;
     }
@@ -44,13 +49,13 @@ const Register = (props: Props) => {
 
     setToLocalStorage({
       key: 'user',
-      value: JSON.stringify({ email, password }),
+      value: JSON.stringify({ name, email, password }),
     });
   };
 
   return (
     <section>
-      <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0'>
+      <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-fit lg:py-0'>
         <Link
           to='/'
           className='flex items-center mb-6 text-2xl font-semibold text-gray-900'
