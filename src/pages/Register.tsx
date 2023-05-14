@@ -5,6 +5,9 @@ import { RegisterType } from '../utils/types';
 // components
 import FormRow from '../components/FormRow';
 
+// helpers
+import { setToLocalStorage } from '../utils/helpers';
+
 type Props = {};
 
 const initialValues: RegisterType = {
@@ -37,6 +40,11 @@ const Register = (props: Props) => {
       alert('Passwords do not match');
       return;
     }
+
+    setToLocalStorage({
+      key: 'user',
+      value: JSON.stringify({ email, password }),
+    });
   };
 
   return (
