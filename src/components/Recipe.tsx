@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { StarIcon } from '@heroicons/react/24/outline';
 import foodImg from '../assets/hero-img.jpg';
 import Star from './Star';
 
