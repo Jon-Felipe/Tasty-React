@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/24/outline';
 import foodImg from '../assets/hero-img.jpg';
+import Star from './Star';
 
 type Props = {
   id: number;
@@ -25,7 +26,7 @@ const Recipe = ({ id, text, image, averageRating, author }: Props) => {
           <div className='flex items-center justify-between mt-0.5'>
             <p className='text-sm text-orange-400 font-semibold'>By {author}</p>
             <div className='flex items-center justify-center gap-1'>
-              <StarIcon className='w-4 h-4 text-orange-400' />
+              <Star value={averageRating} color='orange' />
               <p className='text-orange-400 text-sm font-semibold'>
                 {averageRating}
               </p>
