@@ -7,6 +7,7 @@ export const setToLocalStorage = ({ key, value }: StorageType) => {
   localStorage.setItem(key, value);
 };
 
-export const getFromLocalStorage = ({ key }: StorageType) => {
-  localStorage.getItem(key);
+export const getFromLocalStorage = (key: string) => {
+  const item = localStorage.getItem(key);
+  return JSON.parse(item!);
 };
