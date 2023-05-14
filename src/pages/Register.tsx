@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RegisterType } from '../utils/types';
 
 // components
@@ -19,6 +19,8 @@ const initialValues: RegisterType = {
 
 const Register = (props: Props) => {
   const [values, setValues] = useState<RegisterType>(initialValues);
+
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -51,6 +53,7 @@ const Register = (props: Props) => {
       key: 'user',
       value: JSON.stringify({ name, email, password }),
     });
+    navigate('/');
   };
 
   return (
