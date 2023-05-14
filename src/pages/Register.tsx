@@ -25,6 +25,18 @@ const Register = (props: Props) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const { email, password, confirmPassword } = values;
+
+    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    if (password.trim() !== confirmPassword.trim()) {
+      alert('Passwords do not match');
+      return;
+    }
   };
 
   return (
