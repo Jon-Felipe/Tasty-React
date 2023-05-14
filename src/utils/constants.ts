@@ -38,11 +38,11 @@ export const recipeCategories: RecipeCategoryType[] = [
   },
   {
     id: 4,
-    text: 'desserts',
+    text: 'dessert',
   },
   {
     id: 5,
-    text: 'smoothies',
+    text: 'smoothy',
   },
   {
     id: 6,
@@ -51,6 +51,10 @@ export const recipeCategories: RecipeCategoryType[] = [
   {
     id: 7,
     text: 'meaty',
+  },
+  {
+    id: 8,
+    text: 'lamb',
   },
 ];
 
