@@ -7,14 +7,13 @@ import {
   recipeCategories,
   recipes,
 } from '../utils/constants';
-import { RecipeCategoryType } from '../utils/types';
 
 // components
 import Search from '../components/Search';
 import Sort from '../components/Sort';
-import RecipeCategory from '../components/RecipeCategory';
 import Accordion from '../components/Accordion';
 import RecipeList from '../components/RecipeList';
+import RecipeCategories from '../components/RecipeCategories';
 
 type Props = {};
 
@@ -41,16 +40,7 @@ const Home = (props: Props) => {
       </article>
 
       {/* recipe categories */}
-      <article>
-        <h3 className='text-3xl font-bold text-orange-500 tracking-wide underline mb-4'>
-          Popular Categories
-        </h3>
-        <section className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 place-items-start gap-2'>
-          {recipeCategories.map((category: RecipeCategoryType) => {
-            return <RecipeCategory key={category.id} text={category.text} />;
-          })}
-        </section>
-      </article>
+      <RecipeCategories categories={recipeCategories} />
 
       {/* recipe filters and list of recipes */}
       <article>
