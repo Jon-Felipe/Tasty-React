@@ -28,7 +28,9 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
             {user?.name ? (
               <div className='flex items-center gap-x-2'>
                 <p className='text-sm font-semibold'>Welcome {user?.name}</p>
-                <UserCircleIcon className='w-6 h-6' />
+                <Link to='/profile'>
+                  <UserCircleIcon className='w-6 h-6' />
+                </Link>
               </div>
             ) : (
               <>
