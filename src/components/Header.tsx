@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bars3Icon } from '@heroicons/react/24/outline';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
+import { Bars3Icon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { navLinks } from '../utils/constants';
 import { NavlinksType } from '../utils/types';
 
@@ -13,6 +15,8 @@ type Props = {
 };
 
 const Header = ({ showLinks, setShowLinks }: Props) => {
+  const { user } = useSelector((state: RootState) => state.user);
+
   return (
     <header>
       <nav className='bg-white px-4 lg:px-6 py-2 lg:py-4 shadow'>
@@ -21,18 +25,27 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
             Tasty Recipes
           </h1>
           <div className='flex items-center lg:order-2'>
-            <Link
-              to='/register'
-              className='text-white bg-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
-            >
-              Sign up
-            </Link>
-            <Link
-              to='/login'
-              className='text-orange-500 border-2 border-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
-            >
-              Log in
-            </Link>
+            {user?.name ? (
+              <div className='flex items-center gap-x-2'>
+                <p className='text-sm font-semibold'>Welcome {user?.name}</p>
+                <UserCircleIcon className='w-6 h-6' />
+              </div>
+            ) : (
+              <>
+                <Link
+                  to='/register'
+                  className='text-white bg-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
+                >
+                  Sign up
+                </Link>
+                <Link
+                  to='/login'
+                  className='text-orange-500 border-2 border-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
+                >
+                  Log in
+                </Link>
+              </>
+            )}
             <button
               type='button'
               onClick={() => setShowLinks(!showLinks)}

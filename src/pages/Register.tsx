@@ -7,9 +7,6 @@ import { RegisterType } from '../utils/types';
 // components
 import FormRow from '../components/FormRow';
 
-// helpers
-import { setToLocalStorage } from '../utils/helpers';
-
 type Props = {};
 
 const initialValues: RegisterType = {

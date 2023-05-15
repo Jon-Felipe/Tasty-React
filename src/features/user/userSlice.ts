@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 // helpers
-import { setToLocalStorage } from '../../utils/helpers';
+import { setToLocalStorage, getFromLocalStorage } from '../../utils/helpers';
 
 export interface UserState {
   user: {
@@ -12,10 +12,7 @@ export interface UserState {
 }
 
 const initialState: UserState = {
-  user: {
-    name: '',
-    email: '',
-  },
+  user: getFromLocalStorage('user'),
 };
 
 export const userSlice = createSlice({
