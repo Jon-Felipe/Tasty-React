@@ -8,8 +8,9 @@ export const setToLocalStorage = ({ key, value }: StorageType) => {
 };
 
 export const getFromLocalStorage = (key: string) => {
-  const item = localStorage.getItem(key);
-  return JSON.parse(item!);
+  const result = localStorage.getItem(key);
+  const item = result ? JSON.parse(result) : null;
+  return item;
 };
 
 export const removeFromLocalStorage = (key: string) => {
