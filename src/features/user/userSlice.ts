@@ -8,7 +8,7 @@ export interface UserState {
   user: {
     name: string;
     email: string;
-  };
+  } | null;
 }
 
 const initialState: UserState = {
@@ -24,9 +24,12 @@ export const userSlice = createSlice({
       state.user = user;
       setToLocalStorage({ key: 'user', value: JSON.stringify(user) });
     },
+    logoutUser: (state) => {
+      state.user = null;
+    },
   },
 });
 
-export const { registerUser } = userSlice.actions;
+export const { registerUser, logoutUser } = userSlice.actions;
 
 export default userSlice.reducer;

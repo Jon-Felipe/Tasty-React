@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
+import { logoutUser } from '../features/user/userSlice';
 import {
   Bars3Icon,
   UserCircleIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/react/24/outline';
+
+// helpers
 import { navLinks } from '../utils/constants';
 import { NavlinksType } from '../utils/types';
 
@@ -19,6 +22,7 @@ type Props = {
 };
 
 const Header = ({ showLinks, setShowLinks }: Props) => {
+  const dispatch = useDispatch();
   const { user } = useSelector((state: RootState) => state.user);
 
   return (
@@ -35,7 +39,11 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
                   <UserCircleIcon className='w-6 h-6' />
                   <p>My Profile</p>
                 </Link>
-                <button type='button' className='flex items-center gap-x-1'>
+                <button
+                  type='button'
+                  className='flex items-center gap-x-1'
+                  onClick={() => dispatch(logoutUser())}
+                >
                   <ArrowLeftOnRectangleIcon className='w-6 h-6' />
                   <p>Logout</p>
                 </button>
