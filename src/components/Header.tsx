@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
-import { Bars3Icon, UserCircleIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  UserCircleIcon,
+  ArrowLeftOnRectangleIcon,
+} from '@heroicons/react/24/outline';
 import { navLinks } from '../utils/constants';
 import { NavlinksType } from '../utils/types';
 
@@ -26,11 +30,15 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
           </h1>
           <div className='flex items-center lg:order-2'>
             {user?.name ? (
-              <div className='flex items-center gap-x-2'>
-                <p className='text-sm font-semibold'>Welcome {user?.name}</p>
-                <Link to='/profile'>
+              <div className='flex items-center gap-x-4'>
+                <Link to='/profile' className='flex items-center gap-x-1'>
                   <UserCircleIcon className='w-6 h-6' />
+                  <p>My Profile</p>
                 </Link>
+                <button type='button' className='flex items-center gap-x-1'>
+                  <ArrowLeftOnRectangleIcon className='w-6 h-6' />
+                  <p>Logout</p>
+                </button>
               </div>
             ) : (
               <>
