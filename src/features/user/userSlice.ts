@@ -2,7 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 // helpers
-import { setToLocalStorage, getFromLocalStorage } from '../../utils/helpers';
+import {
+  setToLocalStorage,
+  getFromLocalStorage,
+  removeFromLocalStorage,
+} from '../../utils/helpers';
 
 export interface UserState {
   user: {
@@ -26,6 +30,7 @@ export const userSlice = createSlice({
     },
     logoutUser: (state) => {
       state.user = null;
+      removeFromLocalStorage('user');
     },
   },
 });
