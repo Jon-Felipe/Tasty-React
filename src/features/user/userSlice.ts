@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
+// helpers
+import { setToLocalStorage } from '../../utils/helpers';
+
 export interface UserState {
   user: {
     name: string;
     email: string;
-    password: string;
   };
 }
 
@@ -13,16 +15,21 @@ const initialState: UserState = {
   user: {
     name: '',
     email: '',
-    password: '',
   },
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    registerUser: (state, action: PayloadAction<UserState>) => {
+      const { user } = action.payload;
+      state.user = user;
+      setToLocalStorage({ key: 'user', value: JSON.stringify(user) });
+    },
+  },
 });
 
-export const {} = userSlice.actions;
+export const { registerUser } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../features/user/userSlice';
 import { RegisterType } from '../utils/types';
 
 // components
@@ -20,6 +22,7 @@ const initialValues: RegisterType = {
 const Register = (props: Props) => {
   const [values, setValues] = useState<RegisterType>(initialValues);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,10 +52,7 @@ const Register = (props: Props) => {
       return;
     }
 
-    setToLocalStorage({
-      key: 'user',
-      value: JSON.stringify({ name, email, password }),
-    });
+    dispatch(registerUser({ user: { name, email } }));
     navigate('/');
   };
 
