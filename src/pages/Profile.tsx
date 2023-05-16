@@ -7,7 +7,7 @@ type Props = {};
 
 const Profile = (props: Props) => {
   return (
-    <article className='max-w-screen-xl mx-auto py-2 md:py-10'>
+    <article className='max-w-screen-xl mx-auto py-2'>
       <h1 className='text-4xl font-bold'>My Profile</h1>
       <p className='text-sm text-gray-400 font-medium'>
         Details about your Personal Information
