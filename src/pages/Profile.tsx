@@ -2,6 +2,7 @@ import React from 'react';
 
 // components
 import UpdateProfileForm from '../components/Profile/UpdateProfileForm';
+import ProfileLinkButtons from '../components/Profile/ProfileLinkButtons';
 
 type Props = {};
 
@@ -13,20 +14,7 @@ const Profile = (props: Props) => {
         Details about your Personal Information
       </p>
       <div className='flex flex-col md:flex-row gap-4 mt-2 md:mt-4'>
-        <section className='basis-1/4 flex flex-col gap-y-4'>
-          <button className='block border p-4 shadow rounded'>
-            View My Information
-          </button>
-          <button className='block border p-4 shadow rounded'>
-            My Recipes
-          </button>
-          <button className='block border p-4 shadow rounded'>
-            Favourited Recipes
-          </button>
-          <button className='block border p-4 shadow rounded bg-red-500 text-white'>
-            Delete Account
-          </button>
-        </section>
+        <ProfileLinkButtons />
         <UpdateProfileForm />
       </div>
     </article>
