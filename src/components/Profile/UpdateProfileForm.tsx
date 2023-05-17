@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 // components
 import FormRow from '../FormRow';
@@ -6,6 +8,8 @@ import FormRow from '../FormRow';
 type Props = {};
 
 const UpdateProfileForm = (props: Props) => {
+  const { user } = useSelector((state: RootState) => state.user);
+
   const handleOnSubmit = () => {};
 
   return (
@@ -16,7 +20,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='name'
-            value={''}
+            value={user?.name}
             handleChange={() => console.log('handle change')}
             labelText='Name'
             placeholder='e.g. John Doe'
@@ -25,7 +29,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='email'
-            value={''}
+            value={user?.email}
             handleChange={() => console.log('handle change')}
             labelText='Email Address'
             placeholder='e.g. example@example.com'
@@ -35,7 +39,7 @@ const UpdateProfileForm = (props: Props) => {
         <FormRow
           type='text'
           name='address'
-          value={''}
+          value={user?.address}
           handleChange={() => console.log('handle change')}
           labelText='Address'
           placeholder='e.g. 123 street, cnr 4th avenue, testvil'
@@ -45,7 +49,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='city'
-            value={''}
+            value={user?.city}
             handleChange={() => console.log('handle change')}
             labelText='City'
             placeholder='e.g. Porto'
@@ -54,7 +58,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='area'
-            value={''}
+            value={user?.area}
             handleChange={() => console.log('handle change')}
             labelText='Area'
             placeholder='e.g. Paranhos'
@@ -65,7 +69,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='number'
             name='zip'
-            value={''}
+            value={user?.zipCode}
             handleChange={() => console.log('handle change')}
             labelText='Zip Code'
             placeholder='e.g. 1234'
@@ -74,7 +78,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='country'
-            value={''}
+            value={user?.country}
             handleChange={() => console.log('handle change')}
             labelText='Country'
             placeholder='e.g. Portugal'
