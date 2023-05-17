@@ -5,6 +5,8 @@ import { logoutUser } from '../features/user/userSlice';
 // components
 import UpdateProfileForm from '../components/Profile/UpdateProfileForm';
 import ProfileLinkButton from '../components/Profile/ProfileLinkButton';
+import MyRecipes from '../components/Profile/MyRecipes';
+import FavouriteRecipes from '../components/Profile/FavouriteRecipes';
 
 type Props = {};
 
@@ -44,7 +46,13 @@ const Profile = (props: Props) => {
             Delete Account
           </button>
         </section>
-        <UpdateProfileForm />
+        {link === 'info' ? (
+          <UpdateProfileForm />
+        ) : link === 'myRecipes' ? (
+          <MyRecipes />
+        ) : (
+          link === 'favouriteRecipes' && <FavouriteRecipes />
+        )}
       </div>
     </article>
   );
