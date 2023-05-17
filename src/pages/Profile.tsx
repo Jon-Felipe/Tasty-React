@@ -23,7 +23,7 @@ const Profile = (props: Props) => {
       </p>
       <div className='flex flex-col md:flex-row gap-4 mt-2 md:mt-4'>
         <section className='basis-1/4 space-y-4'>
-          <ProfileLinkButton text='My information' onClick={handleOnClick} />
+          <ProfileLinkButton text='My Information' onClick={handleOnClick} />
           <ProfileLinkButton text='My Recipes' onClick={handleOnClick} />
           <ProfileLinkButton
             text='Favourited Recipes'
