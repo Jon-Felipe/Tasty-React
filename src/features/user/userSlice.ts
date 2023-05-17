@@ -12,6 +12,11 @@ export interface UserState {
   user: {
     name: string;
     email: string;
+    address: string;
+    city: string;
+    area: string;
+    zipCode: number;
+    country: string;
   } | null;
 }
 
