@@ -49,7 +49,19 @@ const Register = (props: Props) => {
       return;
     }
 
-    dispatch(registerUser({ user: { name, email } }));
+    dispatch(
+      registerUser({
+        user: {
+          name,
+          email,
+          address: 'address',
+          city: 'mycity',
+          area: 'myarea',
+          zipCode: '0000',
+          country: 'mycountry',
+        },
+      })
+    );
     navigate('/');
   };
 

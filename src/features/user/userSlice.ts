@@ -15,7 +15,7 @@ export interface UserState {
     address: string;
     city: string;
     area: string;
-    zipCode: number;
+    zipCode: string;
     country: string;
   } | null;
 }
