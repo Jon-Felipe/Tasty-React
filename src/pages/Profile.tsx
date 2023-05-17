@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../features/user/userSlice';
 
 // components
 import UpdateProfileForm from '../components/Profile/UpdateProfileForm';
@@ -7,12 +9,10 @@ import ProfileLinkButton from '../components/Profile/ProfileLinkButton';
 type Props = {};
 
 const Profile = (props: Props) => {
+  const dispatch = useDispatch();
+
   const handleOnClick = () => {
     console.log('clicked');
-  };
-
-  const handleOnDeleteAccount = () => {
-    console.log('Profile Deleted');
   };
 
   return (
@@ -31,7 +31,7 @@ const Profile = (props: Props) => {
           />
           <button
             className='block w-full border p-4 shadow rounded bg-red-500 text-white'
-            onClick={handleOnDeleteAccount}
+            onClick={() => dispatch(logoutUser())}
           >
             Delete Account
           </button>
