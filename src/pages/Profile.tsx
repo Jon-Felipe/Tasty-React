@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../features/user/userSlice';
 
@@ -9,10 +9,12 @@ import ProfileLinkButton from '../components/Profile/ProfileLinkButton';
 type Props = {};
 
 const Profile = (props: Props) => {
+  const [link, setLink] = useState<string>('info');
+
   const dispatch = useDispatch();
 
-  const handleOnClick = () => {
-    console.log('clicked');
+  const handleOnClick = (value: string) => {
+    setLink(value);
   };
 
   return (
@@ -23,11 +25,17 @@ const Profile = (props: Props) => {
       </p>
       <div className='flex flex-col md:flex-row gap-4 mt-2 md:mt-4'>
         <section className='basis-1/4 space-y-4'>
-          <ProfileLinkButton text='My Information' onClick={handleOnClick} />
-          <ProfileLinkButton text='My Recipes' onClick={handleOnClick} />
+          <ProfileLinkButton
+            text='My Information'
+            onClick={() => handleOnClick('info')}
+          />
+          <ProfileLinkButton
+            text='My Recipes'
+            onClick={() => handleOnClick('myRecipes')}
+          />
           <ProfileLinkButton
             text='Favourited Recipes'
-            onClick={handleOnClick}
+            onClick={() => handleOnClick('favouriteRecipes')}
           />
           <button
             className='block w-full border p-4 shadow rounded bg-red-500 text-white'
