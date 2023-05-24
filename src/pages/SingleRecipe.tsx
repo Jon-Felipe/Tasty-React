@@ -58,7 +58,11 @@ const SingleRecipe = () => {
                 ({recipe?.ratings})
               </p>
             </div>
-            <button type='button' onClick={() => setIsFavourite(!isFavourite)}>
+            <button
+              type='button'
+              onClick={() => setIsFavourite(!isFavourite)}
+              className='transition duration-300 ease-in-out hover:scale-125'
+            >
               {isFavourite ? (
                 <HeartIconSolid className='w-5 h-5 text-orange-500' />
               ) : (
