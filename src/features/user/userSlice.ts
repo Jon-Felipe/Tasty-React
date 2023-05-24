@@ -11,12 +11,8 @@ import {
 export interface UserState {
   user: {
     name: string;
+    lastName: string;
     email: string;
-    address: string;
-    city: string;
-    area: string;
-    zipCode: string;
-    country: string;
   } | null;
 }
 

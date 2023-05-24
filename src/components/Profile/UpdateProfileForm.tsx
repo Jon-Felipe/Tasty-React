@@ -29,7 +29,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='lastName'
-            value={user?.email}
+            value={user?.lastName}
             handleChange={() => console.log('handle change')}
             labelText='Last Name'
             placeholder='Last Name'
