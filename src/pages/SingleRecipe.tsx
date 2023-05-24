@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { HeartIcon } from '@heroicons/react/24/outline';
+import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 
 // components
 import Star from '../components/Star';
@@ -18,6 +19,7 @@ import foodImg from '../assets/hero-img.jpg';
 type Props = {};
 
 const SingleRecipe = () => {
+  const [isFavourite, setIsFavourite] = useState<boolean>(false);
   const flexRow = 'flex items-center';
 
   const { id } = useParams();
@@ -56,8 +58,12 @@ const SingleRecipe = () => {
                 ({recipe?.ratings})
               </p>
             </div>
-            <button>
-              <HeartIcon className='w-5 h-5 text-orange-500' />
+            <button type='button' onClick={() => setIsFavourite(!isFavourite)}>
+              {isFavourite ? (
+                <HeartIconSolid className='w-5 h-5 text-orange-500' />
+              ) : (
+                <HeartIcon className='w-5 h-5 text-orange-500' />
+              )}
             </button>
           </div>
         </section>
