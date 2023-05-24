@@ -12,7 +12,7 @@ const Ingredients = ({ ingredients }: Props) => {
         {ingredients?.map((ingredient, i) => (
           <li
             key={i}
-            className='text-sm font-semibold list-disc py-4 border-b-2 border-b-orange-500'
+            className='text-sm font-semibold py-4 border-b-2 border-b-orange-500'
           >
             {ingredient}
           </li>
