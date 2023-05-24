@@ -16,16 +16,27 @@ const UpdateProfileForm = (props: Props) => {
     <div className='basis-3/4 shadow-lg rounded-lg p-10'>
       <h2 className='text-3xl font-bold'>Update Your Information Here</h2>
       <form onSubmit={handleOnSubmit} className='mt-4'>
-        <div className='grid gap-y-2 md:gap-y-0 md:grid-cols-2 md:gap-x-6 mb-2'>
+        <div className='grid md:grid-cols-2 gap-x-4 mb-2'>
           <FormRow
             type='text'
             name='name'
             value={user?.name}
             handleChange={() => console.log('handle change')}
             labelText='Name'
-            placeholder='e.g. John Doe'
+            placeholder='Name'
             required
           />
+          <FormRow
+            type='text'
+            name='lastName'
+            value={user?.email}
+            handleChange={() => console.log('handle change')}
+            labelText='Last Name'
+            placeholder='Last Name'
+            required
+          />
+        </div>
+        <div className='mb-2'>
           <FormRow
             type='text'
             name='email'
@@ -33,55 +44,6 @@ const UpdateProfileForm = (props: Props) => {
             handleChange={() => console.log('handle change')}
             labelText='Email Address'
             placeholder='e.g. example@example.com'
-            required
-          />
-        </div>
-        <FormRow
-          type='text'
-          name='address'
-          value={user?.address}
-          handleChange={() => console.log('handle change')}
-          labelText='Address'
-          placeholder='e.g. 123 street, cnr 4th avenue, testvil'
-          required
-        />
-        <div className='grid gap-y-2 md:gap-y-0 md:grid-cols-2 md:gap-x-6 mt-2'>
-          <FormRow
-            type='text'
-            name='city'
-            value={user?.city}
-            handleChange={() => console.log('handle change')}
-            labelText='City'
-            placeholder='e.g. Porto'
-            required
-          />
-          <FormRow
-            type='text'
-            name='area'
-            value={user?.area}
-            handleChange={() => console.log('handle change')}
-            labelText='Area'
-            placeholder='e.g. Paranhos'
-            required
-          />
-        </div>
-        <div className='grid gap-y-2 md:gap-y-0 md:grid-cols-2 md:gap-x-6 my-2'>
-          <FormRow
-            type='number'
-            name='zip'
-            value={user?.zipCode}
-            handleChange={() => console.log('handle change')}
-            labelText='Zip Code'
-            placeholder='e.g. 1234'
-            required
-          />
-          <FormRow
-            type='text'
-            name='country'
-            value={user?.country}
-            handleChange={() => console.log('handle change')}
-            labelText='Country'
-            placeholder='e.g. Portugal'
             required
           />
         </div>
