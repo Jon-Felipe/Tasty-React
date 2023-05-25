@@ -5,6 +5,8 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // layouts
 import Main from './layouts/Main';
@@ -34,9 +36,10 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <>
+    <div>
       <RouterProvider router={router} />
-    </>
+      <ToastContainer position='top-center' />
+    </div>
   );
 }
 
