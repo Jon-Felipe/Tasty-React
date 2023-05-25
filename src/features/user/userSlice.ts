@@ -11,7 +11,6 @@ import {
 export interface UserState {
   user: {
     name: string;
-    lastName: string;
     email: string;
   } | null;
 }

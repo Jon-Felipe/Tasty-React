@@ -53,7 +53,6 @@ const Register = (props: Props) => {
       registerUser({
         user: {
           name,
-          lastName: 'lastName',
           email,
         },
       })
