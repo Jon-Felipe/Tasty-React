@@ -51,7 +51,7 @@ const Register = (props: Props) => {
     }
 
     dispatch(registerUser({ name, email, password }));
-    navigate('/');
+    // navigate('/');
   };
 
   return (

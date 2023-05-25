@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 // helpers
 import {
@@ -7,12 +7,17 @@ import {
   getFromLocalStorage,
   removeFromLocalStorage,
 } from '../../utils/helpers';
+import { toast } from 'react-toastify';
 
 type User = {
   name: string;
   email: string;
   password: string;
 };
+
+interface MyKnownError {
+  msg: string;
+}
 
 type InitialState = {
   isLoading: boolean;
@@ -24,20 +29,23 @@ const initialState: InitialState = {
   user: getFromLocalStorage('user'),
 };
 
-export const registerUser = createAsyncThunk(
-  'user/registerUser',
-  async (user: User, thunkAPI) => {
-    try {
-      const { data } = await axios.post(
-        'https://tasty-api.onrender.com/api/v1/auth/register',
-        user
-      );
-      return data.user;
-    } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.response.data);
+export const registerUser = createAsyncThunk<
+  InitialState,
+  User,
+  { rejectValue: MyKnownError }
+>('user/registerUser', async (user, thunkAPI) => {
+  try {
+    const { data } = await axios.post(
+      'https://tasty-api.onrender.com/api/v1/auth/register',
+      user
+    );
+    return data.user;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error?.response?.data);
     }
   }
-);
+});
 
 export const userSlice = createSlice({
   name: 'user',
@@ -53,14 +61,13 @@ export const userSlice = createSlice({
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(registerUser.fulfilled, (state, action: PayloadAction<User>) => {
-        const { payload } = action;
+      .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = payload;
-        // setToLocalStorage({key: 'user', value: payload});
+        state.user = action.payload.user;
       })
-      .addCase(registerUser.rejected, (state) => {
+      .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
+        toast.error(payload?.msg);
       });
   },
 });
