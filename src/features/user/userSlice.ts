@@ -9,7 +9,7 @@ import {
 } from '../../utils/helpers';
 import { toast } from 'react-toastify';
 
-type User = {
+type UserType = {
   name: string;
   email: string;
   password: string;
@@ -21,7 +21,7 @@ interface MyKnownError {
 
 type InitialState = {
   isLoading: boolean;
-  user: User | null;
+  user: UserType | null;
 };
 
 const initialState: InitialState = {
@@ -31,7 +31,7 @@ const initialState: InitialState = {
 
 export const registerUser = createAsyncThunk<
   InitialState,
-  User,
+  UserType,
   { rejectValue: MyKnownError }
 >('user/registerUser', async (user, thunkAPI) => {
   try {
