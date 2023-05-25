@@ -8,14 +8,18 @@ import {
   removeFromLocalStorage,
 } from '../../utils/helpers';
 
-export interface UserState {
-  user: {
-    name: string;
-    email: string;
-  } | null;
-}
+type User = {
+  name: string;
+  email: string;
+};
 
-const initialState: UserState = {
+type InitialState = {
+  isLoading: boolean;
+  user: User | null;
+};
+
+const initialState: InitialState = {
+  isLoading: false,
   user: getFromLocalStorage('user'),
 };
 
@@ -23,10 +27,10 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    registerUser: (state, action: PayloadAction<UserState>) => {
-      const { user } = action.payload;
-      state.user = user;
-      setToLocalStorage({ key: 'user', value: JSON.stringify(user) });
+    registerUser: (state, action: PayloadAction<User>) => {
+      const { payload } = action;
+      state.user = payload;
+      setToLocalStorage({ key: 'user', value: JSON.stringify(payload) });
     },
     logoutUser: (state) => {
       state.user = null;

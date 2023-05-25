@@ -49,14 +49,7 @@ const Register = (props: Props) => {
       return;
     }
 
-    dispatch(
-      registerUser({
-        user: {
-          name,
-          email,
-        },
-      })
-    );
+    dispatch(registerUser({ name, email }));
     navigate('/');
   };
 
