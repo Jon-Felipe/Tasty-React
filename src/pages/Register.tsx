@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../store';
 import { registerUser } from '../features/user/userSlice';
 import { RegisterType } from '../utils/types';
 
@@ -19,7 +20,7 @@ const initialValues: RegisterType = {
 const Register = (props: Props) => {
   const [values, setValues] = useState<RegisterType>(initialValues);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +50,7 @@ const Register = (props: Props) => {
       return;
     }
 
-    dispatch(registerUser({ name, email }));
+    dispatch(registerUser({ name, email, password }));
     navigate('/');
   };
 
