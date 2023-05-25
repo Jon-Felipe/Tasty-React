@@ -9,19 +9,26 @@ import {
 } from '../../utils/helpers';
 import { toast } from 'react-toastify';
 
-type UserType = {
+type UserData = {
+  name: string;
+  lastName: string;
+  email: string;
+  token: string;
+};
+
+type UserAttributes = {
   name: string;
   email: string;
   password: string;
 };
 
-interface MyKnownError {
+type MyKnownError = {
   msg: string;
-}
+};
 
 type InitialState = {
   isLoading: boolean;
-  user: UserType | null;
+  user: UserData | null;
 };
 
 const initialState: InitialState = {
@@ -30,8 +37,8 @@ const initialState: InitialState = {
 };
 
 export const registerUser = createAsyncThunk<
-  InitialState,
-  UserType,
+  UserData,
+  UserAttributes,
   { rejectValue: MyKnownError }
 >('user/registerUser', async (user, thunkAPI) => {
   try {
@@ -63,7 +70,7 @@ export const userSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
+        state.user = action.payload;
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
