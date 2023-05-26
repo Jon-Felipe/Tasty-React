@@ -78,6 +78,10 @@ export const userSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
+        setToLocalStorage({
+          key: 'user',
+          value: JSON.stringify(action.payload),
+        });
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -89,6 +93,10 @@ export const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
+        setToLocalStorage({
+          key: 'user',
+          value: JSON.stringify(action.payload),
+        });
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.isLoading = false;
