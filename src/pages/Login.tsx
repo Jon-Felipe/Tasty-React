@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LoginType } from '../utils/types';
+import { toast } from 'react-toastify';
 
 // components
 import FormRow from '../components/FormRow';
@@ -24,6 +25,13 @@ const Login = (props: Props) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const { email, password } = values;
+
+    if (!email.trim() || !password.trim()) {
+      toast.error('Please fill in both fields');
+      return;
+    }
   };
 
   return (
