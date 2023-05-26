@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../store';
 import { registerUser } from '../features/user/userSlice';
 import { RegisterType } from '../utils/types';
 
@@ -20,8 +20,9 @@ const initialValues: RegisterType = {
 const Register = (props: Props) => {
   const [values, setValues] = useState<RegisterType>(initialValues);
 
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+  const { user, isLoading } = useSelector((store: RootState) => store.user);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -51,8 +52,13 @@ const Register = (props: Props) => {
     }
 
     dispatch(registerUser({ name, email, password }));
-    // navigate('/');
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user]);
 
   return (
     <section>
@@ -107,9 +113,9 @@ const Register = (props: Props) => {
               />
               <button
                 type='submit'
-                className='w-full text-white bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+                className='w-full text-white bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:bg-primary-400'
               >
-                Create an account
+                {isLoading ? 'Loading...' : 'Create an account'}
               </button>
               <p className='text-sm font-light text-gray-500'>
                 Already have an account?{' '}
