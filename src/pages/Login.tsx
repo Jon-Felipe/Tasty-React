@@ -26,7 +26,6 @@ const Login = (props: Props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
-
     setValues((prevState) => ({ ...prevState, [name]: value }));
   };
 
@@ -34,20 +33,16 @@ const Login = (props: Props) => {
     e.preventDefault();
 
     const { email, password } = values;
-
     if (!email.trim() || !password.trim()) {
       toast.error('Please fill in both fields');
       return;
     }
-
     dispatch(loginUser({ email, password }));
   };
 
   useEffect(() => {
     if (user) {
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
+      navigate('/');
     }
   }, [user]);
 
