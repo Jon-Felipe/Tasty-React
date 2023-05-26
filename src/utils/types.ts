@@ -56,3 +56,25 @@ export type MealOptionType = {
   id: number;
   text: string;
 };
+
+export type UserData = {
+  name: string;
+  lastName: string;
+  email: string;
+  token: string;
+};
+
+export type RegisterUserAttributes = {
+  name: string;
+  email: string;
+  password: string;
+};
+
+export type LoginUserAttributes = {
+  email: string;
+  password: string;
+};
+
+export type MyKnownError = {
+  msg: string;
+};

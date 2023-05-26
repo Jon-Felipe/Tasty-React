@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 // helpers
 import {
@@ -7,29 +8,12 @@ import {
   getFromLocalStorage,
   removeFromLocalStorage,
 } from '../../utils/helpers';
-import { toast } from 'react-toastify';
-
-type UserData = {
-  name: string;
-  lastName: string;
-  email: string;
-  token: string;
-};
-
-type RegisterUserAttributes = {
-  name: string;
-  email: string;
-  password: string;
-};
-
-type LoginUserAttributes = {
-  email: string;
-  password: string;
-};
-
-type MyKnownError = {
-  msg: string;
-};
+import {
+  LoginUserAttributes,
+  MyKnownError,
+  RegisterUserAttributes,
+  UserData,
+} from '../../utils/types';
 
 type InitialState = {
   isLoading: boolean;
