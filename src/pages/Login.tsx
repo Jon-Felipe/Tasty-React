@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../store';
+import { loginUser } from '../features/user/userSlice';
 import { LoginType } from '../utils/types';
 import { toast } from 'react-toastify';
 
@@ -15,6 +18,10 @@ const initialValues: LoginType = {
 
 const Login = (props: Props) => {
   const [values, setValues] = useState<LoginType>(initialValues);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+  const { user } = useSelector((store: RootState) => store.user);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -32,7 +39,17 @@ const Login = (props: Props) => {
       toast.error('Please fill in both fields');
       return;
     }
+
+    dispatch(loginUser({ email, password }));
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+    }
+  }, [user]);
 
   return (
     <section>
