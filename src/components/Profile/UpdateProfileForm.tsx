@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { toast } from 'react-toastify';
 
 // components
 import FormRow from '../FormRow';
+
+// extra
 import { UserDataType } from '../../utils/types';
+import { RootState } from '../../store';
 
 type Props = {};
 
@@ -26,7 +29,16 @@ const UpdateProfileForm = (props: Props) => {
     });
   };
 
-  const handleOnSubmit = () => {};
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const { name, lastName, email } = userData;
+
+    if (!name.trim() || !lastName.trim() || !email.trim()) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+  };
 
   return (
     <div className='basis-3/4 shadow-lg rounded-lg p-10'>
