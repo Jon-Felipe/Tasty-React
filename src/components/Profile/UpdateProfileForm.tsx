@@ -4,17 +4,27 @@ import { RootState } from '../../store';
 
 // components
 import FormRow from '../FormRow';
+import { UserDataType } from '../../utils/types';
 
 type Props = {};
 
 const UpdateProfileForm = (props: Props) => {
   const { user } = useSelector((state: RootState) => state.user);
 
-  const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState<UserDataType>({
     name: user?.name || '',
     lastName: user?.lastName || '',
     email: user?.email || '',
   });
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setUserData((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  };
 
   const handleOnSubmit = () => {};
 
@@ -27,7 +37,7 @@ const UpdateProfileForm = (props: Props) => {
             type='text'
             name='name'
             value={userData?.name}
-            handleChange={() => console.log('handle change')}
+            handleChange={handleOnChange}
             labelText='Name'
             placeholder='Your first name'
             required
@@ -36,7 +46,7 @@ const UpdateProfileForm = (props: Props) => {
             type='text'
             name='lastName'
             value={userData?.lastName}
-            handleChange={() => console.log('handle change')}
+            handleChange={handleOnChange}
             labelText='Last Name'
             placeholder='Your last name'
             required
@@ -47,7 +57,7 @@ const UpdateProfileForm = (props: Props) => {
             type='text'
             name='email'
             value={userData?.email}
-            handleChange={() => console.log('handle change')}
+            handleChange={handleOnChange}
             labelText='Email Address'
             placeholder='e.g. example@example.com'
             required
