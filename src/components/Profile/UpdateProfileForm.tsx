@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
@@ -10,6 +10,12 @@ type Props = {};
 const UpdateProfileForm = (props: Props) => {
   const { user } = useSelector((state: RootState) => state.user);
 
+  const [userData, setUserData] = useState({
+    name: user?.name || '',
+    lastName: user?.lastName || '',
+    email: user?.email || '',
+  });
+
   const handleOnSubmit = () => {};
 
   return (
@@ -20,7 +26,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='name'
-            value={user?.name}
+            value={userData?.name}
             handleChange={() => console.log('handle change')}
             labelText='Name'
             placeholder='Your first name'
@@ -29,7 +35,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='lastName'
-            value={user?.lastName}
+            value={userData?.lastName}
             handleChange={() => console.log('handle change')}
             labelText='Last Name'
             placeholder='Your last name'
@@ -40,7 +46,7 @@ const UpdateProfileForm = (props: Props) => {
           <FormRow
             type='text'
             name='email'
-            value={user?.email}
+            value={userData?.email}
             handleChange={() => console.log('handle change')}
             labelText='Email Address'
             placeholder='e.g. example@example.com'
