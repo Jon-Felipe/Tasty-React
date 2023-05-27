@@ -13,7 +13,9 @@ import {
   MyKnownError,
   RegisterUserAttributes,
   UserData,
+  UserDataType,
 } from '../../utils/types';
+import { RootState } from '../../store';
 
 type InitialState = {
   isLoading: boolean;
@@ -61,6 +63,29 @@ export const loginUser = createAsyncThunk<
   }
 });
 
+export const updateUser = createAsyncThunk<
+  UserData,
+  UserDataType,
+  { state: RootState; rejectValue: MyKnownError }
+>('user/updateUser', async (user, thunkAPI) => {
+  try {
+    const { data } = await axios.patch(
+      'https://tasty-api.onrender.com/api/v1/auth/updateUser',
+      user,
+      {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().user.user?.token}`,
+        },
+      }
+    );
+    return data.user;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error?.response?.data);
+    }
+  }
+});
+
 export const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -99,6 +124,22 @@ export const userSlice = createSlice({
         });
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        toast.error(payload?.msg);
+      })
+      .addCase(updateUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload;
+        setToLocalStorage({
+          key: 'user',
+          value: JSON.stringify(action.payload),
+        });
+        toast.success('User Updated!');
+      })
+      .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         toast.error(payload?.msg);
       });

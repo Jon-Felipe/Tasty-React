@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 // components
 import FormRow from '../FormRow';
 
 // extra
 import { UserDataType } from '../../utils/types';
-import { RootState } from '../../store';
+import { AppDispatch, RootState } from '../../store';
+import { updateUser } from '../../features/user/userSlice';
 
 type Props = {};
 
 const UpdateProfileForm = (props: Props) => {
+  const dispatch = useDispatch<AppDispatch>();
   const { user } = useSelector((state: RootState) => state.user);
 
   const [userData, setUserData] = useState<UserDataType>({
@@ -38,6 +41,8 @@ const UpdateProfileForm = (props: Props) => {
       toast.error('Please fill in all fields');
       return;
     }
+
+    dispatch(updateUser(userData));
   };
 
   return (
