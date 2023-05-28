@@ -13,7 +13,7 @@ import {
   MyKnownError,
   RegisterUserAttributes,
   UserData,
-  UserDataType,
+  UpdateUserAttributes,
 } from '../../utils/types';
 import { RootState } from '../../store';
 
@@ -65,7 +65,7 @@ export const loginUser = createAsyncThunk<
 
 export const updateUser = createAsyncThunk<
   UserData,
-  UserDataType,
+  UpdateUserAttributes,
   { state: RootState; rejectValue: MyKnownError }
 >('user/updateUser', async (user, thunkAPI) => {
   try {

@@ -64,12 +64,6 @@ export type UserData = {
   token: string;
 };
 
-export type UserDataType = {
-  name: string;
-  lastName: string;
-  email: string;
-};
-
 export type RegisterUserAttributes = {
   name: string;
   email: string;
@@ -79,6 +73,12 @@ export type RegisterUserAttributes = {
 export type LoginUserAttributes = {
   email: string;
   password: string;
+};
+
+export type UpdateUserAttributes = {
+  name: string;
+  lastName: string;
+  email: string;
 };
 
 export type MyKnownError = {
