@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../store';
-import { loginUser } from '../features/user/userSlice';
-import { LoginType } from '../utils/types';
 import { toast } from 'react-toastify';
 
 // components
 import FormRow from '../components/FormRow';
 
-type Props = {};
+// extras
+import { AppDispatch, RootState } from '../store';
+import { loginUser } from '../features/user/userSlice';
+import { LoginUserAttributes } from '../utils/types';
 
-const initialValues: LoginType = {
+const initialValues: LoginUserAttributes = {
   email: '',
   password: '',
 };
 
-const Login = (props: Props) => {
-  const [values, setValues] = useState<LoginType>(initialValues);
+const Login = () => {
+  const [values, setValues] = useState<LoginUserAttributes>(initialValues);
 
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
