@@ -122,6 +122,7 @@ export const userSlice = createSlice({
           key: 'user',
           value: JSON.stringify(action.payload),
         });
+        toast.success(`Welcome ${action.payload.name}!`);
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.isLoading = false;
