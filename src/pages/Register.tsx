@@ -3,22 +3,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import { registerUser } from '../features/user/userSlice';
-import { RegisterType } from '../utils/types';
+import { RegisterUserAttributes } from '../utils/types';
 
 // components
 import FormRow from '../components/FormRow';
 
-type Props = {};
-
-const initialValues: RegisterType = {
+const initialValues: RegisterUserAttributes = {
   name: '',
   email: '',
   password: '',
-  confirmPassword: '',
 };
 
-const Register = (props: Props) => {
-  const [values, setValues] = useState<RegisterType>(initialValues);
+const Register = () => {
+  const [values, setValues] = useState<RegisterUserAttributes>(initialValues);
 
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
@@ -34,20 +31,9 @@ const Register = (props: Props) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { name, email, password, confirmPassword } = values;
-
-    if (
-      !name.trim() ||
-      !email.trim() ||
-      !password.trim() ||
-      !confirmPassword.trim()
-    ) {
+    const { name, email, password } = values;
+    if (!name.trim() || !email.trim() || !password.trim()) {
       alert('Please fill in all fields');
-      return;
-    }
-
-    if (password.trim() !== confirmPassword.trim()) {
-      alert('Passwords do not match');
       return;
     }
 
@@ -99,15 +85,6 @@ const Register = (props: Props) => {
                 value={values.password}
                 handleChange={handleChange}
                 labelText='Password'
-                placeholder='••••••••'
-                required
-              />
-              <FormRow
-                type='password'
-                name='confirmPassword'
-                value={values.confirmPassword}
-                handleChange={handleChange}
-                labelText='Confirm password'
                 placeholder='••••••••'
                 required
               />
