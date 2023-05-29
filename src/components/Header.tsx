@@ -51,16 +51,16 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
             ) : (
               <>
                 <Link
-                  to='/register'
-                  className='text-white bg-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
-                >
-                  Sign up
-                </Link>
-                <Link
                   to='/login'
                   className='text-orange-500 border-2 border-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
                 >
                   Log in
+                </Link>
+                <Link
+                  to='/register'
+                  className='text-white bg-orange-500 font-medium rounded-full text-sm px-4 lg:px-8 py-2 mr-2'
+                >
+                  Sign up
                 </Link>
               </>
             )}
