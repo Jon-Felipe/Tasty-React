@@ -1,10 +1,3 @@
-export type RegisterType = {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
-
 export type NavlinksType = {
   id: number;
   text: string;
