@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RecipeCategoryType } from '../utils/types';
+import { RecipeCategoryType } from '../../utils/types';
 
 type Props = {
   categories: RecipeCategoryType[];

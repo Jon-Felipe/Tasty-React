@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 
 // extras
-import { MealOptionType } from '../utils/types';
+import { MealOptionType } from '../../utils/types';
 
 type Props = {
   headerText: string;

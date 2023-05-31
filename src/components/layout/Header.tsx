@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { logoutUser } from '../features/user/userSlice';
+import { RootState } from '../../store';
+import { logoutUser } from '../../features/user/userSlice';
 import {
   Bars3Icon,
   UserCircleIcon,
@@ -10,11 +10,11 @@ import {
 } from '@heroicons/react/24/outline';
 
 // helpers
-import { navLinks } from '../utils/constants';
-import { NavlinksType } from '../utils/types';
+import { navLinks } from '../../utils/constants';
+import { NavlinksType } from '../../utils/types';
 
 // components
-import NavLink from './NavLink';
+import NavLink from '../UI/NavLink';
 
 type Props = {
   showLinks: boolean;

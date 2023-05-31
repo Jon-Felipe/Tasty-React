@@ -1,5 +1,7 @@
 import React from 'react';
-import FormRow from '../components/FormRow';
+
+// components
+import FormRow from '../components/UI/FormRow';
 
 type Props = {};
 

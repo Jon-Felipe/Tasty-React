@@ -4,7 +4,7 @@ import { HeartIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 
 // components
-import Star from '../components/Star';
+import Star from '../components/UI/Star';
 import RecipeDetails from '../components/Recipe/RecipeDetails';
 import Equipment from '../components/Recipe/Equipment';
 import RecipeTips from '../components/Recipe/RecipeTips';

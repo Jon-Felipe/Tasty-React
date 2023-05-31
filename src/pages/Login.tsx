@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 // components
-import FormRow from '../components/FormRow';
+import FormRow from '../components/UI/FormRow';
 
 // extras
 import { AppDispatch, RootState } from '../store';

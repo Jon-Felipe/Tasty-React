@@ -1,6 +1,10 @@
 import React from 'react';
-import { RecipeType } from '../utils/types';
+
+// components
 import Recipe from './Recipe';
+
+// extras
+import { RecipeType } from '../../utils/types';
 
 type Props = {
   recipes: RecipeType[];

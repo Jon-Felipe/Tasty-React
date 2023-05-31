@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 
 // components
-import FormRow from '../FormRow';
+import FormRow from '../UI/FormRow';
 
 // extra
 import { UserDataType } from '../../utils/types';

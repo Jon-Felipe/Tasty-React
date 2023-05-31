@@ -9,11 +9,11 @@ import {
 } from '../utils/constants';
 
 // components
-import Search from '../components/Search';
-import Sort from '../components/Sort';
-import Accordion from '../components/Accordion';
-import RecipeList from '../components/RecipeList';
-import RecipeCategories from '../components/RecipeCategories';
+import Search from '../components/UI/Search';
+import Sort from '../components/UI/Sort';
+import Accordion from '../components/UI/Accordion';
+import RecipeList from '../components/Recipe/RecipeList';
+import RecipeCategories from '../components/Recipe/RecipeCategories';
 
 type Props = {};
 
