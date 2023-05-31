@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import foodImg from '../assets/hero-img.jpg';
+
+// components
 import Star from '../UI/Star';
+
+// extras
+import foodImg from '../../assets/hero-img.jpg';
 
 type Props = {
   id: number;
