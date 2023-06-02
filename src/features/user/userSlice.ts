@@ -16,6 +16,7 @@ import {
   UpdateUserAttributes,
 } from '../../utils/types';
 import { RootState } from '../../store';
+import { registerUserThunk } from './userThunk';
 
 type InitialState = {
   isLoading: boolean;
@@ -32,17 +33,11 @@ export const registerUser = createAsyncThunk<
   RegisterUserAttributes,
   { rejectValue: MyKnownError }
 >('user/registerUser', async (user, thunkAPI) => {
-  try {
-    const { data } = await axios.post(
-      'https://tasty-api.onrender.com/api/v1/auth/register',
-      user
-    );
-    return data.user;
-  } catch (error) {
-    if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error?.response?.data);
-    }
-  }
+  return registerUserThunk(
+    'https://tasty-api.onrender.com/api/v1/auth/register',
+    user,
+    thunkAPI
+  );
 });
 
 export const loginUser = createAsyncThunk<
