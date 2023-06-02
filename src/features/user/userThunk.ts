@@ -1,7 +1,11 @@
 import axios, { AxiosError } from 'axios';
 
 // extras
-import { AsyncThunkConfig, RegisterUserAttributes } from '../../utils/types';
+import {
+  AsyncThunkConfig,
+  LoginUserAttributes,
+  RegisterUserAttributes,
+} from '../../utils/types';
 
 export const registerUserThunk = async (
   url: string,
@@ -9,8 +13,23 @@ export const registerUserThunk = async (
   thunkAPI: AsyncThunkConfig
 ) => {
   try {
-    const response = await axios.post(url, user);
-    return response.data;
+    const { data } = await axios.post(url, user);
+    return data;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      thunkAPI.rejectValue = error.response?.data;
+    }
+  }
+};
+
+export const loginUserThunk = async (
+  url: string,
+  user: LoginUserAttributes,
+  thunkAPI: AsyncThunkConfig
+) => {
+  try {
+    const { data } = await axios.post(url, user);
+    return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {
       thunkAPI.rejectValue = error.response?.data;
