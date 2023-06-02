@@ -14,7 +14,7 @@ export const registerUserThunk = async (
 ) => {
   try {
     const { data } = await axios.post(url, user);
-    return data;
+    return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {
       thunkAPI.rejectValue = error.response?.data;
