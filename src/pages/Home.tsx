@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import heroImg from '../assets/hero-img.jpg';
 import {
   cuisineFilters,
   ingredientsFilters,
   mealsFilters,
   recipeCategories,
-  recipes,
 } from '../utils/constants';
+import { AppDispatch, RootState } from '../store';
 
 // components
 import Search from '../components/UI/Search';
@@ -14,10 +15,18 @@ import Sort from '../components/UI/Sort';
 import Accordion from '../components/UI/Accordion';
 import RecipeList from '../components/Recipe/RecipeList';
 import RecipeCategories from '../components/Recipe/RecipeCategories';
+import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
-type Props = {};
+const Home = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { isLoading, recipes } = useSelector(
+    (state: RootState) => state.recipe
+  );
 
-const Home = (props: Props) => {
+  useEffect(() => {
+    dispatch(getAllRecipes());
+  }, []);
+
   return (
     <div className='max-w-screen-xl mx-auto grid gap-6'>
       {/* hero section */}
@@ -54,7 +63,7 @@ const Home = (props: Props) => {
             <Accordion headerText='Meals' options={mealsFilters} />
             <Accordion headerText='Ingredients' options={ingredientsFilters} />
           </section>
-          <RecipeList recipes={recipes} />
+          {isLoading ? <p>Loading...</p> : <RecipeList recipes={recipes} />}
         </article>
       </article>
     </div>
