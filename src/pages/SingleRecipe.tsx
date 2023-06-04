@@ -52,7 +52,7 @@ const SingleRecipe = () => {
         <section className={`${flexRow} justify-between mt-2`}>
           <div className={`${flexRow} gap-x-4`}>
             <div>
-              {/* <h5 className='text-sm font-semibold'>{`${recipe?.author.name} ${recipe?.author.lastName}`}</h5> */}
+              <h5 className='text-sm font-semibold'>{`${recipe?.author.name} ${recipe?.author.lastName}`}</h5>
               <p className='text-xs font-semibold text-orange-500'>
                 Followers: 1561
               </p>
@@ -62,11 +62,11 @@ const SingleRecipe = () => {
             </button>
           </div>
           <div className={`${flexRow} gap-x-2.5`}>
-            <div className={`${flexRow}`}>
+            <div className={`${flexRow} gap-x-1`}>
               <Star value={recipe?.averageRating} color='orange' />
-              {/* <p className='text-xs font-bold text-orange-500'>
-                ({recipe?.ratings})
-              </p> */}
+              <p className='text-xs font-bold text-orange-500'>
+                ({recipe?.numOfRatings})
+              </p>
             </div>
             <button
               type='button'
@@ -92,7 +92,7 @@ const SingleRecipe = () => {
           <Equipment equipment={recipe?.equipment} />
         </section>
         <section className='mt-4'>
-          {/* <NutritionFacts nutritionFacts={recipe?.nutritionFacts} /> */}
+          {/* <NutritionFacts nutritionFacts={recipe?.nutritionFacts!} /> */}
         </section>
       </section>
 

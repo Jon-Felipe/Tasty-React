@@ -16,8 +16,8 @@ export type RecipeType = {
   name: string;
   description: string;
   averageRating: number;
-  ratings: number;
-  reviews: number;
+  numOfRatings: number;
+  numOfReviews: number;
   author: {
     _id: string;
     name: string;
