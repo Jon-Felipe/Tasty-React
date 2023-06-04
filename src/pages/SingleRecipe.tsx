@@ -63,7 +63,7 @@ const SingleRecipe = () => {
           </div>
           <div className={`${flexRow} gap-x-2.5`}>
             <div className={`${flexRow}`}>
-              <Star value={recipe!.averageRating} color='orange' />
+              <Star value={recipe?.averageRating} color='orange' />
               {/* <p className='text-xs font-bold text-orange-500'>
                 ({recipe?.ratings})
               </p> */}

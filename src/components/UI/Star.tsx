@@ -2,11 +2,11 @@ import React from 'react';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
 type Props = {
-  value: number;
+  value: number | undefined;
   color?: string;
 };
 
-const Star = ({ value, color }: Props) => {
+const Star = ({ value = 0, color }: Props) => {
   return (
     <div className='flex'>
       <span>
