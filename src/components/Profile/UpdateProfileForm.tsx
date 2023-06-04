@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import FormRow from '../UI/FormRow';
 
 // extra
-import { UserDataType } from '../../utils/types';
+import { UpdateUserAttributes } from '../../utils/types';
 import { AppDispatch, RootState } from '../../store';
 import { updateUser } from '../../features/user/userSlice';
 
@@ -17,7 +17,7 @@ const UpdateProfileForm = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const { user } = useSelector((state: RootState) => state.user);
 
-  const [userData, setUserData] = useState<UserDataType>({
+  const [userData, setUserData] = useState<UpdateUserAttributes>({
     name: user?.name || '',
     lastName: user?.lastName || '',
     email: user?.email || '',
