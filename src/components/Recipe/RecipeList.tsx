@@ -21,7 +21,7 @@ const RecipeList = ({ recipes }: Props) => {
             text={recipe.name}
             image={recipe.image}
             averageRating={recipe.averageRating}
-            author={recipe.author}
+            author={`${recipe.author.name} ${recipe.author.lastName}`}
           />
         );
       })}

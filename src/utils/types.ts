@@ -18,7 +18,11 @@ export type RecipeType = {
   averageRating: number;
   ratings: number;
   reviews: number;
-  author: string;
+  author: {
+    _id: string;
+    name: string;
+    lastName: string;
+  };
   image: string;
   createdAt: Date;
   recipeDetails: {
