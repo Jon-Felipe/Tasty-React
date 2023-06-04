@@ -1,13 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import heroImg from '../assets/hero-img.jpg';
-import {
-  cuisineFilters,
-  ingredientsFilters,
-  mealsFilters,
-  recipeCategories,
-} from '../utils/constants';
-import { AppDispatch, RootState } from '../store';
 
 // components
 import Search from '../components/UI/Search';
@@ -15,7 +7,18 @@ import Sort from '../components/UI/Sort';
 import Accordion from '../components/UI/Accordion';
 import RecipeList from '../components/Recipe/RecipeList';
 import RecipeCategories from '../components/Recipe/RecipeCategories';
+import Spinner from '../components/UI/Spinner';
+
+// extras
+import heroImg from '../assets/hero-img.jpg';
+import {
+  cuisineFilters,
+  ingredientsFilters,
+  mealsFilters,
+  recipeCategories,
+} from '../utils/constants';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+import { AppDispatch, RootState } from '../store';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -63,7 +66,7 @@ const Home = () => {
             <Accordion headerText='Meals' options={mealsFilters} />
             <Accordion headerText='Ingredients' options={ingredientsFilters} />
           </section>
-          {isLoading ? <p>Loading...</p> : <RecipeList recipes={recipes} />}
+          {isLoading ? <Spinner /> : <RecipeList recipes={recipes} />}
         </article>
       </article>
     </div>
