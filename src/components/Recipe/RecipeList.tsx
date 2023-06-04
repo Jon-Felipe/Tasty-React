@@ -13,16 +13,18 @@ type Props = {
 const RecipeList = ({ recipes }: Props) => {
   return (
     <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-      {recipes.map((recipe) => (
-        <Recipe
-          key={recipe._id}
-          id={recipe.id}
-          text={recipe.text}
-          image={recipe.image}
-          averageRating={recipe.averate_rating}
-          author={recipe.author}
-        />
-      ))}
+      {recipes.map((recipe) => {
+        return (
+          <Recipe
+            key={recipe._id}
+            id={recipe._id}
+            text={recipe.name}
+            image={recipe.image}
+            averageRating={recipe.averageRating}
+            author={recipe.author}
+          />
+        );
+      })}
     </section>
   );
 };

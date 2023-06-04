@@ -12,27 +12,27 @@ export type RecipeCategoryType = {
 };
 
 export type RecipeType = {
-  id: number;
-  text: string;
+  _id: number;
+  name: string;
   description: string;
-  averate_rating: number;
+  averageRating: number;
   ratings: number;
   reviews: number;
   author: string;
   image: string;
-  created_at: Date;
-  recipe_details: {
-    prep_time: number;
-    cook_time: number;
-    additional_time: number;
-    total_time: number;
+  createdAt: Date;
+  recipeDetails: {
+    prepTime: number;
+    cookTime: number;
+    additionalTime: number;
+    totalTime: number;
     servings: number;
     yield: string;
     difficulty: string;
   };
   ingredients: string[];
   directions: string[];
-  nutrition_facts: {
+  nutritionFacts: {
     calories: number;
     fat: number;
     carbs: number;
