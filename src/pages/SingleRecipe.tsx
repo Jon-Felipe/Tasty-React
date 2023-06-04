@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { HeartIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 
@@ -11,38 +12,47 @@ import RecipeTips from '../components/Recipe/RecipeTips';
 import Ingredients from '../components/Recipe/Ingredients';
 import Directions from '../components/Recipe/Directions';
 import NutritionFacts from '../components/Recipe/NutritionFacts';
+import Spinner from '../components/UI/Spinner';
 
 // extras
-import { recipes } from '../utils/constants';
 import foodImg from '../assets/hero-img.jpg';
-
-type Props = {};
+import { AppDispatch, RootState } from '../store';
+import { getRecipe } from '../features/allRecipes/recipeSlice';
 
 const SingleRecipe = () => {
   const [isFavourite, setIsFavourite] = useState<boolean>(false);
   const flexRow = 'flex items-center';
 
   const { id } = useParams();
-  const recipe = recipes.find((recipe) => recipe.id === Number(id));
+  const dispatch = useDispatch<AppDispatch>();
+  const { isLoading, recipe } = useSelector((state: RootState) => state.recipe);
+
+  useEffect(() => {
+    dispatch(getRecipe(id!));
+  }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <article className='flex flex-col md:flex-row gap-4 max-w-screen-xl mx-auto'>
       <section className='basis-2/3'>
         <img
           src={foodImg}
-          alt={recipe?.text}
+          alt={recipe?.name}
           className='w-full object-cover h-[400px] rounded-xl'
         />
         <section className='mt-2'>
           <h3 className='text-3xl font-semibold tracking-tighter'>
-            {recipe?.text}
+            {recipe?.name}
           </h3>
           <p className='text-sm font-normal'>{recipe?.description}</p>
         </section>
         <section className={`${flexRow} justify-between mt-2`}>
           <div className={`${flexRow} gap-x-4`}>
             <div>
-              <h5 className='text-sm font-semibold'>{recipe?.author}</h5>
+              {/* <h5 className='text-sm font-semibold'>{`${recipe?.author.name} ${recipe?.author.lastName}`}</h5> */}
               <p className='text-xs font-semibold text-orange-500'>
                 Followers: 1561
               </p>
@@ -53,10 +63,10 @@ const SingleRecipe = () => {
           </div>
           <div className={`${flexRow} gap-x-2.5`}>
             <div className={`${flexRow}`}>
-              <Star value={recipe?.averate_rating!} color='orange' />
-              <p className='text-xs font-bold text-orange-500'>
+              <Star value={recipe!.averageRating} color='orange' />
+              {/* <p className='text-xs font-bold text-orange-500'>
                 ({recipe?.ratings})
-              </p>
+              </p> */}
             </div>
             <button
               type='button'
@@ -72,17 +82,17 @@ const SingleRecipe = () => {
           </div>
         </section>
         <RecipeDetails
-          prep_time={recipe?.recipe_details.prep_time}
-          cook_time={recipe?.recipe_details.cook_time}
-          total_time={recipe?.recipe_details.total_time}
-          servings={recipe?.recipe_details.servings}
+          prep_time={recipe?.recipeDetails.prepTime}
+          cook_time={recipe?.recipeDetails.cookTime}
+          total_time={recipe?.recipeDetails.totalTime}
+          servings={recipe?.recipeDetails.servings}
         />
         <section className='flex flex-col lg:flex-row gap-4 lg:gap-4 mt-4'>
           <RecipeTips recipeTips={recipe?.recipeTips} />
           <Equipment equipment={recipe?.equipment} />
         </section>
         <section className='mt-4'>
-          <NutritionFacts nutritionFacts={recipe?.nutrition_facts!} />
+          {/* <NutritionFacts nutritionFacts={recipe?.nutritionFacts} /> */}
         </section>
       </section>
 
