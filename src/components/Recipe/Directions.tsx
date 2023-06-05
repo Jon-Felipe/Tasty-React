@@ -10,7 +10,7 @@ const Directions = ({ directions }: Props) => {
       <h1 className='text-center text-3xl font-bold'>Directions</h1>
       <ul>
         {directions?.map((direction, i) => (
-          <li className='py-4'>
+          <li key={i} className='py-4'>
             <h2 className='font-bold text-lg'>Step {i + 1}</h2>
             <p>{direction}</p>
           </li>
