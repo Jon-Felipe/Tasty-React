@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-  nutritionFacts: {
+  nutritionFacts?: {
     calories: number | undefined;
     fat: number | undefined;
     carbs: number | undefined;
