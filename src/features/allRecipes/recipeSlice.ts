@@ -34,6 +34,7 @@ export const getAllRecipes = createAsyncThunk<
 
 export const getRecipe = createAsyncThunk<
   RecipeType,
+  string,
   { rejectValue: MyKnownError }
 >('allRecipes/getRecipe', async (id, thunkAPI) => {
   try {
