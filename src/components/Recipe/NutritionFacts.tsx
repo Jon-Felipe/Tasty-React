@@ -2,15 +2,15 @@ import React from 'react';
 
 type Props = {
   nutritionFacts: {
-    calories: number;
-    fat: number;
-    carbs: number;
-    protein: number;
+    calories: number | undefined;
+    fat: number | undefined;
+    carbs: number | undefined;
+    protein: number | undefined;
   };
 };
 
 type NutritionalFactsType = {
-  nutriValue: string | number;
+  nutriValue: string | number | undefined;
   nutriText: string;
 };
 
@@ -32,19 +32,19 @@ const NutritionFacts = ({ nutritionFacts }: Props) => {
       </h3>
       <div className='flex items-center justify-between bg-white px-6 py-2 rounded-xl mt-2'>
         <NutritionalItem
-          nutriValue={nutritionFacts.calories}
+          nutriValue={nutritionFacts?.calories}
           nutriText='Calories'
         />
         <NutritionalItem
-          nutriValue={`${nutritionFacts.fat}g`}
+          nutriValue={`${nutritionFacts?.fat}g`}
           nutriText='Fat'
         />
         <NutritionalItem
-          nutriValue={`${nutritionFacts.carbs}g`}
+          nutriValue={`${nutritionFacts?.carbs}g`}
           nutriText='Carbs'
         />
         <NutritionalItem
-          nutriValue={`${nutritionFacts.protein}g`}
+          nutriValue={`${nutritionFacts?.protein}g`}
           nutriText='Protein'
         />
       </div>

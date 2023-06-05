@@ -92,7 +92,7 @@ const SingleRecipe = () => {
           <Equipment equipment={recipe?.equipment} />
         </section>
         <section className='mt-4'>
-          {/* <NutritionFacts nutritionFacts={recipe?.nutritionFacts!} /> */}
+          <NutritionFacts nutritionFacts={recipe?.nutritionFacts!} />
         </section>
       </section>
 
