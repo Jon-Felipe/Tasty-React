@@ -3,6 +3,7 @@ import axios, { AxiosError } from 'axios';
 
 // types
 import { MyKnownError, RecipeType } from '../../utils/types';
+import { getAllRecipesThunk, getRecipeThunk } from './recipeThunk';
 
 type InitialState = {
   isLoading: boolean;
@@ -20,16 +21,10 @@ export const getAllRecipes = createAsyncThunk<
   RecipeType[],
   { rejectValue: MyKnownError }
 >('allRecipes/getRecipes', async (_, thunkAPI) => {
-  try {
-    const { data } = await axios.get(
-      'https://tasty-api.onrender.com/api/v1/recipes'
-    );
-    return data.recipes;
-  } catch (error) {
-    if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error?.response?.data);
-    }
-  }
+  return getAllRecipesThunk(
+    'https://tasty-api.onrender.com/api/v1/recipes',
+    thunkAPI
+  );
 });
 
 export const getRecipe = createAsyncThunk<
@@ -37,16 +32,10 @@ export const getRecipe = createAsyncThunk<
   string,
   { rejectValue: MyKnownError }
 >('allRecipes/getRecipe', async (id, thunkAPI) => {
-  try {
-    const { data } = await axios.get(
-      `https://tasty-api.onrender.com/api/v1/recipes/${id}`
-    );
-    return data.recipe;
-  } catch (error) {
-    if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error?.response?.data);
-    }
-  }
+  return getRecipeThunk(
+    `https://tasty-api.onrender.com/api/v1/recipes/${id}`,
+    thunkAPI
+  );
 });
 
 export const recipeSlice = createSlice({
