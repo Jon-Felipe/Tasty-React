@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 // types
-import { RecipeType } from '../../utils/types';
+import { MyKnownError, RecipeType } from '../../utils/types';
 
 type InitialState = {
   isLoading: boolean;
@@ -16,29 +16,37 @@ const initialState: InitialState = {
   recipe: null,
 };
 
-export const getAllRecipes = createAsyncThunk(
-  'allRecipes/getRecipes',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await axios.get(
-        'https://tasty-api.onrender.com/api/v1/recipes'
-      );
-      return data;
-    } catch (error) {}
+export const getAllRecipes = createAsyncThunk<
+  RecipeType[],
+  { rejectValue: MyKnownError }
+>('allRecipes/getRecipes', async (_, thunkAPI) => {
+  try {
+    const { data } = await axios.get(
+      'https://tasty-api.onrender.com/api/v1/recipes'
+    );
+    return data.recipes;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error?.response?.data);
+    }
   }
-);
+});
 
-export const getRecipe = createAsyncThunk(
-  'allRecipes/getRecipe',
-  async (id: string, thunkAPI) => {
-    try {
-      const { data } = await axios.get(
-        `https://tasty-api.onrender.com/api/v1/recipes/${id}`
-      );
-      return data;
-    } catch (error) {}
+export const getRecipe = createAsyncThunk<
+  RecipeType,
+  { rejectValue: MyKnownError }
+>('allRecipes/getRecipe', async (id, thunkAPI) => {
+  try {
+    const { data } = await axios.get(
+      `https://tasty-api.onrender.com/api/v1/recipes/${id}`
+    );
+    return data.recipe;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error?.response?.data);
+    }
   }
-);
+});
 
 export const recipeSlice = createSlice({
   name: 'recipe',
@@ -51,7 +59,7 @@ export const recipeSlice = createSlice({
       })
       .addCase(getAllRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.recipes = action.payload.recipes;
+        state.recipes = action.payload;
       })
       .addCase(getAllRecipes.rejected, (state) => {
         state.isLoading = false;
@@ -61,7 +69,7 @@ export const recipeSlice = createSlice({
       })
       .addCase(getRecipe.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.recipe = action.payload.recipe;
+        state.recipe = action.payload;
       })
       .addCase(getRecipe.rejected, (state) => {
         state.isLoading = false;
