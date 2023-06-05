@@ -18,7 +18,7 @@ export type RecipeType = {
   averageRating: number;
   numOfRatings: number;
   numOfReviews: number;
-  author: {
+  createdBy: {
     _id: string;
     name: string;
     lastName: string;

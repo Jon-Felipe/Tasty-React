@@ -67,7 +67,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 3.5,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
@@ -115,7 +115,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 1,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
@@ -163,7 +163,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 5,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
@@ -211,7 +211,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 4.5,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
@@ -259,7 +259,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 4,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
@@ -307,7 +307,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 1.5,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
@@ -355,7 +355,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 2,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
@@ -403,7 +403,7 @@ export const recipes: RecipeType[] = [
     averate_rating: 5,
     ratings: 662,
     reviews: 483,
-    author: 'P.Tindall',
+    createdBy: 'P.Tindall',
     image: '',
     created_at: new Date('2023-03-25'),
     recipe_details: {
