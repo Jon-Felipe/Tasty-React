@@ -14,17 +14,19 @@ import {
   RegisterUserAttributes,
   UserData,
   UpdateUserAttributes,
+  AsyncThunkConfig,
 } from '../../utils/types';
 import { RootState } from '../../store';
 import {
   loginUserThunk,
   registerUserThunk,
   updateUserThunk,
+  // updateUserThunk,
 } from './userThunk';
 
 type InitialState = {
   isLoading: boolean;
-  user: UserData | null;
+  user: UserData | null | undefined;
 };
 
 const initialState: InitialState = {
@@ -41,7 +43,7 @@ export const registerUser = createAsyncThunk<
 export const loginUser = createAsyncThunk<
   UserData,
   LoginUserAttributes,
-  { rejectValue: MyKnownError }
+  { state: RootState; rejectValue: MyKnownError }
 >('user/loginUser', loginUserThunk);
 
 export const updateUser = createAsyncThunk<
@@ -49,22 +51,7 @@ export const updateUser = createAsyncThunk<
   UpdateUserAttributes,
   { state: RootState; rejectValue: MyKnownError }
 >('user/updateUser', async (user, thunkAPI) => {
-  try {
-    const { data } = await axios.patch(
-      'https://tasty-api.onrender.com/api/v1/auth/updateUser',
-      user,
-      {
-        headers: {
-          authorization: `Bearer ${thunkAPI.getState().user.user?.token}`,
-        },
-      }
-    );
-    return data.user;
-  } catch (error) {
-    if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error?.response?.data);
-    }
-  }
+  return updateUserThunk(user, thunkAPI);
 });
 
 export const userSlice = createSlice({

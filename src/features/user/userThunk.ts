@@ -1,12 +1,15 @@
 import axios, { AxiosError } from 'axios';
+import { RootState } from '../../store';
 
 // extras
 import {
   AsyncThunkConfig,
   LoginUserAttributes,
+  MyKnownError,
   RegisterUserAttributes,
   UpdateUserAttributes,
 } from '../../utils/types';
+import { getFromLocalStorage } from '../../utils/helpers';
 
 export const registerUserThunk = async (
   user: RegisterUserAttributes,
@@ -43,12 +46,20 @@ export const loginUserThunk = async (
 };
 
 export const updateUserThunk = async (
-  url: string,
   user: UpdateUserAttributes,
   thunkAPI: AsyncThunkConfig
 ) => {
+  const localStorageUser = getFromLocalStorage('user');
   try {
-    const { data } = await axios.post(url, user);
+    const { data } = await axios.patch(
+      'https://tasty-api.onrender.com/api/v1/auth/updateUser',
+      user,
+      {
+        headers: {
+          authorization: `Bearer ${localStorageUser.token}`,
+        },
+      }
+    );
     return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {
