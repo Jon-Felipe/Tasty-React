@@ -9,12 +9,14 @@ import {
 } from '../../utils/types';
 
 export const registerUserThunk = async (
-  url: string,
   user: RegisterUserAttributes,
   thunkAPI: AsyncThunkConfig
 ) => {
   try {
-    const { data } = await axios.post(url, user);
+    const { data } = await axios.post(
+      'https://tasty-api.onrender.com/api/v1/auth/register',
+      user
+    );
     return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -24,12 +26,14 @@ export const registerUserThunk = async (
 };
 
 export const loginUserThunk = async (
-  url: string,
   user: LoginUserAttributes,
   thunkAPI: AsyncThunkConfig
 ) => {
   try {
-    const { data } = await axios.post(url, user);
+    const { data } = await axios.post(
+      'https://tasty-api.onrender.com/api/v1/auth/login',
+      user
+    );
     return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {

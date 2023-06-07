@@ -36,25 +36,13 @@ export const registerUser = createAsyncThunk<
   UserData,
   RegisterUserAttributes,
   { rejectValue: MyKnownError }
->('user/registerUser', async (user, thunkAPI) => {
-  return registerUserThunk(
-    'https://tasty-api.onrender.com/api/v1/auth/register',
-    user,
-    thunkAPI
-  );
-});
+>('user/registerUser', registerUserThunk);
 
 export const loginUser = createAsyncThunk<
   UserData,
   LoginUserAttributes,
   { rejectValue: MyKnownError }
->('user/loginUser', async (user, thunkAPI) => {
-  return loginUserThunk(
-    'https://tasty-api.onrender.com/api/v1/auth/login',
-    user,
-    thunkAPI
-  );
-});
+>('user/loginUser', loginUserThunk);
 
 export const updateUser = createAsyncThunk<
   UserData,
