@@ -4,11 +4,13 @@ import axios, { AxiosError } from 'axios';
 import { AsyncThunkConfig } from '../../utils/types';
 
 export const getAllRecipesThunk = async (
-  url: string,
+  _: undefined,
   thunkAPI: AsyncThunkConfig
 ) => {
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(
+      'https://tasty-api.onrender.com/api/v1/recipes'
+    );
     return data.recipes;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -18,11 +20,13 @@ export const getAllRecipesThunk = async (
 };
 
 export const getRecipeThunk = async (
-  url: string,
+  { id }: { id: string },
   thunkAPI: AsyncThunkConfig
 ) => {
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(
+      `https://tasty-api.onrender.com/api/v1/recipes/${id}`
+    );
     return data.recipe;
   } catch (error) {
     if (error instanceof AxiosError) {

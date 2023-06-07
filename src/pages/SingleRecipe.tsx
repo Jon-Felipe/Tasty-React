@@ -23,12 +23,12 @@ const SingleRecipe = () => {
   const [isFavourite, setIsFavourite] = useState<boolean>(false);
   const flexRow = 'flex items-center';
 
-  const { id } = useParams();
+  const params = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const { isLoading, recipe } = useSelector((state: RootState) => state.recipe);
 
   useEffect(() => {
-    dispatch(getRecipe(id!));
+    dispatch(getRecipe({ id: params.id! }));
   }, []);
 
   if (isLoading) {

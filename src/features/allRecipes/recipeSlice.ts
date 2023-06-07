@@ -17,26 +17,15 @@ const initialState: InitialState = {
   recipe: null,
 };
 
-export const getAllRecipes = createAsyncThunk<
-  RecipeType[],
-  { rejectValue: MyKnownError }
->('allRecipes/getRecipes', async (_, thunkAPI) => {
-  return getAllRecipesThunk(
-    'https://tasty-api.onrender.com/api/v1/recipes',
-    thunkAPI
-  );
-});
+export const getAllRecipes = createAsyncThunk(
+  'allRecipes/getRecipes',
+  getAllRecipesThunk
+);
 
-export const getRecipe = createAsyncThunk<
-  RecipeType,
-  string,
-  { rejectValue: MyKnownError }
->('allRecipes/getRecipe', async (id, thunkAPI) => {
-  return getRecipeThunk(
-    `https://tasty-api.onrender.com/api/v1/recipes/${id}`,
-    thunkAPI
-  );
-});
+export const getRecipe = createAsyncThunk(
+  'allRecipes/getRecipe',
+  getRecipeThunk
+);
 
 export const recipeSlice = createSlice({
   name: 'recipe',
