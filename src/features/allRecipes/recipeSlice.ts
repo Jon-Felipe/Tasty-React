@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
 
 // types
-import { MyKnownError, RecipeType } from '../../utils/types';
+import { RecipeType } from '../../utils/types';
 import { getAllRecipesThunk, getRecipeThunk } from './recipeThunk';
 
 type InitialState = {
