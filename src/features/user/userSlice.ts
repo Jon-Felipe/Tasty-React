@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 
 // helpers
@@ -14,14 +13,12 @@ import {
   RegisterUserAttributes,
   UserData,
   UpdateUserAttributes,
-  AsyncThunkConfig,
 } from '../../utils/types';
 import { RootState } from '../../store';
 import {
   loginUserThunk,
   registerUserThunk,
   updateUserThunk,
-  // updateUserThunk,
 } from './userThunk';
 
 type InitialState = {
@@ -50,9 +47,7 @@ export const updateUser = createAsyncThunk<
   UserData,
   UpdateUserAttributes,
   { state: RootState; rejectValue: MyKnownError }
->('user/updateUser', async (user, thunkAPI) => {
-  return updateUserThunk(user, thunkAPI);
-});
+>('user/updateUser', updateUserThunk);
 
 export const userSlice = createSlice({
   name: 'user',

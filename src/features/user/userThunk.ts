@@ -1,11 +1,9 @@
 import axios, { AxiosError } from 'axios';
-import { RootState } from '../../store';
 
 // extras
 import {
   AsyncThunkConfig,
   LoginUserAttributes,
-  MyKnownError,
   RegisterUserAttributes,
   UpdateUserAttributes,
 } from '../../utils/types';
