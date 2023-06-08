@@ -101,7 +101,7 @@ export const userSlice = createSlice({
           key: 'user',
           value: JSON.stringify(action.payload),
         });
-        toast.success('User Updated!');
+        toast.success('User details updated successfully');
       })
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
