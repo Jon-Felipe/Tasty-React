@@ -2,7 +2,6 @@ import axios, { AxiosError } from 'axios';
 
 // extras
 import {
-  AsyncThunkConfig,
   LoginUserAttributes,
   RegisterUserAttributes,
   UpdateUserAttributes,
@@ -11,7 +10,7 @@ import { getFromLocalStorage } from '../../utils/helpers';
 
 export const registerUserThunk = async (
   user: RegisterUserAttributes,
-  thunkAPI: AsyncThunkConfig
+  thunkAPI: any
 ) => {
   try {
     const { data } = await axios.post(
@@ -21,14 +20,14 @@ export const registerUserThunk = async (
     return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {
-      thunkAPI.rejectValue = error.response?.data;
+      return thunkAPI.rejectWithValue(error.response?.data);
     }
   }
 };
 
 export const loginUserThunk = async (
   user: LoginUserAttributes,
-  thunkAPI: AsyncThunkConfig
+  thunkAPI: any
 ) => {
   try {
     const { data } = await axios.post(
@@ -38,14 +37,14 @@ export const loginUserThunk = async (
     return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {
-      thunkAPI.rejectValue = error.response?.data;
+      return thunkAPI.rejectWithValue(error.response?.data);
     }
   }
 };
 
 export const updateUserThunk = async (
   user: UpdateUserAttributes,
-  thunkAPI: AsyncThunkConfig
+  thunkAPI: any
 ) => {
   const localStorageUser = getFromLocalStorage('user');
   try {
@@ -61,7 +60,7 @@ export const updateUserThunk = async (
     return data.user;
   } catch (error) {
     if (error instanceof AxiosError) {
-      thunkAPI.rejectValue = error.response?.data;
+      return thunkAPI.rejectWithValue(error.response?.data);
     }
   }
 };
