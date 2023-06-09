@@ -28,7 +28,7 @@ const SingleRecipe = () => {
   const { isLoading, recipe } = useSelector((state: RootState) => state.recipe);
 
   useEffect(() => {
-    dispatch(getRecipe({ id: params.id! }));
+    dispatch(getRecipe(params.id!));
   }, []);
 
   if (isLoading) {

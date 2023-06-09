@@ -13,7 +13,7 @@ export const getAllRecipesThunk = async (_: undefined, thunkAPI: any) => {
   }
 };
 
-export const getRecipeThunk = async ({ id }: { id: string }, thunkAPI: any) => {
+export const getRecipeThunk = async (id: string, thunkAPI: any) => {
   try {
     const { data } = await axios.get(
       `https://tasty-api.onrender.com/api/v1/recipes/${id}`
