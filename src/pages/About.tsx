@@ -1,8 +1,6 @@
 import React from 'react';
 
-type Props = {};
-
-const About = (props: Props) => {
+const About = () => {
   return (
     <article className='max-w-screen-xl mx-auto'>
       <h1 className='text-5xl font-bold'>About Us</h1>

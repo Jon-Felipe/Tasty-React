@@ -8,9 +8,7 @@ import ProfileLinkButton from '../components/Profile/ProfileLinkButton';
 import MyRecipes from '../components/Profile/MyRecipes';
 import FavouriteRecipes from '../components/Profile/FavouriteRecipes';
 
-type Props = {};
-
-const Profile = (props: Props) => {
+const Profile = () => {
   const [link, setLink] = useState<string>('info');
 
   const dispatch = useDispatch();

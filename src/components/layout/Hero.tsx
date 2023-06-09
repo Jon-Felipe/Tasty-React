@@ -1,9 +1,7 @@
 import React from 'react';
 import heroImg from '../../assets/hero-img.jpg';
 
-type Props = {};
-
-const Hero = (props: Props) => {
+const Hero = () => {
   return (
     <article className='relative'>
       <section className='h-52 lg:h-96 rounded-xl overflow-hidden'>
