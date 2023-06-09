@@ -2,18 +2,24 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // types
 import { RecipeType } from '../../utils/types';
-import { getAllRecipesThunk, getRecipeThunk } from './recipeThunk';
+import {
+  getAllRecipesThunk,
+  getRecipeThunk,
+  getUserRecipesThunk,
+} from './recipeThunk';
 
 type InitialState = {
   isLoading: boolean;
   recipes: RecipeType[];
   recipe: RecipeType | null;
+  userRecipes: RecipeType[];
 };
 
 const initialState: InitialState = {
   isLoading: false,
   recipes: [],
   recipe: null,
+  userRecipes: [],
 };
 
 export const getAllRecipes = createAsyncThunk(
@@ -24,6 +30,11 @@ export const getAllRecipes = createAsyncThunk(
 export const getRecipe = createAsyncThunk(
   'allRecipes/getRecipe',
   getRecipeThunk
+);
+
+export const getUserRecipes = createAsyncThunk(
+  'allRecipes/getUserRecipes',
+  getUserRecipesThunk
 );
 
 export const recipeSlice = createSlice({
@@ -50,6 +61,16 @@ export const recipeSlice = createSlice({
         state.recipe = action.payload;
       })
       .addCase(getRecipe.rejected, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(getUserRecipes.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getUserRecipes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.userRecipes = action.payload;
+      })
+      .addCase(getUserRecipes.rejected, (state) => {
         state.isLoading = false;
       });
   },
