@@ -85,7 +85,7 @@ export const userSlice = createSlice({
           key: 'user',
           value: JSON.stringify(action.payload),
         });
-        toast.success(`Welcome ${action.payload.name}!`);
+        toast.success(`welcome ${action.payload.name}`);
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -101,7 +101,7 @@ export const userSlice = createSlice({
           key: 'user',
           value: JSON.stringify(action.payload),
         });
-        toast.success('User details updated successfully');
+        toast.success('updated successfully');
       })
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
