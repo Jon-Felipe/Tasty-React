@@ -1,12 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
-// extras
-import { AsyncThunkConfig } from '../../utils/types';
-
-export const getAllRecipesThunk = async (
-  _: undefined,
-  thunkAPI: AsyncThunkConfig
-) => {
+export const getAllRecipesThunk = async (_: undefined, thunkAPI: any) => {
   try {
     const { data } = await axios.get(
       'https://tasty-api.onrender.com/api/v1/recipes'
@@ -14,15 +8,12 @@ export const getAllRecipesThunk = async (
     return data.recipes;
   } catch (error) {
     if (error instanceof AxiosError) {
-      thunkAPI.rejectValue = error.response?.data;
+      return thunkAPI.rejectWithValue(error.response?.data);
     }
   }
 };
 
-export const getRecipeThunk = async (
-  { id }: { id: string },
-  thunkAPI: AsyncThunkConfig
-) => {
+export const getRecipeThunk = async ({ id }: { id: string }, thunkAPI: any) => {
   try {
     const { data } = await axios.get(
       `https://tasty-api.onrender.com/api/v1/recipes/${id}`
@@ -30,7 +21,7 @@ export const getRecipeThunk = async (
     return data.recipe;
   } catch (error) {
     if (error instanceof AxiosError) {
-      thunkAPI.rejectValue = error.response?.data;
+      return thunkAPI.rejectWithValue(error.response?.data);
     }
   }
 };
