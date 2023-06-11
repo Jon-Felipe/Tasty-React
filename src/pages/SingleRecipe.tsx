@@ -6,13 +6,15 @@ import { getRecipe } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/UI/Spinner';
-import RecipeInfo from '../components/SingleRecipe/RecipeInfo';
-import RecipeCookingDetails from '../components/SingleRecipe/RecipeCookingDetails';
-import RecipeTips from '../components/SingleRecipe/RecipeTips';
-import RecipeEquipment from '../components/SingleRecipe/RecipeEquipment';
-import RecipeNutritionalFacts from '../components/SingleRecipe/RecipeNutritionalFacts';
-import RecipeIngredients from '../components/SingleRecipe/RecipeIngredients';
-import RecipeDirections from '../components/SingleRecipe/RecipeDirections';
+import {
+  RecipeInfo,
+  RecipeCookingDetails,
+  RecipeTips,
+  RecipeEquipment,
+  RecipeNutritionalFacts,
+  RecipeIngredients,
+  RecipeDirections,
+} from '../components/SingleRecipe';
 
 const SingleRecipe = () => {
   const params = useParams();
