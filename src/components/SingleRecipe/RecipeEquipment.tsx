@@ -1,10 +1,8 @@
-import React from 'react';
-
 type Props = {
-  equipment: string[] | undefined;
+  equipment: string[];
 };
 
-const Equipment = ({ equipment }: Props) => {
+const RecipeEquipment = ({ equipment }: Props) => {
   return (
     <article className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
       <h3 className='text-2xl font-bold'>Equipment</h3>
@@ -24,4 +22,4 @@ const Equipment = ({ equipment }: Props) => {
   );
 };
 
-export default Equipment;
+export default RecipeEquipment;

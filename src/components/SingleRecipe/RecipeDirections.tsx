@@ -1,10 +1,11 @@
 import React from 'react';
+import { RecipeType } from '../../utils/types';
 
 type Props = {
-  directions: string[] | undefined;
+  directions: string[];
 };
 
-const Directions = ({ directions }: Props) => {
+const RecipeDirections = ({ directions }: Props) => {
   return (
     <div className='mt-8'>
       <h1 className='text-center text-3xl font-bold'>Directions</h1>
@@ -20,4 +21,4 @@ const Directions = ({ directions }: Props) => {
   );
 };
 
-export default Directions;
+export default RecipeDirections;

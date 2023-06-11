@@ -1,10 +1,8 @@
-import React from 'react';
-
 type Props = {
-  ingredients: string[] | undefined;
+  ingredients: string[];
 };
 
-const Ingredients = ({ ingredients }: Props) => {
+const RecipeIngredients = ({ ingredients }: Props) => {
   return (
     <div>
       <h1 className='text-center text-3xl font-bold'>Ingredients</h1>
@@ -22,4 +20,4 @@ const Ingredients = ({ ingredients }: Props) => {
   );
 };
 
-export default Ingredients;
+export default RecipeIngredients;
