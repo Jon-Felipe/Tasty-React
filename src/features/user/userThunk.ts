@@ -49,7 +49,7 @@ export const updateUserThunk = async (
   const localStorageUser = getFromLocalStorage('user');
   try {
     const { data } = await axios.patch(
-      'https://tasty-api.onrender.com/api/v1/auth/updateUser',
+      'https://tasty-api.onrender.com/api/v1/auth',
       user,
       {
         headers: {
@@ -58,6 +58,21 @@ export const updateUserThunk = async (
       }
     );
     return data.user;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error.response?.data);
+    }
+  }
+};
+
+export const deleteUserThunk = async (_: undefined, thunkAPI: any) => {
+  const localStorageUser = getFromLocalStorage('user');
+  try {
+    await axios.delete('https://tasty-api.onrender.com/api/v1/auth', {
+      headers: {
+        authorization: `Bearer ${localStorageUser.token}`,
+      },
+    });
   } catch (error) {
     if (error instanceof AxiosError) {
       return thunkAPI.rejectWithValue(error.response?.data);

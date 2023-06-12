@@ -16,6 +16,7 @@ import {
 } from '../../utils/types';
 import { RootState } from '../../store';
 import {
+  deleteUserThunk,
   loginUserThunk,
   registerUserThunk,
   updateUserThunk,
@@ -48,6 +49,8 @@ export const updateUser = createAsyncThunk<
   UpdateUserAttributes,
   { state: RootState; rejectValue: MyKnownError }
 >('user/updateUser', updateUserThunk);
+
+export const deleteUser = createAsyncThunk('user/deleteUser', deleteUserThunk);
 
 export const userSlice = createSlice({
   name: 'user',
@@ -106,6 +109,19 @@ export const userSlice = createSlice({
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         toast.error(payload?.msg);
+      })
+      .addCase(deleteUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteUser.fulfilled, (state) => {
+        state.isLoading = false;
+        state.user = null;
+        removeFromLocalStorage('user');
+        toast.success('deleted account');
+      })
+      .addCase(deleteUser.rejected, (state) => {
+        state.isLoading = false;
+        toast.error('something went wrong. please try again later');
       });
   },
 });

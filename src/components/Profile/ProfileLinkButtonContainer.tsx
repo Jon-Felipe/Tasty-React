@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
-import { logoutUser } from '../../features/user/userSlice';
+import { deleteUser } from '../../features/user/userSlice';
 
 type Props = {
   setLink: React.Dispatch<React.SetStateAction<string>>;
@@ -8,6 +8,8 @@ type Props = {
 
 const ProfileLinkButtonContainer = ({ setLink }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
+
+  const handleOnClick = () => {};
 
   return (
     <section className='basis-1/4 space-y-4'>
@@ -25,7 +27,7 @@ const ProfileLinkButtonContainer = ({ setLink }: Props) => {
       </button>
       <button
         className='block w-full border p-4 shadow rounded bg-red-500 text-white'
-        onClick={() => dispatch(logoutUser())}
+        onClick={handleOnClick}
       >
         Delete Account
       </button>
