@@ -9,7 +9,11 @@ type Props = {
 const ProfileLinkButtonContainer = ({ setLink }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleOnClick = () => {};
+  const handleOnClick = () => {
+    if (window.confirm('Are you sure you want to delete your account?')) {
+      dispatch(deleteUser());
+    }
+  };
 
   return (
     <section className='basis-1/4 space-y-4'>
