@@ -1,27 +1,14 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../../store';
-import { getAllRecipes } from '../../features/allRecipes/recipeSlice';
-
 // components
-import Spinner from '../UI/Spinner';
 import Recipe from './Recipe';
 
-const RecipeList = () => {
-  const dispatch = useDispatch<AppDispatch>();
+// extras
+import { RecipeType } from '../../utils/types';
 
-  const { isLoading, recipes } = useSelector(
-    (state: RootState) => state.recipe
-  );
+type Props = {
+  recipes: RecipeType[];
+};
 
-  useEffect(() => {
-    dispatch(getAllRecipes());
-  }, []);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
+const RecipeList = ({ recipes }: Props) => {
   return (
     <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
       {recipes.map((recipe) => {
