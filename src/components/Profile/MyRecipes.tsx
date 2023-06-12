@@ -26,6 +26,10 @@ const MyRecipes = () => {
     );
   }
 
+  if (userRecipes.length < 1) {
+    return <p>No recipes found. Start creating some</p>;
+  }
+
   return <RecipeList recipes={userRecipes} />;
 };
 
