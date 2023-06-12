@@ -2,22 +2,24 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
 import { logoutUser } from '../../features/user/userSlice';
 
-type Props = {};
+type Props = {
+  setLink: React.Dispatch<React.SetStateAction<string>>;
+};
 
-const ProfileLinkButtonContainer = (props: Props) => {
+const ProfileLinkButtonContainer = ({ setLink }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
 
   return (
     <section className='basis-1/4 space-y-4'>
       <button
         className='block w-full border p-4 shadow rounded'
-        onClick={() => console.log('click')}
+        onClick={() => setLink('info')}
       >
         My Information
       </button>
       <button
         className='block w-full border p-4 shadow rounded'
-        onClick={() => console.log('click')}
+        onClick={() => setLink('myrecipes')}
       >
         My Recipes
       </button>

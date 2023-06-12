@@ -14,7 +14,7 @@ const Profile = () => {
         Details about your Personal Information
       </p>
       <div className='flex flex-col md:flex-row gap-4 mt-2 md:mt-4'>
-        <ProfileLinkButtonContainer />
+        <ProfileLinkButtonContainer setLink={setLink} />
         <ProfileDashboardContainer link={link} />
       </div>
     </article>

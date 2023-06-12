@@ -46,7 +46,7 @@ const UpdateProfileForm = (props: Props) => {
   };
 
   return (
-    <div className=''>
+    <div className='shadow-lg rounded-lg p-10'>
       <h2 className='text-3xl font-bold'>Update Your Information Here</h2>
       <form onSubmit={handleOnSubmit} className='mt-4'>
         <div className='grid md:grid-cols-2 gap-x-4 mb-2'>

@@ -8,9 +8,9 @@ type Props = {
 
 const ProfileDashboardContainer = ({ link }: Props) => {
   return (
-    <section className='basis-3/4 shadow-lg rounded-lg p-10'>
+    <section className='basis-3/4'>
       {link === 'info' && <UpdateProfileForm />}
-      {link === 'myRecipes' && <MyRecipes />}
+      {link === 'myrecipes' && <MyRecipes />}
     </section>
   );
 };
