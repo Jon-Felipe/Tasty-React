@@ -1,10 +1,8 @@
 import { useState } from 'react';
 
 // components
-import UpdateProfileForm from '../components/Profile/UpdateProfileForm';
-import MyRecipes from '../components/Profile/MyRecipes';
-import FavouriteRecipes from '../components/Profile/FavouriteRecipes';
-import LinkButtonContainer from '../components/Profile/LinkButtonContainer';
+import ProfileLinkButtonContainer from '../components/Profile/ProfileLinkButtonContainer';
+import ProfileDashboardContainer from '../components/Profile/ProfileDashboardContainer';
 
 const Profile = () => {
   const [link, setLink] = useState<string>('info');
@@ -16,14 +14,8 @@ const Profile = () => {
         Details about your Personal Information
       </p>
       <div className='flex flex-col md:flex-row gap-4 mt-2 md:mt-4'>
-        <LinkButtonContainer />
-        {link === 'info' ? (
-          <UpdateProfileForm />
-        ) : link === 'myRecipes' ? (
-          <MyRecipes />
-        ) : (
-          link === 'favouriteRecipes' && <FavouriteRecipes />
-        )}
+        <ProfileLinkButtonContainer />
+        <ProfileDashboardContainer link={link} />
       </div>
     </article>
   );
