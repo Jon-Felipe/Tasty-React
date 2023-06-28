@@ -12,13 +12,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import Main from './layouts/Main';
 
 // pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import SingleRecipe from './pages/SingleRecipe';
-import Profile from './pages/Profile';
+import {
+  Home,
+  About,
+  Contact,
+  Login,
+  Register,
+  SingleRecipe,
+  Profile,
+} from './pages';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
