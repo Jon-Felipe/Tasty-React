@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // layouts
-import Main from './layouts/Main';
+import RootLayout from './layouts/RootLayout';
 
 // pages
 import {
@@ -24,7 +24,7 @@ import {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Main />}>
+    <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />

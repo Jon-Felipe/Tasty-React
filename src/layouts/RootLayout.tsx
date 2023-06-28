@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 // components
 import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
 
-type Props = {};
-
-const Main = (props: Props) => {
+const RootLayout = () => {
   const [showLinks, setShowLinks] = useState<boolean>(false);
 
   return (
@@ -21,4 +19,4 @@ const Main = (props: Props) => {
   );
 };
 
-export default Main;
+export default RootLayout;
