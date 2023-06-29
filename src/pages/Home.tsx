@@ -7,7 +7,7 @@ import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 import Search from '../components/UI/Search';
 import Sort from '../components/UI/Sort';
 import Accordion from '../components/UI/Accordion';
-import RecipeList from '../components/Recipe/RecipeList';
+import RecipeList from '../components/RecipeList';
 import Spinner from '../components/UI/Spinner';
 import LinkCard from '../components/UI/LinkCard';
 

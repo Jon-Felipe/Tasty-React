@@ -6,7 +6,7 @@ import { RootState } from '../../store';
 
 // components
 import Spinner from '../UI/Spinner';
-import RecipeList from '../Recipe/RecipeList';
+import RecipeList from '../RecipeList';
 
 const MyRecipes = () => {
   const { userRecipes, isLoading } = useSelector(

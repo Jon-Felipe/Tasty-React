@@ -2,7 +2,7 @@
 import Recipe from './Recipe';
 
 // extras
-import { RecipeType } from '../../utils/types';
+import { RecipeType } from '../utils/types';
 
 type Props = {
   recipes: RecipeType[];
