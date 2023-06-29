@@ -73,37 +73,23 @@ const SingleRecipe = () => {
           </section>
         </div>
         {/* cooking details */}
-        <article className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4'>
-          <div className='border-r-2 border-orange-500'>
-            <h4 className='text-sm font-extrabold text-orange-500'>
-              Prep Time:
-            </h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipeDetails.prepTime}
-            </p>
-          </div>
-          <div className='border-r-2 border-orange-500'>
-            <h4 className='text-sm font-extrabold text-orange-500'>
-              Cook Time:
-            </h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipeDetails.cookTime}
-            </p>
-          </div>
-          <div className='border-r-2 border-orange-500'>
-            <h4 className='text-sm font-extrabold text-orange-500'>
-              Total Time:
-            </h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipeDetails.totalTime}
-            </p>
-          </div>
-          <div className='border-orange-500'>
-            <h4 className='text-sm font-extrabold text-orange-500'>Servers:</h4>
-            <p className='text-sm font-semibold'>
-              {recipe?.recipeDetails.servings}
-            </p>
-          </div>
+        <article className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4 [&>*:not(:last-child)]:border-r-2'>
+          <CookingDetailsItem
+            text='Prep Time:'
+            value={recipe!?.recipeDetails?.prepTime}
+          />
+          <CookingDetailsItem
+            text='Cook Time:'
+            value={recipe!?.recipeDetails?.cookTime}
+          />
+          <CookingDetailsItem
+            text='Total Time:'
+            value={recipe!?.recipeDetails?.totalTime}
+          />
+          <CookingDetailsItem
+            text='Serves:'
+            value={recipe!?.recipeDetails?.servings}
+          />
         </article>
         <section className='flex flex-col lg:flex-row gap-4 lg:gap-4 mt-4'>
           {/* recipe tips */}
@@ -205,3 +191,17 @@ const SingleRecipe = () => {
 };
 
 export default SingleRecipe;
+
+type CookingDetailsType = {
+  text: string;
+  value: number;
+};
+
+const CookingDetailsItem = ({ text, value }: CookingDetailsType) => {
+  return (
+    <div className='border-orange-500 mx-4'>
+      <h4 className='text-sm font-extrabold text-orange-500'>{text}</h4>
+      <p className='text-sm font-semibold'>{value}</p>
+    </div>
+  );
+};
