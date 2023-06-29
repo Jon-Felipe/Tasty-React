@@ -74,19 +74,19 @@ const SingleRecipe = () => {
         </div>
         {/* cooking details */}
         <article className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4 [&>*:not(:last-child)]:border-r-2'>
-          <CookingDetailsItem
+          <CookingDetail
             text='Prep Time:'
             value={recipe!?.recipeDetails?.prepTime}
           />
-          <CookingDetailsItem
+          <CookingDetail
             text='Cook Time:'
             value={recipe!?.recipeDetails?.cookTime}
           />
-          <CookingDetailsItem
+          <CookingDetail
             text='Total Time:'
             value={recipe!?.recipeDetails?.totalTime}
           />
-          <CookingDetailsItem
+          <CookingDetail
             text='Serves:'
             value={recipe!?.recipeDetails?.servings}
           />
@@ -189,7 +189,7 @@ type RecipeItemType = {
   value: string | number;
 };
 
-const CookingDetailsItem = ({ text, value }: RecipeItemType) => {
+const CookingDetail = ({ text, value }: RecipeItemType) => {
   return (
     <div className='border-orange-500 mx-4'>
       <h4 className='text-sm font-extrabold text-orange-500'>{text}</h4>
