@@ -1,7 +1,7 @@
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
-import Login from './Home';
+import Login from './Login';
 import Register from './Register';
 import SingleRecipe from './SingleRecipe';
 
