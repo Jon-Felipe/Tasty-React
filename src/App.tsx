@@ -12,15 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RootLayout from './layouts/RootLayout';
 
 // pages
-import {
-  Home,
-  About,
-  Contact,
-  Login,
-  Register,
-  SingleRecipe,
-  Profile,
-} from './pages';
+import { Home, About, Contact, Login, Register, SingleRecipe } from './pages';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +23,6 @@ const router = createBrowserRouter(
       <Route path='recipe/:id' element={<SingleRecipe />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
-      <Route path='profile' element={<Profile />} />
     </Route>
   )
 );
