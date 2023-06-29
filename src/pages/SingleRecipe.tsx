@@ -130,30 +130,22 @@ const SingleRecipe = () => {
               <span className='text-sm font-medium'>(per serving)</span>
             </h3>
             <div className='flex items-center justify-between bg-white px-6 py-2 rounded-xl mt-2'>
-              <div>
-                <h3 className='font-bold'>Calories</h3>
-                <p className='text-orange-500 font-medium'>
-                  {recipe?.nutritionFacts.calories}
-                </p>
-              </div>
-              <div>
-                <h3 className='font-bold'>Fat</h3>
-                <p className='text-orange-500 font-medium'>
-                  {recipe?.nutritionFacts.fat}g
-                </p>
-              </div>
-              <div>
-                <h3 className='font-bold'>Carbs</h3>
-                <p className='text-orange-500 font-medium'>
-                  {recipe?.nutritionFacts.carbs}g
-                </p>
-              </div>
-              <div>
-                <h3 className='font-bold'>Protein</h3>
-                <p className='text-orange-500 font-medium'>
-                  {recipe?.nutritionFacts.protein}g
-                </p>
-              </div>
+              <NutritionalFact
+                text='Calories'
+                value={recipe!?.nutritionFacts?.calories}
+              />
+              <NutritionalFact
+                text='Fat'
+                value={`${recipe!?.nutritionFacts?.calories}g`}
+              />
+              <NutritionalFact
+                text='Carbs'
+                value={`${recipe!?.nutritionFacts?.carbs}g`}
+              />
+              <NutritionalFact
+                text='Protein'
+                value={`${recipe!?.nutritionFacts?.protein}g`}
+              />
             </div>
           </article>
         </section>
@@ -192,16 +184,25 @@ const SingleRecipe = () => {
 
 export default SingleRecipe;
 
-type CookingDetailsType = {
+type RecipeItemType = {
   text: string;
-  value: number;
+  value: string | number;
 };
 
-const CookingDetailsItem = ({ text, value }: CookingDetailsType) => {
+const CookingDetailsItem = ({ text, value }: RecipeItemType) => {
   return (
     <div className='border-orange-500 mx-4'>
       <h4 className='text-sm font-extrabold text-orange-500'>{text}</h4>
       <p className='text-sm font-semibold'>{value}</p>
+    </div>
+  );
+};
+
+const NutritionalFact = ({ text, value }: RecipeItemType) => {
+  return (
+    <div>
+      <h3 className='font-bold'>{text}</h3>
+      <p className='text-orange-500 font-medium'>{value}</p>
     </div>
   );
 };
