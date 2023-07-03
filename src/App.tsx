@@ -20,6 +20,7 @@ import {
   Register,
   SingleRecipe,
   Profile,
+  MyRecipes,
 } from './pages';
 
 const router = createBrowserRouter(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
       <Route path='register' element={<Register />} />
       <Route path='profile' element={<ProfileLayout />}>
         <Route index element={<Profile />} />
+        <Route path='my-recipes' element={<MyRecipes />} />
       </Route>
     </Route>
   )

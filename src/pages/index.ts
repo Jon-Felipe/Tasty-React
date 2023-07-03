@@ -5,5 +5,15 @@ import Login from './Login';
 import Register from './Register';
 import SingleRecipe from './SingleRecipe';
 import Profile from './Profile';
+import MyRecipes from './MyRecipes';
 
-export { Home, About, Contact, Login, Register, SingleRecipe, Profile };
+export {
+  Home,
+  About,
+  Contact,
+  Login,
+  Register,
+  SingleRecipe,
+  Profile,
+  MyRecipes,
+};
