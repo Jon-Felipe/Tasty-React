@@ -34,7 +34,7 @@ const router = createBrowserRouter(
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
       <Route path='profile' element={<ProfileLayout />}>
-        <Route index element={<Profile />} />
+        <Route path='my-information' element={<Profile />} />
         <Route path='my-recipes' element={<MyRecipes />} />
         <Route path='my-favourites' element={<FavouriteRecipes />} />
       </Route>

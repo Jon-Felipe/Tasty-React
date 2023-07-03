@@ -35,7 +35,10 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
           <div className='flex items-center lg:order-2'>
             {user?.name ? (
               <div className='flex items-center gap-x-4'>
-                <Link to='/profile' className='flex items-center gap-x-1'>
+                <Link
+                  to='/profile/my-information'
+                  className='flex items-center gap-x-1'
+                >
                   <UserCircleIcon className='w-6 h-6' />
                   <p>My Profile</p>
                 </Link>
