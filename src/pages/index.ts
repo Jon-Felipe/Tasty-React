@@ -6,6 +6,7 @@ import Register from './Register';
 import SingleRecipe from './SingleRecipe';
 import Profile from './Profile';
 import MyRecipes from './MyRecipes';
+import FavouriteRecipes from './FavouriteRecipes';
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   SingleRecipe,
   Profile,
   MyRecipes,
+  FavouriteRecipes,
 };

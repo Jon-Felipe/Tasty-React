@@ -21,6 +21,7 @@ import {
   SingleRecipe,
   Profile,
   MyRecipes,
+  FavouriteRecipes,
 } from './pages';
 
 const router = createBrowserRouter(
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path='profile' element={<ProfileLayout />}>
         <Route index element={<Profile />} />
         <Route path='my-recipes' element={<MyRecipes />} />
+        <Route path='my-favourites' element={<FavouriteRecipes />} />
       </Route>
     </Route>
   )
