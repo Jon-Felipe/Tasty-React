@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 
 type ProfileLinksType = {
   id: number;
@@ -14,12 +14,10 @@ const profileLinks: ProfileLinksType = [
 
 const ProfileLayout = () => {
   return (
-    <>
-      <div className=''>
-        <ProfileLinks />
-        <Outlet />
-      </div>
-    </>
+    <div>
+      <ProfileLinks />
+      <Outlet />
+    </div>
   );
 };
 
@@ -27,9 +25,15 @@ const ProfileLinks = () => {
   return (
     <div className='grid grid-cols-3 place-items-center max-w-screen-lg mx-auto border-b-2 pb-2'>
       {profileLinks.map((link) => (
-        <Link key={link.id} to={link.url} className='text-sm font-medium'>
+        <NavLink
+          key={link.id}
+          to={link.url}
+          className={({ isActive }) =>
+            isActive ? 'text-md font-semibold' : 'text-sm font-medium'
+          }
+        >
           {link.text}
-        </Link>
+        </NavLink>
       ))}
     </div>
   );
