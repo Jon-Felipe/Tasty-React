@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // layouts
 import RootLayout from './layouts/RootLayout';
+import ProfileLayout from './layouts/ProfileLayout';
 
 // pages
 import {
@@ -30,17 +31,19 @@ const router = createBrowserRouter(
       <Route path='recipe/:id' element={<SingleRecipe />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
-      <Route path='profile' element={<Profile />} />
+      <Route path='profile' element={<ProfileLayout />}>
+        <Route index element={<Profile />} />
+      </Route>
     </Route>
   )
 );
 
 function App() {
   return (
-    <div>
+    <>
       <RouterProvider router={router} />
       <ToastContainer position='top-center' />
-    </div>
+    </>
   );
 }
 
