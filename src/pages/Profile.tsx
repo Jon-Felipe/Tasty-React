@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../store';
 
 // components
 import FormRow from '../components/UI/FormRow';
+import { updateUser } from '../features/user/userSlice';
 
 const Profile = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const { user } = useSelector((state: RootState) => state.user);
 
   const [values, setValues] = useState({
@@ -21,6 +23,18 @@ const Profile = () => {
     setValues((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const handleOnUpdate = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    dispatch(
+      updateUser({
+        name: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+      })
+    );
+  };
+
   return (
     <section>
       <div className='max-w-screen-md mx-auto space-y-4'>
@@ -30,7 +44,7 @@ const Profile = () => {
             Update your personal details here
           </p>
         </div>
-        <form>
+        <form onSubmit={handleOnUpdate}>
           <div className='grid grid-cols-2 gap-x-6'>
             <FormRow
               type='text'
@@ -63,7 +77,6 @@ const Profile = () => {
             <button
               type='submit'
               className='bg-orange-500 text-white px-4 py-1.5 rounded-md'
-              onClick={() => console.log('update')}
             >
               Update
             </button>
