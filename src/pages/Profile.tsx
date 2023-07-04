@@ -1,7 +1,26 @@
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
+
 // components
 import FormRow from '../components/UI/FormRow';
 
 const Profile = () => {
+  const { user } = useSelector((state: RootState) => state.user);
+
+  const [values, setValues] = useState({
+    firstName: user?.name || '',
+    lastName: user?.lastName || '',
+    email: user?.email || '',
+  });
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setValues((prevState) => ({ ...prevState, [name]: value }));
+  };
+
   return (
     <section>
       <div className='max-w-screen-md mx-auto space-y-4'>
@@ -15,9 +34,9 @@ const Profile = () => {
           <div className='grid grid-cols-2 gap-x-6'>
             <FormRow
               type='text'
-              name='name'
-              value={''}
-              handleChange={() => console.log('first')}
+              name='firstName'
+              value={values?.firstName}
+              handleChange={handleOnChange}
               labelText='First Name'
               placeholder='John'
               required
@@ -25,8 +44,8 @@ const Profile = () => {
             <FormRow
               type='text'
               name='lastName'
-              value={''}
-              handleChange={() => console.log('first')}
+              value={values?.lastName}
+              handleChange={handleOnChange}
               labelText='Last Name'
               placeholder='Doe'
               required
@@ -36,8 +55,8 @@ const Profile = () => {
             <FormRow
               type='email'
               name='email'
-              value={''}
-              handleChange={() => console.log('first')}
+              value={values?.email}
+              handleChange={handleOnChange}
               labelText='Email'
               placeholder='example@example.com'
               required
