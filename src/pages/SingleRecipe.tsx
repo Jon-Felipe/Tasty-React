@@ -28,7 +28,7 @@ const SingleRecipe = () => {
   }
 
   return (
-    <article className='flex flex-col md:flex-row gap-4 max-w-screen-xl mx-auto'>
+    <article className='flex flex-col md:flex-row gap-4'>
       <section className='basis-2/3'>
         {/* recipe info */}
         <div>

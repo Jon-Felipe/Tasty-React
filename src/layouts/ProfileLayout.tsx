@@ -23,7 +23,7 @@ const ProfileLayout = () => {
 
 const ProfileLinks = () => {
   return (
-    <div className='grid grid-cols-3 place-items-center max-w-screen-lg mx-auto border-b-2 pb-2'>
+    <div className='grid grid-cols-3 place-items-center border-b-2 pb-2'>
       {profileLinks.map((link) => (
         <NavLink
           key={link.id}

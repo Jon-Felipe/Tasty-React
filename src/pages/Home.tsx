@@ -36,7 +36,7 @@ const Home = () => {
   }
 
   return (
-    <div className='max-w-screen-xl mx-auto grid gap-6'>
+    <div className='grid gap-6'>
       {/* hero */}
       <article className='relative'>
         <section className='h-52 lg:h-96 rounded-xl overflow-hidden'>
