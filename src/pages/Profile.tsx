@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 
@@ -25,6 +26,13 @@ const Profile = () => {
 
   const handleOnUpdate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const { firstName, lastName, email } = values;
+
+    if (!firstName.trim() || !lastName.trim() || !email.trim()) {
+      toast.error('please fill in all fields');
+      return;
+    }
 
     dispatch(
       updateUser({
