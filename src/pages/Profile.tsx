@@ -38,7 +38,6 @@ const Profile = () => {
               value={values?.firstName}
               handleChange={handleOnChange}
               labelText='First Name'
-              placeholder='John'
               required
             />
             <FormRow
@@ -47,7 +46,6 @@ const Profile = () => {
               value={values?.lastName}
               handleChange={handleOnChange}
               labelText='Last Name'
-              placeholder='Doe'
               required
             />
           </div>
@@ -58,7 +56,6 @@ const Profile = () => {
               value={values?.email}
               handleChange={handleOnChange}
               labelText='Email'
-              placeholder='example@example.com'
               required
             />
           </div>

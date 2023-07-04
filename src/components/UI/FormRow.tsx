@@ -6,7 +6,7 @@ type Props = {
   value: string | number | readonly string[] | undefined;
   handleChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
   labelText: string | undefined;
-  placeholder: string | undefined;
+  placeholder?: string | undefined;
   required: boolean | undefined;
 };
 
