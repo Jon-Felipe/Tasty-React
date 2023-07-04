@@ -23,14 +23,17 @@ const ProfileLayout = () => {
 
 const ProfileLinks = () => {
   return (
-    <div className='grid grid-cols-3 place-items-center border-b-2 pb-2'>
+    <div className='grid grid-cols-3 place-items-center border-b-2 border-b-orange-300 pb-2'>
       {profileLinks.map((link) => (
         <NavLink
           key={link.id}
           to={link.url}
           className={({ isActive }) =>
-            isActive ? 'text-md font-semibold' : 'text-sm font-medium'
+            isActive
+              ? 'text-md font-semibold text-orange-500'
+              : 'text-sm font-medium'
           }
+          end
         >
           {link.text}
         </NavLink>
