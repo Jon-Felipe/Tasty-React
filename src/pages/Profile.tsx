@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from '../store';
 
 // components
 import FormRow from '../components/UI/FormRow';
-import { updateUser } from '../features/user/userSlice';
+import { deleteUser, updateUser } from '../features/user/userSlice';
 
 const Profile = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -81,7 +81,14 @@ const Profile = () => {
               required
             />
           </div>
-          <div className='mt-4'>
+          <div className='flex items-center gap-x-4 mt-4'>
+            <button
+              type='button'
+              className='border border-orange-500 text-orange-500 px-4 py-1.5 rounded-md'
+              onClick={() => dispatch(deleteUser())}
+            >
+              Delete Account
+            </button>
             <button
               type='submit'
               className='bg-orange-500 text-white px-4 py-1.5 rounded-md'
