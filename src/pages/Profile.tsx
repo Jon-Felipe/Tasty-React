@@ -24,6 +24,15 @@ const Profile = () => {
     setValues((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  const handleOnDelete = () => {
+    const response = window.confirm(
+      'Are you sure you want to delete your account?'
+    );
+    if (response) {
+      dispatch(deleteUser());
+    }
+  };
+
   const handleOnUpdate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -85,7 +94,7 @@ const Profile = () => {
             <button
               type='button'
               className='border border-orange-500 text-orange-500 px-4 py-1.5 rounded-md'
-              onClick={() => dispatch(deleteUser())}
+              onClick={handleOnDelete}
             >
               Delete Account
             </button>
