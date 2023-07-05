@@ -1,9 +1,31 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserRecipes } from '../features/allRecipes/recipeSlice';
+import { AppDispatch, RootState } from '../store';
 
-type Props = {};
+// components
+import Spinner from '../components/UI/Spinner';
+import RecipeList from '../components/RecipeList';
 
-const MyRecipes = (props: Props) => {
-  return <div>MyRecipes</div>;
+const MyRecipes = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { isLoading, userRecipes } = useSelector(
+    (state: RootState) => state.recipe
+  );
+
+  useEffect(() => {
+    dispatch(getUserRecipes());
+  }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  return (
+    <div className='mt-6'>
+      <RecipeList recipes={userRecipes} />
+    </div>
+  );
 };
 
 export default MyRecipes;
