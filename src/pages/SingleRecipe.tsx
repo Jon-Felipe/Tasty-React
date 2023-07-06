@@ -46,7 +46,7 @@ const SingleRecipe = () => {
           <section className={`${flexRow} justify-between mt-2`}>
             <div className={`${flexRow} gap-x-4`}>
               <div>
-                <h5 className='text-sm font-semibold'>{`${recipe?.createdBy.lastName} ${recipe?.createdBy.lastName}`}</h5>
+                <h5 className='text-sm font-semibold'>{`${recipe?.createdBy.name} ${recipe?.createdBy.lastName}`}</h5>
                 <p className='text-xs font-semibold text-orange-500'>
                   Followers: 1561
                 </p>
