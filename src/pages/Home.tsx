@@ -10,6 +10,7 @@ import Accordion from '../components/UI/Accordion';
 import RecipeList from '../components/RecipeList';
 import Spinner from '../components/UI/Spinner';
 import LinkCard from '../components/UI/LinkCard';
+import Error from '../components/Error';
 
 // extras
 import {
@@ -33,6 +34,14 @@ const Home = () => {
 
   if (isLoading) {
     return <Spinner />;
+  }
+
+  if (recipes.length === 0) {
+    return (
+      <div className='mt-6'>
+        <Error text='No Recipes Found' />
+      </div>
+    );
   }
 
   return (
