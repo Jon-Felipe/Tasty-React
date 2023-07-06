@@ -1,9 +1,9 @@
-import React from 'react';
+type Props = {
+  text: string;
+};
 
-type Props = {};
-
-const Error = (props: Props) => {
-  return <div>Error</div>;
+const Error = ({ text }: Props) => {
+  return <p className='text-xl font-semibold text-center'>{text}</p>;
 };
 
 export default Error;
