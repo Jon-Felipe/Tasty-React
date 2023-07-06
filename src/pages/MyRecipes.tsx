@@ -21,6 +21,12 @@ const MyRecipes = () => {
     return <Spinner />;
   }
 
+  if (userRecipes.length === 0) {
+    return (
+      <p className='text-xl font-semibold text-center my-8'>No recipes found</p>
+    );
+  }
+
   return (
     <div className='mt-6'>
       <RecipeList recipes={userRecipes} />
