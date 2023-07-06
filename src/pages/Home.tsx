@@ -10,7 +10,7 @@ import Accordion from '../components/UI/Accordion';
 import RecipeList from '../components/RecipeList';
 import Spinner from '../components/UI/Spinner';
 import LinkCard from '../components/UI/LinkCard';
-import Error from '../components/Error';
+import NotFound from '../components/NotFound';
 
 // extras
 import {
@@ -39,7 +39,7 @@ const Home = () => {
   if (recipes.length === 0) {
     return (
       <div className='mt-6'>
-        <Error text='No Recipes Found' />
+        <NotFound text='No Recipes Found' />
       </div>
     );
   }

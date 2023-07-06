@@ -6,7 +6,7 @@ import { AppDispatch, RootState } from '../store';
 // components
 import Spinner from '../components/UI/Spinner';
 import RecipeList from '../components/RecipeList';
-import Error from '../components/Error';
+import NotFound from '../components/NotFound';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -25,7 +25,7 @@ const MyRecipes = () => {
   if (userRecipes.length === 0) {
     return (
       <div className='mt-6'>
-        <Error text='No Recipes Found' />
+        <NotFound text='No Recipes Found' />
       </div>
     );
   }

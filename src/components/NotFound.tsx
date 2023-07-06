@@ -2,8 +2,8 @@ type Props = {
   text: string;
 };
 
-const Error = ({ text }: Props) => {
+const NotFound = ({ text }: Props) => {
   return <p className='text-xl font-semibold text-center'>{text}</p>;
 };
 
-export default Error;
+export default NotFound;
