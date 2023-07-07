@@ -1,9 +1,20 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 
-type Props = {};
+type Props = {
+  children: React.ReactNode;
+};
 
-const ProtectedRoute = (props: Props) => {
-  return <div>ProtectedRoute</div>;
+const ProtectedRoute = ({ children }: Props) => {
+  const { user } = useSelector((state: RootState) => state.user);
+
+  if (!user?.token) {
+    return <Navigate to='/' replace />;
+  }
+
+  return children;
 };
 
 export default ProtectedRoute;
