@@ -7,6 +7,7 @@ import SingleRecipe from './SingleRecipe';
 import Profile from './Profile';
 import MyRecipes from './MyRecipes';
 import FavouriteRecipes from './FavouriteRecipes';
+import ProtectedRoute from './ProtectedRoute';
 
 export {
   Home,
@@ -18,4 +19,5 @@ export {
   Profile,
   MyRecipes,
   FavouriteRecipes,
+  ProtectedRoute,
 };

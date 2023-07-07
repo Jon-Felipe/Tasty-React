@@ -22,10 +22,8 @@ import {
   Profile,
   MyRecipes,
   FavouriteRecipes,
+  ProtectedRoute,
 } from './pages';
-
-// components
-import ProtectedRoute from './pages/ProtectedRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
