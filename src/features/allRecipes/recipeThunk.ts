@@ -32,7 +32,7 @@ export const getUserRecipesThunk = async (_: undefined, thunkAPI: any) => {
 
   try {
     const { data } = await axios.get(
-      `https://tasty-api.onrender.com/api/v1/recipes/my-recipes`,
+      `https://tasty-api.onrender.com/api/v1/recipes/user-recipes`,
       {
         headers: {
           authorization: `Bearer ${localStorageUser.token}`,
