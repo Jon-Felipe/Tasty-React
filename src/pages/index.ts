@@ -8,6 +8,7 @@ import Profile from './Profile';
 import MyRecipes from './MyRecipes';
 import FavouriteRecipes from './FavouriteRecipes';
 import ProtectedRoute from './ProtectedRoute';
+import Error from './Error';
 
 export {
   Home,
@@ -20,4 +21,5 @@ export {
   MyRecipes,
   FavouriteRecipes,
   ProtectedRoute,
+  Error,
 };

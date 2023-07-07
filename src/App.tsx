@@ -23,6 +23,7 @@ import {
   MyRecipes,
   FavouriteRecipes,
   ProtectedRoute,
+  Error,
 } from './pages';
 
 const router = createBrowserRouter(
@@ -46,6 +47,7 @@ const router = createBrowserRouter(
         <Route path='my-recipes' element={<MyRecipes />} />
         <Route path='my-favourites' element={<FavouriteRecipes />} />
       </Route>
+      <Route path='*' element={<Error />} />
     </Route>
   )
 );
