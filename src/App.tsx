@@ -25,7 +25,7 @@ import {
 } from './pages';
 
 // components
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
