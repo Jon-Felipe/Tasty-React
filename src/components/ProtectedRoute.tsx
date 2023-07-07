@@ -11,10 +11,10 @@ const ProtectedRoute = ({ children }: Props) => {
   const { user } = useSelector((state: RootState) => state.user);
 
   if (!user?.token) {
-    return <Navigate to='/' replace />;
+    return <Navigate to='/login' replace />;
   }
 
-  return children;
+  return <div>{children}</div>;
 };
 
 export default ProtectedRoute;

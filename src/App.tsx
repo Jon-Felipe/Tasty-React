@@ -24,6 +24,9 @@ import {
   FavouriteRecipes,
 } from './pages';
 
+// components
+import ProtectedRoute from './components/ProtectedRoute';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
@@ -33,7 +36,14 @@ const router = createBrowserRouter(
       <Route path='recipe/:id' element={<SingleRecipe />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
-      <Route path='profile' element={<ProfileLayout />}>
+      <Route
+        path='profile'
+        element={
+          <ProtectedRoute>
+            <ProfileLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route path='my-information' element={<Profile />} />
         <Route path='my-recipes' element={<MyRecipes />} />
         <Route path='my-favourites' element={<FavouriteRecipes />} />
