@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store';
+import { handleChange } from '../../features/allRecipes/recipeSlice';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 const Search = () => {
-  const [searchValue, setSearchValue] = useState<string>('');
+  const dispatch = useDispatch<AppDispatch>();
+  const { search } = useSelector((state: RootState) => state.recipe);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
     const value = e.target.value;
-    setSearchValue(value);
+    dispatch(handleChange({ name, value }));
   };
 
   const handleOnSubmit = (e: React.FormEvent) => {
@@ -28,7 +33,8 @@ const Search = () => {
         <input
           type='search'
           id='search'
-          value={searchValue}
+          name='search'
+          value={search}
           onChange={handleOnChange}
           className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50'
           placeholder='Search Recipes...'

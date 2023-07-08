@@ -58,8 +58,10 @@ export const recipeSlice = createSlice({
   name: 'recipe',
   initialState,
   reducers: {
-    handleChange: (state, action) => {
-      console.log(action.payload);
+    handleChange: (state, { payload }) => {
+      const { name, value } = payload;
+      state = { ...state, [name]: value };
+      return state;
     },
   },
   extraReducers: (builder) => {
