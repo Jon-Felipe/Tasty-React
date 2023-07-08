@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios, { AxiosError } from 'axios';
 
 // types
 import { RecipeType } from '../../utils/types';
@@ -29,7 +30,18 @@ const initialState: InitialState = {
 
 export const getAllRecipes = createAsyncThunk(
   'allRecipes/getRecipes',
-  getAllRecipesThunk
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        'https://tasty-api.onrender.com/api/v1/recipes'
+      );
+      return data.recipes;
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(error.response?.data);
+      }
+    }
+  }
 );
 
 export const getRecipe = createAsyncThunk(
