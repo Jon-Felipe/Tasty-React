@@ -8,7 +8,11 @@ import {
   getUserRecipesThunk,
 } from './recipeThunk';
 
-interface InitialState {
+interface InitialFilterState {
+  search: string;
+}
+
+interface InitialState extends InitialFilterState {
   isLoading: boolean;
   recipes: RecipeType[];
   recipe: RecipeType | null;
@@ -20,6 +24,7 @@ const initialState: InitialState = {
   recipes: [],
   recipe: null,
   userRecipes: [],
+  search: '',
 };
 
 export const getAllRecipes = createAsyncThunk(
