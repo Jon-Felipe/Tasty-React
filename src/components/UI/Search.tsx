@@ -1,7 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
-import { handleChange } from '../../features/allRecipes/recipeSlice';
+import {
+  getAllRecipes,
+  handleChange,
+} from '../../features/allRecipes/recipeSlice';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 const Search = () => {
@@ -16,6 +19,8 @@ const Search = () => {
 
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    dispatch(getAllRecipes());
   };
 
   return (

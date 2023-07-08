@@ -8,6 +8,7 @@ import {
   getRecipeThunk,
   getUserRecipesThunk,
 } from './recipeThunk';
+import { RootState } from '../../store';
 
 interface InitialFilterState {
   search: string;
@@ -31,10 +32,17 @@ const initialState: InitialState = {
 export const getAllRecipes = createAsyncThunk(
   'allRecipes/getRecipes',
   async (_, thunkAPI) => {
+    let url = 'https://tasty-api.onrender.com/api/v1/recipes';
+
+    const {
+      recipe: { search },
+    } = thunkAPI.getState() as RootState;
+    if (search) {
+      url = url + `?search=${search}`;
+    }
+
     try {
-      const { data } = await axios.get(
-        'https://tasty-api.onrender.com/api/v1/recipes'
-      );
+      const { data } = await axios.get(url);
       return data.recipes;
     } catch (error) {
       if (error instanceof AxiosError) {
