@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
-type Props = {};
+const Search = () => {
+  const [searchValue, setSearchValue] = useState<string>('');
 
-const Search = (props: Props) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchValue(value);
+  };
+
+  const handleOnSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className='block w-full'>
+    <form className='block w-full' onSubmit={handleOnSubmit}>
       <label
         htmlFor='search'
         className='mb-2 text-sm font-medium text-gray-900 sr-only'
@@ -19,6 +28,8 @@ const Search = (props: Props) => {
         <input
           type='search'
           id='search'
+          value={searchValue}
+          onChange={handleOnChange}
           className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50'
           placeholder='Search Recipes...'
           required
