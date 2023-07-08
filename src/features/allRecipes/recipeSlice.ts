@@ -8,12 +8,12 @@ import {
   getUserRecipesThunk,
 } from './recipeThunk';
 
-type InitialState = {
+interface InitialState {
   isLoading: boolean;
   recipes: RecipeType[];
   recipe: RecipeType | null;
   userRecipes: RecipeType[];
-};
+}
 
 const initialState: InitialState = {
   isLoading: false,
