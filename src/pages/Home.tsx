@@ -15,8 +15,7 @@ import NotFound from '../components/NotFound';
 // extras
 import {
   cuisineFilters,
-  ingredientsFilters,
-  mealsFilters,
+  mealFilters,
   recipeCategories,
 } from '../utils/constants';
 import heroImg from '../assets/hero-img.jpg';
@@ -87,8 +86,7 @@ const Home = () => {
         <article className='grid md:grid-cols-[200px_1fr] gap-10'>
           <section>
             <Accordion headerText='Cuisine' options={cuisineFilters} />
-            <Accordion headerText='Meals' options={mealsFilters} />
-            <Accordion headerText='Ingredients' options={ingredientsFilters} />
+            <Accordion headerText='Meals' options={mealFilters} />
           </section>
           <RecipeList recipes={recipes} />
         </article>
