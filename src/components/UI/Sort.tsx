@@ -1,6 +1,13 @@
+import { useState } from 'react';
+
 const Sort = () => {
+  const [sortValue, setSortValue] = useState<string>('');
+
   return (
-    <select className='bg-orange-50 text-orange-500 text-sm rounded-full block w-full p-2.5 outline-none'>
+    <select
+      value={sortValue}
+      className='bg-orange-50 text-orange-500 text-sm rounded-full block w-full p-2.5 outline-none'
+    >
       <option value='' disabled>
         Sort By:
       </option>
