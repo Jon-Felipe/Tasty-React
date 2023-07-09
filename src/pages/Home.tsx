@@ -24,13 +24,13 @@ import heroImg from '../assets/hero-img.jpg';
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes } = useSelector(
+  const { isLoading, recipes, sort } = useSelector(
     (state: RootState) => state.recipe
   );
 
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, []);
+  }, [sort]);
 
   if (isLoading) {
     return <Spinner />;
