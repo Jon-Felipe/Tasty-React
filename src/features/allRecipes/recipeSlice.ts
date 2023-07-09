@@ -8,6 +8,7 @@ import { RootState } from '../../store';
 
 interface InitialFilterState {
   search: string;
+  sort: string;
 }
 
 interface InitialState extends InitialFilterState {
@@ -23,6 +24,7 @@ const initialState: InitialState = {
   recipe: null,
   userRecipes: [],
   search: '',
+  sort: '',
 };
 
 export const getAllRecipes = createAsyncThunk(

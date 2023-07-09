@@ -1,8 +1,4 @@
-import React from 'react';
-
-type Props = {};
-
-const Sort = (props: Props) => {
+const Sort = () => {
   return (
     <select className='bg-orange-50 text-orange-500 text-sm rounded-full block w-full p-2.5 outline-none'>
       <option value='' disabled>
