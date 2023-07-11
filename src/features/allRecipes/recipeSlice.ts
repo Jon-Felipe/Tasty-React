@@ -3,7 +3,6 @@ import axios, { AxiosError } from 'axios';
 
 // types
 import { RecipeType } from '../../utils/types';
-import { getUserRecipesThunk } from './recipeThunk';
 import { RootState } from '../../store';
 
 interface InitialFilterState {
