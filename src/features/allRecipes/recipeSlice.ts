@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 
 // types
 import { RecipeType } from '../../utils/types';
-import { getRecipeThunk, getUserRecipesThunk } from './recipeThunk';
+import { getUserRecipesThunk } from './recipeThunk';
 import { RootState } from '../../store';
 
 interface InitialFilterState {
@@ -53,7 +53,18 @@ export const getAllRecipes = createAsyncThunk(
 
 export const getRecipe = createAsyncThunk(
   'allRecipes/getRecipe',
-  getRecipeThunk
+  async (id: string, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        `https://tasty-api.onrender.com/api/v1/recipes/${id}`
+      );
+      return data.recipe;
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(error.response?.data);
+      }
+    }
+  }
 );
 
 export const getUserRecipes = createAsyncThunk(
