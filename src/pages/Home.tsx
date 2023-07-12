@@ -29,7 +29,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, [sort]);
+  }, [sort, cuisine, meals]);
 
   if (isLoading) {
     return <Spinner />;
