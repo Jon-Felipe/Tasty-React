@@ -38,7 +38,7 @@ const Accordion = ({ headerText, name, checkedValue, options }: Props) => {
               >
                 <label className='capitalize font-medium'>{option.text}</label>
                 <input
-                  type='checkbox'
+                  type='radio'
                   name={name}
                   value={option.text}
                   onChange={handleOnChange}
