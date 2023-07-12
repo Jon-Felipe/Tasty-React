@@ -14,14 +14,12 @@ interface InitialState extends InitialFilterState {
   isLoading: boolean;
   recipes: RecipeType[];
   recipe: RecipeType | null;
-  userRecipes: RecipeType[];
 }
 
 const initialState: InitialState = {
   isLoading: false,
   recipes: [],
   recipe: null,
-  userRecipes: [],
   search: '',
   sort: '',
 };
@@ -126,7 +124,7 @@ export const recipeSlice = createSlice({
       })
       .addCase(getUserRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userRecipes = action.payload;
+        state.recipes = action.payload;
       })
       .addCase(getUserRecipes.rejected, (state) => {
         state.isLoading = false;

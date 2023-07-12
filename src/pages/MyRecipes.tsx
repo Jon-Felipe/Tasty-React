@@ -10,7 +10,7 @@ import NotFound from '../components/NotFound';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, userRecipes } = useSelector(
+  const { isLoading, recipes } = useSelector(
     (state: RootState) => state.recipe
   );
 
@@ -22,7 +22,7 @@ const MyRecipes = () => {
     return <Spinner />;
   }
 
-  if (userRecipes.length === 0) {
+  if (recipes.length === 0) {
     return (
       <div className='mt-6'>
         <NotFound text='No Recipes Found' />
@@ -32,7 +32,7 @@ const MyRecipes = () => {
 
   return (
     <div className='mt-6'>
-      <RecipeList recipes={userRecipes} />
+      <RecipeList recipes={recipes} />
     </div>
   );
 };
