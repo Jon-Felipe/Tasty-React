@@ -23,7 +23,7 @@ import heroImg from '../assets/hero-img.jpg';
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes, sort, cuisine } = useSelector(
+  const { isLoading, recipes, sort, cuisine, meals } = useSelector(
     (state: RootState) => state.recipe
   );
 
@@ -91,7 +91,12 @@ const Home = () => {
               checkedValue={cuisine}
               options={cuisineFilters}
             />
-            {/* <Accordion headerText='Meals' name='meals' options={mealFilters} /> */}
+            <Accordion
+              headerText='Meals'
+              name='meals'
+              checkedValue={meals}
+              options={mealFilters}
+            />
           </section>
           <RecipeList recipes={recipes} />
         </article>
