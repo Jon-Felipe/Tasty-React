@@ -9,6 +9,7 @@ interface InitialFilterState {
   search: string;
   sort: string;
   cuisine: string;
+  meals: string;
 }
 
 interface InitialState extends InitialFilterState {
@@ -24,6 +25,7 @@ const initialState: InitialState = {
   search: '',
   sort: '',
   cuisine: '',
+  meals: '',
 };
 
 export const getAllRecipes = createAsyncThunk(
