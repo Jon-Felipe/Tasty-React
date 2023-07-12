@@ -23,7 +23,7 @@ import heroImg from '../assets/hero-img.jpg';
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes, sort } = useSelector(
+  const { isLoading, recipes, sort, cuisine } = useSelector(
     (state: RootState) => state.recipe
   );
 
@@ -85,8 +85,13 @@ const Home = () => {
         </section>
         <article className='grid md:grid-cols-[200px_1fr] gap-10'>
           <section>
-            <Accordion headerText='Cuisine' options={cuisineFilters} />
-            <Accordion headerText='Meals' options={mealFilters} />
+            <Accordion
+              headerText='Cuisine'
+              name='cuisine'
+              checkedValue={cuisine}
+              options={cuisineFilters}
+            />
+            {/* <Accordion headerText='Meals' name='meals' options={mealFilters} /> */}
           </section>
           <RecipeList recipes={recipes} />
         </article>
