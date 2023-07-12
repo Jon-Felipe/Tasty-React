@@ -4,7 +4,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 
 // extras
 import { MealOptionType } from '../../utils/types';
-import { AppDispatch, RootState } from '../../store';
+import { AppDispatch } from '../../store';
 import { handleChange } from '../../features/allRecipes/recipeSlice';
 
 type Props = {
@@ -36,9 +36,7 @@ const Accordion = ({ headerText, name, checkedValue, options }: Props) => {
                 key={option.id}
                 className='flex items-center justify-between mb-4'
               >
-                <label htmlFor='' className='capitalize font-medium'>
-                  {option.text}
-                </label>
+                <label className='capitalize font-medium'>{option.text}</label>
                 <input
                   type='checkbox'
                   name={name}
