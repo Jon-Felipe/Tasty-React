@@ -23,13 +23,13 @@ import heroImg from '../assets/hero-img.jpg';
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes, sort, cuisine, meals } = useSelector(
+  const { isLoading, recipes, sort, cuisine, mealType } = useSelector(
     (state: RootState) => state.recipe
   );
 
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, [sort, cuisine, meals]);
+  }, [sort, cuisine, mealType]);
 
   if (isLoading) {
     return <Spinner />;
@@ -93,8 +93,8 @@ const Home = () => {
             />
             <Accordion
               headerText='Meals'
-              name='meals'
-              checkedValue={meals}
+              name='mealType'
+              checkedValue={mealType}
               options={mealFilters}
             />
           </section>

@@ -9,7 +9,7 @@ interface InitialFilterState {
   search: string;
   sort: string;
   cuisine: string;
-  meals: string;
+  mealType: string;
 }
 
 interface InitialState extends InitialFilterState {
@@ -25,17 +25,17 @@ const initialState: InitialState = {
   search: '',
   sort: '',
   cuisine: '',
-  meals: '',
+  mealType: '',
 };
 
 export const getAllRecipes = createAsyncThunk(
   'allRecipes/getRecipes',
   async (_, thunkAPI) => {
     const {
-      recipe: { search, sort, cuisine, meals },
+      recipe: { search, sort, cuisine, mealType },
     } = thunkAPI.getState() as RootState;
 
-    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&mealType=${meals}`;
+    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&mealType=${mealType}`;
 
     if (search) {
       url = url + `&search=${search}`;
