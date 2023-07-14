@@ -86,10 +86,7 @@ const SingleRecipe = () => {
             text='Total Time:'
             value={recipe!?.recipeDetails?.totalTime}
           />
-          <CookingDetail
-            text='Serves:'
-            value={recipe!?.recipeDetails?.servings}
-          />
+          <CookingDetail text='Yields:' value={recipe!?.recipeDetails?.yield} />
         </article>
         <section className='flex flex-col lg:flex-row gap-4 lg:gap-4 mt-4'>
           {/* recipe tips */}
