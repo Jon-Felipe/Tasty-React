@@ -75,15 +75,15 @@ const SingleRecipe = () => {
         {/* cooking details */}
         <article className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4 [&>*:not(:last-child)]:border-r-2'>
           <CookingDetail
-            text='Prep Time:'
+            text='Prep Time (min):'
             value={recipe!?.recipeDetails?.prepTime}
           />
           <CookingDetail
-            text='Cook Time:'
+            text='Cook Time (min):'
             value={recipe!?.recipeDetails?.cookTime}
           />
           <CookingDetail
-            text='Total Time:'
+            text='Total Time (min):'
             value={
               recipe!?.recipeDetails.prepTime + recipe!?.recipeDetails.cookTime
             }
