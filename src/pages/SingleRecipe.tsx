@@ -84,7 +84,9 @@ const SingleRecipe = () => {
           />
           <CookingDetail
             text='Total Time:'
-            value={recipe!?.recipeDetails?.totalTime}
+            value={
+              recipe!?.recipeDetails.prepTime + recipe!?.recipeDetails.cookTime
+            }
           />
           <CookingDetail text='Yields:' value={recipe!?.recipeDetails?.yield} />
         </article>
