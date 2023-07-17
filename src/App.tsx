@@ -18,6 +18,7 @@ import {
   Contact,
   Login,
   Register,
+  Recipes,
   SingleRecipe,
   Profile,
   MyRecipes,
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
+      <Route path='recipes/:category' element={<Recipes />} />
       <Route path='recipe/:id' element={<SingleRecipe />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />

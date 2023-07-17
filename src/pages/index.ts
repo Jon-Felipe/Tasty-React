@@ -3,6 +3,7 @@ import About from './About';
 import Contact from './Contact';
 import Login from './Login';
 import Register from './Register';
+import Recipes from './Recipes';
 import SingleRecipe from './SingleRecipe';
 import Profile from './Profile';
 import MyRecipes from './MyRecipes';
@@ -16,6 +17,7 @@ export {
   Contact,
   Login,
   Register,
+  Recipes,
   SingleRecipe,
   Profile,
   MyRecipes,
