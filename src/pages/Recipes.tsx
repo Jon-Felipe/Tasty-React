@@ -16,7 +16,16 @@ const Recipes = (props: Props) => {
     dispatch(getRecipesByCategory(params?.category!));
   }, []);
 
-  return <RecipeList recipes={recipes} />;
+  return (
+    <article>
+      <h1 className='text-4xl font-semibold underline capitalize'>
+        {`${params.category} Recipes`}
+      </h1>
+      <div className='mt-4'>
+        <RecipeList recipes={recipes} />
+      </div>
+    </article>
+  );
 };
 
 export default Recipes;
