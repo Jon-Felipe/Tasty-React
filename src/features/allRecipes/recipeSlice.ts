@@ -54,10 +54,10 @@ export const getAllRecipes = createAsyncThunk(
 
 export const getRecipesByCategory = createAsyncThunk(
   'allRecipes/getRecipesByCategory',
-  async (category, thunkAPI) => {
+  async (category: string, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `https://tasty-api.onrender.com/api/v1/recipes?category=${category}`
+        `https://tasty-api.onrender.com/api/v1/recipes/category/${category}`
       );
       return data.recipes;
     } catch (error) {
