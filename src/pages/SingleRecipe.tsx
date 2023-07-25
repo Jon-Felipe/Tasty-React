@@ -38,7 +38,7 @@ const SingleRecipe = () => {
             className='w-full object-cover h-[400px] rounded-xl'
           />
           <section className='mt-2'>
-            <h3 className='text-3xl font-semibold tracking-tighter'>
+            <h3 className='text-3xl font-semibold tracking-tighter capitalize'>
               {recipe?.name}
             </h3>
             <p className='text-sm font-normal'>{recipe?.description}</p>
@@ -97,7 +97,7 @@ const SingleRecipe = () => {
             <ul className='bg-white px-6 py-4 rounded-xl mt-4'>
               {recipe?.recipeTips.map((tip, index) => {
                 return (
-                  <li key={index} className='list-disc mx-4'>
+                  <li key={index} className='list-disc mx-4 capitalize'>
                     {tip}
                   </li>
                 );
@@ -112,7 +112,7 @@ const SingleRecipe = () => {
                 return (
                   <li
                     key={index}
-                    className='bg-white px-4 py-2.5 rounded-xl text-center font-semibold text-orange-500'
+                    className='bg-white px-4 py-2.5 rounded-xl text-center font-semibold text-orange-500 capitalize'
                   >
                     {equipment}
                   </li>
@@ -157,7 +157,7 @@ const SingleRecipe = () => {
             {recipe?.ingredients?.map((ingredient, i) => (
               <li
                 key={i}
-                className='text-sm font-semibold py-4 border-b-2 border-b-orange-500'
+                className='text-sm font-semibold py-4 border-b-2 border-b-orange-500 capitalize'
               >
                 {ingredient}
               </li>
@@ -171,7 +171,7 @@ const SingleRecipe = () => {
             {recipe?.directions?.map((direction, i) => (
               <li key={i} className='py-4'>
                 <h2 className='font-bold text-lg'>Step {i + 1}</h2>
-                <p>{direction}</p>
+                <p className='capitalize'>{direction}</p>
               </li>
             ))}
           </ul>
