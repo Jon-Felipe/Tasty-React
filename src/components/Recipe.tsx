@@ -25,7 +25,7 @@ const Recipe = ({ id, text, image, averageRating, createdBy }: Props) => {
           className='rounded-2xl w-full h-52 object-cover'
         />
         <div className='mt-1'>
-          <h3 className='font-semibold text-lg'>{text}</h3>
+          <h3 className='font-semibold text-lg capitalize'>{text}</h3>
           <div className='flex items-center justify-between mt-0.5'>
             <p className='text-sm text-orange-400 font-semibold'>
               By {createdBy}
