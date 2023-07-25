@@ -1,20 +1,36 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import { getRecipesByCategory } from '../features/allRecipes/recipeSlice';
+
+// components
 import RecipeList from '../components/RecipeList';
+import Spinner from '../components/UI/Spinner';
+import NotFound from '../components/NotFound';
 
-type Props = {};
-
-const Recipes = (props: Props) => {
+const Recipes = () => {
   const params = useParams();
   const dispatch = useDispatch<AppDispatch>();
-  const { recipes } = useSelector((state: RootState) => state.recipe);
+  const { isLoading, recipes } = useSelector(
+    (state: RootState) => state.recipe
+  );
 
   useEffect(() => {
     dispatch(getRecipesByCategory(params?.category!));
   }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (recipes.length == 0) {
+    return (
+      <div className='mt-6'>
+        <NotFound text='No Recipes Found' />
+      </div>
+    );
+  }
 
   return (
     <article>
