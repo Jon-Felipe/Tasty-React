@@ -31,10 +31,6 @@ const Home = () => {
     dispatch(getAllRecipes());
   }, [sort, cuisine, mealType]);
 
-  if (isLoading) {
-    return <Spinner />;
-  }
-
   if (recipes.length === 0) {
     return (
       <div className='mt-6'>
@@ -98,7 +94,7 @@ const Home = () => {
               options={mealFilters}
             />
           </section>
-          <RecipeList recipes={recipes} />
+          {isLoading ? <Spinner /> : <RecipeList recipes={recipes} />}
         </article>
       </article>
     </div>
