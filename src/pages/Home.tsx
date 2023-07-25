@@ -31,14 +31,6 @@ const Home = () => {
     dispatch(getAllRecipes());
   }, [sort, cuisine, mealType]);
 
-  if (recipes.length === 0) {
-    return (
-      <div className='mt-6'>
-        <NotFound text='No Recipes Found' />
-      </div>
-    );
-  }
-
   return (
     <div className='grid gap-6'>
       {/* hero */}
@@ -94,7 +86,15 @@ const Home = () => {
               options={mealFilters}
             />
           </section>
-          {isLoading ? <Spinner /> : <RecipeList recipes={recipes} />}
+          {isLoading ? (
+            <Spinner />
+          ) : recipes.length == 0 ? (
+            <div className='mt-6'>
+              <NotFound text='No Recipes Found' />
+            </div>
+          ) : (
+            <RecipeList recipes={recipes} />
+          )}
         </article>
       </article>
     </div>
