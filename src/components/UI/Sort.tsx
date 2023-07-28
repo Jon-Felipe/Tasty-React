@@ -2,21 +2,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
 import { handleChange } from '../../features/allRecipes/recipeSlice';
 
-const Sort = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { sort } = useSelector((state: RootState) => state.recipe);
+type Props = {
+  value: string | number | readonly string[];
+  onChange: React.ChangeEventHandler<HTMLSelectElement>;
+};
 
-  const handleOnSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    dispatch(handleChange({ name, value }));
-  };
-
+const Sort = ({ value, onChange }: Props) => {
   return (
     <select
       name='sort'
-      value={sort}
-      onChange={handleOnSortChange}
+      value={value}
+      onChange={onChange}
       className='bg-orange-50 text-orange-500 text-sm rounded-full block w-full p-2.5 outline-none'
     >
       <option value='' disabled>
