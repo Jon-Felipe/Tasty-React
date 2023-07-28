@@ -30,6 +30,11 @@ const MyRecipes = () => {
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!search.trim()) {
+      toast.error('Please provide a search value');
+      return;
+    }
+
     dispatch(getUserRecipes());
   };
 
