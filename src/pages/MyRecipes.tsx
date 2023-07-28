@@ -44,7 +44,7 @@ const MyRecipes = () => {
 
   useEffect(() => {
     dispatch(getUserRecipes());
-  }, []);
+  }, [sort]);
 
   if (isLoading) {
     return <Spinner />;
