@@ -87,17 +87,23 @@ export const getRecipe = createAsyncThunk(
 export const getUserRecipes = createAsyncThunk(
   'allRecipes/getUserRecipes',
   async (_: undefined, thunkAPI) => {
-    const { user } = thunkAPI.getState() as RootState;
+    const {
+      user,
+      recipe: { sort, search },
+    } = thunkAPI.getState() as RootState;
+
+    let url = `https://tasty-api.onrender.com/api/v1/recipes/user-recipes?sort=${sort}`;
+
+    if (search) {
+      url = url + `&search=${search}`;
+    }
 
     try {
-      const { data } = await axios.get(
-        `https://tasty-api.onrender.com/api/v1/recipes/user-recipes`,
-        {
-          headers: {
-            authorization: `Bearer ${user.user?.token}`,
-          },
-        }
-      );
+      const { data } = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${user.user?.token}`,
+        },
+      });
       return data.recipes;
     } catch (error) {
       if (error instanceof AxiosError) {
