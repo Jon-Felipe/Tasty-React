@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
-import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+import {
+  getAllRecipes,
+  handleChange,
+} from '../features/allRecipes/recipeSlice';
 
 // components
 import Search from '../components/UI/Search';
@@ -23,9 +26,26 @@ import heroImg from '../assets/hero-img.jpg';
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes, sort, cuisine, mealType } = useSelector(
+  const { isLoading, recipes, sort, cuisine, mealType, search } = useSelector(
     (state: RootState) => state.recipe
   );
+
+  const handleOnChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    dispatch(handleChange({ name, value }));
+  };
+
+  const handleOnSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    dispatch(getAllRecipes());
+  };
 
   useEffect(() => {
     dispatch(getAllRecipes());
@@ -68,8 +88,12 @@ const Home = () => {
       </article>
       <article>
         <section className='grid md:grid-cols-[1fr_250px] gap-4 mb-8'>
-          <Search />
-          <Sort />
+          <Search
+            value={search}
+            onChange={handleOnChange}
+            onSubmit={handleOnSubmit}
+          />
+          <Sort value={sort} onChange={handleOnChange} />
         </section>
         <article className='grid md:grid-cols-[200px_1fr] gap-10'>
           <section>
