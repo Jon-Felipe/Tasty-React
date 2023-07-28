@@ -7,12 +7,14 @@ const Sort = () => {
   const { sort } = useSelector((state: RootState) => state.recipe);
 
   const handleOnSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const name = e.target.name;
     const value = e.target.value;
-    dispatch(handleChange({ name: 'sort', value }));
+    dispatch(handleChange({ name, value }));
   };
 
   return (
     <select
+      name='sort'
       value={sort}
       onChange={handleOnSortChange}
       className='bg-orange-50 text-orange-500 text-sm rounded-full block w-full p-2.5 outline-none'
