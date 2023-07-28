@@ -16,11 +16,15 @@ import Sort from '../components/UI/Sort';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes, search } = useSelector(
+  const { isLoading, recipes, search, sort } = useSelector(
     (state: RootState) => state.recipe
   );
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -65,7 +69,7 @@ const MyRecipes = () => {
           />
         </div>
         <div>
-          <Sort />
+          <Sort value={sort} onChange={handleOnChange} />
         </div>
       </div>
       <RecipeList recipes={recipes} />
