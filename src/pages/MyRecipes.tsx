@@ -29,6 +29,8 @@ const MyRecipes = () => {
 
   const handleOnSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    dispatch(getUserRecipes());
   };
 
   useEffect(() => {
