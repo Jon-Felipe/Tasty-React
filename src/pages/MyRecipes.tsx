@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserRecipes } from '../features/allRecipes/recipeSlice';
+import {
+  getUserRecipes,
+  handleChange,
+} from '../features/allRecipes/recipeSlice';
 import { AppDispatch, RootState } from '../store';
+import { toast } from 'react-toastify';
 
 // components
 import Spinner from '../components/UI/Spinner';
@@ -12,9 +16,13 @@ import Sort from '../components/UI/Sort';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes } = useSelector(
+  const { isLoading, recipes, search } = useSelector(
     (state: RootState) => state.recipe
   );
+
+  const handleOnChange = () => {};
+
+  const handleOnSubmit = () => {};
 
   useEffect(() => {
     dispatch(getUserRecipes());
@@ -36,7 +44,11 @@ const MyRecipes = () => {
     <div className='my-6 space-y-4'>
       <div className='grid md:grid-cols-4 md:gap-x-4 md:items-center'>
         <div className='mb-2 md:mb-0 md:col-span-3'>
-          <Search />
+          <Search
+            value={search}
+            onChange={handleOnChange}
+            onSubmit={handleOnSubmit}
+          />
         </div>
         <div>
           <Sort />

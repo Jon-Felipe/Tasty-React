@@ -1,30 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../store';
-import {
-  getAllRecipes,
-  handleChange,
-} from '../../features/allRecipes/recipeSlice';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
-const Search = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { search } = useSelector((state: RootState) => state.recipe);
+type Props = {
+  value: string | number | readonly string[];
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onSubmit: React.FormEventHandler<HTMLFormElement>;
+};
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    dispatch(handleChange({ name, value }));
-  };
-
-  const handleOnSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    dispatch(getAllRecipes());
-  };
-
+const Search = ({ value, onChange, onSubmit }: Props) => {
   return (
-    <form className='block w-full' onSubmit={handleOnSubmit}>
+    <form className='block w-full' onSubmit={onSubmit}>
       <label
         htmlFor='search'
         className='mb-2 text-sm font-medium text-gray-900 sr-only'
@@ -39,8 +24,8 @@ const Search = () => {
           type='search'
           id='search'
           name='search'
-          value={search}
-          onChange={handleOnChange}
+          value={value}
+          onChange={onChange}
           className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50'
           placeholder='Search Recipes...'
           required
