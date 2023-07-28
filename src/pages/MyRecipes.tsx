@@ -20,9 +20,16 @@ const MyRecipes = () => {
     (state: RootState) => state.recipe
   );
 
-  const handleOnChange = () => {};
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
 
-  const handleOnSubmit = () => {};
+    dispatch(handleChange({ name, value }));
+  };
+
+  const handleOnSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
 
   useEffect(() => {
     dispatch(getUserRecipes());
