@@ -17,6 +17,7 @@ import Accordion from '../components/UI/Accordion';
 
 // extras
 import { cuisineFilters, mealFilters } from '../utils/constants';
+import PageButtonContainer from '../components/UI/PageButtonContainer';
 
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -96,6 +97,7 @@ const Recipes = () => {
         </section>
         <RecipeList recipes={recipes} />
       </article>
+      <PageButtonContainer />
     </article>
   );
 };
