@@ -41,18 +41,6 @@ const Home = () => {
           </p>
         </section>
       </article>
-      <article>
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <div>
-            <h3 className='text-3xl font-bold text-orange-500 underline mb-4'>
-              Featured Recipes
-            </h3>
-            <RecipeList recipes={recipes} />
-          </div>
-        )}
-      </article>
     </div>
   );
 };
