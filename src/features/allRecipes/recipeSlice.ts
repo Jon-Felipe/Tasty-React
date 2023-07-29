@@ -16,6 +16,7 @@ interface InitialState extends InitialFilterState {
   isLoading: boolean;
   recipes: SingleRecipeType[];
   recipe: SingleRecipeType | null;
+  totalRecipes: number;
 }
 
 const initialState: InitialState = {
@@ -26,6 +27,7 @@ const initialState: InitialState = {
   sort: '',
   cuisine: '',
   mealType: '',
+  totalRecipes: 0,
 };
 
 export const getAllRecipes = createAsyncThunk(
@@ -43,7 +45,7 @@ export const getAllRecipes = createAsyncThunk(
 
     try {
       const { data } = await axios.get(url);
-      return data.recipes;
+      return data;
     } catch (error) {
       if (error instanceof AxiosError) {
         return thunkAPI.rejectWithValue(error.response?.data);
@@ -130,7 +132,8 @@ export const recipeSlice = createSlice({
       })
       .addCase(getAllRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.recipes = action.payload;
+        state.recipes = action.payload.recipes;
+        state.totalRecipes = action.payload.totalRecipes;
       })
       .addCase(getAllRecipes.rejected, (state) => {
         state.isLoading = false;
