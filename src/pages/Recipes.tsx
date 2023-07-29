@@ -20,9 +20,8 @@ import { cuisineFilters, mealFilters } from '../utils/constants';
 
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes, search, sort, cuisine, mealType } = useSelector(
-    (state: RootState) => state.recipe
-  );
+  const { isLoading, recipes, totalRecipes, search, sort, cuisine, mealType } =
+    useSelector((state: RootState) => state.recipe);
 
   const handleOnChange = (
     e:
@@ -64,6 +63,10 @@ const Recipes = () => {
 
   return (
     <article>
+      <h1 className='text-2xl font-semibold mb-3 text-orange-500'>
+        Browsing All Recipes{' '}
+        <span className='text-xs'>({totalRecipes} Recipes Found)</span>
+      </h1>
       <section className='grid md:grid-cols-4 md:gap-x-4 md:items-center mb-4'>
         <div className='mb-2 md:mb-0 md:col-span-3'>
           <Search
