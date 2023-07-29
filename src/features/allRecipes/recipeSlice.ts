@@ -17,6 +17,7 @@ interface InitialState extends InitialFilterState {
   recipes: SingleRecipeType[];
   recipe: SingleRecipeType | null;
   totalRecipes: number;
+  numOfPages: number;
 }
 
 const initialState: InitialState = {
@@ -28,6 +29,7 @@ const initialState: InitialState = {
   cuisine: '',
   mealType: '',
   totalRecipes: 0,
+  numOfPages: 0,
 };
 
 export const getAllRecipes = createAsyncThunk(
@@ -134,6 +136,7 @@ export const recipeSlice = createSlice({
         state.isLoading = false;
         state.recipes = action.payload.recipes;
         state.totalRecipes = action.payload.totalRecipes;
+        state.numOfPages = action.payload.numOfPages;
       })
       .addCase(getAllRecipes.rejected, (state) => {
         state.isLoading = false;
