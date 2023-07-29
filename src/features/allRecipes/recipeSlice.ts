@@ -18,6 +18,7 @@ interface InitialState extends InitialFilterState {
   recipe: SingleRecipeType | null;
   totalRecipes: number;
   numOfPages: number;
+  page: number;
 }
 
 const initialState: InitialState = {
@@ -29,7 +30,8 @@ const initialState: InitialState = {
   cuisine: '',
   mealType: '',
   totalRecipes: 0,
-  numOfPages: 0,
+  numOfPages: 1,
+  page: 1,
 };
 
 export const getAllRecipes = createAsyncThunk(
