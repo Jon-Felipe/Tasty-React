@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 // types
-import { RecipeType } from '../../utils/types';
+import { SingleRecipeType } from '../../utils/types';
 import { RootState } from '../../store';
 
 interface InitialFilterState {
@@ -14,8 +14,8 @@ interface InitialFilterState {
 
 interface InitialState extends InitialFilterState {
   isLoading: boolean;
-  recipes: RecipeType[];
-  recipe: RecipeType | null;
+  recipes: SingleRecipeType[];
+  recipe: SingleRecipeType | null;
 }
 
 const initialState: InitialState = {

@@ -2,10 +2,10 @@
 import Recipe from './Recipe';
 
 // extras
-import { RecipeType } from '../utils/types';
+import { SingleRecipeType } from '../utils/types';
 
 type Props = {
-  recipes: RecipeType[];
+  recipes: SingleRecipeType[];
 };
 
 const RecipeList = ({ recipes }: Props) => {

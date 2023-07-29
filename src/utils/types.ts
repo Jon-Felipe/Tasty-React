@@ -11,7 +11,7 @@ export type RecipeCategoryType = {
   text: string;
 };
 
-export type RecipeType = {
+export type SingleRecipeType = {
   _id: number;
   name: string;
   description: string;
