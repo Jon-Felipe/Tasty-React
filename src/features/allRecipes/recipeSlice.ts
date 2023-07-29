@@ -125,7 +125,7 @@ export const recipeSlice = createSlice({
   reducers: {
     handleChange: (state, { payload }) => {
       const { name, value } = payload;
-      state = { ...state, page: 1, [name]: value };
+      state = { ...state, [name]: value };
       return state;
     },
     changePage: (state, { payload }) => {
