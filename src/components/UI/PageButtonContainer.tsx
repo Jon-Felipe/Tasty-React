@@ -7,10 +7,10 @@ type Props = {};
 
 const PageButtonContainer = (props: Props) => {
   const btnStyles =
-    'w-28 h-10 bg-orange-500 border-transparent rounded-md text-white capitalize flex items-center justify-center gap-2';
+    'w-28 h-10 bg-orange-100 rounded-md text-orange-500 capitalize flex items-center justify-center gap-2';
 
   const dispatch = useDispatch<AppDispatch>();
-  const { numOfPages } = useSelector((state: RootState) => state.recipe);
+  const { numOfPages, page } = useSelector((state: RootState) => state.recipe);
 
   const pages = Array.from({ length: numOfPages }, (_, index) => {
     return index + 1;
@@ -25,6 +25,23 @@ const PageButtonContainer = (props: Props) => {
         <HiChevronDoubleLeft />
         prev
       </button>
+      <div className='bg-orange-100 rounded-md'>
+        {pages.map((pageNumber) => {
+          return (
+            <button
+              type='button'
+              key={pageNumber}
+              className={`w-12 h-10 font-bold text-xl text-orange-500 rounded-md ${
+                pageNumber == page && 'bg-orange-500 text-white'
+              }`}
+              onClick={() => console.log('click')}
+            >
+              {pageNumber}
+            </button>
+          );
+        })}
+      </div>
+
       <button type='button' className={`${btnStyles}`} onClick={nextPage}>
         next
         <HiChevronDoubleRight />
