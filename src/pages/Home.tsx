@@ -43,10 +43,13 @@ const Home = () => {
         </section>
       </article>
       <section>
-        <DiscoverList title='Quick and Easy' recipes={recipes} />
-        <DiscoverList title='One Pot Dishes' recipes={recipes} />
-        <DiscoverList title='Budget Friendly Bites' recipes={recipes} />
-        <DiscoverList title='Slow Cookers' recipes={recipes} />
+        <DiscoverList title='Quick and Easy' recipes={recipes.slice(0, 4)} />
+        <DiscoverList title='One Pot Dishes' recipes={recipes.slice(0, 4)} />
+        <DiscoverList
+          title='Budget Friendly Bites'
+          recipes={recipes.slice(0, 4)}
+        />
+        <DiscoverList title='Slow Cookers' recipes={recipes.slice(0, 4)} />
       </section>
     </div>
   );
