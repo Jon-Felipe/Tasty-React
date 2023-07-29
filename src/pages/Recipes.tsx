@@ -13,10 +13,14 @@ import Spinner from '../components/UI/Spinner';
 import NotFound from '../components/NotFound';
 import Search from '../components/UI/Search';
 import Sort from '../components/UI/Sort';
+import Accordion from '../components/UI/Accordion';
+
+// extras
+import { cuisineFilters, mealFilters } from '../utils/constants';
 
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes, search, sort } = useSelector(
+  const { isLoading, recipes, search, sort, cuisine, mealType } = useSelector(
     (state: RootState) => state.recipe
   );
 
@@ -44,7 +48,7 @@ const Recipes = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, [sort]);
+  }, [sort, cuisine, mealType]);
 
   if (isLoading) {
     return <Spinner />;
@@ -60,7 +64,7 @@ const Recipes = () => {
 
   return (
     <article>
-      <div className='grid md:grid-cols-4 md:gap-x-4 md:items-center mb-4'>
+      <section className='grid md:grid-cols-4 md:gap-x-4 md:items-center mb-4'>
         <div className='mb-2 md:mb-0 md:col-span-3'>
           <Search
             value={search}
@@ -71,8 +75,24 @@ const Recipes = () => {
         <div>
           <Sort value={sort} onChange={handleOnChange} />
         </div>
-      </div>
-      <RecipeList recipes={recipes} />
+      </section>
+      <article className='grid md:grid-cols-[200px_1fr] gap-10'>
+        <section>
+          <Accordion
+            headerText='Cuisine'
+            name='cuisine'
+            checkedValue={cuisine}
+            options={cuisineFilters}
+          />
+          <Accordion
+            headerText='Meals'
+            name='mealType'
+            checkedValue={mealType}
+            options={mealFilters}
+          />
+        </section>
+        <RecipeList recipes={recipes} />
+      </article>
     </article>
   );
 };
