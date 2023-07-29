@@ -63,15 +63,7 @@ const Home = () => {
         </div>
       </article>
       <article>
-        {isLoading ? (
-          <Spinner />
-        ) : recipes.length == 0 ? (
-          <div className='mt-6'>
-            <NotFound text='No Recipes Found' />
-          </div>
-        ) : (
-          <RecipeList recipes={recipes} />
-        )}
+        {isLoading ? <Spinner /> : <RecipeList recipes={recipes} />}
       </article>
     </div>
   );
