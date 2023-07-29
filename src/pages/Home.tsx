@@ -4,7 +4,6 @@ import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
-import RecipeList from '../components/RecipeList';
 import Spinner from '../components/UI/Spinner';
 
 // extras
@@ -21,6 +20,10 @@ const Home = () => {
   useEffect(() => {
     dispatch(getAllRecipes());
   }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className='grid gap-6'>
