@@ -20,7 +20,6 @@ import {
   Register,
   Recipes,
   SingleRecipe,
-  Discover,
   Profile,
   MyRecipes,
   FavouriteRecipes,
@@ -34,7 +33,6 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
-      <Route path='discover' element={<Discover />} />
       <Route path='recipes' element={<Recipes />} />
       <Route path='recipe/:id' element={<SingleRecipe />} />
       <Route path='login' element={<Login />} />
