@@ -5,10 +5,10 @@ import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/UI/Spinner';
+import DiscoverList from '../components/DiscoverList';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
-import DiscoverList from '../components/DiscoverList';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
