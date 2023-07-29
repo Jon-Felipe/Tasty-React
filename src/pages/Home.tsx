@@ -7,49 +7,25 @@ import {
 } from '../features/allRecipes/recipeSlice';
 
 // components
-import Search from '../components/UI/Search';
-import Sort from '../components/UI/Sort';
-import Accordion from '../components/UI/Accordion';
 import RecipeList from '../components/RecipeList';
 import Spinner from '../components/UI/Spinner';
 import LinkCard from '../components/UI/LinkCard';
 import NotFound from '../components/NotFound';
 
 // extras
-import {
-  cuisineFilters,
-  mealFilters,
-  recipeCategories,
-} from '../utils/constants';
+import { recipeCategories } from '../utils/constants';
 import heroImg from '../assets/hero-img.jpg';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes, sort, cuisine, mealType, search } = useSelector(
+  const { isLoading, recipes } = useSelector(
     (state: RootState) => state.recipe
   );
 
-  const handleOnChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    dispatch(handleChange({ name, value }));
-  };
-
-  const handleOnSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    dispatch(getAllRecipes());
-  };
-
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, [sort, cuisine, mealType]);
+  }, []);
 
   return (
     <div className='grid gap-6'>
@@ -87,39 +63,15 @@ const Home = () => {
         </div>
       </article>
       <article>
-        <section className='grid md:grid-cols-[1fr_250px] gap-4 mb-8'>
-          <Search
-            value={search}
-            onChange={handleOnChange}
-            onSubmit={handleOnSubmit}
-          />
-          <Sort value={sort} onChange={handleOnChange} />
-        </section>
-        <article className='grid md:grid-cols-[200px_1fr] gap-10'>
-          <section>
-            <Accordion
-              headerText='Cuisine'
-              name='cuisine'
-              checkedValue={cuisine}
-              options={cuisineFilters}
-            />
-            <Accordion
-              headerText='Meals'
-              name='mealType'
-              checkedValue={mealType}
-              options={mealFilters}
-            />
-          </section>
-          {isLoading ? (
-            <Spinner />
-          ) : recipes.length == 0 ? (
-            <div className='mt-6'>
-              <NotFound text='No Recipes Found' />
-            </div>
-          ) : (
-            <RecipeList recipes={recipes} />
-          )}
-        </article>
+        {isLoading ? (
+          <Spinner />
+        ) : recipes.length == 0 ? (
+          <div className='mt-6'>
+            <NotFound text='No Recipes Found' />
+          </div>
+        ) : (
+          <RecipeList recipes={recipes} />
+        )}
       </article>
     </div>
   );
