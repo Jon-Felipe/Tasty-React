@@ -2,6 +2,7 @@ import React from 'react';
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
+import { changePage } from '../../features/allRecipes/recipeSlice';
 
 type Props = {};
 
@@ -16,8 +17,20 @@ const PageButtonContainer = (props: Props) => {
     return index + 1;
   });
 
-  const nextPage = () => {};
-  const prevPage = () => {};
+  const nextPage = () => {
+    let newPage = page + 1;
+    if (newPage > numOfPages) {
+      newPage = 1;
+    }
+    dispatch(changePage(newPage));
+  };
+  const prevPage = () => {
+    let newPage = page - 1;
+    if (newPage < 1) {
+      newPage = numOfPages;
+    }
+    dispatch(changePage(newPage));
+  };
 
   return (
     <section className='h-24 mt-8 flex items-center justify-end flex-wrap gap-4'>
@@ -34,7 +47,7 @@ const PageButtonContainer = (props: Props) => {
               className={`w-12 h-10 font-bold text-xl text-orange-500 rounded-md ${
                 pageNumber == page && 'bg-orange-500 text-white'
               }`}
-              onClick={() => console.log('click')}
+              onClick={() => dispatch(changePage(pageNumber))}
             >
               {pageNumber}
             </button>

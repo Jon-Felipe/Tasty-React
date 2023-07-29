@@ -21,8 +21,16 @@ import PageButtonContainer from '../components/UI/PageButtonContainer';
 
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes, totalRecipes, search, sort, cuisine, mealType } =
-    useSelector((state: RootState) => state.recipe);
+  const {
+    isLoading,
+    recipes,
+    totalRecipes,
+    search,
+    sort,
+    cuisine,
+    mealType,
+    page,
+  } = useSelector((state: RootState) => state.recipe);
 
   const handleOnChange = (
     e:
@@ -48,7 +56,7 @@ const Recipes = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, [sort, cuisine, mealType]);
+  }, [sort, cuisine, mealType, page]);
 
   if (isLoading) {
     return <Spinner />;

@@ -38,10 +38,10 @@ export const getAllRecipes = createAsyncThunk(
   'allRecipes/getRecipes',
   async (_, thunkAPI) => {
     const {
-      recipe: { search, sort, cuisine, mealType },
+      recipe: { search, sort, cuisine, mealType, page },
     } = thunkAPI.getState() as RootState;
 
-    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&mealType=${mealType}`;
+    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&mealType=${mealType}&page=${page}`;
 
     if (search) {
       url = url + `&search=${search}`;
