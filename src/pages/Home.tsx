@@ -9,6 +9,7 @@ import Spinner from '../components/UI/Spinner';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
+import DiscoverList from '../components/DiscoverList';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -41,6 +42,12 @@ const Home = () => {
           </p>
         </section>
       </article>
+      <section>
+        <DiscoverList title='Quick and Easy' recipes={recipes} />
+        <DiscoverList title='One Pot Dishes' recipes={recipes} />
+        <DiscoverList title='Budget Friendly Bites' recipes={recipes} />
+        <DiscoverList title='Slow Cookers' recipes={recipes} />
+      </section>
     </div>
   );
 };
