@@ -131,6 +131,9 @@ export const recipeSlice = createSlice({
     changePage: (state, { payload }) => {
       state.page = payload;
     },
+    resetPage: (state) => {
+      state.page = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -179,6 +182,6 @@ export const recipeSlice = createSlice({
   },
 });
 
-export const { handleChange, changePage } = recipeSlice.actions;
+export const { handleChange, changePage, resetPage } = recipeSlice.actions;
 
 export default recipeSlice.reducer;

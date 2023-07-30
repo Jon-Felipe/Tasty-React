@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from '../store';
 import {
   getAllRecipes,
   handleChange,
+  resetPage,
 } from '../features/allRecipes/recipeSlice';
 
 // components
@@ -51,6 +52,7 @@ const Recipes = () => {
       return;
     }
 
+    dispatch(resetPage());
     dispatch(getAllRecipes());
   };
 
