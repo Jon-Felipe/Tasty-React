@@ -15,6 +15,7 @@ interface InitialFilterState {
 interface InitialState extends InitialFilterState {
   isLoading: boolean;
   recipes: SingleRecipeType[];
+  userRecipes: SingleRecipeType[];
   recipe: SingleRecipeType | null;
   totalRecipes: number;
   numOfPages: number;
@@ -24,6 +25,7 @@ interface InitialState extends InitialFilterState {
 const initialState: InitialState = {
   isLoading: false,
   recipes: [],
+  userRecipes: [],
   recipe: null,
   search: '',
   sort: '',
@@ -174,7 +176,7 @@ export const recipeSlice = createSlice({
       })
       .addCase(getUserRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.recipes = action.payload;
+        state.userRecipes = action.payload;
       })
       .addCase(getUserRecipes.rejected, (state) => {
         state.isLoading = false;
