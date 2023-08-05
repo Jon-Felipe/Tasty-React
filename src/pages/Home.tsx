@@ -9,6 +9,11 @@ import DiscoverList from '../components/DiscoverList';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
+import { SingleRecipeType } from '../utils/types';
+
+function getRecipesByTag(recipes: SingleRecipeType[], tag: string) {
+  return recipes.filter((recipe) => recipe.tag == tag).slice(0, 4);
+}
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -46,13 +51,22 @@ const Home = () => {
         </section>
       </article>
       <section>
-        <DiscoverList title='Quick and Easy' recipes={recipes.slice(0, 4)} />
-        <DiscoverList title='One Pot Dishes' recipes={recipes.slice(0, 4)} />
+        <DiscoverList
+          title='Quick and Easy'
+          recipes={getRecipesByTag(recipes, 'Quick and Easy')}
+        />
+        <DiscoverList
+          title='One Pot Dishes'
+          recipes={getRecipesByTag(recipes, 'One Pot Dishes')}
+        />
         <DiscoverList
           title='Budget Friendly Bites'
-          recipes={recipes.slice(0, 4)}
+          recipes={getRecipesByTag(recipes, 'Budget Friendly')}
         />
-        <DiscoverList title='Slow Cookers' recipes={recipes.slice(0, 4)} />
+        <DiscoverList
+          title='Slow Cookers'
+          recipes={getRecipesByTag(recipes, 'Slow Cookers')}
+        />
       </section>
     </div>
   );
