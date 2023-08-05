@@ -104,6 +104,12 @@ const Recipes = () => {
             checkedValue={mealType}
             options={mealFilters}
           />
+          <button
+            type='button'
+            className='bg-blue-500 text-white text-xs font-bold p-1.5 rounded-md'
+          >
+            Clear Filters
+          </button>
         </section>
         <RecipeList recipes={recipes} />
       </article>
