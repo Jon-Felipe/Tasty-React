@@ -21,6 +21,7 @@ const DiscoverList = ({ title, recipes }: Props) => {
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-y-0'>
         {recipes.map((recipe) => (
           <Recipe
+            key={recipe._id}
             id={recipe._id}
             text={recipe.name}
             image=''
