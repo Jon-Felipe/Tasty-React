@@ -15,16 +15,10 @@ export type SingleRecipeType = {
   _id: number;
   name: string;
   description: string;
-  averageRating: number;
   numOfRatings: number;
+  averageRating: number;
   numOfReviews: number;
-  createdBy: {
-    _id: string;
-    name: string;
-    lastName: string;
-  };
   image: string;
-  createdAt: Date;
   recipeDetails: {
     prepTime: number;
     cookTime: number;
@@ -34,16 +28,26 @@ export type SingleRecipeType = {
     yield: string;
     difficulty: string;
   };
-  ingredients: string[];
-  directions: string[];
   nutritionFacts: {
     calories: number;
     fat: number;
     carbs: number;
     protein: number;
   };
+  category: string;
+  tag: string;
+  cuisine: string;
+  mealType: string;
+  ingredients: string[];
+  directions: string[];
   equipment: string[];
   recipeTips: string[];
+  createdBy: {
+    _id: string;
+    name: string;
+    lastName: string;
+  };
+  createdAt: Date;
 };
 
 export type MealOptionType = {
