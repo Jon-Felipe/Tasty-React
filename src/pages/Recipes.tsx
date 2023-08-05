@@ -61,18 +61,6 @@ const Recipes = () => {
     dispatch(getAllRecipes());
   }, [sort, cuisine, mealType, page]);
 
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  if (recipes.length == 0) {
-    return (
-      <div className='mt-6'>
-        <NotFound text='No Recipes Found' />
-      </div>
-    );
-  }
-
   return (
     <article>
       <h1 className='text-2xl font-semibold mb-3 text-orange-500'>
@@ -113,7 +101,15 @@ const Recipes = () => {
             Clear Filters
           </button>
         </section>
-        <RecipeList recipes={recipes} />
+        {isLoading ? (
+          <Spinner />
+        ) : recipes.length == 0 ? (
+          <div className='mt-6'>
+            <NotFound text='No Recipes Found' />
+          </div>
+        ) : (
+          <RecipeList recipes={recipes} />
+        )}
       </article>
       <PageButtonContainer />
     </article>
