@@ -46,10 +46,6 @@ const MyRecipes = () => {
     dispatch(getUserRecipes());
   }, [sort]);
 
-  if (isLoading) {
-    return <Spinner />;
-  }
-
   if (userRecipes.length === 0) {
     return (
       <div className='mt-6'>
@@ -72,7 +68,7 @@ const MyRecipes = () => {
           <Sort value={sort} onChange={handleOnChange} />
         </div>
       </div>
-      <RecipeList recipes={userRecipes} />
+      {isLoading ? <Spinner /> : <RecipeList recipes={userRecipes} />}
     </div>
   );
 };
