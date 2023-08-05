@@ -49,14 +49,6 @@ const MyRecipes = () => {
     dispatch(getUserRecipes());
   }, [sort, page]);
 
-  if (userRecipes.length === 0) {
-    return (
-      <div className='mt-6'>
-        <NotFound text='No Recipes Found' />
-      </div>
-    );
-  }
-
   return (
     <div className='my-6 space-y-4'>
       <div className='grid md:grid-cols-4 md:gap-x-4 md:items-center'>
@@ -71,7 +63,15 @@ const MyRecipes = () => {
           <Sort value={sort} onChange={handleOnChange} />
         </div>
       </div>
-      {isLoading ? <Spinner /> : <RecipeList recipes={userRecipes} />}
+      {isLoading ? (
+        <Spinner />
+      ) : userRecipes.length == 0 ? (
+        <div className='mt-6'>
+          <NotFound text='No Recipes Found' />
+        </div>
+      ) : (
+        <RecipeList recipes={userRecipes} />
+      )}
       <PageButtonContainer />
     </div>
   );
