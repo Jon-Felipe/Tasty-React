@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   getUserRecipes,
   handleChange,
+  resetPage,
 } from '../features/allRecipes/recipeSlice';
 import { AppDispatch, RootState } from '../store';
 import { toast } from 'react-toastify';
@@ -13,10 +14,11 @@ import RecipeList from '../components/RecipeList';
 import NotFound from '../components/NotFound';
 import Search from '../components/UI/Search';
 import Sort from '../components/UI/Sort';
+import PageButtonContainer from '../components/UI/PageButtonContainer';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, userRecipes, search, sort } = useSelector(
+  const { isLoading, userRecipes, search, sort, page } = useSelector(
     (state: RootState) => state.recipe
   );
 
@@ -39,12 +41,13 @@ const MyRecipes = () => {
       return;
     }
 
+    dispatch(resetPage());
     dispatch(getUserRecipes());
   };
 
   useEffect(() => {
     dispatch(getUserRecipes());
-  }, [sort]);
+  }, [sort, page]);
 
   if (userRecipes.length === 0) {
     return (
@@ -69,6 +72,7 @@ const MyRecipes = () => {
         </div>
       </div>
       {isLoading ? <Spinner /> : <RecipeList recipes={userRecipes} />}
+      <PageButtonContainer />
     </div>
   );
 };
