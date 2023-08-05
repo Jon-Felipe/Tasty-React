@@ -6,11 +6,6 @@ export type NavlinksType = {
   path: string;
 };
 
-export type RecipeCategoryType = {
-  id: number;
-  text: string;
-};
-
 export type SingleRecipeType = {
   _id: number;
   name: string;
@@ -34,7 +29,6 @@ export type SingleRecipeType = {
     carbs: number;
     protein: number;
   };
-  category: string;
   tag: string;
   cuisine: string;
   mealType: string;

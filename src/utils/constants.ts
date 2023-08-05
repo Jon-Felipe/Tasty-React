@@ -1,4 +1,4 @@
-import { MealOptionType, NavlinksType, RecipeCategoryType } from './types';
+import { MealOptionType, NavlinksType } from './types';
 
 export const navLinks: NavlinksType[] = [
   {
@@ -20,41 +20,6 @@ export const navLinks: NavlinksType[] = [
     id: 4,
     text: 'contact',
     path: 'contact',
-  },
-];
-
-export const recipeCategories: RecipeCategoryType[] = [
-  {
-    id: 1,
-    text: 'pasta',
-  },
-  {
-    id: 2,
-    text: 'pizza',
-  },
-  {
-    id: 3,
-    text: 'vegan',
-  },
-  {
-    id: 4,
-    text: 'dessert',
-  },
-  {
-    id: 5,
-    text: 'smoothy',
-  },
-  {
-    id: 6,
-    text: 'breakfast',
-  },
-  {
-    id: 7,
-    text: 'meaty',
-  },
-  {
-    id: 8,
-    text: 'lamb',
   },
 ];
 
