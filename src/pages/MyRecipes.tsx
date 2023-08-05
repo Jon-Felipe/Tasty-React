@@ -16,7 +16,7 @@ import Sort from '../components/UI/Sort';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes, search, sort } = useSelector(
+  const { isLoading, userRecipes, search, sort } = useSelector(
     (state: RootState) => state.recipe
   );
 
@@ -50,7 +50,7 @@ const MyRecipes = () => {
     return <Spinner />;
   }
 
-  if (recipes.length === 0) {
+  if (userRecipes.length === 0) {
     return (
       <div className='mt-6'>
         <NotFound text='No Recipes Found' />
@@ -72,7 +72,7 @@ const MyRecipes = () => {
           <Sort value={sort} onChange={handleOnChange} />
         </div>
       </div>
-      <RecipeList recipes={recipes} />
+      <RecipeList recipes={userRecipes} />
     </div>
   );
 };
