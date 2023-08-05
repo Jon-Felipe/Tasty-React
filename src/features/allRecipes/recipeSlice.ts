@@ -112,7 +112,7 @@ export const getUserRecipes = createAsyncThunk(
           authorization: `Bearer ${user.user?.token}`,
         },
       });
-      return data.recipes;
+      return data;
     } catch (error) {
       if (error instanceof AxiosError) {
         return thunkAPI.rejectWithValue(error.response?.data);
@@ -176,7 +176,8 @@ export const recipeSlice = createSlice({
       })
       .addCase(getUserRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.userRecipes = action.payload;
+        state.userRecipes = action.payload.recipes;
+        state.numOfPages = action.payload.numOfPages;
       })
       .addCase(getUserRecipes.rejected, (state) => {
         state.isLoading = false;
