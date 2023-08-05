@@ -120,6 +120,16 @@ export const recipeSlice = createSlice({
     resetPage: (state) => {
       state.page = 1;
     },
+    clearFilters: (state) => {
+      return {
+        ...state,
+        search: '',
+        cuisine: '',
+        mealType: '',
+        sort: '',
+        page: 1,
+      };
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -159,6 +169,7 @@ export const recipeSlice = createSlice({
   },
 });
 
-export const { handleChange, changePage, resetPage } = recipeSlice.actions;
+export const { handleChange, changePage, resetPage, clearFilters } =
+  recipeSlice.actions;
 
 export default recipeSlice.reducer;

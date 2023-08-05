@@ -6,6 +6,7 @@ import {
   getAllRecipes,
   handleChange,
   resetPage,
+  clearFilters,
 } from '../features/allRecipes/recipeSlice';
 
 // components
@@ -106,6 +107,7 @@ const Recipes = () => {
           />
           <button
             type='button'
+            onClick={() => dispatch(clearFilters())}
             className='bg-blue-500 text-white text-xs font-bold p-1.5 rounded-md'
           >
             Clear Filters
