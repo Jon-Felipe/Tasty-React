@@ -38,7 +38,7 @@ const initialState: InitialState = {
 
 export const getAllRecipes = createAsyncThunk(
   'allRecipes/getRecipes',
-  async (_, thunkAPI) => {
+  async (limit: string | undefined, thunkAPI) => {
     const {
       recipe: { search, sort, cuisine, mealType, page },
     } = thunkAPI.getState() as RootState;
@@ -47,6 +47,10 @@ export const getAllRecipes = createAsyncThunk(
 
     if (search) {
       url = url + `&search=${search}`;
+    }
+
+    if (limit) {
+      url = url + `&limit=${limit}`;
     }
 
     try {
