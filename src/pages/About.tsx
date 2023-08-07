@@ -1,5 +1,3 @@
-import React from 'react';
-
 const About = () => {
   return (
     <article className='max-w-screen-xl mx-auto'>

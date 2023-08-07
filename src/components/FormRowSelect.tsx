@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem } from '../../utils/types';
+import { ListItem } from '../utils/types';
 
 type Props = {
   labelText: string;

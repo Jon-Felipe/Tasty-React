@@ -1,5 +1,3 @@
-import React from 'react';
-
 // components
 import FormRow from '../components/FormRow';
 

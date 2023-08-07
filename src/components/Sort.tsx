@@ -1,7 +1,3 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../store';
-import { handleChange } from '../../features/allRecipes/recipeSlice';
-
 type Props = {
   value: string | number | readonly string[];
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
