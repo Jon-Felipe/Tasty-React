@@ -4,7 +4,7 @@ import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
-import Spinner from '../components/UI/Spinner';
+import Spinner from '../components/Spinner';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';

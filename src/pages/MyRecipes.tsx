@@ -9,12 +9,12 @@ import { AppDispatch, RootState } from '../store';
 import { toast } from 'react-toastify';
 
 // components
-import Spinner from '../components/UI/Spinner';
+import Spinner from '../components/Spinner';
 import RecipeList from '../components/RecipeList';
 import NotFound from '../components/NotFound';
-import Search from '../components/UI/Search';
-import Sort from '../components/UI/Sort';
-import PageButtonContainer from '../components/UI/PageButtonContainer';
+import Search from '../components/Search';
+import Sort from '../components/Sort';
+import PageButtonContainer from '../components/PageButtonContainer';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();

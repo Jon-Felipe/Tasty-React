@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 
 // components
-import FormRow from '../components/UI/FormRow';
+import FormRow from '../components/FormRow';
 import { deleteUser, updateUser } from '../features/user/userSlice';
 
 const Profile = () => {

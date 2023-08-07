@@ -6,7 +6,7 @@ import { registerUser } from '../features/user/userSlice';
 import { RegisterUserAttributes } from '../utils/types';
 
 // components
-import FormRow from '../components/UI/FormRow';
+import FormRow from '../components/FormRow';
 
 const initialValues: RegisterUserAttributes = {
   name: '',

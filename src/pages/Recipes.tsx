@@ -11,16 +11,16 @@ import {
 
 // components
 import RecipeList from '../components/RecipeList';
-import Spinner from '../components/UI/Spinner';
+import Spinner from '../components/Spinner';
 import NotFound from '../components/NotFound';
-import Search from '../components/UI/Search';
-import Sort from '../components/UI/Sort';
-import Accordion from '../components/UI/Accordion';
+import Search from '../components/Search';
+import Sort from '../components/Sort';
+import Accordion from '../components/Accordion';
 
 // extras
 import { cuisineFilters, mealFilters } from '../utils/constants';
-import PageButtonContainer from '../components/UI/PageButtonContainer';
-import FormRowSelect from '../components/UI/FormRowSelect';
+import PageButtonContainer from '../components/PageButtonContainer';
+import FormRowSelect from '../components/FormRowSelect';
 import { ListItem } from '../utils/types';
 
 const limitList: ListItem[] = [

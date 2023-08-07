@@ -14,7 +14,7 @@ import { navLinks } from '../utils/constants';
 import { NavlinksType } from '../utils/types';
 
 // components
-import NavLink from './UI/NavLink';
+import NavLink from './NavLink';
 
 type Props = {
   showLinks: boolean;

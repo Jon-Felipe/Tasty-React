@@ -6,8 +6,8 @@ import { getRecipe } from '../features/allRecipes/recipeSlice';
 import { HeartIcon } from '@heroicons/react/24/outline';
 
 // components
-import Spinner from '../components/UI/Spinner';
-import Star from '../components/UI/Star';
+import Spinner from '../components/Spinner';
+import Star from '../components/Star';
 
 // extras
 import foodImg from '../assets/hero-img.jpg';

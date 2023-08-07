@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import FormRow from '../components/UI/FormRow';
+import FormRow from '../components/FormRow';
 
 const Contact = () => {
   return (
