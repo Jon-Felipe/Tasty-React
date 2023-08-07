@@ -32,6 +32,7 @@ const Recipes = () => {
     cuisine,
     mealType,
     page,
+    limit,
   } = useSelector((state: RootState) => state.recipe);
 
   const handleOnChange = (
@@ -40,7 +41,7 @@ const Recipes = () => {
       | React.ChangeEvent<HTMLSelectElement>
   ) => {
     const name = e.target.name;
-    const value = e.target.value;
+    const value = name == 'limit' ? parseInt(e.target.value) : e.target.value;
 
     dispatch(handleChange({ name, value }));
   };
@@ -59,7 +60,7 @@ const Recipes = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, [sort, cuisine, mealType, page]);
+  }, [sort, cuisine, mealType, page, limit]);
 
   return (
     <article>
@@ -103,13 +104,13 @@ const Recipes = () => {
             <select
               name='limit'
               id='limit'
-              // value={limit}
+              value={limit}
               onChange={handleOnChange}
               className='w-full bg-orange-50 px-2 py-1.5 rounded-md cursor-pointer text-orange-500'
             >
-              <option value='6'>6</option>
-              <option value='9'>9</option>
-              <option value='12'>12</option>
+              <option value={6}>6</option>
+              <option value={9}>9</option>
+              <option value={12}>12</option>
             </select>
           </div>
           <button
