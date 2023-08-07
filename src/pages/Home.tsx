@@ -5,15 +5,9 @@ import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/UI/Spinner';
-import DiscoverList from '../components/DiscoverList';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
-import { SingleRecipeType } from '../utils/types';
-
-function getRecipesByTag(recipes: SingleRecipeType[], tag: string) {
-  return recipes.filter((recipe) => recipe.tag == tag).slice(0, 4);
-}
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -50,24 +44,6 @@ const Home = () => {
           </p>
         </section>
       </article>
-      <section>
-        <DiscoverList
-          title='Quick and Easy'
-          recipes={getRecipesByTag(recipes, 'Quick and Easy')}
-        />
-        <DiscoverList
-          title='One Pot Dishes'
-          recipes={getRecipesByTag(recipes, 'One Pot Dishes')}
-        />
-        <DiscoverList
-          title='Budget Friendly Bites'
-          recipes={getRecipesByTag(recipes, 'Budget Friendly')}
-        />
-        <DiscoverList
-          title='Slow Cookers'
-          recipes={getRecipesByTag(recipes, 'Slow Cookers')}
-        />
-      </section>
     </div>
   );
 };
