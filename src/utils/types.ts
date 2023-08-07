@@ -93,3 +93,8 @@ export type AsyncThunkConfig = {
   /** type to be passed into the second argument of `rejectWithValue` to finally be merged into `rejectedAction.meta` */
   rejectedMeta?: unknown;
 };
+
+export type ListItem = {
+  id: number;
+  item: number | string;
+};
