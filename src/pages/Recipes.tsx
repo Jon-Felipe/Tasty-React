@@ -58,7 +58,7 @@ const Recipes = () => {
   };
 
   useEffect(() => {
-    dispatch(getAllRecipes(9));
+    dispatch(getAllRecipes());
   }, [sort, cuisine, mealType, page]);
 
   return (
