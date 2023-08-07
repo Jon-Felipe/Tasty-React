@@ -22,6 +22,12 @@ import { cuisineFilters, mealFilters } from '../utils/constants';
 import PageButtonContainer from '../components/UI/PageButtonContainer';
 import FormRowSelect from '../components/UI/FormRowSelect';
 
+const limitList = [
+  { id: 1, item: 6 },
+  { id: 2, item: 9 },
+  { id: 3, item: 12 },
+];
+
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
   const {
@@ -100,7 +106,7 @@ const Recipes = () => {
             name='limit'
             value={limit}
             onChange={handleOnChange}
-            list={[6, 9, 12]}
+            list={limitList}
           />
           <button
             type='button'

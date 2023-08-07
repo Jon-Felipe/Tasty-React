@@ -1,11 +1,12 @@
 import React from 'react';
+import { ListItem } from '../../utils/types';
 
 type Props = {
   labelText: string;
   name: string;
   value: string | number | readonly string[];
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
-  list: number[] | string[];
+  list: ListItem[];
 };
 
 const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
@@ -24,9 +25,9 @@ const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
         onChange={onChange}
         className='w-full bg-orange-50 px-2 py-1.5 rounded-md cursor-pointer text-orange-500'
       >
-        {list.map((listItem, index) => (
-          <option key={index} value={listItem}>
-            {listItem}
+        {list.map(({ id, item }) => (
+          <option key={id} value={item}>
+            {item}
           </option>
         ))}
       </select>
