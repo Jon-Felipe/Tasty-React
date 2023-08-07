@@ -93,10 +93,29 @@ const Recipes = () => {
             checkedValue={mealType}
             options={mealFilters}
           />
+          <div>
+            <label
+              htmlFor='limit'
+              className='block text-xl text-orange-500 font-medium mb-1'
+            >
+              Recipes Per Page:
+            </label>
+            <select
+              name='limit'
+              id='limit'
+              // value={limit}
+              onChange={handleOnChange}
+              className='w-full bg-orange-50 px-2 py-1.5 rounded-md cursor-pointer text-orange-500'
+            >
+              <option value='6'>6</option>
+              <option value='9'>9</option>
+              <option value='12'>12</option>
+            </select>
+          </div>
           <button
             type='button'
             onClick={() => dispatch(clearFilters())}
-            className='bg-blue-500 text-white text-xs font-bold p-1.5 rounded-md'
+            className='bg-blue-500 text-white text-xs font-bold p-1.5 rounded-md mt-4'
           >
             Clear Filters
           </button>
