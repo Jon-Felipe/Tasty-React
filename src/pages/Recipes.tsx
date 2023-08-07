@@ -21,11 +21,12 @@ import Accordion from '../components/UI/Accordion';
 import { cuisineFilters, mealFilters } from '../utils/constants';
 import PageButtonContainer from '../components/UI/PageButtonContainer';
 import FormRowSelect from '../components/UI/FormRowSelect';
+import { ListItem } from '../utils/types';
 
-const limitList = [
-  { id: 1, item: 6 },
-  { id: 2, item: 9 },
-  { id: 3, item: 12 },
+const limitList: ListItem[] = [
+  { id: 1, listItem: 6 },
+  { id: 2, listItem: 9 },
+  { id: 3, listItem: 12 },
 ];
 
 const Recipes = () => {

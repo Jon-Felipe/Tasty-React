@@ -96,5 +96,5 @@ export type AsyncThunkConfig = {
 
 export type ListItem = {
   id: number;
-  item: number | string;
+  listItem: number | string;
 };

@@ -25,9 +25,9 @@ const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
         onChange={onChange}
         className='w-full bg-orange-50 px-2 py-1.5 rounded-md cursor-pointer text-orange-500'
       >
-        {list.map(({ id, item }) => (
-          <option key={id} value={item}>
-            {item}
+        {list.map(({ id, listItem }) => (
+          <option key={id} value={listItem}>
+            {listItem}
           </option>
         ))}
       </select>
