@@ -65,7 +65,7 @@ export const mealFilters: MealOptionType[] = [
   },
 ];
 
-const recipeQuickLink = [
+export const recipesQuickLink: LinksType[] = [
   { id: 1, text: '30 Minute Meals', path: '30-minute-meals' },
   { id: 2, text: 'Appetizers', path: 'appetizers' },
   { id: 3, text: 'Soups', path: 'soups' },
@@ -74,5 +74,4 @@ const recipeQuickLink = [
   { id: 6, text: 'Pasta', path: 'pasta' },
   { id: 7, text: 'Quick', path: 'quick' },
   { id: 8, text: 'Slow Cooker', path: 'slow-cooker' },
-  { id: 9, text: 'Browse All', path: 'recipes' },
 ];

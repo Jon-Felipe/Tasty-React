@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
@@ -8,6 +9,7 @@ import Spinner from '../components/Spinner';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
+import { recipesQuickLink } from '../utils/constants';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -44,6 +46,15 @@ const Home = () => {
           </p>
         </section>
       </article>
+      {/* recipes quick links */}
+      <section>
+        {recipesQuickLink.map(({ id, text, path }) => (
+          <Link key={id} to={`category/${path}`} className=''>
+            {text}
+          </Link>
+        ))}
+        <Link to={'/recipes'}>Browse All</Link>
+      </section>
     </div>
   );
 };
