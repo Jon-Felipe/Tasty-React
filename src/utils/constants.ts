@@ -1,5 +1,15 @@
 import { MealOptionType, LinksType, RecipeQuickLink } from './types';
 
+// assets
+import clockIcon from '../assets/icons/clock-icon.png';
+import appetizerIcon from '../assets/icons/appetizer-icon.png';
+import soupIcon from '../assets/icons/soup-icon.png';
+import vegetarianIcon from '../assets/icons/vegetarian-icon.png';
+import chickenIcon from '../assets/icons/chicken-icon.png';
+import pastaIcon from '../assets/icons/pasta-icon.png';
+import quickIcon from '../assets/icons/quick-icon.png';
+import slowIcon from '../assets/icons/slow-icon.png';
+
 export const navLinks: LinksType[] = [
   {
     id: 1,
@@ -70,23 +80,28 @@ export const recipesQuickLink: RecipeQuickLink[] = [
     id: 1,
     text: '30 Minute Meals',
     path: '30-minute-meals',
-    icon: 'clock-icon.png',
+    icon: clockIcon,
   },
   {
     id: 2,
     text: 'Appetizers',
     path: 'appetizers',
-    icon: 'appetizers-icon.png',
+    icon: appetizerIcon,
   },
-  { id: 3, text: 'Soups', path: 'soups', icon: 'soup-icon.png' },
+  { id: 3, text: 'Soups', path: 'soups', icon: soupIcon },
   {
     id: 4,
     text: 'Vegetarian',
     path: 'Vegetarian',
-    icon: 'vegetarian-icon.png',
+    icon: vegetarianIcon,
   },
-  { id: 5, text: 'Chicken', path: 'Chicken', icon: 'chicken-icon.png' },
-  { id: 6, text: 'Pasta', path: 'pasta', icon: 'pasta-icon.png' },
-  { id: 7, text: 'Quick', path: 'quick', icon: 'quick-icon.png' },
-  { id: 8, text: 'Slow Cooker', path: 'slow-cooker', icon: 'slow-icon.png' },
+  {
+    id: 5,
+    text: 'Chicken',
+    path: 'Chicken',
+    icon: chickenIcon,
+  },
+  { id: 6, text: 'Pasta', path: 'pasta', icon: pastaIcon },
+  { id: 7, text: 'Quick', path: 'quick', icon: quickIcon },
+  { id: 8, text: 'Slow Cooker', path: 'slow-cooker', icon: slowIcon },
 ];
