@@ -98,3 +98,10 @@ export type ListItem = {
   id: number;
   listItem: number | string;
 };
+
+export type RecipeQuickLink = {
+  id: number;
+  text: string;
+  path: string;
+  icon: string;
+};
