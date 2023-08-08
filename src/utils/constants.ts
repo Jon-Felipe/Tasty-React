@@ -9,6 +9,7 @@ import chickenIcon from '../assets/icons/chicken-icon.png';
 import pastaIcon from '../assets/icons/pasta-icon.png';
 import quickIcon from '../assets/icons/quick-icon.png';
 import slowIcon from '../assets/icons/slow-icon.png';
+import allIcon from '../assets/icons/all-icon.png';
 
 export const navLinks: LinksType[] = [
   {
@@ -79,29 +80,30 @@ export const recipesQuickLink: RecipeQuickLink[] = [
   {
     id: 1,
     text: '30 Minute Meals',
-    path: '30-minute-meals',
+    path: 'category/30-minute-meals',
     icon: clockIcon,
   },
   {
     id: 2,
     text: 'Appetizers',
-    path: 'appetizers',
+    path: 'category/appetizers',
     icon: appetizerIcon,
   },
-  { id: 3, text: 'Soups', path: 'soups', icon: soupIcon },
+  { id: 3, text: 'Soups', path: 'category/soups', icon: soupIcon },
   {
     id: 4,
     text: 'Vegetarian',
-    path: 'Vegetarian',
+    path: 'category/vegetarian',
     icon: vegetarianIcon,
   },
   {
     id: 5,
     text: 'Chicken',
-    path: 'Chicken',
+    path: 'category/chicken',
     icon: chickenIcon,
   },
-  { id: 6, text: 'Pasta', path: 'pasta', icon: pastaIcon },
-  { id: 7, text: 'Quick', path: 'quick', icon: quickIcon },
-  { id: 8, text: 'Slow Cooker', path: 'slow-cooker', icon: slowIcon },
+  { id: 6, text: 'Pasta', path: 'category/pasta', icon: pastaIcon },
+  { id: 7, text: 'Quick', path: 'category/quick', icon: quickIcon },
+  { id: 8, text: 'Slow Cooker', path: 'category/slow-cooker', icon: slowIcon },
+  { id: 9, text: 'Browse All', path: 'recipes', icon: allIcon },
 ];

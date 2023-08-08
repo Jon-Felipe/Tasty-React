@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 // extras
 import { recipesQuickLink } from '../utils/constants';
-import allIcon from '../assets/icons/all-icon.png';
 
 type Props = {};
 
@@ -12,7 +11,6 @@ const QuickLinks = (props: Props) => {
       {recipesQuickLink.map(({ id, text, path, icon }) => (
         <RecipeLink id={id} text={text} path={path} icon={icon} />
       ))}
-      <RecipeLink text='Browse All' path='recipes' icon={allIcon} />
     </section>
   );
 };
@@ -29,7 +27,7 @@ type LinkProps = {
 const RecipeLink = ({ id, path, icon, text }: LinkProps) => {
   return (
     <article className='border-2 rounded-xl text-center p-2'>
-      <Link key={id} to={`category/${path}`}>
+      <Link key={id} to={path}>
         <img
           src={icon}
           alt={text}
