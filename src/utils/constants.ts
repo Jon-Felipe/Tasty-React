@@ -1,6 +1,6 @@
-import { MealOptionType, NavlinksType } from './types';
+import { MealOptionType, LinksType } from './types';
 
-export const navLinks: NavlinksType[] = [
+export const navLinks: LinksType[] = [
   {
     id: 1,
     text: 'home',

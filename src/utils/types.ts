@@ -1,6 +1,6 @@
 import { RootState } from '../store';
 
-export type NavlinksType = {
+export type LinksType = {
   id: number;
   text: string;
   path: string;

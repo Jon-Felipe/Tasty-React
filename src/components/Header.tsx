@@ -11,7 +11,7 @@ import {
 
 // helpers
 import { navLinks } from '../utils/constants';
-import { NavlinksType } from '../utils/types';
+import { LinksType } from '../utils/types';
 
 // components
 import NavLink from './NavLink';
@@ -81,7 +81,7 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
             } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
           >
             <ul className='flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0'>
-              {navLinks.map((link: NavlinksType) => {
+              {navLinks.map((link: LinksType) => {
                 const { id, text, path } = link;
                 return <NavLink key={id} text={text} path={path} />;
               })}
