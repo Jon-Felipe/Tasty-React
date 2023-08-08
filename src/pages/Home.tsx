@@ -13,19 +13,19 @@ import allIcon from '../assets/icons/all-icon.png';
 import { recipesQuickLink } from '../utils/constants';
 
 const Home = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  // const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes } = useSelector(
-    (state: RootState) => state.recipe
-  );
+  // const { isLoading, recipes } = useSelector(
+  //   (state: RootState) => state.recipe
+  // );
 
-  useEffect(() => {
-    dispatch(getAllRecipes());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllRecipes());
+  // }, []);
 
-  if (isLoading) {
-    return <Spinner />;
-  }
+  // if (isLoading) {
+  //   return <Spinner />;
+  // }
 
   return (
     <div className='grid gap-6'>
