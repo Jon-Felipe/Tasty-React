@@ -9,8 +9,8 @@ import Spinner from '../components/Spinner';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
-import allIcon from '../assets/icons/all-icon.png';
 import { recipesQuickLink } from '../utils/constants';
+import QuickLinks from '../components/QuickLinks';
 
 const Home = () => {
   // const dispatch = useDispatch<AppDispatch>();
@@ -48,30 +48,7 @@ const Home = () => {
         </section>
       </article>
       {/* recipes quick links */}
-      <section className='grid md:grid-cols-3 lg:grid-cols-9 gap-y-2 md:gap-4 lg:gap-y-0'>
-        {recipesQuickLink.map(({ id, text, path, icon }) => (
-          <Link key={id} to={`category/${path}`}>
-            <div className='border-2 rounded-xl text-center p-2'>
-              <img
-                src={icon}
-                alt={text}
-                className='hidden md:block mb-2 md:mx-auto'
-              />
-              <p className='font-bold lg:text-xs'>{text}</p>
-            </div>
-          </Link>
-        ))}
-        <Link to={'/recipes'}>
-          <div className='border-2 rounded-xl text-center p-2'>
-            <img
-              src={allIcon}
-              alt='arrow-up'
-              className='hidden md:block mb-2 md:mx-auto'
-            />
-            <p className='font-bold lg:text-xs'>Browse All</p>
-          </div>
-        </Link>
-      </section>
+      <QuickLinks />
     </div>
   );
 };
