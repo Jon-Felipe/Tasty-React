@@ -18,7 +18,7 @@ const QuickLinks = (props: Props) => {
 export default QuickLinks;
 
 type LinkProps = {
-  id?: number;
+  id: number;
   path: string;
   icon: string;
   text: string;
