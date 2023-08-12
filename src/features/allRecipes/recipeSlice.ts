@@ -30,12 +30,12 @@ const initialState: InitialState = {
   recipe: null,
   search: '',
   sort: '',
-  cuisine: '',
-  mealType: '',
+  cuisine: 'all',
+  mealType: 'all',
   totalRecipes: 0,
   numOfPages: 1,
   page: 1,
-  limit: 9,
+  limit: 6,
 };
 
 export const getAllRecipes = createAsyncThunk(
