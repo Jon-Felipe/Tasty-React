@@ -10,6 +10,7 @@ interface InitialFilterState {
   sort: string;
   cuisine: string;
   mealType: string;
+  tag: string;
   limit: number;
 }
 
@@ -32,6 +33,7 @@ const initialState: InitialState = {
   sort: '',
   cuisine: 'all',
   mealType: 'all',
+  tag: 'all',
   totalRecipes: 0,
   numOfPages: 1,
   page: 1,
