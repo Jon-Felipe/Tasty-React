@@ -2,17 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 // types
-import { SingleRecipeType } from '../../utils/types';
+import { InitialFilterState, SingleRecipeType } from '../../utils/types';
 import { RootState } from '../../store';
-
-interface InitialFilterState {
-  search: string;
-  sort: string;
-  cuisine: string;
-  mealType: string;
-  tag: string;
-  limit: number;
-}
 
 interface InitialState extends InitialFilterState {
   isLoading: boolean;

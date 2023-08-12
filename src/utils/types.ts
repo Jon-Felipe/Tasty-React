@@ -44,6 +44,15 @@ export type SingleRecipeType = {
   createdAt: Date;
 };
 
+export interface InitialFilterState {
+  search: string;
+  sort: string;
+  cuisine: string;
+  mealType: string;
+  tag: string;
+  limit: number;
+}
+
 export type MealOptionType = {
   id: number;
   text: string;
