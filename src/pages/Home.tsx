@@ -6,11 +6,11 @@ import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/Spinner';
+import QuickLinks from '../components/QuickLinks';
+import CategoryList from '../components/CategoryList';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
-import { recipesQuickLink } from '../utils/constants';
-import QuickLinks from '../components/QuickLinks';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -49,6 +49,8 @@ const Home = () => {
       </article>
       {/* recipes quick links */}
       <QuickLinks />
+      {/* quick and easy category list */}
+      <CategoryList headerText='Quick and Easy' recipes={recipes.slice(0, 4)} />
     </div>
   );
 };
