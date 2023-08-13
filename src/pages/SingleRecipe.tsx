@@ -59,7 +59,7 @@ const SingleRecipe = () => {
               <div className={`${flexRow} gap-x-1`}>
                 <Star value={recipe?.averageRating} color='orange' />
                 <p className='text-xs font-bold text-orange-500'>
-                  ({recipe?.numOfRatings})
+                  ({recipe?.numRatings})
                 </p>
               </div>
               <button
@@ -73,27 +73,20 @@ const SingleRecipe = () => {
           </section>
         </div>
         {/* cooking details */}
-        <article className='grid grid-cols-4 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4 [&>*:not(:last-child)]:border-r-2'>
-          <CookingDetail
-            text='Prep Time (min):'
-            value={recipe!?.recipeDetails?.prepTime}
-          />
-          <CookingDetail
-            text='Cook Time (min):'
-            value={recipe!?.recipeDetails?.cookTime}
-          />
+        <article className='grid grid-cols-3 justify-between text-center mt-2 bg-orange-50 rounded-xl py-2 md:py-4 [&>*:not(:last-child)]:border-r-2'>
+          <CookingDetail text='Prep Time (min):' value={recipe!?.prepTime} />
+          <CookingDetail text='Cook Time (min):' value={recipe!?.cookTime} />
           <CookingDetail
             text='Total Time (min):'
-            value={recipe!?.recipeDetails.totalTime}
+            value={recipe!?.prepTime + recipe!?.cookTime}
           />
-          <CookingDetail text='Yields:' value={recipe!?.recipeDetails?.yield} />
         </article>
         <section className='flex flex-col lg:flex-row gap-4 lg:gap-4 mt-4'>
           {/* recipe tips */}
           <article className='bg-orange-50 px-4 py-6 rounded-xl w-full'>
             <h3 className='text-2xl font-bold'>Recipe Tips</h3>
             <ul className='bg-white px-6 py-4 rounded-xl mt-4'>
-              {recipe?.recipeTips.map((tip, index) => {
+              {recipe?.tips.map((tip, index) => {
                 return (
                   <li key={index} className='list-disc mx-4 capitalize'>
                     {tip}
@@ -119,8 +112,7 @@ const SingleRecipe = () => {
             </ul>
           </article>
         </section>
-        <section className='mt-4'>
-          {/* recipe nutritional facts */}
+        {/* <section className='mt-4'>
           <article className='bg-orange-50 rounded-xl py-4 px-8'>
             <h3 className='text-2xl font-bold'>
               Nutritional Facts{' '}
@@ -145,7 +137,7 @@ const SingleRecipe = () => {
               />
             </div>
           </article>
-        </section>
+        </section> */}
       </section>
       <section className='basis-1/3'>
         {/* recipe ingredients */}
@@ -164,9 +156,9 @@ const SingleRecipe = () => {
         </div>
         {/* recipe directions */}
         <div className='mt-8'>
-          <h1 className='text-center text-3xl font-bold'>Directions</h1>
+          <h1 className='text-center text-3xl font-bold'>Instructions</h1>
           <ul>
-            {recipe?.directions?.map((direction, i) => (
+            {recipe?.instructions?.map((direction, i) => (
               <li key={i} className='py-4'>
                 <h2 className='font-bold text-lg'>Step {i + 1}</h2>
                 <p className='capitalize'>{direction}</p>
