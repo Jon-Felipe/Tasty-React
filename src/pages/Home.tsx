@@ -49,25 +49,20 @@ const Home = () => {
       </article>
       {/* recipes quick links */}
       <QuickLinks />
-      {/* quick and easy category list */}
+      {/* european recipes category list */}
       <CategoryList
-        headerText='Quick and Easy'
-        recipes={getRecipesByCategory(recipes, 'Quick and Easy')}
+        headerText='European'
+        recipes={getRecipesByCategory(recipes, 'European')}
       />
-      {/* budget friendly category list */}
+      {/* african recipes category list */}
       <CategoryList
-        headerText='Budget Friendly'
-        recipes={getRecipesByCategory(recipes, 'Budget Friendly')}
+        headerText='African'
+        recipes={getRecipesByCategory(recipes, 'African')}
       />
-      {/* one pot dishes category list */}
+      {/* thai recipes category list */}
       <CategoryList
-        headerText='One Pot Dishes'
-        recipes={getRecipesByCategory(recipes, 'One Pot Dishes')}
-      />
-      {/* slow cookers category list */}
-      <CategoryList
-        headerText='Slow Cookers'
-        recipes={getRecipesByCategory(recipes, 'Slow Cookers')}
+        headerText='Thai'
+        recipes={getRecipesByCategory(recipes, 'Thai')}
       />
     </div>
   );

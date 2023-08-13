@@ -23,5 +23,5 @@ export function getRecipesByCategory(
   recipes: SingleRecipeType[],
   category: string
 ) {
-  return recipes.filter((recipe) => recipe.tag == category).slice(0, 8);
+  return recipes.filter((recipe) => recipe.cuisine == category).slice(0, 8);
 }
