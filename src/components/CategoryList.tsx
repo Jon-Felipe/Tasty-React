@@ -1,5 +1,8 @@
 import { SingleRecipeType } from '../utils/types';
 
+// extras
+import foodImg from '../assets/hero-img.jpg';
+
 type Props = {
   headerText: string;
   recipes: SingleRecipeType[];
@@ -8,12 +11,19 @@ type Props = {
 const CategoryList = ({ headerText, recipes }: Props) => {
   return (
     <section>
-      <h2>{headerText} Recipes</h2>
-      {recipes.map((recipe) => (
-        <article key={recipe._id}>
-          <h4>{recipe.name}</h4>
-        </article>
-      ))}
+      <header className='flex relative overflow-hidden'>
+        <h2 className='text-2xl font-bold uppercase mb-4 relative after:absolute after:h-1 after:w-screen after:bg-yellow-300 after:left-[calc(100%+_22px)] after:top-[calc(50%-_1.5px)]'>
+          {headerText} Recipes
+        </h2>
+      </header>
+      <article className='grid lg:grid-cols-4 gap-6'>
+        {recipes.map((recipe) => (
+          <div key={recipe._id}>
+            <img src={foodImg} alt={recipe.name} />
+            <h4 className='text-xl font-semibold uppercase'>{recipe.name}</h4>
+          </div>
+        ))}
+      </article>
     </section>
   );
 };
