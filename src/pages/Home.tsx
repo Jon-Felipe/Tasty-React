@@ -11,6 +11,11 @@ import CategoryList from '../components/CategoryList';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
+import { SingleRecipeType } from '../utils/types';
+
+function getRecipesByCategory(recipes: SingleRecipeType[], category: string) {
+  return recipes.filter((recipe) => recipe.tag == category).slice(0, 8);
+}
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -50,7 +55,10 @@ const Home = () => {
       {/* recipes quick links */}
       <QuickLinks />
       {/* quick and easy category list */}
-      <CategoryList headerText='Quick and Easy' recipes={recipes.slice(0, 4)} />
+      <CategoryList
+        headerText='Quick and Easy'
+        recipes={getRecipesByCategory(recipes, 'Quick and Easy')}
+      />
     </div>
   );
 };
