@@ -59,6 +59,21 @@ const Home = () => {
         headerText='Quick and Easy'
         recipes={getRecipesByCategory(recipes, 'Quick and Easy')}
       />
+      {/* budget friendly category list */}
+      <CategoryList
+        headerText='Budget Friendly'
+        recipes={getRecipesByCategory(recipes, 'Budget Friendly')}
+      />
+      {/* one pot dishes category list */}
+      <CategoryList
+        headerText='One Pot Dishes'
+        recipes={getRecipesByCategory(recipes, 'One Pot Dishes')}
+      />
+      {/* slow cookers category list */}
+      <CategoryList
+        headerText='Slow Cookers'
+        recipes={getRecipesByCategory(recipes, 'Slow Cookers')}
+      />
     </div>
   );
 };
