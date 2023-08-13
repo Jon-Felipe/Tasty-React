@@ -10,9 +10,9 @@ export type SingleRecipeType = {
   _id: number;
   name: string;
   description: string;
-  numOfRatings: number;
+  numRatings: number;
   averageRating: number;
-  numOfReviews: number;
+  numReviews: number;
   image: string;
   recipeDetails: {
     prepTime: number;
