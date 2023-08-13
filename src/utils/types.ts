@@ -10,32 +10,20 @@ export type SingleRecipeType = {
   _id: number;
   name: string;
   description: string;
-  numRatings: number;
-  averageRating: number;
-  numReviews: number;
   image: string;
-  recipeDetails: {
-    prepTime: number;
-    cookTime: number;
-    additionalTime: number;
-    totalTime: number;
-    servings: number;
-    yield: string;
-    difficulty: string;
-  };
-  nutritionFacts: {
-    calories: number;
-    fat: number;
-    carbs: number;
-    protein: number;
-  };
-  tag: string;
+  numRatings: number;
+  numReviews: number;
+  averageRating: number;
+  prepTime: number;
+  cookTime: number;
+  servings: number;
+  difficulty: string;
   cuisine: string;
-  mealType: string;
+  dishType: string;
   ingredients: string[];
-  directions: string[];
+  instructions: string[];
   equipment: string[];
-  recipeTips: string[];
+  tips: string[];
   createdBy: {
     _id: string;
     name: string;
