@@ -11,10 +11,18 @@ type Props = {
   name: string;
   image: string;
   averageRating: number;
+  numRatings: number;
   createdBy: string;
 };
 
-const Recipe = ({ id, name, image, averageRating, createdBy }: Props) => {
+const Recipe = ({
+  id,
+  name,
+  image,
+  averageRating,
+  numRatings,
+  createdBy,
+}: Props) => {
   return (
     <Link to={`/recipe/${id}`}>
       <article className='transition ease-out duration-300 hover:scale-105'>
@@ -32,7 +40,7 @@ const Recipe = ({ id, name, image, averageRating, createdBy }: Props) => {
             <div className='flex items-center justify-center gap-1'>
               <Star value={averageRating} color='orange' />
               <p className='text-orange-400 text-sm font-semibold'>
-                {averageRating}
+                ({numRatings})
               </p>
             </div>
           </div>

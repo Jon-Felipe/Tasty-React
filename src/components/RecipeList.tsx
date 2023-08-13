@@ -19,6 +19,7 @@ const RecipeList = ({ recipes }: Props) => {
             name={recipe.name}
             image={recipe.image}
             averageRating={recipe.averageRating}
+            numRatings={recipe.numRatings}
             createdBy={`${recipe.createdBy.name} ${recipe.createdBy.lastName}`}
           />
         );
