@@ -24,6 +24,11 @@ const CategoryList = ({ headerText, recipes }: Props) => {
           </div>
         ))}
       </article>
+      <div className='mt-5'>
+        <button className='border-2 border-black p-4 text-lg font-bold uppercase'>
+          More {headerText} Recipes
+        </button>
+      </div>
     </section>
   );
 };
