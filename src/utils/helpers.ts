@@ -1,3 +1,5 @@
+import { SingleRecipeType } from './types';
+
 type StorageType = {
   key: string;
   value: string;
@@ -16,3 +18,10 @@ export const getFromLocalStorage = (key: string) => {
 export const removeFromLocalStorage = (key: string) => {
   localStorage.removeItem(key);
 };
+
+export function getRecipesByCategory(
+  recipes: SingleRecipeType[],
+  category: string
+) {
+  return recipes.filter((recipe) => recipe.tag == category).slice(0, 8);
+}

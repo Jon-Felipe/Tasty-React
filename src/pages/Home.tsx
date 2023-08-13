@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
@@ -11,11 +10,7 @@ import CategoryList from '../components/CategoryList';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
-import { SingleRecipeType } from '../utils/types';
-
-function getRecipesByCategory(recipes: SingleRecipeType[], category: string) {
-  return recipes.filter((recipe) => recipe.tag == category).slice(0, 8);
-}
+import { getRecipesByCategory } from '../utils/helpers';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
