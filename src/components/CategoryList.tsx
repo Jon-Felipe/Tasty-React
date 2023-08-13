@@ -16,7 +16,7 @@ const CategoryList = ({ headerText, recipes }: Props) => {
           {headerText} Recipes
         </h2>
       </header>
-      <article className='grid lg:grid-cols-4 gap-6'>
+      <article className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
         {recipes.map((recipe) => (
           <div key={recipe._id}>
             <img src={foodImg} alt={recipe.name} />
