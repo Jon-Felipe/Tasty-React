@@ -58,6 +58,23 @@ export const getAllRecipes = createAsyncThunk(
   }
 );
 
+export const getAllRecipesByCuisine = createAsyncThunk(
+  'allRecipes/getAllRecipesByCuisine',
+  async (cuisines: string[], thunkAPI) => {
+    const joinedCuisines = cuisines.join(',');
+    try {
+      const { data } = await axios.get(
+        `https://tasty-api.onrender.com/api/v1/recipes/?cuisine=${joinedCuisines}`
+      );
+      return data;
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(error.response?.data);
+      }
+    }
+  }
+);
+
 export const getRecipe = createAsyncThunk(
   'allRecipes/getRecipe',
   async (id: string, thunkAPI) => {
@@ -141,6 +158,18 @@ export const recipeSlice = createSlice({
         state.numOfPages = action.payload.numOfPages;
       })
       .addCase(getAllRecipes.rejected, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(getAllRecipesByCuisine.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllRecipesByCuisine.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.recipes = action.payload.recipes;
+        state.totalRecipes = action.payload.totalRecipes;
+        state.numOfPages = action.payload.numOfPages;
+      })
+      .addCase(getAllRecipesByCuisine.rejected, (state) => {
         state.isLoading = false;
       })
       .addCase(getRecipe.pending, (state) => {

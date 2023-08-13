@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
-import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+import { getAllRecipesByCuisine } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/Spinner';
@@ -20,7 +20,7 @@ const Home = () => {
   );
 
   useEffect(() => {
-    dispatch(getAllRecipes());
+    dispatch(getAllRecipesByCuisine(['European', 'African', 'Thai']));
   }, []);
 
   if (isLoading) {
