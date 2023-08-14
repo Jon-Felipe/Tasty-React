@@ -80,19 +80,19 @@ export const cuisineFilters: MealOptionType[] = [
 export const mealFilters: MealOptionType[] = [
   {
     id: 1,
-    text: 'breakfast',
+    text: 'Breakfast',
   },
   {
     id: 2,
-    text: 'lunch',
+    text: 'Lunch',
   },
   {
     id: 3,
-    text: 'dinner',
+    text: 'Dinner',
   },
   {
     id: 4,
-    text: 'dessert',
+    text: 'Dessert',
   },
 ];
 
