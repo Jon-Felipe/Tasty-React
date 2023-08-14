@@ -38,7 +38,7 @@ const Recipes = () => {
     search,
     sort,
     cuisine,
-    mealType,
+    dishType,
     page,
     limit,
   } = useSelector((state: RootState) => state.recipe);
@@ -68,7 +68,7 @@ const Recipes = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes());
-  }, [sort, cuisine, mealType, page, limit]);
+  }, [sort, cuisine, dishType, page, limit]);
 
   return (
     <article>
@@ -98,8 +98,8 @@ const Recipes = () => {
           />
           <Accordion
             headerText='Meals'
-            name='mealType'
-            checkedValue={mealType}
+            name='dishType'
+            checkedValue={dishType}
             options={mealFilters}
           />
           <FormRowSelect

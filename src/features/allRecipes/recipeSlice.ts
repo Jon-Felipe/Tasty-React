@@ -23,7 +23,7 @@ const initialState: InitialState = {
   search: '',
   sort: 'latest',
   cuisine: 'all',
-  mealType: 'all',
+  dishType: 'all',
   tag: 'all',
   totalRecipes: 0,
   numOfPages: 1,
@@ -35,10 +35,10 @@ export const getAllRecipes = createAsyncThunk(
   'allRecipes/getRecipes',
   async (_, thunkAPI) => {
     const {
-      recipe: { search, sort, cuisine, mealType, page, limit },
+      recipe: { search, sort, cuisine, dishType, page, limit },
     } = thunkAPI.getState() as RootState;
 
-    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&mealType=${mealType}&page=${page}&limit=${limit}`;
+    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&dishType=${dishType}&page=${page}&limit=${limit}`;
 
     if (search) {
       url = url + `&search=${search}`;
@@ -137,7 +137,7 @@ export const recipeSlice = createSlice({
         ...state,
         search: '',
         cuisine: '',
-        mealType: '',
+        dishType: '',
         sort: '',
         page: 1,
       };
