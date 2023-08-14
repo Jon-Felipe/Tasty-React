@@ -37,23 +37,43 @@ export const navLinks: LinksType[] = [
 export const cuisineFilters: MealOptionType[] = [
   {
     id: 1,
-    text: 'mediterranean',
+    text: 'African',
   },
   {
     id: 2,
-    text: 'european',
+    text: 'Asian',
   },
   {
     id: 3,
-    text: 'italian',
+    text: 'American',
   },
   {
     id: 4,
-    text: 'asian',
+    text: 'British',
   },
   {
     id: 5,
-    text: 'mexican',
+    text: 'Chinese',
+  },
+  {
+    id: 6,
+    text: 'European',
+  },
+  {
+    id: 7,
+    text: 'Indian',
+  },
+  {
+    id: 8,
+    text: 'Italian',
+  },
+  {
+    id: 9,
+    text: 'Spanish',
+  },
+  {
+    id: 10,
+    text: 'Thai',
   },
 ];
 
@@ -72,7 +92,7 @@ export const mealFilters: MealOptionType[] = [
   },
   {
     id: 4,
-    text: 'snack',
+    text: 'dessert',
   },
 ];
 
