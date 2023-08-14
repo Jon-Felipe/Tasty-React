@@ -28,7 +28,7 @@ const initialState: InitialState = {
   totalRecipes: 0,
   numOfPages: 1,
   page: 1,
-  limit: 0,
+  limit: 12,
 };
 
 export const getAllRecipes = createAsyncThunk(
@@ -38,13 +38,10 @@ export const getAllRecipes = createAsyncThunk(
       recipe: { search, sort, cuisine, mealType, page, limit },
     } = thunkAPI.getState() as RootState;
 
-    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&mealType=${mealType}&page=${page}`;
+    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&mealType=${mealType}&page=${page}&limit=${limit}`;
 
     if (search) {
       url = url + `&search=${search}`;
-    }
-    if (limit) {
-      url = url + `&limit=${limit}`;
     }
 
     try {
