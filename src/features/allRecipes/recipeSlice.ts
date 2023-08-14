@@ -21,7 +21,7 @@ const initialState: InitialState = {
   userRecipes: [],
   recipe: null,
   search: '',
-  sort: '',
+  sort: 'latest',
   cuisine: 'all',
   mealType: 'all',
   tag: 'all',
