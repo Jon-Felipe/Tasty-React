@@ -36,7 +36,7 @@ const Recipe = ({
         <div className='mt-1'>
           <h3 className='font-semibold text-lg capitalize'>{name}</h3>
           <p className='text-sm tracking-tight'>
-            {description?.slice(0, 80)}...
+            {description?.slice(0, 150)}...
           </p>
           <div className='flex items-center justify-between mt-0.5'>
             <p className='text-sm text-orange-400 font-semibold'>
