@@ -26,10 +26,22 @@ const Recipes = () => {
 
   return (
     <article>
-      <h1 className='text-2xl font-semibold mb-3 text-orange-500'>
-        Browsing All Recipes{' '}
-        <span className='text-xs'>({totalRecipes} Recipes Found)</span>
-      </h1>
+      <header className='text-center mb-10'>
+        <h1 className='text-4xl font-bold uppercase'>Recipes</h1>
+        <div className='w-[600px] mx-auto my-2'>
+          <p className='tracking-wide'>
+            Browse over {totalRecipes} easy and delicious family friendly
+            recipes! Dinner recipes, slow cooker recipes, vegetarian recipes,
+            breakfast recipes and more.
+          </p>
+        </div>
+        <button
+          type='button'
+          className='border rounded-md shadow px-4 py-2 font-semibold'
+        >
+          Go To Recipe Filter
+        </button>
+      </header>
       <RecipeList recipes={recipes} />
       <PageButtonContainer />
     </article>
