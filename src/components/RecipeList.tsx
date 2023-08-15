@@ -17,6 +17,7 @@ const RecipeList = ({ recipes }: Props) => {
             key={recipe._id}
             id={recipe._id}
             name={recipe.name}
+            description={recipe.description}
             image={recipe.image}
             averageRating={recipe.averageRating}
             numRatings={recipe.numRatings}

@@ -9,6 +9,7 @@ import foodImg from '../assets/hero-img.jpg';
 type Props = {
   id: number;
   name: string;
+  description: string;
   image: string;
   averageRating: number;
   numRatings: number;
@@ -18,6 +19,7 @@ type Props = {
 const Recipe = ({
   id,
   name,
+  description,
   image,
   averageRating,
   numRatings,
@@ -33,6 +35,9 @@ const Recipe = ({
         />
         <div className='mt-1'>
           <h3 className='font-semibold text-lg capitalize'>{name}</h3>
+          <p className='text-sm tracking-tight'>
+            {description?.slice(0, 80)}...
+          </p>
           <div className='flex items-center justify-between mt-0.5'>
             <p className='text-sm text-orange-400 font-semibold'>
               By {createdBy}
