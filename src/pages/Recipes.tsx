@@ -63,11 +63,11 @@ const Recipes = () => {
     }
 
     dispatch(resetPage());
-    dispatch(getAllRecipes());
+    dispatch(getAllRecipes({}));
   };
 
   useEffect(() => {
-    dispatch(getAllRecipes());
+    dispatch(getAllRecipes({}));
   }, [sort, cuisine, dishType, page, limit]);
 
   return (

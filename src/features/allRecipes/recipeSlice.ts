@@ -31,29 +31,52 @@ const initialState: InitialState = {
   limit: 12,
 };
 
-export const getAllRecipes = createAsyncThunk(
-  'allRecipes/getRecipes',
-  async (_, thunkAPI) => {
-    const {
-      recipe: { search, sort, cuisine, dishType, page, limit },
-    } = thunkAPI.getState() as RootState;
+type GetAllRecipesParams = {
+  search?: string;
+  sort?: string;
+  cuisine?: string[];
+  dishType?: string;
+  page?: number;
+  limit?: number;
+};
 
-    let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&dishType=${dishType}&page=${page}&limit=${limit}`;
+type GetAllRecipesPayload = {
+  recipes: SingleRecipeType[];
+  totalRecipes: number;
+  numOfPages: number;
+};
 
-    if (search) {
-      url = url + `&search=${search}`;
-    }
+export const getAllRecipes = createAsyncThunk<
+  GetAllRecipesPayload,
+  GetAllRecipesParams
+>('getAllRecipes', async (recipeFilters, thunkAPI) => {
+  const {
+    search = '',
+    sort = 'latest',
+    cuisine = 'all',
+    dishType = 'all',
+    page = 1,
+    limit = 0,
+  } = recipeFilters;
 
-    try {
-      const { data } = await axios.get(url);
-      return data;
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.response?.data);
-      }
+  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&dishType=${dishType}&page=${page}`;
+
+  if (search) {
+    url = url + `&search=${search}`;
+  }
+  if (limit) {
+    url = url + `&limit=${limit}`;
+  }
+
+  try {
+    const { data } = await axios.get(url);
+    return data;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error.response?.data);
     }
   }
-);
+});
 
 export const getAllRecipesByCategory = createAsyncThunk(
   'allRecipes/getAllRecipesByCategory',
@@ -148,11 +171,13 @@ export const recipeSlice = createSlice({
       .addCase(getAllRecipes.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getAllRecipes.fulfilled, (state, action) => {
+      .addCase(getAllRecipes.fulfilled, (state, { payload }) => {
+        const { recipes, totalRecipes, numOfPages } = payload;
+
         state.isLoading = false;
-        state.recipes = action.payload.recipes;
-        state.totalRecipes = action.payload.totalRecipes;
-        state.numOfPages = action.payload.numOfPages;
+        state.recipes = recipes;
+        state.totalRecipes = totalRecipes;
+        state.numOfPages = numOfPages;
       })
       .addCase(getAllRecipes.rejected, (state) => {
         state.isLoading = false;
