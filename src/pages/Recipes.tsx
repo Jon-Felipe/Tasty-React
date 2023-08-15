@@ -26,9 +26,9 @@ const Recipes = () => {
 
   return (
     <article>
-      <header className='text-center mb-10'>
+      <header className='mb-10'>
         <h1 className='text-4xl font-bold uppercase'>Recipes</h1>
-        <div className='w-[600px] mx-auto my-2'>
+        <div className='w-[580px] my-2'>
           <p className='tracking-wide'>
             Browse over {totalRecipes} easy and delicious family friendly
             recipes! Dinner recipes, slow cooker recipes, vegetarian recipes,
