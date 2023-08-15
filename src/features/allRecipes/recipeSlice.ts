@@ -57,11 +57,11 @@ export const getAllRecipes = createAsyncThunk(
 
 export const getAllRecipesByCategory = createAsyncThunk(
   'allRecipes/getAllRecipesByCategory',
-  async (cuisines: string[], thunkAPI) => {
-    const joinedCuisines = cuisines.join(',');
+  async (categories: string[], thunkAPI) => {
+    const joinedCategories = categories.join(',');
     try {
       const { data } = await axios.get(
-        `https://tasty-api.onrender.com/api/v1/recipes/?cuisine=${joinedCuisines}`
+        `https://tasty-api.onrender.com/api/v1/recipes/?cuisine=${joinedCategories}`
       );
       return data;
     } catch (error) {
