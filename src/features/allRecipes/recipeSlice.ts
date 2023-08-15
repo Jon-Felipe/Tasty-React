@@ -2,7 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 // types
-import { InitialFilterState, SingleRecipeType } from '../../utils/types';
+import {
+  GetAllRecipesParams,
+  GetAllRecipesPayload,
+  InitialFilterState,
+  SingleRecipeType,
+} from '../../utils/types';
 import { RootState } from '../../store';
 
 interface InitialState extends InitialFilterState {
@@ -29,21 +34,6 @@ const initialState: InitialState = {
   numOfPages: 1,
   page: 1,
   limit: 12,
-};
-
-type GetAllRecipesParams = {
-  search?: string;
-  sort?: string;
-  cuisine?: string[];
-  dishType?: string;
-  page?: number;
-  limit?: number;
-};
-
-type GetAllRecipesPayload = {
-  recipes: SingleRecipeType[];
-  totalRecipes: number;
-  numOfPages: number;
 };
 
 export const getAllRecipes = createAsyncThunk<
