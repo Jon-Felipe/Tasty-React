@@ -5,12 +5,13 @@ import { getAllRecipesByCategory } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/Spinner';
-import QuickLinks from '../components/QuickLinks';
 import CategoryList from '../components/CategoryList';
+import QuickLink from '../components/QuickLink';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
 import { getRecipesByCategory } from '../utils/helpers';
+import { recipesQuickLink } from '../utils/constants';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -48,7 +49,12 @@ const Home = () => {
         </section>
       </article>
       {/* recipes quick links */}
-      <QuickLinks />
+      <section className='grid md:grid-cols-3 lg:grid-cols-9 gap-y-2 md:gap-4 lg:gap-y-0'>
+        {recipesQuickLink.map(({ id, path, icon, text }) => (
+          <QuickLink key={id} path={path} icon={icon} text={text} />
+        ))}
+      </section>
+      {/* <QuickLinks /> */}
       {/* european recipes category list */}
       <CategoryList
         headerText='European'
