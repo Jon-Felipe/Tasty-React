@@ -12,13 +12,13 @@ import PageButtonContainer from '../components/PageButtonContainer';
 
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes, totalRecipes } = useSelector(
+  const { isLoading, recipes, totalRecipes, page } = useSelector(
     (state: RootState) => state.recipe
   );
 
   useEffect(() => {
-    dispatch(getAllRecipes({ limit: 12 }));
-  }, []);
+    dispatch(getAllRecipes({ limit: 12, page }));
+  }, [page]);
 
   if (isLoading) {
     return <Spinner />;
