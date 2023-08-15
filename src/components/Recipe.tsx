@@ -31,7 +31,7 @@ const Recipe = ({
         <img
           src={foodImg}
           alt={name}
-          className='rounded-2xl w-full h-52 object-cover'
+          className='rounded-md w-full h-52 object-cover'
         />
         <div className='mt-1'>
           <h3 className='font-semibold text-lg capitalize'>{name}</h3>
