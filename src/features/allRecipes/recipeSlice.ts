@@ -43,7 +43,7 @@ export const getAllRecipes = createAsyncThunk<
   const {
     search = '',
     sort = 'latest',
-    cuisine = 'all',
+    cuisine = ['all'],
     dishType = 'all',
     page = 1,
     limit = 0,
