@@ -55,8 +55,8 @@ export const getAllRecipes = createAsyncThunk(
   }
 );
 
-export const getAllRecipesByCuisine = createAsyncThunk(
-  'allRecipes/getAllRecipesByCuisine',
+export const getAllRecipesByCategory = createAsyncThunk(
+  'allRecipes/getAllRecipesByCategory',
   async (cuisines: string[], thunkAPI) => {
     const joinedCuisines = cuisines.join(',');
     try {
@@ -157,16 +157,16 @@ export const recipeSlice = createSlice({
       .addCase(getAllRecipes.rejected, (state) => {
         state.isLoading = false;
       })
-      .addCase(getAllRecipesByCuisine.pending, (state) => {
+      .addCase(getAllRecipesByCategory.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getAllRecipesByCuisine.fulfilled, (state, action) => {
+      .addCase(getAllRecipesByCategory.fulfilled, (state, action) => {
         state.isLoading = false;
         state.recipes = action.payload.recipes;
         state.totalRecipes = action.payload.totalRecipes;
         state.numOfPages = action.payload.numOfPages;
       })
-      .addCase(getAllRecipesByCuisine.rejected, (state) => {
+      .addCase(getAllRecipesByCategory.rejected, (state) => {
         state.isLoading = false;
       })
       .addCase(getRecipe.pending, (state) => {
