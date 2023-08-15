@@ -34,7 +34,7 @@ const Recipe = ({
           className='rounded-md w-full h-52 object-cover'
         />
         <div className='mt-1'>
-          <h3 className='font-semibold text-lg capitalize'>{name}</h3>
+          <h3 className='font-bold text-3xl capitalize'>{name}</h3>
           <p className='text-sm tracking-tight'>
             {description?.slice(0, 150)}...
           </p>
