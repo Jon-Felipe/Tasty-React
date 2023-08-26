@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { TbClock, TbChefHat, TbToolsKitchen } from 'react-icons/tb';
 
 // extras
@@ -11,7 +12,9 @@ type Props = {
 const RecipeCard = ({ recipe }: Props) => {
   return (
     <article key={recipe._id}>
-      <img src={heroImg} alt={recipe.image} />
+      <Link to={`recipe/${recipe._id}`}>
+        <img src={heroImg} alt={recipe.image} />
+      </Link>
       <section className='flex items-center gap-x-4 mt-2'>
         <div className='flex items-center gap-x-1'>
           <TbClock />
