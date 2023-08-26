@@ -21,7 +21,7 @@ const Home = () => {
   );
 
   useEffect(() => {
-    dispatch(getAllRecipes({ cuisine: ['European', 'African', 'Thai'] }));
+    dispatch(getAllRecipes({ cuisine: ['european', 'african', 'thai'] }));
   }, []);
 
   if (isLoading) {
@@ -58,17 +58,17 @@ const Home = () => {
       {/* european recipes category list */}
       <CategoryList
         headerText='european'
-        recipes={getRecipesByCategory(recipes, 'European')}
+        recipes={getRecipesByCategory(recipes, 'european')}
       />
       {/* african recipes category list */}
       <CategoryList
         headerText='african'
-        recipes={getRecipesByCategory(recipes, 'African')}
+        recipes={getRecipesByCategory(recipes, 'african')}
       />
       {/* thai recipes category list */}
       <CategoryList
         headerText='thai'
-        recipes={getRecipesByCategory(recipes, 'Thai')}
+        recipes={getRecipesByCategory(recipes, 'thai')}
       />
     </div>
   );
