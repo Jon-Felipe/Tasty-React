@@ -57,17 +57,17 @@ const Home = () => {
       {/* <QuickLinks /> */}
       {/* european recipes category list */}
       <CategoryList
-        headerText='European'
+        headerText='european'
         recipes={getRecipesByCategory(recipes, 'European')}
       />
       {/* african recipes category list */}
       <CategoryList
-        headerText='African'
+        headerText='african'
         recipes={getRecipesByCategory(recipes, 'African')}
       />
       {/* thai recipes category list */}
       <CategoryList
-        headerText='Thai'
+        headerText='thai'
         recipes={getRecipesByCategory(recipes, 'Thai')}
       />
     </div>

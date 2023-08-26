@@ -1,6 +1,7 @@
-import { SingleRecipeType } from '../utils/types';
+import { Link } from 'react-router-dom';
 
 // extras
+import { SingleRecipeType } from '../utils/types';
 import foodImg from '../assets/hero-img.jpg';
 
 type Props = {
@@ -25,9 +26,12 @@ const CategoryList = ({ headerText, recipes }: Props) => {
         ))}
       </article>
       <div className='mt-5'>
-        <button className='border-2 border-black p-4 text-lg font-bold uppercase'>
+        <Link
+          to={`/category/${headerText}`}
+          className='border-2 border-black p-4 text-lg font-bold uppercase'
+        >
           More {headerText} Recipes
-        </button>
+        </Link>
       </div>
     </section>
   );
