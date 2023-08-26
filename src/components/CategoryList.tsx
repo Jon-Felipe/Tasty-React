@@ -5,16 +5,16 @@ import { SingleRecipeType } from '../utils/types';
 import foodImg from '../assets/hero-img.jpg';
 
 type Props = {
-  headerText: string;
+  categoyTitle: string;
   recipes: SingleRecipeType[];
 };
 
-const CategoryList = ({ headerText, recipes }: Props) => {
+const CategoryList = ({ categoyTitle, recipes }: Props) => {
   return (
     <section>
       <header className='flex relative overflow-hidden'>
         <h2 className='text-2xl font-bold uppercase mb-4 relative after:absolute after:h-1 after:w-screen after:bg-yellow-300 after:left-[calc(100%+_22px)] after:top-[calc(50%-_1.5px)]'>
-          {headerText} Style Recipes
+          {categoyTitle} Style Recipes
         </h2>
       </header>
       <article className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
@@ -27,10 +27,10 @@ const CategoryList = ({ headerText, recipes }: Props) => {
       </article>
       <div className='my-8'>
         <Link
-          to={`/category/${headerText}`}
+          to={`/category/${categoyTitle}`}
           className='border-2 border-black p-4 text-lg font-bold uppercase'
         >
-          More {headerText} Recipes
+          More {categoyTitle} Recipes
         </Link>
       </div>
     </section>
