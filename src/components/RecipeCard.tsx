@@ -1,9 +1,22 @@
-import React from 'react';
+import { SingleRecipeType } from '../utils/types';
+import heroImg from '../assets/hero-img.jpg';
 
-type Props = {};
+type Props = {
+  recipe: SingleRecipeType;
+};
 
-const RecipeCard = (props: Props) => {
-  return <div>RecipeCard</div>;
+const RecipeCard = ({ recipe }: Props) => {
+  return (
+    <article key={recipe._id}>
+      <img src={heroImg} alt={recipe.image} />
+      <div className='mt-1'>
+        <h3 className='text-2xl font-bold'>{recipe.name}</h3>
+        <p className='text-sm tracking-tight'>
+          {recipe.description.slice(0, 80)}...
+        </p>
+      </div>
+    </article>
+  );
 };
 
 export default RecipeCard;

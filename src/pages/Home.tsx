@@ -5,6 +5,7 @@ import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/Spinner';
+import RecipeCard from '../components/RecipeCard';
 
 // extras
 import heroImg from '../assets/hero-img.jpg';
@@ -46,17 +47,7 @@ const Home = () => {
       </section>
       <section className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-4 mt-6'>
         {recipes.map((recipe) => {
-          return (
-            <article key={recipe._id}>
-              <img src={heroImg} alt={recipe.image} />
-              <div className='mt-1'>
-                <h3 className='text-2xl font-bold'>{recipe.name}</h3>
-                <p className='text-sm tracking-tight'>
-                  {recipe.description.slice(0, 80)}...
-                </p>
-              </div>
-            </article>
-          );
+          return <RecipeCard key={recipe._id} recipe={recipe} />;
         })}
       </section>
       <PageButtonContainer />
