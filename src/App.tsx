@@ -25,6 +25,7 @@ import {
   FavouriteRecipes,
   ProtectedRoute,
   Error,
+  Category,
 } from './pages';
 
 const router = createBrowserRouter(
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path='contact' element={<Contact />} />
       <Route path='recipes' element={<Recipes />} />
       <Route path='recipe/:id' element={<SingleRecipe />} />
+      <Route path='category/:id' element={<Category />} />
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
       <Route

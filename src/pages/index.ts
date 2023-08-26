@@ -5,6 +5,7 @@ import Login from './Login';
 import Register from './Register';
 import Recipes from './Recipes';
 import SingleRecipe from './SingleRecipe';
+import Category from './Category';
 import Profile from './Profile';
 import MyRecipes from './MyRecipes';
 import FavouriteRecipes from './FavouriteRecipes';
@@ -19,6 +20,7 @@ export {
   Register,
   Recipes,
   SingleRecipe,
+  Category,
   Profile,
   MyRecipes,
   FavouriteRecipes,
