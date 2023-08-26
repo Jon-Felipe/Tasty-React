@@ -25,7 +25,7 @@ const CategoryList = ({ headerText, recipes }: Props) => {
           </div>
         ))}
       </article>
-      <div className='mt-5'>
+      <div className='my-8'>
         <Link
           to={`/category/${headerText}`}
           className='border-2 border-black p-4 text-lg font-bold uppercase'
