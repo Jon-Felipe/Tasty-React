@@ -35,65 +35,23 @@ export const navLinks: LinksType[] = [
 ];
 
 export const cuisineTypes: MealOptionType[] = [
-  {
-    id: 1,
-    text: 'African',
-  },
-  {
-    id: 2,
-    text: 'Asian',
-  },
-  {
-    id: 3,
-    text: 'American',
-  },
-  {
-    id: 4,
-    text: 'British',
-  },
-  {
-    id: 5,
-    text: 'Chinese',
-  },
-  {
-    id: 6,
-    text: 'European',
-  },
-  {
-    id: 7,
-    text: 'Indian',
-  },
-  {
-    id: 8,
-    text: 'Italian',
-  },
-  {
-    id: 9,
-    text: 'Spanish',
-  },
-  {
-    id: 10,
-    text: 'Thai',
-  },
+  'african',
+  'asian',
+  'american',
+  'british',
+  'chinese',
+  'european',
+  'indian',
+  'italian',
+  'spanish',
+  'thai',
 ];
 
 export const dishTypes: MealOptionType[] = [
-  {
-    id: 1,
-    text: 'Breakfast',
-  },
-  {
-    id: 2,
-    text: 'Lunch',
-  },
-  {
-    id: 3,
-    text: 'Dinner',
-  },
-  {
-    id: 4,
-    text: 'Dessert',
-  },
+  'breakfast',
+  'lunch',
+  'dinner',
+  'dessert',
 ];
 
 export const recipesQuickLink: RecipeQuickLink[] = [
