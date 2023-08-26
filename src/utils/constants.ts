@@ -34,7 +34,7 @@ export const navLinks: LinksType[] = [
   },
 ];
 
-export const cuisineFilters: MealOptionType[] = [
+export const cuisineTypes: MealOptionType[] = [
   {
     id: 1,
     text: 'African',
@@ -77,7 +77,7 @@ export const cuisineFilters: MealOptionType[] = [
   },
 ];
 
-export const mealFilters: MealOptionType[] = [
+export const dishTypes: MealOptionType[] = [
   {
     id: 1,
     text: 'Breakfast',
