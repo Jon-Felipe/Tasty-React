@@ -11,7 +11,7 @@ const RootLayout = () => {
   return (
     <>
       <Header showLinks={showLinks} setShowLinks={setShowLinks} />
-      <main className='min-h-[65vh] py-8 px-4'>
+      <main className='max-w-screen-xl mx-auto min-h-[65vh] py-8 px-4'>
         <Outlet />
       </main>
       <Footer />
