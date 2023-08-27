@@ -6,7 +6,6 @@ import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 // components
 import Spinner from '../components/Spinner';
 import RecipeCard from '../components/RecipeCard';
-import PageButtonContainer from '../components/PageButtonContainer';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -59,7 +58,6 @@ const Home = () => {
           })}
         </div>
       </section>
-      <PageButtonContainer />
     </>
   );
 };
