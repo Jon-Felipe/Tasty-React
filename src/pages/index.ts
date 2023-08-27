@@ -4,6 +4,7 @@ import Contact from './Contact';
 import Login from './Login';
 import Register from './Register';
 import Recipes from './Recipes';
+import RecipeSearch from './RecipeSearch';
 import SingleRecipe from './SingleRecipe';
 import Category from './Category';
 import Profile from './Profile';
@@ -19,6 +20,7 @@ export {
   Login,
   Register,
   Recipes,
+  RecipeSearch,
   SingleRecipe,
   Category,
   Profile,

@@ -51,7 +51,7 @@ const Home = () => {
             </span>
           </Link>
           <Link
-            to='/'
+            to='recipe-search'
             className='flex items-center gap-x-2 border-2 border-slate-700 font-semibold uppercase px-4 py-2 rounded-lg hover:bg-slate-700 hover:text-white'
           >
             Browse by filters
