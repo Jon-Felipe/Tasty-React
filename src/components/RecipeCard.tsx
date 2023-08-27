@@ -4,6 +4,7 @@ import { TbClock, TbChefHat, TbToolsKitchen } from 'react-icons/tb';
 // extras
 import { SingleRecipeType } from '../utils/types';
 import heroImg from '../assets/hero-img.jpg';
+import Star from './Star';
 
 type Props = {
   recipe: SingleRecipeType;
@@ -32,10 +33,16 @@ const RecipeCard = ({ recipe }: Props) => {
         </div>
       </section>
       <section>
-        <h3 className='text-2xl font-bold'>{recipe.name}</h3>
+        <h3 className='text-xl font-bold'>{recipe.name}</h3>
         <p className='text-sm tracking-tight'>
-          {recipe.description.slice(0, 80)}...
+          {recipe.description.slice(0, 70)}...
         </p>
+        <div className='flex items-center justify-between'>
+          <h6 className='font-semibold'>
+            {recipe.createdBy.name} {recipe.createdBy.lastName}
+          </h6>
+          <Star value={recipe.averageRating} color='orange' />
+        </div>
       </section>
     </article>
   );
