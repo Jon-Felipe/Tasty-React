@@ -56,7 +56,10 @@ export type GetAllRecipesPayload = {
   numOfPages: number;
 };
 
-export type MealOptionType = string;
+export type MealOptionType = {
+  id: number;
+  text: string;
+};
 
 export type UserData = {
   name: string;
