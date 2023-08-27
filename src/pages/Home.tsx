@@ -32,7 +32,7 @@ const Home = () => {
           Delicious Dishes{' '}
           <span className='text-slate-700'>for Food Lovers</span>
         </h1>
-        <p className='text-slate-700   my-4 tracking-tight'>
+        <p className='text-slate-700 my-4 tracking-tight'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, nisi
           incidunt, odio ex repudiandae voluptas, unde sed voluptate est rerum
           necessitatibus. Enim dolorum id ipsa quae at atque omnis dignissimos

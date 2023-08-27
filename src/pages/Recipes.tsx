@@ -17,7 +17,7 @@ const Recipes = () => {
   );
 
   useEffect(() => {
-    dispatch(getAllRecipes({ limit: 12, page }));
+    dispatch(getAllRecipes({ limit: 9, page }));
   }, [page]);
 
   if (isLoading) {
@@ -26,21 +26,21 @@ const Recipes = () => {
 
   return (
     <article>
-      <header className='mb-10'>
-        <h1 className='text-4xl font-bold uppercase'>Recipes</h1>
-        <div className='w-[580px] my-2'>
-          <p className='tracking-wide'>
-            Browse over {totalRecipes} easy and delicious family friendly
-            recipes! Dinner recipes, slow cooker recipes, vegetarian recipes,
-            breakfast recipes and more.
+      <header className='w-full md:w-3/4'>
+        <h1 className='text-4xl text-slate-700 font-bold uppercase'>
+          Browsing all Recipes{' '}
+          <span className='text-xs'>({totalRecipes}) recipes found</span>
+        </h1>
+        <div className='my-2'>
+          <p className='text-slate-700 my-4 tracking-tight'>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
+            beatae dolore doloribus eum quos quisquam libero molestiae eius ab
+            aspernatur quo nam, ea ipsam dolores asperiores nobis id minima a
+            natus illo quae. Libero vitae aliquam ea temporibus cum eos corporis
+            eveniet! Nesciunt sunt labore cupiditate, fuga incidunt voluptatibus
+            cumque!
           </p>
         </div>
-        <button
-          type='button'
-          className='border rounded-md shadow px-4 py-2 font-semibold'
-        >
-          Go To Recipe Filter
-        </button>
       </header>
       <RecipeList recipes={recipes} />
       <PageButtonContainer />
