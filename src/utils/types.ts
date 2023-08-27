@@ -38,6 +38,7 @@ export interface InitialFilterState {
   cuisine: string[];
   cuisineOptions: MealOptionType[];
   dishType: string;
+  dishTypeOptions: MealOptionType[];
   tag: string;
   limit: number;
 }

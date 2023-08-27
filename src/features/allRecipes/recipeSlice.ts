@@ -9,7 +9,7 @@ import {
   SingleRecipeType,
 } from '../../utils/types';
 import { RootState } from '../../store';
-import { cuisineTypes } from '../../utils/constants';
+import { cuisineTypes, dishTypes } from '../../utils/constants';
 
 interface InitialState extends InitialFilterState {
   isLoading: boolean;
@@ -31,6 +31,7 @@ const initialState: InitialState = {
   cuisine: ['all'],
   cuisineOptions: cuisineTypes,
   dishType: 'all',
+  dishTypeOptions: dishTypes,
   tag: 'all',
   totalRecipes: 0,
   numOfPages: 1,
@@ -42,16 +43,10 @@ export const getAllRecipes = createAsyncThunk<
   GetAllRecipesPayload,
   GetAllRecipesParams
 >('getAllRecipes', async (recipeFilters, thunkAPI) => {
-  const {
-    search = '',
-    sort = 'latest',
-    dishType = 'all',
-    page = 1,
-    limit = 0,
-  } = recipeFilters;
+  const { search = '', sort = 'latest', page = 1, limit = 0 } = recipeFilters;
 
   const {
-    recipe: { cuisineOptions },
+    recipe: { cuisineOptions, dishType },
   } = thunkAPI.getState() as RootState;
 
   const checkedCuisineOptions = cuisineOptions

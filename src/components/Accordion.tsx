@@ -11,10 +11,17 @@ type Props = {
   headerText: string;
   type: React.HTMLInputTypeAttribute;
   name: string;
+  checkedValue?: string;
   options: MealOptionType[];
 };
 
-const Accordion = ({ headerText, type, name, options }: Props) => {
+const Accordion = ({
+  headerText,
+  type,
+  name,
+  checkedValue,
+  options,
+}: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -40,9 +47,13 @@ const Accordion = ({ headerText, type, name, options }: Props) => {
                 <input
                   type={type}
                   name={name}
-                  value={option.id}
+                  value={type == 'radio' ? option.text : option.id}
                   onChange={handleOnChange}
-                  checked={option.isChecked}
+                  checked={
+                    type == 'radio'
+                      ? option.text == checkedValue
+                      : option.isChecked
+                  }
                   className='accent-orange-600'
                 />
               </div>

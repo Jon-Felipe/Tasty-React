@@ -11,9 +11,8 @@ import Spinner from '../components/Spinner';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { recipes, cuisineOptions, isLoading } = useSelector(
-    (state: RootState) => state.recipe
-  );
+  const { recipes, cuisineOptions, dishType, dishTypeOptions, isLoading } =
+    useSelector((state: RootState) => state.recipe);
 
   useEffect(() => {
     dispatch(getAllRecipes({ limit: 9 }));
@@ -35,12 +34,13 @@ const RecipeSearch = () => {
             name='cuisine'
             options={cuisineOptions}
           />
-          {/* <Accordion
+          <Accordion
             headerText='Dishes'
-            type='checkbox'
+            type='radio'
             name='dishType'
-            options={dishTypes}
-          /> */}
+            checkedValue={dishType}
+            options={dishTypeOptions}
+          />
           <div className='flex items-center gap-x-4'>
             <button className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'>
               Clear
