@@ -37,11 +37,13 @@ const Home = () => {
           />
         </div>
         <article className='absolute top-2 lg:top-4 left-6 lg:left-6 w-2/4 lg:w-2/5'>
-          <h3 className='text-lg lg:text-5xl text-white font-semibold capitalize'>
-            Cook up a storm and take all the credit
-          </h3>
-          <p className='text-sm lg:text-2xl text-white lg:pt-2.5'>
-            Over 500 recipes to enjoy
+          <h1 className='text-xl md:text-4xl lg:text-6xl font-bold text-white'>
+            Delicious Dishes{' '}
+            <span className='text-orange-400'>for Food Lovers</span>
+          </h1>
+          <p className='text-white text-xs md:text-base lg:text-lg tracking-normal md:tracking-wider'>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
+            at facilis. Ab doloremque qui corrupti!
           </p>
         </article>
       </section>
