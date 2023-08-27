@@ -5,7 +5,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 // extras
 import { MealOptionType } from '../utils/types';
 import { AppDispatch } from '../store';
-import { handleChange, resetPage } from '../features/allRecipes/recipeSlice';
+import { handleChange } from '../features/allRecipes/recipeSlice';
 
 type Props = {
   headerText: string;

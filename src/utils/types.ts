@@ -45,7 +45,6 @@ export interface InitialFilterState {
 export type GetAllRecipesParams = {
   search?: string;
   sort?: string;
-  cuisine?: string;
   dishType?: string;
   page?: number;
   limit?: number;
