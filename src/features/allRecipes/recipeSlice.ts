@@ -9,6 +9,7 @@ import {
   SingleRecipeType,
 } from '../../utils/types';
 import { RootState } from '../../store';
+import { cuisineTypes } from '../../utils/constants';
 
 interface InitialState extends InitialFilterState {
   isLoading: boolean;
@@ -27,7 +28,8 @@ const initialState: InitialState = {
   recipe: null,
   search: '',
   sort: 'latest',
-  cuisine: 'all',
+  cuisine: ['all'],
+  cuisineOptions: cuisineTypes,
   dishType: 'all',
   tag: 'all',
   totalRecipes: 0,
@@ -43,7 +45,7 @@ export const getAllRecipes = createAsyncThunk<
   const {
     search = '',
     sort = 'latest',
-    cuisine = ['all'],
+    cuisine = 'all',
     dishType = 'all',
     page = 1,
     limit = 0,
@@ -119,6 +121,15 @@ export const recipeSlice = createSlice({
   reducers: {
     handleChange: (state, { payload }) => {
       const { name, value } = payload;
+      if (name == 'cuisine') {
+        const tempCuisines = state.cuisineOptions.map((cuisine) => {
+          if (cuisine.id == value) {
+            return { ...cuisine, isChecked: !cuisine.isChecked };
+          }
+          return cuisine;
+        });
+        return { ...state, cuisineOptions: tempCuisines };
+      }
       state = { ...state, [name]: value };
       return state;
     },
@@ -132,7 +143,7 @@ export const recipeSlice = createSlice({
       return {
         ...state,
         search: '',
-        cuisine: '',
+        cuisine: ['all'],
         dishType: '',
         sort: '',
         page: 1,

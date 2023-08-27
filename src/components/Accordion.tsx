@@ -9,12 +9,12 @@ import { handleChange, resetPage } from '../features/allRecipes/recipeSlice';
 
 type Props = {
   headerText: string;
+  type: React.HTMLInputTypeAttribute;
   name: string;
-  checkedValue: string;
   options: MealOptionType[];
 };
 
-const Accordion = ({ headerText, name, checkedValue, options }: Props) => {
+const Accordion = ({ headerText, type, name, options }: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -23,7 +23,6 @@ const Accordion = ({ headerText, name, checkedValue, options }: Props) => {
     const name = e.target.name;
     const value = e.target.value;
 
-    dispatch(resetPage());
     dispatch(handleChange({ name, value }));
   };
 
@@ -35,15 +34,15 @@ const Accordion = ({ headerText, name, checkedValue, options }: Props) => {
             {options.map((option: MealOptionType) => (
               <div
                 key={option.id}
-                className='flex items-center justify-between mb-4'
+                className='flex items-center justify-between mb-1'
               >
                 <label className='capitalize font-medium'>{option.text}</label>
                 <input
-                  type='radio'
+                  type={type}
                   name={name}
-                  value={option.text}
+                  value={option.id}
                   onChange={handleOnChange}
-                  checked={option.text === checkedValue}
+                  checked={option.isChecked}
                   className='accent-orange-600'
                 />
               </div>

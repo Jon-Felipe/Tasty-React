@@ -2,17 +2,25 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+
+// components
 import RecipeCard from '../components/RecipeCard';
 import Search from '../components/Search';
 import Accordion from '../components/Accordion';
-import { cuisineTypes, dishTypes } from '../utils/constants';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { recipes } = useSelector((state: RootState) => state.recipe);
+  const { recipes, cuisineOptions } = useSelector(
+    (state: RootState) => state.recipe
+  );
+
+  // const checkedCuisineOptions = cuisineOptions
+  //   .filter((option) => option.isChecked == true)
+  //   .map((item) => item.text)
+  //   .join(',');
 
   useEffect(() => {
-    dispatch(getAllRecipes({ limit: 6 }));
+    dispatch(getAllRecipes({ limit: 100 }));
   }, []);
 
   return (
@@ -27,16 +35,16 @@ const RecipeSearch = () => {
           />
           <Accordion
             headerText='Cuisines'
-            name='cuisines'
-            checkedValue=''
-            options={cuisineTypes}
+            type='checkbox'
+            name='cuisine'
+            options={cuisineOptions}
           />
-          <Accordion
+          {/* <Accordion
             headerText='Dishes'
+            type='checkbox'
             name='dishType'
-            checkedValue=''
             options={dishTypes}
-          />
+          /> */}
         </section>
         <section className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-3'>
           {recipes.map((recipe) => {

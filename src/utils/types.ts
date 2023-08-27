@@ -35,7 +35,8 @@ export type SingleRecipeType = {
 export interface InitialFilterState {
   search: string;
   sort: string;
-  cuisine: string;
+  cuisine: string[];
+  cuisineOptions: MealOptionType[];
   dishType: string;
   tag: string;
   limit: number;
@@ -44,7 +45,7 @@ export interface InitialFilterState {
 export type GetAllRecipesParams = {
   search?: string;
   sort?: string;
-  cuisine?: string[];
+  cuisine?: string;
   dishType?: string;
   page?: number;
   limit?: number;
@@ -59,6 +60,7 @@ export type GetAllRecipesPayload = {
 export type MealOptionType = {
   id: number;
   text: string;
+  isChecked: boolean;
 };
 
 export type UserData = {
