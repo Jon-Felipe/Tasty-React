@@ -6,7 +6,6 @@ import Register from './Register';
 import Recipes from './Recipes';
 import RecipeSearch from './RecipeSearch';
 import SingleRecipe from './SingleRecipe';
-import Category from './Category';
 import Profile from './Profile';
 import MyRecipes from './MyRecipes';
 import FavouriteRecipes from './FavouriteRecipes';
@@ -22,7 +21,6 @@ export {
   Recipes,
   RecipeSearch,
   SingleRecipe,
-  Category,
   Profile,
   MyRecipes,
   FavouriteRecipes,
