@@ -10,7 +10,7 @@ import PageButtonContainer from '../components/PageButtonContainer';
 // extras
 import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
-import { cuisineTypes, dishTypes } from '../utils/constants';
+// import { cuisineTypes, dishTypes } from '../utils/constants';
 
 const Category = () => {
   const { id } = useParams();
@@ -19,13 +19,13 @@ const Category = () => {
     (state: RootState) => state.recipe
   );
 
-  useEffect(() => {
-    if (cuisineTypes.includes(id!)) {
-      dispatch(getAllRecipes({ cuisine: [id!], limit: 6, page }));
-    } else if (dishTypes.includes(id!)) {
-      dispatch(getAllRecipes({ dishType: id, limit: 6, page }));
-    }
-  }, [id, page]);
+  // useEffect(() => {
+  //   if (cuisineTypes.includes(id!)) {
+  //     dispatch(getAllRecipes({ cuisine: [id!], limit: 6, page }));
+  //   } else if (dishTypes.includes(id!)) {
+  //     dispatch(getAllRecipes({ dishType: id, limit: 6, page }));
+  //   }
+  // }, [id, page]);
 
   if (isLoading) {
     return <Spinner />;

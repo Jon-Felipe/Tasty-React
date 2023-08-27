@@ -34,7 +34,7 @@ export const navLinks: LinksType[] = [
   },
 ];
 
-export const cuisineTypes: MealOptionType[] = [
+export const cuisineTypeOptions: MealOptionType[] = [
   { id: 1, text: 'african', isChecked: false },
   { id: 2, text: 'asian', isChecked: false },
   { id: 3, text: 'american', isChecked: false },
@@ -47,7 +47,7 @@ export const cuisineTypes: MealOptionType[] = [
   { id: 10, text: 'thai', isChecked: false },
 ];
 
-export const dishTypes: MealOptionType[] = [
+export const dishTypeOptions: MealOptionType[] = [
   { id: 1, text: 'breakfast', isChecked: false },
   { id: 2, text: 'lunch', isChecked: false },
   { id: 3, text: 'dinner', isChecked: false },

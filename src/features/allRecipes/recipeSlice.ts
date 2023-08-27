@@ -8,8 +8,10 @@ import {
   InitialFilterState,
   SingleRecipeType,
 } from '../../utils/types';
+
+// extras
 import { RootState } from '../../store';
-import { cuisineTypes, dishTypes } from '../../utils/constants';
+import { cuisineTypeOptions } from '../../utils/constants';
 
 interface InitialState extends InitialFilterState {
   isLoading: boolean;
@@ -28,10 +30,8 @@ const initialState: InitialState = {
   recipe: null,
   search: '',
   sort: 'latest',
-  cuisine: ['all'],
-  cuisineOptions: cuisineTypes,
+  cuisineOptions: cuisineTypeOptions,
   dishType: 'all',
-  dishTypeOptions: dishTypes,
   tag: 'all',
   totalRecipes: 0,
   numOfPages: 1,
