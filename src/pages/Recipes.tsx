@@ -4,7 +4,7 @@ import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
-import RecipeList from '../components/RecipeList';
+import RecipeCard from '../components/RecipeCard';
 import Spinner from '../components/Spinner';
 
 // extras
@@ -17,7 +17,7 @@ const Recipes = () => {
   );
 
   useEffect(() => {
-    dispatch(getAllRecipes({ limit: 9, page }));
+    dispatch(getAllRecipes({ limit: 12, page }));
   }, [page]);
 
   if (isLoading) {
@@ -42,7 +42,13 @@ const Recipes = () => {
           </p>
         </div>
       </header>
-      <RecipeList recipes={recipes} />
+      <section>
+        <div className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-4'>
+          {recipes.map((recipe) => {
+            return <RecipeCard key={recipe._id} recipe={recipe} />;
+          })}
+        </div>
+      </section>
       <PageButtonContainer />
     </article>
   );
