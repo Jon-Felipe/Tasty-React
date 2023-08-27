@@ -7,6 +7,7 @@ import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 import RecipeCard from '../components/RecipeCard';
 import Search from '../components/Search';
 import Accordion from '../components/Accordion';
+import Spinner from '../components/Spinner';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -52,11 +53,15 @@ const RecipeSearch = () => {
             </button>
           </div>
         </section>
-        <section className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-3'>
-          {recipes.map((recipe) => {
-            return <RecipeCard key={recipe._id} recipe={recipe} />;
-          })}
-        </section>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <section className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-3'>
+            {recipes.map((recipe) => {
+              return <RecipeCard key={recipe._id} recipe={recipe} />;
+            })}
+          </section>
+        )}
       </div>
     </section>
   );
