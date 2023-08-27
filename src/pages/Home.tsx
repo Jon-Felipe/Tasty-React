@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaArrowRight, FaFilter } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/Spinner';
 import RecipeCard from '../components/RecipeCard';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -39,12 +41,24 @@ const Home = () => {
           necessitatibus at.
         </p>
         <div className='flex items-center gap-x-4'>
-          <button className='bg-orange-400 border-2 border-orange-400 text-white font-semibold uppercase px-4 py-2 rounded-lg hover:bg-white hover:text-orange-400'>
+          <Link
+            to='recipes'
+            className='flex items-center gap-x-2 bg-orange-400 border-2 border-orange-400 text-white font-semibold uppercase px-4 py-2 rounded-lg hover:bg-white hover:text-orange-400'
+          >
             View more recipes
-          </button>
-          <button className='border-2 border-slate-700 font-semibold uppercase px-4 py-2 rounded-lg hover:bg-slate-700 hover:text-white'>
+            <span>
+              <FaArrowRight />
+            </span>
+          </Link>
+          <Link
+            to='/'
+            className='flex items-center gap-x-2 border-2 border-slate-700 font-semibold uppercase px-4 py-2 rounded-lg hover:bg-slate-700 hover:text-white'
+          >
             Browse by filters
-          </button>
+            <span>
+              <FaFilter />
+            </span>
+          </Link>
         </div>
       </section>
       {/* popular recipes section */}
