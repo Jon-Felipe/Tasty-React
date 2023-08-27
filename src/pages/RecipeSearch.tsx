@@ -10,17 +10,12 @@ import Accordion from '../components/Accordion';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { recipes, cuisineOptions } = useSelector(
+  const { recipes, cuisineOptions, isLoading } = useSelector(
     (state: RootState) => state.recipe
   );
 
-  // const checkedCuisineOptions = cuisineOptions
-  //   .filter((option) => option.isChecked == true)
-  //   .map((item) => item.text)
-  //   .join(',');
-
   useEffect(() => {
-    dispatch(getAllRecipes({ limit: 100 }));
+    dispatch(getAllRecipes({ limit: 9 }));
   }, []);
 
   return (
@@ -49,7 +44,10 @@ const RecipeSearch = () => {
             <button className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'>
               Clear
             </button>
-            <button className='bg-orange-400 text-white border-2 border-orange-400 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-white hover:text-orange-400'>
+            <button
+              className='bg-orange-400 text-white border-2 border-orange-400 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-white hover:text-orange-400'
+              onClick={() => dispatch(getAllRecipes({ limit: 9 }))}
+            >
               Search
             </button>
           </div>

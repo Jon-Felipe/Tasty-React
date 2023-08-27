@@ -51,7 +51,16 @@ export const getAllRecipes = createAsyncThunk<
     limit = 0,
   } = recipeFilters;
 
-  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&dishType=${dishType}&page=${page}`;
+  const {
+    recipe: { cuisineOptions },
+  } = thunkAPI.getState() as RootState;
+
+  const checkedCuisineOptions = cuisineOptions
+    .filter((option) => option.isChecked == true)
+    .map((item) => item.text)
+    .join(',');
+
+  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${checkedCuisineOptions}&dishType=${dishType}&page=${page}`;
 
   if (search) {
     url = url + `&search=${search}`;
