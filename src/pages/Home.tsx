@@ -17,7 +17,7 @@ const Home = () => {
   );
 
   useEffect(() => {
-    dispatch(getAllRecipes({ limit: 8, page }));
+    dispatch(getAllRecipes({ limit: 8 }));
   }, [page]);
 
   if (isLoading) {
