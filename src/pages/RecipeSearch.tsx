@@ -14,7 +14,6 @@ import Spinner from '../components/Spinner';
 
 // extras
 import { dishTypeOptions } from '../utils/constants';
-import PageButtonContainer from '../components/PageButtonContainer';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
