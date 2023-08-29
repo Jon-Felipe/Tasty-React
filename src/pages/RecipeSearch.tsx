@@ -1,14 +1,20 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
-import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+import {
+  clearFilters,
+  getAllRecipes,
+} from '../features/allRecipes/recipeSlice';
 
 // components
 import RecipeCard from '../components/RecipeCard';
 import Search from '../components/Search';
 import Accordion from '../components/Accordion';
 import Spinner from '../components/Spinner';
+
+// extras
 import { dishTypeOptions } from '../utils/constants';
+import PageButtonContainer from '../components/PageButtonContainer';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -43,7 +49,10 @@ const RecipeSearch = () => {
             name='cuisine'
             options={cuisineOptions}
           />
-          <button className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'>
+          <button
+            className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'
+            onClick={() => dispatch(clearFilters())}
+          >
             Clear
           </button>
         </section>
