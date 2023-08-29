@@ -146,10 +146,13 @@ export const recipeSlice = createSlice({
       return {
         ...state,
         search: '',
-        cuisine: ['all'],
+        cuisineOptions: cuisineTypeOptions,
         dishType: '',
         sort: '',
         page: 1,
+        totalRecipes: 0,
+        numOfPages: 1,
+        limit: 8,
       };
     },
   },

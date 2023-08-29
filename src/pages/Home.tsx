@@ -2,7 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaArrowRight, FaFilter } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
-import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+import {
+  clearFilters,
+  getAllRecipes,
+} from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/Spinner';
@@ -17,6 +20,7 @@ const Home = () => {
   );
 
   useEffect(() => {
+    dispatch(clearFilters());
     dispatch(getAllRecipes({ limit: 8 }));
   }, []);
 
