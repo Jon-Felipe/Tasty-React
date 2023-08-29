@@ -18,7 +18,7 @@ const RecipeSearch = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes({ limit: 9 }));
-  }, []);
+  }, [dishType, cuisineOptions]);
 
   return (
     <section>
@@ -43,17 +43,9 @@ const RecipeSearch = () => {
             name='cuisine'
             options={cuisineOptions}
           />
-          <div className='flex items-center gap-x-4'>
-            <button className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'>
-              Clear
-            </button>
-            <button
-              className='bg-orange-400 text-white border-2 border-orange-400 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-white hover:text-orange-400'
-              onClick={() => dispatch(getAllRecipes({ limit: 9 }))}
-            >
-              Search
-            </button>
-          </div>
+          <button className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'>
+            Clear
+          </button>
         </section>
         {isLoading ? (
           <Spinner />
