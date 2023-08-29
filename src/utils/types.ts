@@ -58,7 +58,6 @@ export type GetAllRecipesPayload = {
 export type MealOptionType = {
   id: number;
   text: string;
-  isChecked: boolean;
 };
 
 export type UserData = {
