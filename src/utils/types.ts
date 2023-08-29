@@ -35,7 +35,7 @@ export type SingleRecipeType = {
 export interface InitialFilterState {
   search: string;
   sort: string;
-  cuisineOptions: MealOptionType[];
+  cuisine: string;
   dishType: string;
   tag: string;
   limit: number;

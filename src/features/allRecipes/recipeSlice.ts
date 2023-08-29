@@ -30,7 +30,7 @@ const initialState: InitialState = {
   recipe: null,
   search: '',
   sort: 'latest',
-  cuisineOptions: cuisineTypeOptions,
+  cuisine: '',
   dishType: 'all',
   tag: 'all',
   totalRecipes: 0,
@@ -46,15 +46,10 @@ export const getAllRecipes = createAsyncThunk<
   const { search = '', sort = 'latest', page = 1, limit = 0 } = recipeFilters;
 
   const {
-    recipe: { cuisineOptions, dishType },
+    recipe: { cuisine, dishType },
   } = thunkAPI.getState() as RootState;
 
-  const checkedCuisineOptions = cuisineOptions
-    .filter((option) => option.isChecked == true)
-    .map((item) => item.text)
-    .join(',');
-
-  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${checkedCuisineOptions}&dishType=${dishType}&page=${page}`;
+  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&dishType=${dishType}&page=${page}`;
 
   if (search) {
     url = url + `&search=${search}`;
