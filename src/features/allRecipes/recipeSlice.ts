@@ -119,15 +119,6 @@ export const recipeSlice = createSlice({
   reducers: {
     handleChange: (state, { payload }) => {
       const { name, value } = payload;
-      if (name == 'cuisine') {
-        const tempCuisines = state.cuisineOptions.map((cuisine) => {
-          if (cuisine.id == value) {
-            return { ...cuisine, isChecked: !cuisine.isChecked };
-          }
-          return cuisine;
-        });
-        return { ...state, cuisineOptions: tempCuisines };
-      }
       state = { ...state, [name]: value };
       return state;
     },
