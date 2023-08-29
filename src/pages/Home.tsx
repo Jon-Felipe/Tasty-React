@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoading, recipes, page } = useSelector(
+  const { isLoading, recipes } = useSelector(
     (state: RootState) => state.recipe
   );
 
