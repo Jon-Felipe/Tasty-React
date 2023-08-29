@@ -47,13 +47,9 @@ const Accordion = ({
                 <input
                   type={type}
                   name={name}
-                  value={type == 'radio' ? option.text : option.id}
+                  value={option.text}
                   onChange={handleOnChange}
-                  checked={
-                    type == 'radio'
-                      ? option.text == checkedValue
-                      : option.isChecked
-                  }
+                  checked={option.text == checkedValue}
                   className='accent-orange-600'
                 />
               </div>

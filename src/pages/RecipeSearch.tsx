@@ -44,7 +44,7 @@ const RecipeSearch = () => {
           />
           <Accordion
             headerText='Cuisines'
-            type='checkbox'
+            type='radio'
             name='cuisine'
             options={cuisineOptions}
           />
