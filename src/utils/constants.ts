@@ -34,24 +34,24 @@ export const navLinks: LinksType[] = [
   },
 ];
 
-export const cuisineTypeOptions: MealOptionType[] = [
-  { id: 1, text: 'african' },
-  { id: 2, text: 'asian' },
-  { id: 3, text: 'american' },
-  { id: 4, text: 'british' },
-  { id: 5, text: 'chinese' },
-  { id: 6, text: 'european' },
-  { id: 7, text: 'indian' },
-  { id: 8, text: 'italian' },
-  { id: 9, text: 'spanish' },
-  { id: 10, text: 'thai' },
+export const cuisineOptions: MealOptionType[] = [
+  { id: 1, text: 'african', isChecked: false },
+  { id: 2, text: 'asian', isChecked: false },
+  { id: 3, text: 'american', isChecked: false },
+  { id: 4, text: 'british', isChecked: false },
+  { id: 5, text: 'chinese', isChecked: false },
+  { id: 6, text: 'european', isChecked: false },
+  { id: 7, text: 'indian', isChecked: false },
+  { id: 8, text: 'italian', isChecked: false },
+  { id: 9, text: 'spanish', isChecked: false },
+  { id: 10, text: 'thai', isChecked: false },
 ];
 
 export const dishTypeOptions: MealOptionType[] = [
-  { id: 1, text: 'breakfast' },
-  { id: 2, text: 'lunch' },
-  { id: 3, text: 'dinner' },
-  { id: 4, text: 'dessert' },
+  { id: 1, text: 'breakfast', isChecked: false },
+  { id: 2, text: 'lunch', isChecked: false },
+  { id: 3, text: 'dinner', isChecked: false },
+  { id: 4, text: 'dessert', isChecked: false },
 ];
 
 export const recipesQuickLink: RecipeQuickLink[] = [

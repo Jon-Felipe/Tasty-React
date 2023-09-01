@@ -12,18 +12,15 @@ import Search from '../components/Search';
 import Accordion from '../components/Accordion';
 import Spinner from '../components/Spinner';
 
-// extras
-import { cuisineTypeOptions, dishTypeOptions } from '../utils/constants';
-
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { recipes, cuisine, dishType, isLoading } = useSelector(
+  const { recipes, cuisineOptions, dishTypeOptions, isLoading } = useSelector(
     (state: RootState) => state.recipe
   );
 
   useEffect(() => {
     dispatch(getAllRecipes({ limit: 9 }));
-  }, [dishType, cuisine]);
+  }, [cuisineOptions, dishTypeOptions]);
 
   return (
     <section>
@@ -37,17 +34,15 @@ const RecipeSearch = () => {
           />
           <Accordion
             headerText='Dishes'
-            type='radio'
-            name='dishType'
-            checkedValue={dishType}
+            type='checkbox'
+            name='dishTypeOptions'
             options={dishTypeOptions}
           />
           <Accordion
             headerText='Cuisines'
-            type='radio'
-            name='cuisine'
-            checkedValue={cuisine}
-            options={cuisineTypeOptions}
+            type='checkbox'
+            name='cuisineOptions'
+            options={cuisineOptions}
           />
           <button
             className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'

@@ -11,7 +11,7 @@ import {
 
 // extras
 import { RootState } from '../../store';
-import { cuisineTypeOptions } from '../../utils/constants';
+import { cuisineOptions, dishTypeOptions } from '../../utils/constants';
 
 interface InitialState extends InitialFilterState {
   isLoading: boolean;
@@ -30,8 +30,8 @@ const initialState: InitialState = {
   recipe: null,
   search: '',
   sort: 'latest',
-  cuisine: '',
-  dishType: 'all',
+  cuisineOptions: cuisineOptions,
+  dishTypeOptions: dishTypeOptions,
   tag: 'all',
   totalRecipes: 0,
   numOfPages: 1,
@@ -46,11 +46,24 @@ export const getAllRecipes = createAsyncThunk<
   const { search = '', sort = 'latest', page = 1, limit = 0 } = recipeFilters;
 
   const {
-    recipe: { cuisine, dishType },
+    recipe: { cuisineOptions, dishTypeOptions },
   } = thunkAPI.getState() as RootState;
 
-  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&cuisine=${cuisine}&dishType=${dishType}&page=${page}`;
+  const selectedCuisines = cuisineOptions
+    .filter((cuisine) => cuisine.isChecked)
+    .map((item) => item.text);
+  const selectedDishTypes = dishTypeOptions
+    .filter((dishType) => dishType.isChecked)
+    .map((item) => item.text);
 
+  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&page=${page}`;
+
+  if (selectedCuisines.length > 0) {
+    url = url + `&cuisine=${selectedCuisines}`;
+  }
+  if (selectedDishTypes.length > 0) {
+    url = url + `&dishType=${selectedDishTypes}`;
+  }
   if (search) {
     url = url + `&search=${search}`;
   }
@@ -119,6 +132,23 @@ export const recipeSlice = createSlice({
   reducers: {
     handleChange: (state, { payload }) => {
       const { name, value } = payload;
+      if (name == 'dishTypeOptions') {
+        const tempDishes = state.dishTypeOptions.map((dishType) => {
+          if (dishType.id == value) {
+            return { ...dishType, isChecked: !dishType.isChecked };
+          }
+          return dishType;
+        });
+        return { ...state, dishTypeOptions: tempDishes };
+      } else if (name == 'cuisineOptions') {
+        const tempCuisines = state.cuisineOptions.map((cuisine) => {
+          if (cuisine.id == value) {
+            return { ...cuisine, isChecked: !cuisine.isChecked };
+          }
+          return cuisine;
+        });
+        return { ...state, cuisineOptions: tempCuisines };
+      }
       state = { ...state, [name]: value };
       return state;
     },
@@ -132,7 +162,7 @@ export const recipeSlice = createSlice({
       return {
         ...state,
         search: '',
-        cuisineOptions: cuisineTypeOptions,
+        cuisineOptions: cuisineOptions,
         dishType: '',
         sort: '',
         page: 1,
