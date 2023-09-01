@@ -163,6 +163,7 @@ export const recipeSlice = createSlice({
         ...state,
         search: '',
         cuisineOptions: cuisineOptions,
+        dishTypeOptions: dishTypeOptions,
         dishType: '',
         sort: '',
         page: 1,
