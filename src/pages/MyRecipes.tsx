@@ -10,11 +10,10 @@ import { toast } from 'react-toastify';
 
 // components
 import Spinner from '../components/Spinner';
-import RecipeList from '../components/RecipeList';
-import NotFound from '../components/NotFound';
 import Search from '../components/Search';
 import Sort from '../components/Sort';
 import PageButtonContainer from '../components/PageButtonContainer';
+import RecipeCard from '../components/RecipeCard';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -65,12 +64,12 @@ const MyRecipes = () => {
       </div>
       {isLoading ? (
         <Spinner />
-      ) : userRecipes.length == 0 ? (
-        <div className='mt-6'>
-          <NotFound text='No Recipes Found' />
-        </div>
       ) : (
-        <RecipeList recipes={userRecipes} />
+        <section className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-3'>
+          {userRecipes.map((recipe) => {
+            return <RecipeCard key={recipe._id} recipe={recipe} />;
+          })}
+        </section>
       )}
       <PageButtonContainer />
     </div>
