@@ -56,10 +56,11 @@ const MyRecipes = () => {
             value={search}
             onChange={handleOnChange}
             onSubmit={handleOnSubmit}
+            disabled={isLoading}
           />
         </div>
         <div>
-          <Sort value={sort} onChange={handleOnChange} />
+          <Sort value={sort} onChange={handleOnChange} disabled={isLoading} />
         </div>
       </div>
       {isLoading ? (
