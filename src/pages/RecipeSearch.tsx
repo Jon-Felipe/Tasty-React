@@ -13,10 +13,11 @@ import RecipeCard from '../components/RecipeCard';
 import Search from '../components/Search';
 import Accordion from '../components/Accordion';
 import Spinner from '../components/Spinner';
+import PageButtonContainer from '../components/PageButtonContainer';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { recipes, search, cuisineOptions, dishTypeOptions, isLoading } =
+  const { recipes, search, cuisineOptions, dishTypeOptions, isLoading, page } =
     useSelector((state: RootState) => state.recipe);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +40,7 @@ const RecipeSearch = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes({ limit: 9 }));
-  }, [cuisineOptions, dishTypeOptions]);
+  }, [cuisineOptions, dishTypeOptions, page]);
 
   return (
     <section>
@@ -83,6 +84,7 @@ const RecipeSearch = () => {
           </section>
         )}
       </div>
+      <PageButtonContainer />
     </section>
   );
 };
