@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from '../store';
 import {
   clearFilters,
   getAllRecipes,
+  handleChange,
 } from '../features/allRecipes/recipeSlice';
 
 // components
@@ -14,9 +15,20 @@ import Spinner from '../components/Spinner';
 
 const RecipeSearch = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { recipes, cuisineOptions, dishTypeOptions, isLoading } = useSelector(
-    (state: RootState) => state.recipe
-  );
+  const { recipes, search, cuisineOptions, dishTypeOptions, isLoading } =
+    useSelector((state: RootState) => state.recipe);
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    dispatch(handleChange({ name, value }));
+  };
+
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(getAllRecipes({ search }));
+  };
 
   useEffect(() => {
     dispatch(getAllRecipes({ limit: 9 }));
@@ -28,9 +40,9 @@ const RecipeSearch = () => {
       <div className='grid lg:grid-cols-[350px_1fr] gap-y-4 lg:gap-x-4 mt-8'>
         <section className='space-y-4'>
           <Search
-            value=''
-            onChange={() => console.log('')}
-            onSubmit={() => console.log('')}
+            value={search}
+            onChange={handleOnChange}
+            onSubmit={handleOnSubmit}
           />
           <Accordion
             headerText='Dishes'
