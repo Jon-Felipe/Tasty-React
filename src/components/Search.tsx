@@ -5,9 +5,10 @@ type Props = {
   value: string | number | readonly string[];
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   onSubmit: React.FormEventHandler<HTMLFormElement>;
+  disabled?: boolean;
 };
 
-const Search = ({ value, onChange, onSubmit }: Props) => {
+const Search = ({ value, onChange, onSubmit, disabled }: Props) => {
   return (
     <form className='block w-full' onSubmit={onSubmit}>
       <label
@@ -29,10 +30,12 @@ const Search = ({ value, onChange, onSubmit }: Props) => {
           className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50'
           placeholder='Search Recipes...'
           required
+          disabled={disabled}
         />
         <button
           type='submit'
           className='text-white absolute right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-400 font-medium rounded-lg text-sm px-4 py-2'
+          disabled={disabled}
         >
           Search
         </button>

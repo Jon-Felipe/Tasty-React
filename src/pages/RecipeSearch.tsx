@@ -50,6 +50,7 @@ const RecipeSearch = () => {
             value={search}
             onChange={handleOnChange}
             onSubmit={handleOnSubmit}
+            disabled={isLoading}
           />
           <Accordion
             headerText='Dishes'
