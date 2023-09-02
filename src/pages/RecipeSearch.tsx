@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { AppDispatch, RootState } from '../store';
 import {
   clearFilters,
@@ -27,6 +28,12 @@ const RecipeSearch = () => {
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!search.trim()) {
+      toast.error('Please provide a search value');
+      return;
+    }
+
     dispatch(getAllRecipes({ search }));
   };
 
