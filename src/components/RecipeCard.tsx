@@ -13,7 +13,7 @@ type Props = {
 const RecipeCard = ({ recipe }: Props) => {
   return (
     <article key={recipe._id}>
-      <Link to={`recipe/${recipe._id}`}>
+      <Link to={`/recipe/${recipe._id}`}>
         <img src={heroImg} alt={recipe.image} />
       </Link>
       <section className='flex items-center gap-x-4 mt-2'>
