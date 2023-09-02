@@ -12,9 +12,10 @@ type Props = {
   type: React.HTMLInputTypeAttribute;
   name: string;
   options: MealOptionType[];
+  disabled?: boolean;
 };
 
-const Accordion = ({ headerText, type, name, options }: Props) => {
+const Accordion = ({ headerText, type, name, options, disabled }: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -43,6 +44,7 @@ const Accordion = ({ headerText, type, name, options }: Props) => {
                   value={option.id}
                   onChange={handleOnChange}
                   checked={option.isChecked}
+                  disabled={disabled}
                   className='accent-orange-600'
                 />
               </div>

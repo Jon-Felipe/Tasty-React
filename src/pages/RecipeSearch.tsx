@@ -37,12 +37,14 @@ const RecipeSearch = () => {
             type='checkbox'
             name='dishTypeOptions'
             options={dishTypeOptions}
+            disabled={isLoading}
           />
           <Accordion
             headerText='Cuisines'
             type='checkbox'
             name='cuisineOptions'
             options={cuisineOptions}
+            disabled={isLoading}
           />
           <button
             className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'
