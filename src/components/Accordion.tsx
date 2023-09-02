@@ -5,7 +5,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 // extras
 import { MealOptionType } from '../utils/types';
 import { AppDispatch } from '../store';
-import { handleChange } from '../features/allRecipes/recipeSlice';
+import { handleChange, resetPage } from '../features/allRecipes/recipeSlice';
 
 type Props = {
   headerText: string;
@@ -24,6 +24,7 @@ const Accordion = ({ headerText, type, name, options, disabled }: Props) => {
     const name = e.target.name;
     const value = e.target.value;
 
+    dispatch(resetPage());
     dispatch(handleChange({ name, value }));
   };
 
