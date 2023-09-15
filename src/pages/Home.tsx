@@ -81,6 +81,16 @@ const Home = () => {
         title='Italian Recipes'
         recipes={getFeaturedRecipes(recipes, 'cuisine', 'italian')}
       />
+      {/* dessert recipes list section */}
+      <FeaturedList
+        title='Delicious Desserts'
+        recipes={getFeaturedRecipes(recipes, 'dishType', 'dessert')}
+      />
+      {/* asian recipes list section */}
+      <FeaturedList
+        title='Asian Recipes'
+        recipes={getFeaturedRecipes(recipes, 'cuisine', 'asian')}
+      />
     </>
   );
 };
