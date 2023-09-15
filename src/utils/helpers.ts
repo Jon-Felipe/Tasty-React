@@ -19,9 +19,13 @@ export const removeFromLocalStorage = (key: string) => {
   localStorage.removeItem(key);
 };
 
-export function getRecipesByCategory(
+export function getFeaturedRecipes(
   recipes: SingleRecipeType[],
-  category: string
+  recipeFilterOption: string,
+  recipeFilterValue: string
 ) {
-  return recipes.filter((recipe) => recipe.cuisine == category).slice(0, 8);
+  return recipes.filter(
+    (recipe) =>
+      recipe[recipeFilterOption as keyof typeof recipe] == recipeFilterValue
+  );
 }
