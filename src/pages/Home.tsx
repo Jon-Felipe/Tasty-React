@@ -9,7 +9,6 @@ import {
 
 // components
 import Spinner from '../components/Spinner';
-import RecipeCard from '../components/RecipeCard';
 import { Link } from 'react-router-dom';
 import FeaturedList from '../components/FeaturedList';
 
