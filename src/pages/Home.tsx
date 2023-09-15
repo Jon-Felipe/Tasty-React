@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaArrowRight, FaFilter } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
@@ -9,8 +10,9 @@ import {
 
 // components
 import Spinner from '../components/Spinner';
-import { Link } from 'react-router-dom';
 import FeaturedList from '../components/FeaturedList';
+
+// extras
 import { getFeaturedRecipes } from '../utils/helpers';
 
 const Home = () => {
