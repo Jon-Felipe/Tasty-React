@@ -11,6 +11,7 @@ import {
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
 import FeaturedList from '../components/FeaturedList';
+import { getFeaturedRecipes } from '../utils/helpers';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -21,7 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(clearFilters());
-    dispatch(getAllRecipes({ limit: 8 }));
+    dispatch(getAllRecipes({}));
   }, []);
 
   if (isLoading) {
@@ -66,7 +67,20 @@ const Home = () => {
         </div>
       </section>
       {/* breakfast recipes list section */}
-      <FeaturedList title='Favourite Breakfast Ideas' recipes={recipes} />
+      <FeaturedList
+        title='Favourite Breakfast Ideas'
+        recipes={getFeaturedRecipes(recipes, 'dishType', 'breakfast')}
+      />
+      {/* challenging recipes list section */}
+      <FeaturedList
+        title='Fancy A Challenge'
+        recipes={getFeaturedRecipes(recipes, 'difficulty', 'challenging')}
+      />
+      {/* italian recipes list section */}
+      <FeaturedList
+        title='Italian Recipes'
+        recipes={getFeaturedRecipes(recipes, 'cuisine', 'italian')}
+      />
     </>
   );
 };
