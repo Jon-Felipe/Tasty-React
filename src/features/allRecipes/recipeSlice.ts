@@ -30,8 +30,8 @@ const initialState: InitialState = {
   recipe: null,
   search: '',
   sort: 'latest',
-  cuisineOptions: [],
-  dishTypeOptions: [],
+  cuisineOptions: cuisineOptions,
+  dishTypeOptions: dishTypeOptions,
   totalRecipes: 0,
   numOfPages: 1,
   page: 1,
@@ -144,7 +144,7 @@ export const recipeSlice = createSlice({
       const { name, value } = payload;
       if (name == 'dishTypeOptions') {
         const tempDishes = state.dishTypeOptions.map((dishType) => {
-          if (dishType.id == value) {
+          if (dishType.text == value) {
             return { ...dishType, isChecked: !dishType.isChecked };
           }
           return dishType;
@@ -152,7 +152,7 @@ export const recipeSlice = createSlice({
         return { ...state, dishTypeOptions: tempDishes };
       } else if (name == 'cuisineOptions') {
         const tempCuisines = state.cuisineOptions.map((cuisine) => {
-          if (cuisine.id == value) {
+          if (cuisine.text == value) {
             return { ...cuisine, isChecked: !cuisine.isChecked };
           }
           return cuisine;

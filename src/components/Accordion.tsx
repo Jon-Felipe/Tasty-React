@@ -42,7 +42,7 @@ const Accordion = ({ headerText, type, name, options, disabled }: Props) => {
                 <input
                   type={type}
                   name={name}
-                  value={option.id}
+                  value={option.text}
                   onChange={handleOnChange}
                   checked={option.isChecked}
                   disabled={disabled}
