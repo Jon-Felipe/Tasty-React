@@ -57,6 +57,7 @@ const RecipeSearch = () => {
             headerText='Dishes'
             type='checkbox'
             name='dishTypeOptions'
+            onChange={handleOnChange}
             options={dishTypeOptions}
             disabled={isLoading}
           />
@@ -64,6 +65,7 @@ const RecipeSearch = () => {
             headerText='Cuisines'
             type='checkbox'
             name='cuisineOptions'
+            onChange={handleOnChange}
             options={cuisineOptions}
             disabled={isLoading}
           />

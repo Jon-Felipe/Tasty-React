@@ -1,31 +1,27 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 
 // extras
 import { MealOptionType } from '../utils/types';
-import { AppDispatch } from '../store';
-import { handleChange } from '../features/allRecipes/recipeSlice';
 
 type Props = {
   headerText: string;
   type: React.HTMLInputTypeAttribute;
   name: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
   options: MealOptionType[];
   disabled?: boolean;
 };
 
-const Accordion = ({ headerText, type, name, options, disabled }: Props) => {
+const Accordion = ({
+  headerText,
+  type,
+  name,
+  onChange,
+  options,
+  disabled,
+}: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-
-  const dispatch = useDispatch<AppDispatch>();
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    dispatch(handleChange({ name, value }));
-  };
 
   const AccordionOptions = () => {
     return (
@@ -42,7 +38,7 @@ const Accordion = ({ headerText, type, name, options, disabled }: Props) => {
                   type={type}
                   name={name}
                   value={option.text}
-                  onChange={handleOnChange}
+                  onChange={onChange}
                   checked={option.isChecked}
                   disabled={disabled}
                   className='accent-orange-600'
