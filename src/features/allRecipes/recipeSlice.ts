@@ -174,19 +174,8 @@ export const recipeSlice = createSlice({
     resetPage: (state) => {
       state.page = 1;
     },
-    clearFilters: (state) => {
-      return {
-        ...state,
-        search: '',
-        cuisineOptions: cuisineOptions,
-        dishTypeOptions: dishTypeOptions,
-        dishType: '',
-        sort: '',
-        page: 1,
-        totalRecipes: 0,
-        numOfPages: 1,
-        limit: 8,
-      };
+    clearFilters: () => {
+      return initialState;
     },
   },
   extraReducers: (builder) => {
