@@ -43,7 +43,7 @@ const Home = () => {
           aperiam porro veniam consequatur vero voluptatem aliquam. Ducimus modi
           necessitatibus at.
         </p>
-        <div className='flex items-center gap-x-4'>
+        <div className='w-56'>
           <Link
             to='recipes'
             className='flex items-center gap-x-2 bg-orange-400 border-2 border-orange-400 text-white font-semibold uppercase px-4 py-2 rounded-lg hover:bg-white hover:text-orange-400'
@@ -51,15 +51,6 @@ const Home = () => {
             View more recipes
             <span>
               <FaArrowRight />
-            </span>
-          </Link>
-          <Link
-            to='recipe-search'
-            className='flex items-center gap-x-2 border-2 border-slate-700 font-semibold uppercase px-4 py-2 rounded-lg hover:bg-slate-700 hover:text-white'
-          >
-            Browse by filters
-            <span>
-              <FaFilter />
             </span>
           </Link>
         </div>
