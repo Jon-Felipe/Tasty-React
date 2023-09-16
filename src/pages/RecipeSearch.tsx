@@ -35,11 +35,11 @@ const RecipeSearch = () => {
       return;
     }
 
-    dispatch(getAllRecipes({ search }));
+    dispatch(getAllRecipes());
   };
 
   useEffect(() => {
-    dispatch(getAllRecipes({ limit: 9 }));
+    dispatch(getAllRecipes());
   }, [cuisineOptions, dishTypeOptions, page]);
 
   return (

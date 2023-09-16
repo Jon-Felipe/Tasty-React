@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaArrowRight, FaFilter } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
-import {
-  clearFilters,
-  getAllRecipes,
-} from '../features/allRecipes/recipeSlice';
+import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
 // components
 import Spinner from '../components/Spinner';
@@ -23,8 +20,7 @@ const Home = () => {
   );
 
   useEffect(() => {
-    dispatch(clearFilters());
-    dispatch(getAllRecipes({}));
+    dispatch(getAllRecipes());
   }, []);
 
   if (isLoading) {

@@ -39,47 +39,63 @@ const initialState: InitialState = {
   limit: 12,
 };
 
-export const getAllRecipes = createAsyncThunk<
-  GetAllRecipesPayload,
-  GetAllRecipesParams
->('getAllRecipes', async (recipeFilters, thunkAPI) => {
-  const { search = '', sort = 'latest', page = 1, limit = 0 } = recipeFilters;
+// export const getAllRecipes = createAsyncThunk<
+//   GetAllRecipesPayload,
+//   GetAllRecipesParams
+// >('getAllRecipes', async (recipeFilters, thunkAPI) => {
+//   const { search = '', sort = 'latest', page = 1, limit = 0 } = recipeFilters;
 
-  const {
-    recipe: { cuisineOptions, dishTypeOptions },
-  } = thunkAPI.getState() as RootState;
+//   const {
+//     recipe: { cuisineOptions, dishTypeOptions },
+//   } = thunkAPI.getState() as RootState;
 
-  const selectedCuisines = cuisineOptions
-    .filter((cuisine) => cuisine.isChecked)
-    .map((item) => item.text);
-  const selectedDishTypes = dishTypeOptions
-    .filter((dishType) => dishType.isChecked)
-    .map((item) => item.text);
+//   const selectedCuisines = cuisineOptions
+//     .filter((cuisine) => cuisine.isChecked)
+//     .map((item) => item.text);
+//   const selectedDishTypes = dishTypeOptions
+//     .filter((dishType) => dishType.isChecked)
+//     .map((item) => item.text);
 
-  let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&page=${page}`;
+//   let url = `https://tasty-api.onrender.com/api/v1/recipes?sort=${sort}&page=${page}`;
 
-  if (selectedCuisines.length > 0) {
-    url = url + `&cuisine=${selectedCuisines}`;
-  }
-  if (selectedDishTypes.length > 0) {
-    url = url + `&dishType=${selectedDishTypes}`;
-  }
-  if (search) {
-    url = url + `&search=${search}`;
-  }
-  if (limit) {
-    url = url + `&limit=${limit}`;
-  }
+//   if (selectedCuisines.length > 0) {
+//     url = url + `&cuisine=${selectedCuisines}`;
+//   }
+//   if (selectedDishTypes.length > 0) {
+//     url = url + `&dishType=${selectedDishTypes}`;
+//   }
+//   if (search) {
+//     url = url + `&search=${search}`;
+//   }
+//   if (limit) {
+//     url = url + `&limit=${limit}`;
+//   }
 
-  try {
-    const { data } = await axios.get(url);
-    return data;
-  } catch (error) {
-    if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.response?.data);
+//   try {
+//     const { data } = await axios.get(url);
+//     return data;
+//   } catch (error) {
+//     if (error instanceof AxiosError) {
+//       return thunkAPI.rejectWithValue(error.response?.data);
+//     }
+//   }
+// });
+
+export const getAllRecipes = createAsyncThunk(
+  'getAllRecipes',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        'https://tasty-api.onrender.com/api/v1/recipes'
+      );
+      return data;
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(error.response?.data);
+      }
     }
   }
-});
+);
 
 export const getRecipe = createAsyncThunk(
   'allRecipes/getRecipe',
