@@ -37,7 +37,6 @@ export interface InitialFilterState {
   sort: string;
   cuisineOptions: MealOptionType[];
   dishTypeOptions: MealOptionType[];
-  tag: string;
   limit: number;
 }
 

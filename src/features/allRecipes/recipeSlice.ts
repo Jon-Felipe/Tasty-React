@@ -32,7 +32,6 @@ const initialState: InitialState = {
   sort: 'latest',
   cuisineOptions: [],
   dishTypeOptions: [],
-  tag: 'all',
   totalRecipes: 0,
   numOfPages: 1,
   page: 1,
