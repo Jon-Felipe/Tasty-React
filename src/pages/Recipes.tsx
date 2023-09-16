@@ -1,56 +1,102 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { AppDispatch, RootState } from '../store';
-import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+import {
+  clearFilters,
+  getFilteredRecipes,
+  handleChange,
+} from '../features/allRecipes/recipeSlice';
 
 // components
 import RecipeCard from '../components/RecipeCard';
+import Search from '../components/Search';
+import Accordion from '../components/Accordion';
 import Spinner from '../components/Spinner';
-
-// extras
 import PageButtonContainer from '../components/PageButtonContainer';
 
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipes, totalRecipes, page } = useSelector(
-    (state: RootState) => state.recipe
-  );
+  const {
+    recipes,
+    search,
+    cuisineOptions,
+    dishTypeOptions,
+    isLoading,
+    page,
+    totalRecipes,
+  } = useSelector((state: RootState) => state.recipe);
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    dispatch(handleChange({ name, value }));
+  };
+
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!search.trim()) {
+      toast.error('Please provide a search value');
+      return;
+    }
+
+    dispatch(getFilteredRecipes());
+  };
 
   useEffect(() => {
-    dispatch(getAllRecipes());
-  }, [page]);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
+    dispatch(getFilteredRecipes());
+  }, [cuisineOptions, dishTypeOptions, page]);
 
   return (
-    <article>
-      <header className='w-full md:w-3/4'>
-        <h1 className='text-4xl text-slate-700 font-bold uppercase'>
-          Browsing all Recipes{' '}
-          <span className='text-xs'>({totalRecipes}) recipes found</span>
-        </h1>
-        <div className='my-2'>
-          <p className='text-slate-700 my-4 tracking-tight'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-            beatae dolore doloribus eum quos quisquam libero molestiae eius ab
-            aspernatur quo nam, ea ipsam dolores asperiores nobis id minima a
-            natus illo quae. Libero vitae aliquam ea temporibus cum eos corporis
-            eveniet! Nesciunt sunt labore cupiditate, fuga incidunt voluptatibus
-            cumque!
-          </p>
-        </div>
-      </header>
-      <section>
-        <div className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-4'>
-          {recipes.map((recipe) => {
-            return <RecipeCard key={recipe._id} recipe={recipe} />;
-          })}
-        </div>
-      </section>
+    <section>
+      <h1 className='text-3xl font-bold uppercase underline'>
+        Browse All Recipes
+      </h1>
+      <div className='grid lg:grid-cols-[350px_1fr] gap-y-4 lg:gap-x-4 mt-8'>
+        <section className='space-y-4'>
+          <Search
+            value={search}
+            onChange={handleOnChange}
+            onSubmit={handleOnSubmit}
+            disabled={isLoading}
+          />
+          <Accordion
+            headerText='Dishes'
+            type='checkbox'
+            name='dishTypeOptions'
+            onChange={handleOnChange}
+            options={dishTypeOptions}
+            disabled={isLoading}
+          />
+          <Accordion
+            headerText='Cuisines'
+            type='checkbox'
+            name='cuisineOptions'
+            onChange={handleOnChange}
+            options={cuisineOptions}
+            disabled={isLoading}
+          />
+          <button
+            className='bg-white text-slate-700 border-2 border-slate-700 text-xs font-bold uppercase px-4 py-1.5 rounded-lg hover:bg-slate-700 hover:text-white'
+            onClick={() => dispatch(clearFilters())}
+          >
+            Clear
+          </button>
+        </section>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <section className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-3'>
+            {recipes.map((recipe) => {
+              return <RecipeCard key={recipe._id} recipe={recipe} />;
+            })}
+          </section>
+        )}
+      </div>
       <PageButtonContainer />
-    </article>
+    </section>
   );
 };
 
