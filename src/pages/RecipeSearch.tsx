@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { AppDispatch, RootState } from '../store';
 import {
   clearFilters,
-  getAllRecipes,
+  getFilteredRecipes,
   handleChange,
 } from '../features/allRecipes/recipeSlice';
 
@@ -35,11 +35,11 @@ const RecipeSearch = () => {
       return;
     }
 
-    dispatch(getAllRecipes());
+    dispatch(getFilteredRecipes());
   };
 
   useEffect(() => {
-    dispatch(getAllRecipes());
+    dispatch(getFilteredRecipes());
   }, [cuisineOptions, dishTypeOptions, page]);
 
   return (
