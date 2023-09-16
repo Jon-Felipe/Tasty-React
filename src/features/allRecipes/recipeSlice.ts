@@ -2,12 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 // types
-import {
-  GetAllRecipesParams,
-  GetAllRecipesPayload,
-  InitialFilterState,
-  SingleRecipeType,
-} from '../../utils/types';
+import { InitialFilterState, SingleRecipeType } from '../../utils/types';
 
 // extras
 import { RootState } from '../../store';

@@ -40,20 +40,6 @@ export interface InitialFilterState {
   limit: number;
 }
 
-export type GetAllRecipesParams = {
-  search?: string;
-  sort?: string;
-  dishType?: string;
-  page?: number;
-  limit?: number;
-};
-
-export type GetAllRecipesPayload = {
-  recipes: SingleRecipeType[];
-  totalRecipes: number;
-  numOfPages: number;
-};
-
 export type MealOptionType = {
   id: number;
   text: string;
