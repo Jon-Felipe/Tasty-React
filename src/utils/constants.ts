@@ -19,18 +19,8 @@ export const navLinks: LinksType[] = [
   },
   {
     id: 2,
-    text: 'about',
-    path: 'about',
-  },
-  {
-    id: 3,
     text: 'recipes',
     path: 'recipes',
-  },
-  {
-    id: 4,
-    text: 'contact',
-    path: 'contact',
   },
 ];
 

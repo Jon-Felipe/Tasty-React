@@ -14,8 +14,6 @@ import ProfileLayout from './layouts/ProfileLayout';
 // pages
 import {
   Home,
-  About,
-  Contact,
   Login,
   Register,
   Recipes,
@@ -31,8 +29,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path='about' element={<About />} />
-      <Route path='contact' element={<Contact />} />
       <Route path='recipes' element={<Recipes />} />
       <Route path='recipe/:id' element={<SingleRecipe />} />
       <Route path='login' element={<Login />} />
