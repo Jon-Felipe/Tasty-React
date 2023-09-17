@@ -10,7 +10,7 @@ const Sort = ({ value, onChange, disabled }: Props) => {
       name='sort'
       value={value}
       onChange={onChange}
-      className='bg-orange-50 text-orange-500 text-sm rounded-full block w-full p-2.5 outline-none'
+      className='bg-orange-50 text-orange-500 text-sm rounded-full block w-full p-2.5 outline-none cursor-pointer'
       disabled={disabled}
     >
       <option value='' disabled>
