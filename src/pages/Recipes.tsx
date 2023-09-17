@@ -14,12 +14,14 @@ import Search from '../components/Search';
 import Accordion from '../components/Accordion';
 import Spinner from '../components/Spinner';
 import PageButtonContainer from '../components/PageButtonContainer';
+import Sort from '../components/Sort';
 
 const Recipes = () => {
   const dispatch = useDispatch<AppDispatch>();
   const {
     recipes,
     search,
+    sort,
     cuisineOptions,
     dishTypeOptions,
     isLoading,
@@ -27,7 +29,11 @@ const Recipes = () => {
     totalRecipes,
   } = useSelector((state: RootState) => state.recipe);
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -47,13 +53,18 @@ const Recipes = () => {
 
   useEffect(() => {
     dispatch(getFilteredRecipes());
-  }, [cuisineOptions, dishTypeOptions, page]);
+  }, [cuisineOptions, dishTypeOptions, page, sort]);
 
   return (
     <section>
-      <h1 className='text-3xl font-bold uppercase underline'>
-        Browse All Recipes
-      </h1>
+      <div className='flex flex-col gap-y-2 md:flex-row md:items-center md:justify-between'>
+        <h1 className='text-3xl font-bold uppercase underline'>
+          Browse All Recipes
+        </h1>
+        <div className='w-full md:w-72'>
+          <Sort value={sort} onChange={handleOnChange} disabled={isLoading} />
+        </div>
+      </div>
       <div className='grid lg:grid-cols-[350px_1fr] gap-y-4 lg:gap-x-4 mt-8'>
         <section className='space-y-4'>
           <Search
