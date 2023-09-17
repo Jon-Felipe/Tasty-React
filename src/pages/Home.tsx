@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaArrowRight, FaFilter } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
 import { getAllRecipes } from '../features/allRecipes/recipeSlice';
 
