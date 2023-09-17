@@ -4,17 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { logoutUser } from '../features/user/userSlice';
 import {
-  Bars3Icon,
   UserCircleIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/react/24/outline';
-
-// helpers
-import { navLinks } from '../utils/constants';
-import { LinksType } from '../utils/types';
-
-// components
-import NavLink from './NavLink';
 
 type Props = {
   showLinks: boolean;
@@ -29,10 +21,13 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
     <header>
       <nav className='bg-white px-4 lg:px-6 py-2 lg:py-4 shadow'>
         <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
-          <h1 className='text-xl lg:text-3xl font-semibold whitespace-nowrap'>
+          <Link
+            to='/'
+            className='text-xl lg:text-3xl font-semibold whitespace-nowrap'
+          >
             Tasty Recipes
-          </h1>
-          <div className='flex items-center lg:order-2'>
+          </Link>
+          <div className='flex items-center'>
             {user?.name ? (
               <div className='flex items-center gap-x-4'>
                 <Link
@@ -67,25 +62,6 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
                 </Link>
               </>
             )}
-            <button
-              type='button'
-              onClick={() => setShowLinks(!showLinks)}
-              className='inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100'
-            >
-              <Bars3Icon className='h-6 w-6' />
-            </button>
-          </div>
-          <div
-            className={`${
-              showLinks ? '' : 'hidden'
-            } justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
-          >
-            <ul className='flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0'>
-              {navLinks.map((link: LinksType) => {
-                const { id, text, path } = link;
-                return <NavLink key={id} text={text} path={path} />;
-              })}
-            </ul>
           </div>
         </div>
       </nav>

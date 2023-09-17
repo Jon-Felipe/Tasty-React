@@ -1,11 +1,5 @@
 import { RootState } from '../store';
 
-export type LinksType = {
-  id: number;
-  text: string;
-  path: string;
-};
-
 export type SingleRecipeType = {
   _id: number;
   name: string;

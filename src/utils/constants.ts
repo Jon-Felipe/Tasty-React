@@ -1,4 +1,4 @@
-import { MealOptionType, LinksType, RecipeQuickLink } from './types';
+import { MealOptionType, RecipeQuickLink } from './types';
 
 // assets
 import clockIcon from '../assets/icons/clock-icon.png';
@@ -10,19 +10,6 @@ import pastaIcon from '../assets/icons/pasta-icon.png';
 import quickIcon from '../assets/icons/quick-icon.png';
 import slowIcon from '../assets/icons/slow-icon.png';
 import allIcon from '../assets/icons/all-icon.png';
-
-export const navLinks: LinksType[] = [
-  {
-    id: 1,
-    text: 'home',
-    path: '/',
-  },
-  {
-    id: 2,
-    text: 'recipes',
-    path: 'recipes',
-  },
-];
 
 export const cuisineOptions: MealOptionType[] = [
   { id: 1, text: 'african', isChecked: false },
