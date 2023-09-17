@@ -1,79 +1,88 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getUserRecipes,
-  handleChange,
-  resetPage,
-} from '../features/allRecipes/recipeSlice';
+import { getUserRecipes } from '../features/allRecipes/recipeSlice';
 import { AppDispatch, RootState } from '../store';
-import { toast } from 'react-toastify';
 
 // components
 import Spinner from '../components/Spinner';
-import Search from '../components/Search';
-import Sort from '../components/Sort';
-import PageButtonContainer from '../components/PageButtonContainer';
-import RecipeCard from '../components/RecipeCard';
+
+// extras
+import heroImg from '../assets/hero-img.jpg';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, userRecipes, search, sort, page } = useSelector(
+  const { isLoading, userRecipes } = useSelector(
     (state: RootState) => state.recipe
   );
 
-  const handleOnChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    dispatch(handleChange({ name, value }));
-  };
-
-  const handleOnSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!search.trim()) {
-      toast.error('Please provide a search value');
-      return;
-    }
-
-    dispatch(resetPage());
-    dispatch(getUserRecipes());
-  };
-
   useEffect(() => {
     dispatch(getUserRecipes());
-  }, [sort, page]);
+  }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
-    <div className='my-6 space-y-4'>
-      <div className='grid md:grid-cols-4 md:gap-x-4 md:items-center'>
-        <div className='mb-2 md:mb-0 md:col-span-3'>
-          <Search
-            value={search}
-            onChange={handleOnChange}
-            onSubmit={handleOnSubmit}
-            disabled={isLoading}
-          />
-        </div>
-        <div>
-          <Sort value={sort} onChange={handleOnChange} disabled={isLoading} />
-        </div>
+    <section className='mt-4'>
+      <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
+        <table className='w-full text sm text-left text-gray-500'>
+          <thead className='thead text-xs text-gray-700 uppercase bg-gray-50'>
+            <tr>
+              <th scope='col' className='px-6 py-3'>
+                Recipe Id
+              </th>
+              <th scope='col' className='px-6 py-3'>
+                Recipe Image
+              </th>
+              <th scope='col' className='px-6 py-3'>
+                Recipe Name
+              </th>
+              <th scope='col' className='px-6 py-3'>
+                Created At
+              </th>
+              <th scope='col' className='px-6 py-3'>
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {userRecipes.map((recipe) => {
+              return (
+                <tr
+                  key={recipe._id}
+                  className='odd:bg-white even:bg-gray-50 border-b'
+                >
+                  <th
+                    scope='row'
+                    className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'
+                  >
+                    {recipe._id}
+                  </th>
+                  <td className='px-6 py-4 whitespace-nowrap'>
+                    <img
+                      src={heroImg}
+                      alt={recipe.name}
+                      className='w-24 h-14 object-cover rounded-md'
+                    />
+                  </td>
+                  <td className='px-6 py-4'>{recipe.name}</td>
+                  <td className='px-6 py-4'>2023-08-26</td>
+                  <td className='px-6 py-4 space-x-3'>
+                    <button className='font-medium text-blue-600 hover:underline'>
+                      Edit
+                    </button>
+                    <button className='font-medium text-red-600 hover:underline'>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <section className='grid gap-y-6 md:gap-x-6 md:grid-cols-2 lg:grid-cols-3'>
-          {userRecipes.map((recipe) => {
-            return <RecipeCard key={recipe._id} recipe={recipe} />;
-          })}
-        </section>
-      )}
-      <PageButtonContainer />
-    </div>
+    </section>
   );
 };
 
