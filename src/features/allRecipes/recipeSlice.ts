@@ -1,8 +1,12 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 // types
-import { InitialFilterState, SingleRecipeType } from '../../utils/types';
+import {
+  InitialFilterState,
+  SingleRecipeType,
+  HandleChangeType,
+} from '../../utils/types';
 
 // extras
 import { RootState } from '../../store';
@@ -71,8 +75,15 @@ export const getFilteredRecipes = createAsyncThunk(
   'allRecipes/getFilteredRecipes',
   async (_, thunkAPI) => {
     const {
-      recipe: { search, sort, dishTypes, cuisines, page, limit },
+      recipe: { search, sort, dishTypeOptions, cuisineOptions, page, limit },
     } = thunkAPI.getState() as RootState;
+
+    const dishTypes = dishTypeOptions
+      .filter((dishType) => dishType.isChecked)
+      .map((recipe) => recipe.text);
+    const cuisines = cuisineOptions
+      .filter((dishType) => dishType.isChecked)
+      .map((recipe) => recipe.text);
 
     let url = `https://tasty-api.onrender.com/api/v1/recipes/search?sort=${sort}&limit=${limit}&page=${page}`;
 
@@ -123,41 +134,19 @@ export const recipeSlice = createSlice({
   name: 'recipe',
   initialState,
   reducers: {
-    handleChange: (state, { payload }) => {
+    handleChange: (state, { payload }: PayloadAction<HandleChangeType>) => {
       const { name, value } = payload;
-      if (name == 'dishTypeOptions') {
-        const tempDishes = state.dishTypeOptions.map((dishType) => {
-          if (dishType.text == value) {
-            return { ...dishType, isChecked: !dishType.isChecked };
+      if (name == 'dishTypeOptions' || name == 'cuisineOptions') {
+        const tempRecipeTypes = state[name].map((recipeType) => {
+          if (recipeType.text == value) {
+            return { ...recipeType, isChecked: !recipeType.isChecked };
           }
-          return dishType;
+          return recipeType;
         });
-        const selectedDishes = tempDishes
-          .filter((dish) => dish.isChecked)
-          .map((item) => item.text);
 
-        return {
-          ...state,
-          dishTypeOptions: tempDishes,
-          dishTypes: selectedDishes,
-        };
-      } else if (name == 'cuisineOptions') {
-        const tempCuisines = state.cuisineOptions.map((cuisine) => {
-          if (cuisine.text == value) {
-            return { ...cuisine, isChecked: !cuisine.isChecked };
-          }
-          return cuisine;
-        });
-        const selectedCuisines = tempCuisines
-          .filter((cuisine) => cuisine.isChecked)
-          .map((item) => item.text);
-
-        return {
-          ...state,
-          cuisineOptions: tempCuisines,
-          cuisines: selectedCuisines,
-        };
+        return { ...state, [name]: tempRecipeTypes };
       }
+
       state = { ...state, [name]: value };
       return state;
     },

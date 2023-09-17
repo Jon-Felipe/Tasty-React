@@ -87,6 +87,11 @@ export type AsyncThunkConfig = {
   rejectedMeta?: unknown;
 };
 
+export type HandleChangeType = {
+  name: string;
+  value: string;
+};
+
 export type ListItem = {
   id: number;
   listItem: number | string;

@@ -26,7 +26,6 @@ const Recipes = () => {
     dishTypeOptions,
     isLoading,
     page,
-    totalRecipes,
   } = useSelector((state: RootState) => state.recipe);
 
   const handleOnChange = (
