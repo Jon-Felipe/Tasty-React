@@ -29,5 +29,5 @@ export function getFeaturedRecipes(
       (recipe) =>
         recipe[recipeFilterOption as keyof typeof recipe] == recipeFilterValue
     )
-    .slice(0, 4);
+    .slice(0, 8);
 }
