@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserRecipes } from '../features/allRecipes/recipeSlice';
+import {
+  deleteRecipe,
+  getUserRecipes,
+} from '../features/allRecipes/recipeSlice';
 import { AppDispatch, RootState } from '../store';
 
 // components
@@ -14,6 +17,12 @@ const MyRecipes = () => {
   const { isLoading, userRecipes } = useSelector(
     (state: RootState) => state.recipe
   );
+
+  const handleOnClick = (recipeId: number) => {
+    if (window.confirm('Are you sure you want to delete this recipe?')) {
+      dispatch(deleteRecipe(recipeId.toString()));
+    }
+  };
 
   useEffect(() => {
     dispatch(getUserRecipes());
@@ -72,7 +81,10 @@ const MyRecipes = () => {
                     <button className='font-medium text-blue-600 hover:underline'>
                       Edit
                     </button>
-                    <button className='font-medium text-red-600 hover:underline'>
+                    <button
+                      className='font-medium text-red-600 hover:underline'
+                      onClick={() => handleOnClick(recipe._id)}
+                    >
                       Delete
                     </button>
                   </td>
