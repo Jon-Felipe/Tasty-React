@@ -192,12 +192,10 @@ export const recipeSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllRecipes.fulfilled, (state, { payload }) => {
-        const { recipes, totalRecipes, numOfPages } = payload;
+        const { recipes } = payload;
 
         state.isLoading = false;
         state.recipes = recipes;
-        state.totalRecipes = totalRecipes;
-        state.numOfPages = numOfPages;
       })
       .addCase(getAllRecipes.rejected, (state) => {
         state.isLoading = false;
@@ -232,7 +230,7 @@ export const recipeSlice = createSlice({
       .addCase(getUserRecipes.fulfilled, (state, action) => {
         state.isLoading = false;
         state.userRecipes = action.payload.recipes;
-        state.numOfPages = action.payload.numOfPages;
+        state.totalRecipes = action.payload.totalRecipes;
       })
       .addCase(getUserRecipes.rejected, (state) => {
         state.isLoading = false;

@@ -14,7 +14,7 @@ import heroImg from '../assets/hero-img.jpg';
 
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, userRecipes } = useSelector(
+  const { isLoading, userRecipes, totalRecipes } = useSelector(
     (state: RootState) => state.recipe
   );
 
@@ -33,7 +33,10 @@ const MyRecipes = () => {
   }
 
   return (
-    <section className='mt-4'>
+    <section>
+      <div className='my-4'>
+        <h3 className='text-xl font-semibold'>{totalRecipes} Recipes Found</h3>
+      </div>
       <div className='relative h-[calc(100vh-200px)] overflow-auto shadow-md sm:rounded-lg'>
         <table className='w-full text sm text-left text-gray-500'>
           <thead className='thead text-xs text-gray-700 uppercase bg-gray-50'>
