@@ -147,6 +147,7 @@ export const deleteRecipe = createAsyncThunk(
           },
         }
       );
+      await thunkAPI.dispatch(getUserRecipes());
     } catch (error) {
       if (error instanceof AxiosError) {
         return thunkAPI.rejectWithValue(error.response?.data);
