@@ -34,10 +34,13 @@ const MyRecipes = () => {
 
   return (
     <section>
-      <div className='my-4'>
+      <div className='my-4 flex items-center justify-between'>
         <h3 className='text-xl font-semibold'>{totalRecipes} Recipes Found</h3>
+        <button className='border-2 border-orange-500 rounded-md px-4 py-2 font-semibold text-orange-400'>
+          Create New Recipe
+        </button>
       </div>
-      <div className='relative h-[calc(100vh-200px)] overflow-auto shadow-md sm:rounded-lg'>
+      <div className='relative h-screen overflow-auto shadow-md sm:rounded-lg'>
         <table className='w-full text sm text-left text-gray-500'>
           <thead className='thead text-xs text-gray-700 uppercase bg-gray-50'>
             <tr>
