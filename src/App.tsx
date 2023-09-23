@@ -46,7 +46,14 @@ const router = createBrowserRouter(
         <Route path='my-recipes' element={<MyRecipes />} />
         <Route path='my-favourites' element={<FavouriteRecipes />} />
       </Route>
-      <Route path='create-recipe' element={<CreateRecipe />} />
+      <Route
+        path='create-recipe'
+        element={
+          <ProtectedRoute>
+            <CreateRecipe />
+          </ProtectedRoute>
+        }
+      />
       <Route path='*' element={<Error />} />
     </Route>
   )
