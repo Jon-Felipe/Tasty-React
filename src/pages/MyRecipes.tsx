@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   deleteRecipe,
   getUserRecipes,
@@ -36,9 +37,12 @@ const MyRecipes = () => {
     <section>
       <div className='my-4 flex items-center justify-between'>
         <h3 className='text-xl font-semibold'>{totalRecipes} Recipes Found</h3>
-        <button className='border-2 border-orange-500 rounded-md px-4 py-2 font-semibold text-orange-400'>
+        <Link
+          to='/'
+          className='border-2 border-orange-500 rounded-md px-4 py-2 font-semibold text-orange-400 shadow hover:bg-orange-500 hover:text-white'
+        >
           Create New Recipe
-        </button>
+        </Link>
       </div>
       <div className='relative h-screen overflow-auto shadow-md sm:rounded-lg'>
         <table className='w-full text sm text-left text-gray-500'>
