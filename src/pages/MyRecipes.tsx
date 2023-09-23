@@ -38,7 +38,7 @@ const MyRecipes = () => {
       <div className='my-4 flex items-center justify-between'>
         <h3 className='text-xl font-semibold'>{totalRecipes} Recipes Found</h3>
         <Link
-          to='/'
+          to='/create-recipe'
           className='border-2 border-orange-500 rounded-md px-4 py-2 font-semibold text-orange-400 shadow hover:bg-orange-500 hover:text-white'
         >
           Create New Recipe
