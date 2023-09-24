@@ -20,7 +20,7 @@ const FormRow = ({
   required,
 }: Props) => {
   return (
-    <div>
+    <div className='w-full'>
       <label
         htmlFor={name}
         className='block mb-2 text-sm font-medium text-gray-900'

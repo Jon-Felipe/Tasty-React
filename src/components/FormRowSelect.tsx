@@ -11,10 +11,10 @@ type Props = {
 
 const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
   return (
-    <>
+    <div className='w-full'>
       <label
         htmlFor={name}
-        className='block text-xl text-orange-500 font-medium mb-1'
+        className='block mb-2 text-sm font-medium text-gray-900'
       >
         {labelText || name}
       </label>
@@ -23,7 +23,7 @@ const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
         id={name}
         value={value}
         onChange={onChange}
-        className='w-full bg-orange-50 px-2 py-1.5 rounded-md cursor-pointer text-orange-500'
+        className='border rounded-md p-2 cursor-pointer w-full capitalize'
       >
         {list.map(({ id, listItem }) => (
           <option key={id} value={listItem}>
@@ -31,7 +31,7 @@ const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
           </option>
         ))}
       </select>
-    </>
+    </div>
   );
 };
 
