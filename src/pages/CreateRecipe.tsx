@@ -1,3 +1,5 @@
+import { FaPlus } from 'react-icons/fa';
+
 // components
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
@@ -117,17 +119,17 @@ const CreateRecipe = () => {
           </div>
           <div className='w-full space-y-2'>
             {/* ingredients */}
-            <FormRow
+            <AddRecipeItemInputRow
               name='ingredients'
               labelText='Ingredients'
               type='text'
-              placeholder='E.g. 1 cup sugar'
+              placeholder='E.g. 4 Tomatoes'
               value={''}
-              handleChange={() => console.log('ingredients')}
+              handleChange={() => console.log('servings')}
               required
             />
             {/* instructions */}
-            <FormRow
+            <AddRecipeItemInputRow
               name='instructions'
               labelText='Instructions'
               type='text'
@@ -137,7 +139,7 @@ const CreateRecipe = () => {
               required
             />
             {/* equipment */}
-            <FormRow
+            <AddRecipeItemInputRow
               name='equipment'
               labelText='Equipment'
               type='text'
@@ -147,7 +149,7 @@ const CreateRecipe = () => {
               required
             />
             {/* tips */}
-            <FormRow
+            <AddRecipeItemInputRow
               name='tips'
               labelText='Tips'
               type='text'
@@ -164,3 +166,46 @@ const CreateRecipe = () => {
 };
 
 export default CreateRecipe;
+
+type RecipeItemProps = {
+  type: React.HTMLInputTypeAttribute | undefined;
+  name: string | undefined;
+  value: string | number | readonly string[] | undefined;
+  handleChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  labelText: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+};
+
+const AddRecipeItemInputRow = ({
+  type,
+  name,
+  value,
+  handleChange,
+  labelText,
+  placeholder,
+  required,
+}: RecipeItemProps) => {
+  return (
+    <div>
+      <label htmlFor={name} className='text-sm font-medium text-gray-900'>
+        {labelText}
+      </label>
+      <div className='flex items-center justify-between gap-x-2 mt-2'>
+        <input
+          id={name}
+          type={type}
+          name={name}
+          value={value}
+          onChange={handleChange}
+          placeholder={placeholder}
+          required={required}
+          className='w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5'
+        />
+        <button className='w-32 md:w-28 bg-orange-400 text-white rounded-lg px-4 py-2.5 text-sm font-semibold'>
+          Add Item
+        </button>
+      </div>
+    </div>
+  );
+};
