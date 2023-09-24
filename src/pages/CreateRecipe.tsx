@@ -11,6 +11,15 @@ const CreateRecipe = () => {
       <article className='p-8 shadow rounded-md mt-4'>
         <form className='flex flex-col md:flex-row gap-y-4 md:gap-y-0 md:gap-x-4'>
           <div className='w-full'>
+            {/* recipe image */}
+            <FormRow
+              name='image'
+              labelText='Image'
+              type='file'
+              value={''}
+              handleChange={() => console.log('name')}
+              required
+            />
             {/* recipe name */}
             <FormRow
               name='name'
