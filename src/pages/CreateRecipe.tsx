@@ -11,7 +11,7 @@ const CreateRecipe = () => {
         Create Recipe
       </h1>
       <form>
-        <div className='flex items-center gap-x-8'>
+        <div className='flex flex-col md:flex-row items-center gap-x-8'>
           {/* recipe image */}
           <FormRow
             name='image'
@@ -49,7 +49,7 @@ const CreateRecipe = () => {
             className='border rounded p-2 w-full h-32'
           />
         </div>
-        <div className='flex items-center gap-x-8'>
+        <div className='flex flex-col lg:flex-row items-center gap-x-8'>
           {/* prep time */}
           <FormRow
             name='prepTime'
@@ -81,7 +81,7 @@ const CreateRecipe = () => {
             required
           />
         </div>
-        <div className='flex items-center gap-x-8'>
+        <div className='flex flex-col lg:flex-row items-center gap-x-8'>
           {/* difficulty */}
           <FormRowSelect
             labelText='Difficulty'
@@ -116,7 +116,7 @@ const CreateRecipe = () => {
             ]}
           />
         </div>
-        <div className='flex items-center gap-x-8'>
+        <div className='flex flex-col lg:flex-row items-center gap-x-8'>
           {/* ingredients */}
           <AddRecipeItemInputRow
             name='ingredients'
