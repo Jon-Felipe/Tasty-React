@@ -185,7 +185,7 @@ const AddRecipeItemInputRow = ({
   required,
 }: RecipeItemProps) => {
   return (
-    <div>
+    <div className='w-full'>
       <label htmlFor={name} className='text-sm font-medium text-gray-900'>
         {labelText}
       </label>
