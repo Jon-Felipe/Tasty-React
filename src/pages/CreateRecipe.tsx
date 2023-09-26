@@ -1,8 +1,28 @@
+import { useState } from 'react';
+
 // components
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
 
 const CreateRecipe = () => {
+  const [recipeItems, setRecipeItems] = useState({
+    instructions: '',
+    ingredients: '',
+    equipment: '',
+    tips: '',
+  });
+
+  const handleRecipeItemsOnChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setRecipeItems((prevState) => {
+      return { ...prevState, [name]: value };
+    });
+  };
+
   return (
     <section>
       <h1 className='text-3xl font-semibold tracking-wide mb-4'>
@@ -125,8 +145,8 @@ const CreateRecipe = () => {
                 labelText='Ingredients'
                 type='text'
                 placeholder='E.g. 4 Tomatoes'
-                value={''}
-                handleChange={() => console.log('servings')}
+                value={recipeItems.ingredients}
+                handleChange={handleRecipeItemsOnChange}
                 required
               />
               {/* instructions */}
@@ -135,8 +155,8 @@ const CreateRecipe = () => {
                 labelText='Instructions'
                 type='text'
                 placeholder='E.g. Mix together the ingredients in one bowl'
-                value={''}
-                handleChange={() => console.log('instructions')}
+                value={recipeItems.instructions}
+                handleChange={handleRecipeItemsOnChange}
                 required
               />
               {/* equipment */}
@@ -145,8 +165,8 @@ const CreateRecipe = () => {
                 labelText='Equipment'
                 type='text'
                 placeholder='E.g. 1 Baking Tray'
-                value={''}
-                handleChange={() => console.log('equipment')}
+                value={recipeItems.equipment}
+                handleChange={handleRecipeItemsOnChange}
                 required
               />
               {/* tips */}
@@ -155,8 +175,8 @@ const CreateRecipe = () => {
                 labelText='Tips'
                 type='text'
                 placeholder='E.g. Preheat oven 15 minutes before starting'
-                value={''}
-                handleChange={() => console.log('tips')}
+                value={recipeItems.tips}
+                handleChange={handleRecipeItemsOnChange}
                 required
               />
             </div>
