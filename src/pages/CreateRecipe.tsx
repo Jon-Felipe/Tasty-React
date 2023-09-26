@@ -11,6 +11,12 @@ const CreateRecipe = () => {
     equipment: '',
     tips: '',
   });
+  const [recipeItemsList, setRecipeItemsList] = useState({
+    instructionList: [],
+    ingredientList: [],
+    equipmentList: [],
+    tipList: [],
+  });
 
   const handleRecipeItemsOnChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -22,6 +28,8 @@ const CreateRecipe = () => {
       return { ...prevState, [name]: value };
     });
   };
+
+  const handleRecipeItemAdd = (name: string) => {};
 
   return (
     <section>
@@ -147,6 +155,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. 4 Tomatoes'
                 value={recipeItems.ingredients}
                 handleChange={handleRecipeItemsOnChange}
+                onClick={() => handleRecipeItemAdd('ingredientList')}
                 required
               />
               {/* instructions */}
@@ -157,6 +166,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. Mix together the ingredients in one bowl'
                 value={recipeItems.instructions}
                 handleChange={handleRecipeItemsOnChange}
+                onClick={() => handleRecipeItemAdd('instructionList')}
                 required
               />
               {/* equipment */}
@@ -167,6 +177,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. 1 Baking Tray'
                 value={recipeItems.equipment}
                 handleChange={handleRecipeItemsOnChange}
+                onClick={() => handleRecipeItemAdd('equipmentList')}
                 required
               />
               {/* tips */}
@@ -177,6 +188,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. Preheat oven 15 minutes before starting'
                 value={recipeItems.tips}
                 handleChange={handleRecipeItemsOnChange}
+                onClick={(e) => handleRecipeItemAdd('tipList')}
                 required
               />
             </div>
@@ -205,6 +217,7 @@ type RecipeItemProps = {
   labelText: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const AddRecipeItemInputRow = ({
@@ -215,6 +228,7 @@ const AddRecipeItemInputRow = ({
   labelText,
   placeholder,
   required,
+  onClick,
 }: RecipeItemProps) => {
   return (
     <div className='w-full'>
@@ -232,7 +246,11 @@ const AddRecipeItemInputRow = ({
           required={required}
           className='w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5'
         />
-        <button className='w-32 md:w-28 bg-orange-400 text-white rounded-lg px-4 py-2.5 text-sm font-semibold'>
+        <button
+          type='button'
+          onClick={onClick}
+          className='w-32 md:w-28 bg-orange-400 text-white rounded-lg px-4 py-2.5 text-sm font-semibold'
+        >
           Add
         </button>
       </div>
