@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 // components
 import FormRow from '../components/FormRow';
@@ -30,6 +31,10 @@ const CreateRecipe = () => {
   };
 
   const handleRecipeItemAdd = (name: string) => {
+    if (recipeItems[name as keyof typeof recipeItems].trim() == '') {
+      toast.error('Please provide a value');
+      return;
+    }
     setRecipeItemsList((prevState) => {
       return {
         ...prevState,
