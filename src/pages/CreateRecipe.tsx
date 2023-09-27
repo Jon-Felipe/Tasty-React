@@ -12,10 +12,10 @@ const CreateRecipe = () => {
     tips: '',
   });
   const [recipeItemsList, setRecipeItemsList] = useState({
-    instructionList: [],
-    ingredientList: [],
-    equipmentList: [],
-    tipList: [],
+    instructions: [],
+    ingredients: [],
+    equipment: [],
+    tips: [],
   });
 
   const handleRecipeItemsOnChange = (
@@ -29,7 +29,17 @@ const CreateRecipe = () => {
     });
   };
 
-  const handleRecipeItemAdd = (name: string) => {};
+  const handleRecipeItemAdd = (name: string) => {
+    setRecipeItemsList((prevState) => {
+      return {
+        ...prevState,
+        [name]: [
+          ...prevState[name as keyof typeof recipeItemsList],
+          recipeItems[name as keyof typeof recipeItems],
+        ],
+      };
+    });
+  };
 
   return (
     <section>
@@ -155,7 +165,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. 4 Tomatoes'
                 value={recipeItems.ingredients}
                 handleChange={handleRecipeItemsOnChange}
-                onClick={() => handleRecipeItemAdd('ingredientList')}
+                onClick={() => handleRecipeItemAdd('ingredients')}
                 required
               />
               {/* instructions */}
@@ -166,7 +176,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. Mix together the ingredients in one bowl'
                 value={recipeItems.instructions}
                 handleChange={handleRecipeItemsOnChange}
-                onClick={() => handleRecipeItemAdd('instructionList')}
+                onClick={() => handleRecipeItemAdd('instructions')}
                 required
               />
               {/* equipment */}
@@ -177,7 +187,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. 1 Baking Tray'
                 value={recipeItems.equipment}
                 handleChange={handleRecipeItemsOnChange}
-                onClick={() => handleRecipeItemAdd('equipmentList')}
+                onClick={() => handleRecipeItemAdd('equipment')}
                 required
               />
               {/* tips */}
@@ -188,7 +198,7 @@ const CreateRecipe = () => {
                 placeholder='E.g. Preheat oven 15 minutes before starting'
                 value={recipeItems.tips}
                 handleChange={handleRecipeItemsOnChange}
-                onClick={(e) => handleRecipeItemAdd('tipList')}
+                onClick={(e) => handleRecipeItemAdd('tips')}
                 required
               />
             </div>
@@ -198,6 +208,7 @@ const CreateRecipe = () => {
           <button
             type='submit'
             className='bg-orange-500 text-white px-4 py-2 rounded-md text-sm font-semibold w-full md:w-36'
+            onClick={() => console.log(recipeItemsList, 'list items')}
           >
             Create Recipe
           </button>
