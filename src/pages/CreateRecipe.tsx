@@ -39,6 +39,11 @@ const CreateRecipe = () => {
         ],
       };
     });
+
+    // clear items
+    setRecipeItems((prevState) => {
+      return { ...prevState, [name]: '' };
+    });
   };
 
   return (
