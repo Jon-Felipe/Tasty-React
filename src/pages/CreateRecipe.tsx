@@ -173,6 +173,13 @@ const CreateRecipe = () => {
                 onClick={() => handleRecipeItemAdd('ingredients')}
                 required
               />
+              {recipeItemsList.ingredients.length > 0 && (
+                <ul>
+                  {recipeItemsList.ingredients.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
               {/* instructions */}
               <AddRecipeItemInputRow
                 name='instructions'
