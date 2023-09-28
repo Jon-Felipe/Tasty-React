@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  deleteRecipe,
-  getUserRecipes,
-} from '../features/allRecipes/allRecipesSlice';
+import { getUserRecipes } from '../features/allRecipes/allRecipesSlice';
+import { deleteRecipe } from '../features/recipe/recipeSlice';
 import { AppDispatch, RootState } from '../store';
 
 // components

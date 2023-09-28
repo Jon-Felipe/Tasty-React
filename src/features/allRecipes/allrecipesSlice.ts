@@ -138,31 +138,6 @@ export const getUserRecipes = createAsyncThunk(
   }
 );
 
-export const deleteRecipe = createAsyncThunk(
-  'allRecipes/deleteRecipe',
-  async (id: string, thunkAPI) => {
-    const {
-      user: { user },
-    } = thunkAPI.getState() as RootState;
-
-    try {
-      await axios.delete(
-        `https://tasty-api.onrender.com/api/v1/recipes/${id}`,
-        {
-          headers: {
-            authorization: `Bearer ${user?.token}`,
-          },
-        }
-      );
-      await thunkAPI.dispatch(getUserRecipes());
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.response?.data);
-      }
-    }
-  }
-);
-
 export const allRecipesSlice = createSlice({
   name: 'allRecipes',
   initialState,
@@ -241,17 +216,6 @@ export const allRecipesSlice = createSlice({
       })
       .addCase(getUserRecipes.rejected, (state) => {
         state.isLoading = false;
-      })
-      .addCase(deleteRecipe.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(deleteRecipe.fulfilled, (state) => {
-        state.isLoading = false;
-        toast.success('recipe deleted');
-      })
-      .addCase(deleteRecipe.rejected, (state) => {
-        state.isLoading = false;
-        toast.error('could not delete recipe');
       });
   },
 });
