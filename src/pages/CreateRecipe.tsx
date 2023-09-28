@@ -54,7 +54,12 @@ const CreateRecipe = () => {
   const handleRecipeItemOnAdd = (payload: AddRecipeItemType) => {
     const { name, value } = payload;
 
-    if (!ingredient || !instruction || !equipment || !tip) {
+    if (
+      !ingredient.trim() ||
+      !instruction.trim() ||
+      !equipment.trim() ||
+      !tip.trim()
+    ) {
       toast.error('Please provide a value');
       return;
     }
