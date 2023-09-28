@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import { FaTrash } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
 import {
   handleChange,
@@ -9,7 +9,7 @@ import {
 // components
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
-import { AddRecipeItemType } from '../utils/types';
+import { AddRecipeItemType, ListItem } from '../utils/types';
 import { cuisineList, difficultyList, dishTypeList } from '../utils/constants';
 
 const CreateRecipe = () => {
@@ -183,11 +183,7 @@ const CreateRecipe = () => {
                 required
               />
               {ingredients.length > 0 && (
-                <ul>
-                  {ingredients.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+                <RecipeItemList listItems={ingredients} />
               )}
               {/* instructions */}
               <AddRecipeItemInputRow
@@ -206,11 +202,7 @@ const CreateRecipe = () => {
                 required
               />
               {instructions.length > 0 && (
-                <ul>
-                  {instructions.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+                <RecipeItemList listItems={instructions} />
               )}
               {/* equipment */}
               <AddRecipeItemInputRow
@@ -229,11 +221,7 @@ const CreateRecipe = () => {
                 required
               />
               {equipments.length > 0 && (
-                <ul>
-                  {equipments.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+                <RecipeItemList listItems={equipments} />
               )}
               {/* tips */}
               <AddRecipeItemInputRow
@@ -248,13 +236,7 @@ const CreateRecipe = () => {
                 }
                 required
               />
-              {tips.length > 0 && (
-                <ul>
-                  {tips.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              )}
+              {tips.length > 0 && <RecipeItemList listItems={tips} />}
             </div>
           </section>
         </div>
@@ -319,5 +301,29 @@ const AddRecipeItemInputRow = ({
         </button>
       </div>
     </div>
+  );
+};
+
+type RecipeListItemType = {
+  listItems: string[];
+};
+
+const RecipeItemList = ({ listItems }: RecipeListItemType) => {
+  return (
+    <ul className='space-y-1 max-h-20 overflow-y-scroll'>
+      {listItems.map((item, index) => (
+        <li
+          key={index}
+          className='flex items-center justify-between px-2 text-sm font-bold'
+        >
+          {item}
+          <span>
+            <button type='button'>
+              <FaTrash className='h-4 w-4' color='red' />
+            </button>
+          </span>
+        </li>
+      ))}
+    </ul>
   );
 };
