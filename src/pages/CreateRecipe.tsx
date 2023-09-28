@@ -10,6 +10,7 @@ import {
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
 import { AddRecipeItemType } from '../utils/types';
+import { cuisineList, difficultyList, dishTypeList } from '../utils/constants';
 
 const CreateRecipe = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -140,10 +141,7 @@ const CreateRecipe = () => {
                 name='difficulty'
                 value={difficulty}
                 onChange={handleOnChange}
-                list={[
-                  { id: 1, listItem: 'Easy' },
-                  { id: 2, listItem: 'Medium' },
-                ]}
+                list={difficultyList}
               />
               {/* cuisine */}
               <FormRowSelect
@@ -151,10 +149,7 @@ const CreateRecipe = () => {
                 name='cuisine'
                 value={cuisine}
                 onChange={handleOnChange}
-                list={[
-                  { id: 1, listItem: 'european' },
-                  { id: 2, listItem: 'asian' },
-                ]}
+                list={cuisineList}
               />
               {/* dishType */}
               <FormRowSelect
@@ -162,10 +157,7 @@ const CreateRecipe = () => {
                 name='dishType'
                 value={dishType}
                 onChange={handleOnChange}
-                list={[
-                  { id: 1, listItem: 'breakfast' },
-                  { id: 2, listItem: 'lunch' },
-                ]}
+                list={dishTypeList}
               />
             </div>
           </section>
