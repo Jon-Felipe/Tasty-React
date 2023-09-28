@@ -157,7 +157,7 @@ export const deleteRecipe = createAsyncThunk(
 );
 
 export const allRecipesSlice = createSlice({
-  name: 'recipe',
+  name: 'allRecipes',
   initialState,
   reducers: {
     handleChange: (state, { payload }: PayloadAction<HandleChangeType>) => {
