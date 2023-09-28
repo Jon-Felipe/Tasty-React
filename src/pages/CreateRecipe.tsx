@@ -9,8 +9,9 @@ import {
 // components
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
-import { AddRecipeItemType, ListItem } from '../utils/types';
+import { AddRecipeItemType } from '../utils/types';
 import { cuisineList, difficultyList, dishTypeList } from '../utils/constants';
+import { toast } from 'react-toastify';
 
 const CreateRecipe = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -52,6 +53,11 @@ const CreateRecipe = () => {
 
   const handleRecipeItemOnAdd = (payload: AddRecipeItemType) => {
     const { name, value } = payload;
+
+    if (!ingredient || !instruction || !equipment || !tip) {
+      toast.error('Please provide a value');
+      return;
+    }
 
     dispatch(handleAddRecipeItem({ name, value }));
   };
