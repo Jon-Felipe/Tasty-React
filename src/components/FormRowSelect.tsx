@@ -7,9 +7,17 @@ type Props = {
   value: string | number | readonly string[];
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
   list: ListItem[];
+  required?: boolean;
 };
 
-const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
+const FormRowSelect = ({
+  labelText,
+  name,
+  value,
+  onChange,
+  list,
+  required,
+}: Props) => {
   return (
     <div className='w-full'>
       <label
@@ -24,6 +32,7 @@ const FormRowSelect = ({ labelText, name, value, onChange, list }: Props) => {
         value={value}
         onChange={onChange}
         className='border rounded-md p-2 cursor-pointer w-full capitalize'
+        required={required}
       >
         {list.map(({ id, listItem }) => (
           <option key={id} value={listItem}>

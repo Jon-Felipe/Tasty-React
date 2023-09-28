@@ -142,6 +142,7 @@ const CreateRecipe = () => {
                 value={difficulty}
                 onChange={handleOnChange}
                 list={difficultyList}
+                required
               />
               {/* cuisine */}
               <FormRowSelect
@@ -150,6 +151,7 @@ const CreateRecipe = () => {
                 value={cuisine}
                 onChange={handleOnChange}
                 list={cuisineList}
+                required
               />
               {/* dishType */}
               <FormRowSelect
@@ -158,6 +160,7 @@ const CreateRecipe = () => {
                 value={dishType}
                 onChange={handleOnChange}
                 list={dishTypeList}
+                required
               />
             </div>
           </section>
