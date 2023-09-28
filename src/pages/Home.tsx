@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaArrowRight } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
-import { getAllRecipes } from '../features/allRecipes/allrecipesSlice';
+import { getAllRecipes } from '../features/allRecipes/allRecipesSlice';
 
 // components
 import Spinner from '../components/Spinner';
@@ -16,7 +16,7 @@ const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const { isLoading, recipes } = useSelector(
-    (state: RootState) => state.recipe
+    (state: RootState) => state.allRecipes
   );
 
   useEffect(() => {

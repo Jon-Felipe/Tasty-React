@@ -6,7 +6,7 @@ import {
   clearFilters,
   getFilteredRecipes,
   handleChange,
-} from '../features/allRecipes/allrecipesSlice';
+} from '../features/allRecipes/allRecipesSlice';
 
 // components
 import RecipeCard from '../components/RecipeCard';
@@ -26,7 +26,7 @@ const Recipes = () => {
     dishTypeOptions,
     isLoading,
     page,
-  } = useSelector((state: RootState) => state.recipe);
+  } = useSelector((state: RootState) => state.allRecipes);
 
   const handleOnChange = (
     e:

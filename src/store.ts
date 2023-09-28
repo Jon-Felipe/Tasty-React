@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './features/user/userSlice';
-import recipeReducer from './features/allRecipes/allrecipesSlice';
+import allRecipeReducer from './features/allRecipes/allRecipesSlice';
+import recipeReducer from './features/recipe/recipeSlice';
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
+    allRecipes: allRecipeReducer,
     recipe: recipeReducer,
   },
 });

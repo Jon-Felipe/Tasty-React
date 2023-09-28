@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
-import { getRecipe } from '../features/allRecipes/allrecipesSlice';
+import { getRecipe } from '../features/allRecipes/allRecipesSlice';
 import { HeartIcon } from '@heroicons/react/24/outline';
 
 // components
@@ -15,7 +15,9 @@ import foodImg from '../assets/hero-img.jpg';
 const SingleRecipe = () => {
   const params = useParams();
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, recipe } = useSelector((state: RootState) => state.recipe);
+  const { isLoading, recipe } = useSelector(
+    (state: RootState) => state.allRecipes
+  );
 
   const flexRow = 'flex items-center';
 

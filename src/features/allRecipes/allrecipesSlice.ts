@@ -76,7 +76,14 @@ export const getFilteredRecipes = createAsyncThunk(
   'allRecipes/getFilteredRecipes',
   async (_, thunkAPI) => {
     const {
-      recipe: { search, sort, dishTypeOptions, cuisineOptions, page, limit },
+      allRecipes: {
+        search,
+        sort,
+        dishTypeOptions,
+        cuisineOptions,
+        page,
+        limit,
+      },
     } = thunkAPI.getState() as RootState;
 
     const dishTypes = dishTypeOptions

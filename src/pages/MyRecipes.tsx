@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   deleteRecipe,
   getUserRecipes,
-} from '../features/allRecipes/allrecipesSlice';
+} from '../features/allRecipes/allRecipesSlice';
 import { AppDispatch, RootState } from '../store';
 
 // components
@@ -16,7 +16,7 @@ import heroImg from '../assets/hero-img.jpg';
 const MyRecipes = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { isLoading, userRecipes, totalRecipes } = useSelector(
-    (state: RootState) => state.recipe
+    (state: RootState) => state.allRecipes
   );
 
   const handleOnClick = (recipeId: number) => {
