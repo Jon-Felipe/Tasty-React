@@ -92,6 +92,11 @@ export type HandleChangeType = {
   value: string;
 };
 
+export type AddRecipeItemType = {
+  name: 'instructions' | 'ingredients' | 'equipments' | 'tips';
+  value: 'instruction' | 'ingredient' | 'equipment' | 'tip';
+};
+
 export type ListItem = {
   id: number;
   listItem: number | string;

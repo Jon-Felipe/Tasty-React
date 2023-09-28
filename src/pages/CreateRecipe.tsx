@@ -1,54 +1,58 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { AppDispatch, RootState } from '../store';
+import {
+  handleChange,
+  handleAddRecipeItem,
+} from '../features/recipe/recipeSlice';
 
 // components
 import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
+import { AddRecipeItemType } from '../utils/types';
 
 const CreateRecipe = () => {
-  const [recipeItems, setRecipeItems] = useState({
-    instructions: '',
-    ingredients: '',
-    equipment: '',
-    tips: '',
-  });
-  const [recipeItemsList, setRecipeItemsList] = useState({
-    instructions: [],
-    ingredients: [],
-    equipment: [],
-    tips: [],
-  });
+  const dispatch = useDispatch<AppDispatch>();
+  const {
+    name,
+    description,
+    prepTime,
+    cookTime,
+    servings,
+    difficulty,
+    cuisine,
+    dishType,
+    ingredient,
+    ingredients,
+    instruction,
+    instructions,
+    equipment,
+    equipments,
+    tip,
+    tips,
+  } = useSelector((state: RootState) => state.recipe);
 
-  const handleRecipeItemsOnChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+  const handleOnChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const name = e.target.name;
-    const value = e.target.value;
+    let value;
 
-    setRecipeItems((prevState) => {
-      return { ...prevState, [name]: value };
-    });
+    if (name == 'prepTime' || name == 'cookTime' || name == 'servings') {
+      value = Number(e.target.value);
+    } else {
+      value = e.target.value;
+    }
+
+    dispatch(handleChange({ name, value }));
   };
 
-  const handleRecipeItemAdd = (name: string) => {
-    if (recipeItems[name as keyof typeof recipeItems].trim() == '') {
-      toast.error('Please provide a value');
-      return;
-    }
-    setRecipeItemsList((prevState) => {
-      return {
-        ...prevState,
-        [name]: [
-          ...prevState[name as keyof typeof recipeItemsList],
-          recipeItems[name as keyof typeof recipeItems],
-        ],
-      };
-    });
+  const handleRecipeItemOnAdd = (payload: AddRecipeItemType) => {
+    const { name, value } = payload;
 
-    // clear items
-    setRecipeItems((prevState) => {
-      return { ...prevState, [name]: '' };
-    });
+    dispatch(handleAddRecipeItem({ name, value }));
   };
 
   return (
@@ -74,9 +78,9 @@ const CreateRecipe = () => {
                 name='name'
                 labelText='Name'
                 type='text'
-                placeholder='E.g. Lemo Garlic Shrimp'
-                value={''}
-                handleChange={() => console.log('name')}
+                placeholder='E.g. Lemon Garlic Shrimp'
+                value={name}
+                handleChange={handleOnChange}
                 required
               />
             </div>
@@ -91,8 +95,8 @@ const CreateRecipe = () => {
               <textarea
                 name='description'
                 id='description'
-                value={''}
-                onChange={() => console.log('description')}
+                value={description}
+                onChange={handleOnChange}
                 placeholder='Add your description here'
                 className='border rounded p-2 w-full h-32'
               />
@@ -104,8 +108,8 @@ const CreateRecipe = () => {
                 labelText='Prep Time'
                 type='number'
                 placeholder='E.g. 15'
-                value={''}
-                handleChange={() => console.log('prepTime')}
+                value={prepTime}
+                handleChange={handleOnChange}
                 required
               />
               {/* cook time */}
@@ -114,8 +118,8 @@ const CreateRecipe = () => {
                 labelText='Cook Time'
                 type='number'
                 placeholder='E.g. 45'
-                value={''}
-                handleChange={() => console.log('cookTime')}
+                value={cookTime}
+                handleChange={handleOnChange}
                 required
               />
               {/* servings */}
@@ -124,8 +128,8 @@ const CreateRecipe = () => {
                 labelText='Servings'
                 type='number'
                 placeholder='E.g. 6'
-                value={''}
-                handleChange={() => console.log('servings')}
+                value={servings}
+                handleChange={handleOnChange}
                 required
               />
             </div>
@@ -134,8 +138,8 @@ const CreateRecipe = () => {
               <FormRowSelect
                 labelText='Difficulty'
                 name='difficulty'
-                value={''}
-                onChange={() => console.log('difficulty')}
+                value={difficulty}
+                onChange={handleOnChange}
                 list={[
                   { id: 1, listItem: 'Easy' },
                   { id: 2, listItem: 'Medium' },
@@ -145,8 +149,8 @@ const CreateRecipe = () => {
               <FormRowSelect
                 labelText='Cuisine'
                 name='cuisine'
-                value={''}
-                onChange={() => console.log('cuisine')}
+                value={cuisine}
+                onChange={handleOnChange}
                 list={[
                   { id: 1, listItem: 'european' },
                   { id: 2, listItem: 'asian' },
@@ -156,8 +160,8 @@ const CreateRecipe = () => {
               <FormRowSelect
                 labelText='Dish Type'
                 name='dishType'
-                value={''}
-                onChange={() => console.log('dishType')}
+                value={dishType}
+                onChange={handleOnChange}
                 list={[
                   { id: 1, listItem: 'breakfast' },
                   { id: 2, listItem: 'lunch' },
@@ -169,55 +173,93 @@ const CreateRecipe = () => {
             <div className='flex flex-col lg:space-y-1'>
               {/* ingredients */}
               <AddRecipeItemInputRow
-                name='ingredients'
+                name='ingredient'
                 labelText='Ingredients'
                 type='text'
                 placeholder='E.g. 4 Tomatoes'
-                value={recipeItems.ingredients}
-                handleChange={handleRecipeItemsOnChange}
-                onClick={() => handleRecipeItemAdd('ingredients')}
+                value={ingredient}
+                handleChange={handleOnChange}
+                onClick={() =>
+                  handleRecipeItemOnAdd({
+                    name: 'ingredients',
+                    value: 'ingredient',
+                  })
+                }
                 required
               />
-              {recipeItemsList.ingredients.length > 0 && (
+              {ingredients.length > 0 && (
                 <ul>
-                  {recipeItemsList.ingredients.map((item, index) => (
+                  {ingredients.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
               )}
               {/* instructions */}
               <AddRecipeItemInputRow
-                name='instructions'
+                name='instruction'
                 labelText='Instructions'
                 type='text'
                 placeholder='E.g. Mix together the ingredients in one bowl'
-                value={recipeItems.instructions}
-                handleChange={handleRecipeItemsOnChange}
-                onClick={() => handleRecipeItemAdd('instructions')}
+                value={instruction}
+                handleChange={handleOnChange}
+                onClick={() =>
+                  handleRecipeItemOnAdd({
+                    name: 'instructions',
+                    value: 'instruction',
+                  })
+                }
                 required
               />
+              {instructions.length > 0 && (
+                <ul>
+                  {instructions.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
               {/* equipment */}
               <AddRecipeItemInputRow
                 name='equipment'
                 labelText='Equipment'
                 type='text'
                 placeholder='E.g. 1 Baking Tray'
-                value={recipeItems.equipment}
-                handleChange={handleRecipeItemsOnChange}
-                onClick={() => handleRecipeItemAdd('equipment')}
+                value={equipment}
+                handleChange={handleOnChange}
+                onClick={() =>
+                  handleRecipeItemOnAdd({
+                    name: 'equipments',
+                    value: 'equipment',
+                  })
+                }
                 required
               />
+              {equipments.length > 0 && (
+                <ul>
+                  {equipments.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
               {/* tips */}
               <AddRecipeItemInputRow
-                name='tips'
+                name='tip'
                 labelText='Tips'
                 type='text'
                 placeholder='E.g. Preheat oven 15 minutes before starting'
-                value={recipeItems.tips}
-                handleChange={handleRecipeItemsOnChange}
-                onClick={(e) => handleRecipeItemAdd('tips')}
+                value={tip}
+                handleChange={handleOnChange}
+                onClick={() =>
+                  dispatch(handleAddRecipeItem({ name: 'tips', value: 'tip' }))
+                }
                 required
               />
+              {tips.length > 0 && (
+                <ul>
+                  {tips.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </section>
         </div>

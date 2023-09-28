@@ -3,6 +3,7 @@ import axios, { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 import { RootState } from '../../store';
 import { getUserRecipes } from '../allRecipes/allRecipesSlice';
+import { AddRecipeItemType } from '../../utils/types';
 
 interface InitialState {
   isLoading: boolean;
@@ -14,9 +15,13 @@ interface InitialState {
   difficulty: string;
   cuisine: string;
   dishType: string;
+  ingredient: string;
   ingredients: string[];
+  instruction: string;
   instructions: string[];
-  equipment: string[];
+  equipment: string;
+  equipments: string[];
+  tip: string;
   tips: string[];
   isEditing: boolean;
 }
@@ -31,10 +36,14 @@ const initialState: InitialState = {
   difficulty: '',
   cuisine: '',
   dishType: '',
-  ingredients: [''],
-  instructions: [''],
-  equipment: [''],
-  tips: [''],
+  ingredient: '',
+  ingredients: [],
+  instruction: '',
+  instructions: [],
+  equipment: '',
+  equipments: [],
+  tip: '',
+  tips: [],
   isEditing: false,
 };
 
@@ -66,7 +75,23 @@ export const deleteRecipe = createAsyncThunk(
 export const recipeSlice = createSlice({
   name: 'recipe',
   initialState,
-  reducers: {},
+  reducers: {
+    handleChange: (state, { payload }) => {
+      const { name, value } = payload;
+
+      state = { ...state, [name]: value };
+      return state;
+    },
+    handleAddRecipeItem: (
+      state,
+      { payload }: PayloadAction<AddRecipeItemType>
+    ) => {
+      const { name, value } = payload;
+
+      state = { ...state, [name]: [...state[name], state[value]] };
+      return state;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(deleteRecipe.pending, (state) => {
@@ -83,6 +108,6 @@ export const recipeSlice = createSlice({
   },
 });
 
-export const {} = recipeSlice.actions;
+export const { handleChange, handleAddRecipeItem } = recipeSlice.actions;
 
 export default recipeSlice.reducer;
