@@ -243,7 +243,7 @@ const CreateRecipe = () => {
                 value={tip}
                 handleChange={handleOnChange}
                 onClick={() =>
-                  dispatch(handleAddRecipeItem({ name: 'tips', value: 'tip' }))
+                  handleRecipeItemOnAdd({ name: 'tips', value: 'tip' })
                 }
                 required
               />
