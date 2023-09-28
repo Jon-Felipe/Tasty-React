@@ -6,7 +6,7 @@ import {
   clearFilters,
   getFilteredRecipes,
   handleChange,
-} from '../features/allRecipes/recipeSlice';
+} from '../features/allRecipes/allrecipesSlice';
 
 // components
 import RecipeCard from '../components/RecipeCard';

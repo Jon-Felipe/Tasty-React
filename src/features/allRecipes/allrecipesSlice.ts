@@ -156,7 +156,7 @@ export const deleteRecipe = createAsyncThunk(
   }
 );
 
-export const recipeSlice = createSlice({
+export const allRecipesSlice = createSlice({
   name: 'recipe',
   initialState,
   reducers: {
@@ -250,6 +250,6 @@ export const recipeSlice = createSlice({
 });
 
 export const { handleChange, changePage, resetPage, clearFilters } =
-  recipeSlice.actions;
+  allRecipesSlice.actions;
 
-export default recipeSlice.reducer;
+export default allRecipesSlice.reducer;

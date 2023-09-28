@@ -1,7 +1,7 @@
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
-import { changePage } from '../features/allRecipes/recipeSlice';
+import { changePage } from '../features/allRecipes/allrecipesSlice';
 
 type Props = {};
 

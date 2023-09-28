@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaArrowRight } from 'react-icons/fa';
 import { AppDispatch, RootState } from '../store';
-import { getAllRecipes } from '../features/allRecipes/recipeSlice';
+import { getAllRecipes } from '../features/allRecipes/allrecipesSlice';
 
 // components
 import Spinner from '../components/Spinner';

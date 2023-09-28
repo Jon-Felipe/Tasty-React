@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   deleteRecipe,
   getUserRecipes,
-} from '../features/allRecipes/recipeSlice';
+} from '../features/allRecipes/allrecipesSlice';
 import { AppDispatch, RootState } from '../store';
 
 // components
