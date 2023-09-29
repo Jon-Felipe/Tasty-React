@@ -54,16 +54,6 @@ const CreateRecipe = () => {
   const handleRecipeItemOnAdd = (payload: AddRecipeItemType) => {
     const { name, value } = payload;
 
-    if (
-      !ingredient.trim() ||
-      !instruction.trim() ||
-      !equipment.trim() ||
-      !tip.trim()
-    ) {
-      toast.error('Please provide a value');
-      return;
-    }
-
     dispatch(handleAddRecipeItem({ name, value }));
   };
 
@@ -306,6 +296,7 @@ const AddRecipeItemInputRow = ({
         <button
           type='button'
           onClick={onClick}
+          disabled={!value}
           className='w-32 md:w-28 bg-orange-400 text-white rounded-lg px-4 py-2.5 text-sm font-semibold'
         >
           Add
