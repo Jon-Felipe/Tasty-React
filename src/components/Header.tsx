@@ -34,16 +34,18 @@ const Header = ({ showLinks, setShowLinks }: Props) => {
                   to='/profile/my-information'
                   className='flex items-center gap-x-1'
                 >
-                  <UserCircleIcon className='w-6 h-6' />
-                  <p>My Profile</p>
+                  <UserCircleIcon className='w-5 h-5' />
+                  <p className='text-sm font-semibold'>My Profile</p>
                 </Link>
                 <button
                   type='button'
-                  className='flex items-center gap-x-1'
+                  className='flex items-center gap-x-1 bg-orange-400 px-3 py-1.5 rounded-md shadow'
                   onClick={() => dispatch(logoutUser())}
                 >
-                  <ArrowLeftOnRectangleIcon className='w-6 h-6' />
-                  <p>Logout</p>
+                  <ArrowLeftOnRectangleIcon className='w-5 h-5 text-white' />
+                  <p className='text-sm font-semibold text-white tracking-wide'>
+                    Logout
+                  </p>
                 </button>
               </div>
             ) : (
