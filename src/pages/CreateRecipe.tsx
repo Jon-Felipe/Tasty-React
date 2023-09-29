@@ -11,7 +11,6 @@ import FormRow from '../components/FormRow';
 import FormRowSelect from '../components/FormRowSelect';
 import { AddRecipeItemType } from '../utils/types';
 import { cuisineList, difficultyList, dishTypeList } from '../utils/constants';
-import { toast } from 'react-toastify';
 
 const CreateRecipe = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -57,12 +56,31 @@ const CreateRecipe = () => {
     dispatch(handleAddRecipeItem({ name, value }));
   };
 
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const recipeObj = {
+      name,
+      description,
+      prepTime,
+      cookTime,
+      servings,
+      difficulty,
+      cuisine,
+      dishType,
+      ingredients,
+      instructions,
+      equipments,
+      tips,
+    };
+  };
+
   return (
     <section>
       <h1 className='text-3xl font-semibold tracking-wide mb-4'>
         Create Recipe
       </h1>
-      <form>
+      <form onSubmit={handleOnSubmit}>
         <div className='flex flex-col lg:flex-row md:gap-x-8'>
           <section className='lg:basis-2/3'>
             <div className='flex flex-col md:flex-row items-center gap-x-8'>
@@ -73,7 +91,7 @@ const CreateRecipe = () => {
                 type='file'
                 value={''}
                 handleChange={() => console.log('name')}
-                required
+                // required
               />
               {/* recipe name */}
               <FormRow

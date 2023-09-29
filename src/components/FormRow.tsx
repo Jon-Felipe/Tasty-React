@@ -7,7 +7,7 @@ type Props = {
   handleChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
   labelText: string | undefined;
   placeholder?: string | undefined;
-  required: boolean | undefined;
+  required?: boolean | undefined;
 };
 
 const FormRow = ({
